@@ -1,0 +1,30 @@
+---
+node: "routing.node"
+transport:
+- api:
+    /api/realmlist:
+      target: "client.realmregistry.node"
+      route: "realmlist"
+    /api/news:
+      target: "patching.node"
+      route: "news"
+    /api/gameinfo:
+      target: "patching.node"
+      route: "gameinfo"
+  type: "REST"
+  secure: true
+  port: 1443
+  timeout: 3000
+  maxRequestBytes: 512
+  defaultTarget: "webserver.node"
+external:
+  client.authentication.node: ".*"
+  client.realmregistry.node: ".*"
+  social.node: ".*"
+global: "56al4gSX00HwVFnvvltDQwRfbSmrLrgrD2ux0pc/X+iK8aQtlFaST4JptTFoDQ94DQCZuDZkAoMl1JO/BENzyA=="
+logging:
+  properties:
+    type: "HmacSHA512"
+  domain: "routing.node"
+  key: "2ToihQgxUWnbnimrmmfP+wxW/+Y3dE9dxBaWIyZ1XuyjkgH68fNaiPthCaY/AsVI7c+qgDhOitl6ReCgZS2UgA=="
+  expiry: 1568472765

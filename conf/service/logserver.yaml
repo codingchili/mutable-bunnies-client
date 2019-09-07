@@ -1,0 +1,22 @@
+---
+node: "logging.node"
+elastic:
+  remote: "localhost"
+  index: "chili.core.logging.v101"
+  port: 9200
+  template:
+    mappings:
+      the_def_index:
+        properties:
+          time:
+            type: "date"
+  enabled: false
+secret: "wodjyAcSw2Vd9JEeZ9XJGDhwU7RUigozKMrKO2wgMUC7vHVMHo5BiMxDVSq7pt9qoVSBBV8Zbe6izqSdlZlo1A=="
+console: false
+global: "56al4gSX00HwVFnvvltDQwRfbSmrLrgrD2ux0pc/X+iK8aQtlFaST4JptTFoDQ94DQCZuDZkAoMl1JO/BENzyA=="
+logging:
+  properties:
+    type: "HmacSHA512"
+  domain: "logging.node"
+  key: "T57AsQP3nBQv6kKMjGZ2KXASpKCV5X3rkP8nz9OGagIhEz0VcOuIXH4jgHiF5MK8WcNeVPLIQDHKOQSFxe4PCA=="
+  expiry: 1568472765

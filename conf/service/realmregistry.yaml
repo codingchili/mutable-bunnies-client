@@ -1,0 +1,19 @@
+---
+node: "realmregistry.node"
+realms:
+- "Angel Oak"
+- "Developer Realm"
+- "Iron Oak"
+- "Staging Realm"
+- "Wisteria"
+- "Red Maple"
+realmSecret: "6vZVPb0EPzkD82KLv6528JNQ5nL/3S2IePhC2hvziO2MKpwHLrLXv4S+hs0dy6oY93QKSFqZ7NrLX+UfCAkICA=="
+realmTimeout: 7000
+global: "56al4gSX00HwVFnvvltDQwRfbSmrLrgrD2ux0pc/X+iK8aQtlFaST4JptTFoDQ94DQCZuDZkAoMl1JO/BENzyA=="
+clientSecret: "1VaaFtJK0liHZhjVd2XHQ0GVvze1CuYb5FTdV5hHla9BbiLWVkc/cN3oT6Q97dvZy+PhhCOu9wjEf6nCvXHvTw=="
+logging:
+  properties:
+    type: "HmacSHA512"
+  domain: "realmregistry.node"
+  key: "yIIfeBv5iVVszibXNcKoTmJZy+3mxVdnXi9qu+8CMivr54eo3wsK9XQWnzM7qmbJBJqrkBJcos8xqDcDxctX7g=="
+  expiry: 1568472765

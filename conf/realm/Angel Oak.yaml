@@ -1,0 +1,49 @@
+---
+node: "Angel Oak"
+host: "localhost"
+version: 1
+size: 5000
+resources: "/resources/"
+attributes:
+  drop: 1
+  lifetime: "weekly"
+  description: "Development & Demo Server. Characters may be deleted at any time."
+  leveling: 1
+  type: "PvP"
+availableClasses:
+- "paladin"
+- "druid"
+- "assassin"
+- "hunter"
+- "necromancer"
+- "slayer"
+levelScaling:
+  jexl: |
+    source.stats[Attribute.level] * 80.0 + 100.0;
+onPlayerJoin:
+  jexl: |
+    if (source.instance == null) {
+      // this will reset the vector when joining the instance.
+
+      source.fromAnotherInstance = true;
+      source.instance = 'level 1';
+    }
+listener:
+  secure: true
+  port: 9301
+  timeout: 6000
+  binaryWebsockets: false
+authentication:
+  properties:
+    type: "HmacSHA512"
+  domain: "Angel Oak.node"
+  key: "DhSCYxO8+/EfExaVlMIe3XKrasf0HbiCxb92uWtMD6Qtq0Q2t5mWEWqoSVyauGeANrUhBiVDozw2/lsFvI67QQ=="
+  expiry: 1568472765
+secret: "eJ41Wa+g+F56cVfzoYNLiajuEOlkfigLFyUd7j4JBz4wZA91uidAfynSsUaO/0gjUKqBHnwFMgoIm3sbGPaqLQ=="
+global: "56al4gSX00HwVFnvvltDQwRfbSmrLrgrD2ux0pc/X+iK8aQtlFaST4JptTFoDQ94DQCZuDZkAoMl1JO/BENzyA=="
+logging:
+  properties:
+    type: "HmacSHA512"
+  domain: "Angel Oak.node"
+  key: "KrhhqyOJrOqvdPbmMqPkD0qNm66rofAJKtQR7uS/P9hN54DmJlcqaXm/e9nGdyT1PhXj4WD3pIjADjkq3yZNkQ=="
+  expiry: 1567790242
