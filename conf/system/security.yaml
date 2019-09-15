@@ -39,7 +39,7 @@ dependencies:
         service: realmregistry
         secret: realmSecret
 keystores:
-  - path: 'C:\Users\chili\Documents\chili-game-2ext\prototype\conf\system\certificates\keystore.jks'
+  - path: 'conf/system/certificates/keystore.jks'
     password: 'secret'
 argon:
   iterations: 1

@@ -23,12 +23,14 @@
         <style>
             :host {
                 display: block;
-                padding-top: 326px;
+                padding-top: 276px;
+                padding-bottom: 20px;
             }
 
             .title {
                 text-align: center;
                 padding-top: 16px;
+                opacity: 0.76;
             }
 
             .container {
@@ -38,14 +40,21 @@
                 display: block;
             }
 
-            @media (max-width: 728px) {
+            @media (max-width: 728px), (max-height: 768px) {
                 :host {
-                    padding-top: 0px;
+                    padding-top: 0;
                 }
 
                 .container {
                     width: 100%;
-                    padding-top: 40px;
+                    padding-top: 36px;
+                }
+
+                .buttons {
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    bottom: 38px;
                 }
             }
 
@@ -61,20 +70,22 @@
             </div>
 
             <paper-input value="{{username}}" id="username" label="Username" on-keydown="submit"
-                         autofocus></paper-input>
+                         autofocus always-float-label></paper-input>
             <paper-input value="{{password}}" id="password" label="Password" on-keydown="submit"
-                         type="password"></paper-input>
+                         type="password" always-float-label></paper-input>
 
             <div hidden$="{{hideregisterform}}">
                 <paper-input value="{{passwordrepeat}}" label="Password (repeat)" type="password"
-                             on-keydown="submit" id="password-repeat"></paper-input>
-                <paper-input value="{{email}}" label="Email (optional)" on-keydown="submit"></paper-input>
+                             on-keydown="submit" id="password-repeat" always-float-label></paper-input>
+                <paper-input value="{{email}}" label="Email (optional)" on-keydown="submit" always-float-label></paper-input>
 
+                <div class="buttons">
                 <paper-button class="register flex" on-down="showLoginForm">Back</paper-button>
                 <paper-button raised class="primary flex" on-tap="register">Register</paper-button>
+                </div>
             </div>
 
-            <div hidden$="{{hideloginform}}">
+            <div hidden$="{{hideloginform}}" class="buttons">
                 <paper-button class="register flex" on-tap="showRegisterForm">Register</paper-button>
                 <paper-button raised class="primary flex" on-tap="authenticate">Authenticate</paper-button>
             </div>

@@ -8,6 +8,7 @@
 
 <dom-module id="app-footer">
     <link rel="import" href="../style/theme.css" type="css">
+    <link rel="import" href="../style/style.css" type="css">
     <template>
         <style>
             :host {
@@ -20,18 +21,21 @@
                 bottom: 0;
                 left: 0;
                 text-align: center;
-                background-color: #212121;
                 display: block;
+                border-radius: 0;
+            }
+
+            .version {
+                font-size: 12px;
+                opacity: 0.76;
             }
 
         </style>
 
         <div>
             <paper-material class="footer" elevation="3">
-                <p>
-                <h6>
+                <p class="version">
                     {{version}}
-                </h6>
                 </p>
             </paper-material>
         </div>
