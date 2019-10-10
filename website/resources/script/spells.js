@@ -292,6 +292,7 @@ window.Spells = class Spells {
             marker.layer = 0;
             //marker.lineStyle(2, this._theme(), 0.5);
             marker.lineStyle(2, 0x00b0ff, 0.5);
+
             marker.drawEllipse(0, 0, 256, 128);
             this.loaded = {
                 marker: marker,

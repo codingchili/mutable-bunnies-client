@@ -22,25 +22,29 @@ window.SpawnHandler = class SpawnHandler {
      */
     join(event) {
         game.entities = [];
-
-        this._init(event.texture, event.size);
+        this._init(event);
 
         // in the future we might want to split rendering of entities and creatures.
         this._spawn(event.entities, SPAWN);
         this._spawn(event.creatures, SPAWN);
     }
 
-    _init(texture, size) {
+    _init(event) {
+        let {texture} = event;
+        let {size, tileSizePx, tileScaledWidth} = event.projection;
+
         Loader.load((sprite) => {
             let container = new PIXI.Container();
             let tiling = new PIXI.TilingSprite(
                 sprite.texture,
-                size,
-                size
+                size.y * tileSizePx,
+                size.x * tileSizePx
             );
             container.scale.y = Math.tan(30 * Math.PI / 180);
             tiling.rotation += Math.PI * 2 * (1 / 8);
 
+            // offset cartesian x-axis to align with isometric axes.
+            container.x = size.x * tileScaledWidth / 2;
             container.layer = -1;
             container.addChild(tiling);
             game.stage.addChild(container);
@@ -118,7 +122,7 @@ window.SpawnHandler = class SpawnHandler {
             return sprite;
         } else {
             // the resource is already converted to a sprite by the loader.
-            resource.pivot.y = resource.height - 50; // todo: apply bounding box!
+            resource.pivot.y = resource.height - 50;
             resource.pivot.x = resource.width / 2;
             resource.scale.x = entity.model.scale;
             resource.scale.y = entity.model.scale;
