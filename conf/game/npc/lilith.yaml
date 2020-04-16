@@ -34,7 +34,7 @@ death:
 tick:
   groovy: |
     for (creature : game.creatures().all()) {
-      if (!creature.getName().equals('Lilith') && !creature.getName().equals('Gargazar')) {
+      if (!['Gargazar', 'Lilith', 'Johnny'].contains(creature.getName())) {
         game.movement().follow(source, creature);
         break;
       }

@@ -1,7 +1,9 @@
 ---
 name: level 3
 limit: 50
-size: 7680
+size:
+  x: 16
+  y: 32
 texture: "game/map/tiles/darkwood.png"
 spawns:
 - x: 300

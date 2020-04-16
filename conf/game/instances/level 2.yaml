@@ -1,29 +1,31 @@
 ---
 name: level 2
 limit: 50
-size: 1920
+size:
+  x: 22
+  y: 12
 texture: "game/map/tiles/stone.png"
 structures:
 - id: "wyrmwood"
   point:
-    x: 400
+    x: 1000
     y: 400
 - id: "wyrmwood"
   point:
-    x: 400
+    x: 1000
     y: 600
 - id: "wyrmwood"
   point:
-    x: 800
+    x: 1400
     y: 500
 - id: "wyrmwood"
   point:
-    x: 225
+    x: 825
     y: 500
 - id: "redwood"
   point:
-    x: 40
-    y: 600
+    x: 525
+    y: 700
 - id: "aluminum"
   point:
     x: 500
@@ -54,12 +56,12 @@ npcs:
     x: 425
     y: 865
 spawns:
-- x: 375
-  y: 300
-- x: 400
-  y: 325
-- x: 500
-  y: 225
+- x: 775
+  y: 700
+- x: 800
+  y: 725
+- x: 900
+  y: 625
 onPlayerJoin:
   jexl: |
     // the vector must be reset when a player leaves an instance.

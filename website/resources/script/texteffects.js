@@ -165,7 +165,7 @@ window.TextEffects = class TextEffects {
 
     chat(target, event) {
         game.texts._create(target, event.text, {
-            begin: event.color1 || '#eaeaea',
+            begin: event.color1 || '#ffffff',
             end: event.color2 || '#ffffff',
             float: true,
             // longer chat messages has longer lifetime.

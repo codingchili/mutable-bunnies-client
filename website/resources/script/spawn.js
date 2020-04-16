@@ -34,6 +34,9 @@ window.SpawnHandler = class SpawnHandler {
         let {size, tileSizePx, tileScaledWidth} = event.projection;
 
         Loader.load((sprite) => {
+            // improves performance for the tiling
+            sprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+
             let container = new PIXI.Container();
             let tiling = new PIXI.TilingSprite(
                 sprite.texture,

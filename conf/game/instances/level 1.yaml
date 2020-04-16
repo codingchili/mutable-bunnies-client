@@ -1,32 +1,34 @@
 ---
 name: level 1
 limit: 50
-size: 1920
+size:
+  x: 32
+  y: 64
 texture: "game/map/tiles/brownstone.png"
 skybox:
   sky: "#CC0041"
   clouds: "#FFFFFF"
 structures:
-- id: "redwood"
-  point:
-    x: 200
-    y: 200
-- id: "redwood"
-  point:
-    x: 275
-    y: 364
+  - id: "redwood"
+    point:
+      x: 1375
+      y: 575
+  - id: "redwood"
+    point:
+      x: 1275
+      y: 664
 npcs:
-- id: "lilith"
-  point:
-    x: 300
-    y: 300
-- id: "johnny"
-  point:
-    x: 600
-    y: 800
+  - id: "lilith"
+    point:
+      x: 800
+      y: 925
+  - id: "johnny"
+    point:
+      x: 1175
+      y: 1075
 spawns:
-- x: 300
-  y: 325
+  - x: 800
+    y: 1325
 onPlayerJoin:
   jexl: |
     // the vector must be reset when a player leaves an instance.
