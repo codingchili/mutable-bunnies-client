@@ -9,7 +9,7 @@ class Connection {
         this.clientClosed = false;
         this.binaryWebsocket = true;
         this.port = realm.port;
-        this.host = realm.host;
+        this.host = realm.host || window.location.hostname;
         this.binaryWebsocket = realm.binaryWebsocket;
         this.handlers = {};
         this.onConnectHandlers = [];

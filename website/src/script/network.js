@@ -11,7 +11,7 @@ class Network {
     }
 
     setHost(host) {
-        this.host = host;
+        this.host = host || window.location.hostname;
         return this;
     }
 
@@ -57,39 +57,49 @@ class Network {
     }
 
     handleResponse(data, callback) {
+        // general error handler.
+        let error = () => {
+            if (callback.error) {
+                callback.error(data);
+            } else {
+                console.log('Unhandled protocol error: ' + JSON.stringify(data));
+            }
+        };
+
         switch (data.status) {
             case ResponseStatus.ACCEPTED:
                 if (callback.accepted) {
                     callback.accepted(data);
+                    return;
                 }
                 break;
             case ResponseStatus.BAD:
                 if (callback.bad) {
                     callback.bad(data);
-                    break;
+                    return;
                 }
+                break;
             case ResponseStatus.MISSING:
                 if (callback.missing) {
                     callback.missing(data);
-                    break;
+                    return;
                 }
+                break;
             case ResponseStatus.CONFLICT:
                 if (callback.conflict) {
                     callback.conflict(data);
-                    break;
+                    return;
                 }
+                break;
             case ResponseStatus.UNAUTHORIZED:
                 if (callback.unauthorized) {
                     callback.unauthorized(data);
-                    break;
+                    return;
                 }
-            default:
-                if (callback.error) {
-                    callback.error(data);
-                } else {
-                    console.log('Unhandled protocol error: ' + JSON.stringify(data));
-                }
+                break;
         }
+        // no handler for error.
+        error(data);
     }
 
 
