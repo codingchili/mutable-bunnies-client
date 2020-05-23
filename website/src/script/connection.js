@@ -54,8 +54,10 @@ class Connection {
 
         if (this.handlers[route]) {
             if (data.status === ResponseStatus.ACCEPTED) {
+                console.log('invoke accept handler ' + route);
                 this.handlers[route].accepted(data);
             } else {
+                console.log('invoke error handler ' + route);
                 this.handlers[route].error(data);
             }
         } else {

@@ -6,6 +6,22 @@ window.ChatHandler = class ChatHandler {
         this.color2 = "";
 
         server.connection.setHandler('chat', (msg) => this._onChatMessage(msg));
+        server.connection.setHandler('admin', {
+            // todo is there a chat.system function? add one.
+            // todo request.write or system event?
+            accepted: event => {
+                this._onChatMessage({
+                    text: event.message,
+                    system: true
+                });
+            },
+            error: event => {
+                this._onChatMessage({
+                    text: event.message,
+                    system: true
+                });
+            }
+        });
         server.connection.setHandler('party_chat', (msg) => {
             let sender = game.getByAccount(msg.source);
             if (sender) {
@@ -26,26 +42,37 @@ window.ChatHandler = class ChatHandler {
     }
 
     send(msg) {
-        if (msg.startsWith("/color")) {
-            let colors = msg.split(" ");
-            this.color1 = "";
-            this.color2 = "";
-
-            if (colors.length > 1) {
-                this.color1 = colors[1];
-            }
-            if (colors.length > 2) {
-                this.color2 = colors[2];
-            }
-        } else {
-            msg = `${this.color1}${this.color2}${msg}`;
-            server.connection.send('chat', {
-                message: msg
-            }, {
-                accepted: (msg) => {
-                    this._onChatMessage(msg);
-                }
+        if (msg.startsWith('.')) {
+            this._onChatMessage({
+                text: msg,
+                system: true
             });
+            msg = msg.replace('.', '');
+            server.connection.send('admin', {
+                line: msg
+            });
+        } else {
+            if (msg.startsWith("/color")) {
+                let colors = msg.split(" ");
+                this.color1 = "";
+                this.color2 = "";
+
+                if (colors.length > 1) {
+                    this.color1 = colors[1];
+                }
+                if (colors.length > 2) {
+                    this.color2 = colors[2];
+                }
+            } else {
+                msg = `${this.color1}${this.color2}${msg}`;
+                server.connection.send('chat', {
+                    message: msg
+                }, {
+                    accepted: (msg) => {
+                        this._onChatMessage(msg);
+                    }
+                });
+            }
         }
     }
 
