@@ -71,6 +71,7 @@ window.Game = class Game extends Canvas {
         this.skybox = new Skybox();
         this.inventory = new InventoryHandler();
         this.quests = new QuestHandler();
+        this.admin = new AdminHandler();
         this.fps = 60;
 
         this.frames = 0;

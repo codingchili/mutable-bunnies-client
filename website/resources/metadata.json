@@ -5,6 +5,7 @@
     "script/lib/pixi.js",
     "script/lib/pixi-particles.js",
     "script/lib/pixi-spine.js",
+    "script/admin.js",
     "script/canvas.js",
     "script/game.js",
     "script/spells.js",

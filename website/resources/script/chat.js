@@ -5,10 +5,6 @@ window.ChatHandler = class ChatHandler {
         this.color1 = "";
         this.color2 = "";
 
-        game.subscribe('character-target', target => {
-            this.target = target;
-        })
-
         server.connection.setHandler('notification', event => {
             application.publish('notification', {
                 text: event.message,
@@ -16,22 +12,6 @@ window.ChatHandler = class ChatHandler {
             });
         });
         server.connection.setHandler('chat', (msg) => this._onChatMessage(msg));
-        server.connection.setHandler('admin', {
-            // todo is there a chat.system function? add one.
-            // todo request.write or system event?
-            accepted: event => {
-                this._onChatMessage({
-                    text: event.message,
-                    system: true
-                });
-            },
-            error: event => {
-                this._onChatMessage({
-                    text: event.message,
-                    system: true
-                });
-            }
-        });
         server.connection.setHandler('party_chat', (msg) => {
             let sender = game.getByAccount(msg.source);
             if (sender) {
@@ -53,19 +33,8 @@ window.ChatHandler = class ChatHandler {
 
     send(msg) {
         if (msg.startsWith('.')) {
-            this._onChatMessage({
-                text: msg,
-                system: true
-            });
-            msg = msg.replace('.', '');
-            server.connection.send('admin', {
-                line: msg,
-                entity: (this.target) ? this.target.id : null,
-                vector: {
-                    x: game.world().x,
-                    y: game.world().y
-                }
-            });
+            this.system(msg);
+            game.admin.command(msg);
         } else {
             if (msg.startsWith("/color")) {
                 let colors = msg.split(" ");
@@ -93,6 +62,13 @@ window.ChatHandler = class ChatHandler {
 
     add(msg) {
         this._onChatMessage(msg);
+    }
+
+    system(msg) {
+        this.add({
+            text: msg,
+            system: true
+        })
     }
 
     _parseColors(msg) {
