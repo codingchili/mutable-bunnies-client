@@ -17,7 +17,7 @@ tick:
     for (creature : game.creatures().radius()) {
       // trap level depends on caster.
       damage = source[Attribute.LEVEL] * 5 + 10;
-      game.spells().damage(source, target, damage, DamageType.PHYSICAL);
+      game.spells().damage(source, target, damage, ModifierType.PHYSICAL);
 
       // end
       game.spells().die(source);

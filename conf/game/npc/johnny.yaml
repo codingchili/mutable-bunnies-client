@@ -11,6 +11,4 @@ model:
     type: rectangular
 stats:
   level: 5
-  health: 400
-  maxhealth: 400
   movement: 210

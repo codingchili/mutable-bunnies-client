@@ -11,8 +11,6 @@ model:
     type: rectangular
 stats:
   level: 10
-  health: 1000
-  maxhealth: 1000
   movement: 210
 loot:
   - item: "apple_golden"

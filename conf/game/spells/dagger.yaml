@@ -11,11 +11,11 @@ onCastBegin:
     RANGE = 326
     aoe = source.vector.copy().setSize(RANGE);
     in_range = game.creatures().radius(aoe).size() > 1;
-    return in_range && spells.energy(source, -5);
+    return in_range && spells.energy(source, -20);
 onCastComplete:
   groovy: |
     import com.codingchili.instance.model.stats.Attribute;
-    import com.codingchili.instance.model.spells.DamageType;
+    import com.codingchili.instance.model.spells.ModifierType;
 
     log.accept('casting dagger completed');
 
