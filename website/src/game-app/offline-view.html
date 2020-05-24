@@ -81,7 +81,7 @@
                     this.timer = setTimeout(() => {
                         this.connecting = true;
                         window.location.reload();
-                    }, 20000);
+                    }, 5_000);
                 } else {
                     if (this.timer) {
                         window.clearInterval(this.timer);

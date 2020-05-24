@@ -46,7 +46,7 @@ window.Spells = class Spells {
         server.connection.setHandler('cleanse', (event) => this._cleanse(event));
         server.connection.setHandler('affliction', (event) => this.affliction(event));
         server.connection.setHandler('spellstate', (event) => this._spellstate(event));
-        server.connection.setHandler('damage', event => this._damage(event));
+        server.connection.setHandler('attribute', event => this._attribute(event));
     }
 
 
@@ -59,11 +59,15 @@ window.Spells = class Spells {
         this.classes = application.realm.classes;
     }
 
-    _damage(event) {
+    _attribute(event) {
         let target = game.lookup(event.targetId);
         let source = game.lookup(event.sourceId);
 
-        target.stats.health += event.value;
+        if (event.type === 'energy') {
+            target.stats.energy += event.value;
+        } else {
+            target.stats.health += event.value;
+        }
 
         if (target.isPlayer) {
             application.characterUpdate(target);
@@ -75,11 +79,16 @@ window.Spells = class Spells {
         } else {
             event.value = event.value.toFixed(0);
         }
-        game.texts.effects[event.type](target, event);
+
+        // hide heal events that represent < 2% of max health.
+        let hidden = (event.type === 'heal' && event.value < 0.02 * target.stats.maxhealth);
+        if (!hidden && event.type !== 'energy') {
+            game.texts.effects[event.type](target, event);
+        }
 
         event.target = target;
         event.source = source;
-        this.effects.damage(event);
+        this.effects.attribute(event);
     }
 
     _cancel() {
@@ -233,14 +242,12 @@ window.Spells = class Spells {
         let target = game.lookup(event.targetId);
 
         if (this._statUpdated(target, event, 'level')) {
-
             if (target.isPlayer) {
                 application.publish('notification', {
                     text: `Congratulations! You've reached level ${event.stats['level']}.`,
                     duration: 4500
                 });
             }
-
             game.texts.levelUp(target);
             game.chat.add({text: `${target.name} reached level ${event.stats['level']}!`, system: true});
         } else {
@@ -254,7 +261,6 @@ window.Spells = class Spells {
                 }
             }
         }
-
         target.stats = event.stats;
 
         if (target.isPlayer) {
@@ -268,11 +274,7 @@ window.Spells = class Spells {
         let current = target.stats[name];
 
         if (updated && current) {
-            if (updated > current) {
-                return true;
-            } else {
-                return false;
-            }
+            return updated > current;
         }
     }
 

@@ -102,7 +102,7 @@ window.SpellEffects = class SpellEffects {
      *
      * @param event
      */
-    damage(event) {
+    attribute(event) {
         if (event.effect === 'dagger') {
             let target = event.target;
             let source = event.source;

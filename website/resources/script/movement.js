@@ -63,14 +63,14 @@ window.MovementHandler = class MovementHandler {
                     entity.acceleration = 1.0;
                 }
 
-                if (entity.state && entity.velocity > 0) {
-                    entity.state.timeScale = entity.velocity * entity.acceleration * delta * 1.4;
-                }
-                if (entity.state && !entity.state.initialized) {
-                    entity.state.initialized = true;
-                    this._setAnimation(entity);
-                }
+                if (entity.state) {
+                    entity.state.timeScale = entity.acceleration * 3 * ((Game.TARGET_FRAME_MS) / (Game.MS_PER_FRAME));
 
+                    if (!entity.state.initialized) {
+                        entity.state.initialized = true;
+                        this._setAnimation(entity);
+                    }
+                }
                 entity.x += Math.sin(entity.direction) * (entity.acceleration * entity.velocity) * delta;
                 entity.y += Math.cos(entity.direction) * (entity.acceleration * entity.velocity) * delta;
             }
