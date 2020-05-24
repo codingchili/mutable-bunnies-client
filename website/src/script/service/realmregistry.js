@@ -11,9 +11,9 @@ class RealmRegistry {
         this.network.rest(callback, 'realmlist');
     }
 
-    realmtoken(callback, realmName) {
+    realmtoken(callback, realmId) {
         this.network.rest(callback, 'realmtoken', {
-           'realm': realmName,
+           'realm': realmId,
             'token': application.token
         });
     }

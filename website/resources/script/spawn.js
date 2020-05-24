@@ -77,6 +77,7 @@ window.SpawnHandler = class SpawnHandler {
     spawn(entity) {
         let vector = entity.vector;
         let animated = this._isAnimated(entity);
+
         game.entities[entity.id] = entity;
 
         Loader.load((resource) => {

@@ -28,15 +28,15 @@ options:
   travel-1:
     handler:
       jexl: |
-        game.movement().travel(source, 'level 1');
+        game.movement().travel(source, 'level_1');
   travel-2:
     handler:
       jexl: |
-        game.movement().travel(source, 'level 2');
+        game.movement().travel(source, 'level_2');
   travel-3:
     handler:
       jexl: |
-        game.movement().travel(source, 'level 3');
+        game.movement().travel(source, 'level_3');
   travel-X:
     handler:
       jexl: |

@@ -1,5 +1,5 @@
 ---
-node: "Angel Oak"
+name: "Angel Oak"
 host: null
 version: 1
 size: 5000
@@ -29,7 +29,7 @@ onPlayerJoin:
       // this will reset the vector when joining the instance.
 
       source.fromAnotherInstance = true;
-      source.instance = 'level 1';
+      source.instance = 'level_1';
     }
 listener:
   secure: true

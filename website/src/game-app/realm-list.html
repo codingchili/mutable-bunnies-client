@@ -177,7 +177,7 @@
                         <tr class="realm-items" onmousedown$="select([[index]])">
                             <td class="realm-item">
                             <span class="icons">
-                                <template is="dom-if" if="{{favourite(realm.node)}}">
+                                <template is="dom-if" if="{{favourite(realm.id)}}">
                                     <div class="tooltip-area">
                                         <iron-icon icon="icons:favorite-border" class="realm-icon">
                                         </iron-icon>
@@ -198,7 +198,7 @@
                                 </template>
                             </span>
                             </td>
-                            <td class="realm-item">[[realm.node]]</td>
+                            <td class="realm-item">[[realm.name]]</td>
                             <td class="realm-item type">[[realm.attributes.type]]</td>
                             <td class="realm-item reset">[[realm.attributes.lifetime]]</td>
                             <td class="realm-item">
@@ -472,7 +472,7 @@
 
         setPing(realm, ping) {
             for (let i = 0; i < this.realms.length; i++) {
-                if (this.realms[i].node === realm.node) {
+                if (this.realms[i].id === realm.id) {
                     this.set("realms." + i + ".ping", ping);
                     this.apply(i);
                 }
