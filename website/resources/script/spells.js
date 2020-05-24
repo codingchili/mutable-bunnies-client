@@ -315,16 +315,11 @@ window.Spells = class Spells {
         }, callback);
     }
 
-    _mouse() {
-        return game.renderer.plugins.interaction.mouse.global;
-    }
-
     update(delta) {
         if (this.loaded) {
             let marker = this.loaded.marker;
-            marker.x = this._mouse().x + game.camera.x;
-            marker.y = this._mouse().y + game.camera.y;
-            // todo if marker out of range do something.
+            marker.x = game.world().x;
+            marker.y = game.world().y;
         }
         this.effects.update(delta);
     }

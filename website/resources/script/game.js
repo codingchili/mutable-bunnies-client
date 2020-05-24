@@ -100,6 +100,17 @@ window.Game = class Game extends Canvas {
         }
     }
 
+    mouse() {
+        return game.renderer.plugins.interaction.mouse.global;
+    }
+
+    world() {
+        return {
+            x: game.mouse().x + game.camera.x,
+            y: game.mouse().y + game.camera.y
+        }
+    }
+
     setPlayer(player) {
         this.player = player;
     }

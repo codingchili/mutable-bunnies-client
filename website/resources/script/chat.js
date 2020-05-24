@@ -5,6 +5,16 @@ window.ChatHandler = class ChatHandler {
         this.color1 = "";
         this.color2 = "";
 
+        game.subscribe('character-target', target => {
+            this.target = target;
+        })
+
+        server.connection.setHandler('notification', event => {
+            application.publish('notification', {
+                text: event.message,
+                duration: 4000
+            });
+        });
         server.connection.setHandler('chat', (msg) => this._onChatMessage(msg));
         server.connection.setHandler('admin', {
             // todo is there a chat.system function? add one.
@@ -49,7 +59,12 @@ window.ChatHandler = class ChatHandler {
             });
             msg = msg.replace('.', '');
             server.connection.send('admin', {
-                line: msg
+                line: msg,
+                entity: (this.target) ? this.target.id : null,
+                vector: {
+                    x: game.world().x,
+                    y: game.world().y
+                }
             });
         } else {
             if (msg.startsWith("/color")) {
