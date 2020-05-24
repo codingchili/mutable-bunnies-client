@@ -1,9 +1,19 @@
 window.AdminHandler = class AdminHandler {
 
     constructor() {
+        this.last = null;
+
+        input.onKeysListener({
+            down: () => {
+                if (this.last) {
+                    this.command(this.last);
+                }
+            }
+        }, 'h');
+
         game.subscribe('character-target', target => {
             this.target = target;
-        })
+        });
 
         server.connection.setHandler('admin', {
             accepted: event => {
@@ -16,6 +26,8 @@ window.AdminHandler = class AdminHandler {
     }
 
     command(msg) {
+        this.last = msg;
+
         msg = msg.replace('.', '');
         server.connection.send('admin', {
             line: msg,
@@ -26,4 +38,4 @@ window.AdminHandler = class AdminHandler {
             }
         });
     }
-}
+};
