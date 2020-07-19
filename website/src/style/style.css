@@ -167,6 +167,10 @@ paper-toast {
     padding-left: 16px;
     display: block;
     color: var(--paper-grey-300);
+
+    /* avoid half-pixel positioning caused by using the default em padding, causes blurred text. */
+    padding-bottom: 3px;
+    padding-top: 3px;
 }
 
 .dialog-center {
