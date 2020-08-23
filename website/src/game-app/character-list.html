@@ -114,7 +114,7 @@
         <template is="dom-if" if="[[!create]]">
             <paper-material class="container center-box noselect" elevation="3">
                 <div class="realm-title">
-                    <h4 style="display: inline-block">{{realm.node}}</h4>
+                    <h4 style="display: inline-block">{{realm.name}}</h4>
                     <iron-icon on-down="realmlist"
                                icon="icons:reply"></iron-icon>
                 </div>
@@ -207,7 +207,7 @@
                     error: (err) => {
                         application.error(err.message);
                     }
-                }, this.realm.node);
+                }, this.realm.id);
             }
 
             loadRealmInfo() {

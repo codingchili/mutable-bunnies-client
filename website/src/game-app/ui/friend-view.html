@@ -377,7 +377,7 @@
             _locality(friend) {
                 let realms = this.online[friend];
                 if (realms && realms.length > 0) {
-                    return (realms.includes(application.realm.node)) ? 'lime' : 'orange';
+                    return (realms.includes(application.realm.id)) ? 'lime' : 'orange';
                 } else {
                     return 'red';
                 }
@@ -386,7 +386,7 @@
             _description(friend) {
                 let realms = this.online[friend];
                 if (realms && realms.length > 0) {
-                    return (realms.includes(application.realm.node)) ? application.realm.node : realms[0];
+                    return (realms.includes(application.realm.id)) ? application.realm.id : realms[0];
                 } else {
                     return "Offline";
                 }
