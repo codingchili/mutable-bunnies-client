@@ -1,0 +1,17 @@
+---
+node: "website.node"
+startPage: "index.html"
+missingPage: "404.html"
+resources: "website/"
+cache: false
+gzip: false
+global: "aFlK3+xWLF899IVxQDHTGYdytDy5zadmnlwkQHw8ZjXzyt3Li9bVXK+JAJyVir0kzK+gp1YauAPPg79gYyfRJQ=="
+logging:
+  properties:
+    type: "HmacSHA512"
+  domain: "website.node"
+  key: "Y0u7iHx5Xi2mQ1a7Q0hMMvpqAh/nxtoyChAPkPXOnGd+L9lm2jziPl8qzPWhplH4MT1UdEHbmOGbZ5xCbM3ArQ=="
+  expiry: 1599680005
+listener:
+  secure: false
+  port: 8080

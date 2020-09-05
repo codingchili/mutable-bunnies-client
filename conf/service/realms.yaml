@@ -1,0 +1,13 @@
+---
+node: "realmserver.node"
+enabled:
+- "angel_oak"
+storage: "com.codingchili.core.storage.IndexedMapPersisted"
+realmUpdates: 5000
+global: "aFlK3+xWLF899IVxQDHTGYdytDy5zadmnlwkQHw8ZjXzyt3Li9bVXK+JAJyVir0kzK+gp1YauAPPg79gYyfRJQ=="
+logging:
+  properties:
+    type: "HmacSHA512"
+  domain: "realmserver.node"
+  key: "7moNLzSluJpC4Eb7vB0MyLYd8Mx9pcajGvixyLrQW/jKobOGKPoJxBaS/C8yj3xl8Cfzubc4P5t08S5xaL1w0Q=="
+  expiry: 1599680005
