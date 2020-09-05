@@ -16,6 +16,10 @@ dependencies:
     secrets:
     - secret
     tokens: {}
+  service/banking:
+    preshare:
+      - clientSecret
+      - realmSecret
   service/authserver:
     preshare:
     - clientSecret
