@@ -11,6 +11,7 @@ blocks:
   - com.codingchili.social.Service
   - com.codingchili.website.Service
   - com.codingchili.realmregistry.Service
+  - com.codingchili.banking.Service
   router:
   - com.codingchili.router.Service
   website:
