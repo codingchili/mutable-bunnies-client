@@ -1,2 +1,3 @@
-# chili-game-ext-client
-Closed source client for chili-game-ext
+# Mutable Bunnies - Game Client
+
+Web based game client.
