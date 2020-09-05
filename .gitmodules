@@ -1,0 +1,3 @@
+[submodule "resources"]
+	path = website/resources
+	url = https://github.com/codingchili/mutable-bunnies-resources
