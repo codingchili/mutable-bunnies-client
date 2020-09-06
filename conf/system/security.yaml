@@ -6,12 +6,12 @@ dependencies:
     secrets: []
     tokens:
       logging:
-        service: logserver
+        service: logging
         secret: secret
-  service/socialserver:
+  service/social:
     preshare:
       - clientSecret
-  service/logserver:
+  service/logging:
     preshare: []
     secrets:
     - secret
@@ -20,7 +20,7 @@ dependencies:
     preshare:
       - clientSecret
       - realmSecret
-  service/authserver:
+  service/authentication:
     preshare:
     - clientSecret
     secrets: []
@@ -37,7 +37,7 @@ dependencies:
     - secret
     tokens:
       logging:
-        service: logserver
+        service: logging
         secret: secret
       authentication:
         service: realmregistry

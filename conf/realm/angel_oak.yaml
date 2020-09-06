@@ -1,12 +1,12 @@
 ---
 name: "Angel Oak"
-host: null
+node: "angel_oak.node"
 version: 1
 size: 5000
 resources: "/resources/"
 admins:
-  - "sassin"
-  - "admin"
+- "sassin"
+- "admin"
 attributes:
   drop: 1
   lifetime: "weekly"
@@ -39,14 +39,14 @@ listener:
 authentication:
   properties:
     type: "HmacSHA512"
-  domain: "Angel Oak.node"
-  key: "t/jyIkraCUNwetL4+BGnnVKKOy65B215mxuQGjMxHMZ5HAZcaCNvvy7EGoBaAR2cRtzMQGbxZ+g6PfKaO0T/Ng=="
-  expiry: 1590843996
-secret: "cKBy/97ye1DfvQzFi7kc/sDtdW8YLnq/Hq2RcMZlRhW5ZO+DJgdZJrCMlKYjqK40hTVvqoX60Z2cAQC3nM4AYQ=="
-global: "xnSmxZt4tQ5QNnrYZTCH8+4r/E7PCZiRNn2sGsL1BKV/jqBxeDfU3XTqYcqrfeWvUofyfJmJAbGDFKzueSXyCQ=="
+  domain: "angel_oak.node"
+  key: "Hw7dDsMZqVI4P4oxn/S2LJgtlKSIjeB99YO+WKqZtHLkcMwwFVjXpaTEiaXZupR1RHULQXLt2hlVWHTyxZxoLA=="
+  expiry: 1599990680
+secret: "R6w8DFiLupAzRmf/oM8E/RY4I0ktYv3iZizCpKt5CUuVuFhrcNI+V/hy35PdtrD6h7TDQijyFDnbobak/aHU5w=="
+global: "LSc7+5GuvEPkt80gTa9X6IdteHJ++aZWkBYsbWnvB1NpOEP6RcfW03qXNFj9HO4YAUX6JxohipZm51rReU553Q=="
 logging:
   properties:
     type: "HmacSHA512"
-  domain: "Angel Oak.node"
-  key: "ORyFAN2UMYNfjGzPf/qDH4+LV4fdAYB3RdwUll0GxSa2vTHY3yGfcE9H8f0bGiA6jvQt+TOomwtayp8lHc4Vyw=="
-  expiry: 1590843996
+  domain: "angel_oak.node"
+  key: "LJGf8N+YiW5gRt9flm+AGlG1pjPUfiMlQflEQhSodIyFfkPgVC0o+YUq26zwLV6a8PzK0ngfI7ZiJ48gUandAQ=="
+  expiry: 1599990680

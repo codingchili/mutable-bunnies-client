@@ -1,0 +1,84 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+ext {
+    polymerBin = Os.isFamily(Os.FAMILY_WINDOWS) ? 'polymer.cmd' : 'polymer'
+    bowerBin = Os.isFamily(Os.FAMILY_WINDOWS) ? 'bower.cmd' : 'bower'
+}
+
+task polymer {
+    doLast {
+        exec {
+            workingDir './prototype/website'
+            commandLine = [bowerBin, 'install']
+        }
+        exec {
+            workingDir './prototype/website'
+            commandLine = [polymerBin, 'build']
+        }
+    }
+    inputs.files(fileTree(dir: './prototype/website', include: '**/*', exclude: '/build/**'))
+    outputs.dir('./prototype/website/build')
+}
+
+task archivePrototype(type: Zip, dependsOn: [polymer]) {
+    archiveBaseName = 'mutable-client'
+
+    into('/') {
+        from('prototype/script') {
+            fileMode = 0755
+            include '**/*'
+            expand(jar: jar.outputs.files[0].name, app: project.name, version: project.version)
+        }
+    }
+
+    into('conf') {
+        from fileTree('prototype/conf')
+    }
+
+    into('website') {
+        from fileTree('prototype/website/build/default')
+    }
+
+    into('website/resources') {
+        from fileTree('prototype/website/resources/')
+    }
+
+    into('/website') {
+        from 'prototype/website/manifest.json', 'prototype/website/service_worker.json'
+    }
+
+    into('lib') {
+        from(project(':common').configurations.compile)
+        from(project(':services').configurations.compile)
+        from(project(':common').jar)
+        from(project(':services').subprojects.jar)
+    }
+}
+
+def server = project(':services').subprojects
+
+task generate(type: JavaExec, dependsOn: server.classes) {
+    workingDir = '.'
+    main = 'com.codingchili.core.Launcher'
+
+    args += '--generate'
+
+    server.each {
+        classpath += it.sourceSets.main.runtimeClasspath
+    }
+}
+
+task run(type: JavaExec, dependsOn: server.classes) {
+    workingDir = '.'
+    main = 'com.codingchili.core.Launcher'
+
+    if (project.hasProperty('exec')) {
+        args += exec
+    } else {
+        args += '--deploy'
+    }
+
+    server.each {
+        classpath += it.sourceSets.main.runtimeClasspath
+    }
+}
