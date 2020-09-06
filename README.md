@@ -14,6 +14,10 @@ Until mutable-bunnies-server has a release available this repository should be c
 mutable-bunnies-server project. See the instructions in the [repo](https://github.com/codingchili/mutable-bunnies-server)
 on how to clone.
 
+**Note**: The client requires licensed resources which are available as a submodule under 
+`website/resources`. If you don't have acess to this repository then you need to set the
+realm resource url to the public resource CDN. (which doesn't exist yet.)
+
 When cloned as a git submodule inside the server project, the server can be started with
 
 ```console
