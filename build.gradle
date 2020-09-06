@@ -6,25 +6,29 @@ ext {
 }
 
 task polymer {
+    inputs.files fileTree('website')
+    outputs.file('website/build/default/index.html')
+
     doLast {
         exec {
-            workingDir './prototype/website'
+            workingDir './website'
             commandLine = [bowerBin, 'install']
         }
         exec {
-            workingDir './prototype/website'
+            workingDir './website'
             commandLine = [polymerBin, 'build']
         }
     }
-    inputs.files(fileTree(dir: './prototype/website', include: '**/*', exclude: '/build/**'))
-    outputs.dir('./prototype/website/build')
+    inputs.files(fileTree(dir: './website', include: '**/*', exclude: '/build/**'))
+    outputs.dir('./website/build')
 }
 
-task archivePrototype(type: Zip, dependsOn: [polymer]) {
+task distribution(type: Zip, dependsOn: [polymer]) {
     archiveBaseName = 'mutable-client'
+    duplicatesStrategy = 'EXCLUDE'
 
     into('/') {
-        from('prototype/script') {
+        from('script') {
             fileMode = 0755
             include '**/*'
             expand(jar: jar.outputs.files[0].name, app: project.name, version: project.version)
@@ -32,19 +36,25 @@ task archivePrototype(type: Zip, dependsOn: [polymer]) {
     }
 
     into('conf') {
-        from fileTree('prototype/conf')
+        from fileTree('conf')
     }
 
     into('website') {
-        from fileTree('prototype/website/build/default')
+        from fileTree('website/build/default')
     }
 
     into('website/resources') {
-        from fileTree('prototype/website/resources/')
+        from fileTree('website/resources/')
     }
 
     into('/website') {
-        from 'prototype/website/manifest.json', 'prototype/website/service_worker.json'
+        from 'website/manifest.json', 'website/service_worker.json'
+    }
+
+    project(':services').subprojects.each { subproject ->
+        into('lib') {
+            from(subproject.configurations.compile)
+        }
     }
 
     into('lib') {
