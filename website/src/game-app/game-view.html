@@ -3,6 +3,7 @@
 <link rel="import" href="./ui/chat-box.html">
 <link rel="import" href="./ui/player-status.html">
 <link rel="import" href="./ui/spell-bar.html">
+<link rel="import" href="./ui/world-designer.html">
 <link rel="import" href="./ui/game-menu.html">
 <link rel="import" href="./ui/game-dialog.html">
 <link rel="import" href="./ui/death-dialog.html">
@@ -66,7 +67,6 @@
                 <player-inventory></player-inventory>
                 <friend-view></friend-view>
 
-
                 <template is="dom-if" if="[[target]]">
                     <!-- target -->
                     <player-status target="[[target]]" style="right: 16px; left: unset;"></player-status>
@@ -79,6 +79,7 @@
 
                 <chat-box></chat-box>
                 <spell-bar></spell-bar>
+                <world-designer></world-designer>
                 <game-menu></game-menu>
                 <context-menu></context-menu>
             </template>
@@ -157,10 +158,8 @@
                     window.character = event.character;
                     window.patch = event.patch;
 
-                    window.onScriptsLoaded = () => {
-                    };
+                    window.onScriptsLoaded = () => {};
                     document.canvas = this.$.canvas;
-
                     try {
                         let index = 0;
 
@@ -173,6 +172,7 @@
                                 let reader = new FileReader();
                                 reader.onload = () => {
                                     try {
+                                        // indirect eval for global scope.
                                         (1, eval)(reader.result);
                                         index++;
                                         loader(index);
@@ -209,7 +209,6 @@
             }
 
             _handleError(err) {
-                console.log(err.message);
                 application.error(err.message);
                 throw err;
             }

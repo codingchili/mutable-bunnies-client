@@ -1,10 +1,4 @@
 ---
-name: level 2
-limit: 50
-size:
-  x: 22
-  y: 12
-texture: "game/map/tiles/stone.png"
 structures:
 - id: "wyrmwood"
   point:
@@ -46,6 +40,1206 @@ structures:
   point:
     x: 900
     y: 800
+- id: "aluminum"
+  point:
+    x: 701
+    y: 910
+- id: "aluminum"
+  point:
+    x: 684
+    y: 724
+- id: "redwood"
+  point:
+    x: 1293
+    y: 736
+- id: "magnetite"
+  point:
+    x: 1079
+    y: 647
+- id: "wyrmwood"
+  point:
+    x: 934
+    y: 562
+- id: "redwood"
+  point:
+    x: 1510
+    y: 859
+- id: "wyrmwood"
+  point:
+    x: 1340
+    y: 1005
+- id: "quartz"
+  point:
+    x: 819
+    y: 1313
+- id: "quartz"
+  point:
+    x: 883
+    y: 1282
+- id: "quartz"
+  point:
+    x: 954
+    y: 1245
+- id: "quartz"
+  point:
+    x: 767
+    y: 1295
+- id: "quartz"
+  point:
+    x: 710
+    y: 1268
+- id: "quartz"
+  point:
+    x: 657
+    y: 1236
+- id: "quartz"
+  point:
+    x: 1014
+    y: 1220
+- id: "tree_cyan"
+  point:
+    x: 1614
+    y: 444
+- id: "tree_cyan"
+  point:
+    x: 1708
+    y: 650
+- id: "tree_cyan"
+  point:
+    x: 1756
+    y: 663
+- id: "tree_cyan"
+  point:
+    x: 1794
+    y: 686
+- id: "tree_cyan"
+  point:
+    x: 1823
+    y: 703
+- id: "nettle"
+  point:
+    x: 1219
+    y: 802
+- id: "nettle"
+  point:
+    x: 1363
+    y: 870
+- id: "nettle"
+  point:
+    x: 1664
+    y: 814
+- id: "nettle"
+  point:
+    x: 729
+    y: 521
+- id: "nettle"
+  point:
+    x: 739
+    y: 517
+- id: "nettle"
+  point:
+    x: 745
+    y: 513
+- id: "nettle"
+  point:
+    x: 761
+    y: 499
+- id: "nettle"
+  point:
+    x: 761
+    y: 497
+- id: "nettle"
+  point:
+    x: 768
+    y: 495
+- id: "nettle"
+  point:
+    x: 775
+    y: 493
+- id: "nettle"
+  point:
+    x: 802
+    y: 485
+- id: "nettle"
+  point:
+    x: 806
+    y: 483
+- id: "nettle"
+  point:
+    x: 818
+    y: 476
+- id: "nettle"
+  point:
+    x: 823
+    y: 474
+- id: "nettle"
+  point:
+    x: 833
+    y: 468
+- id: "nettle"
+  point:
+    x: 844
+    y: 463
+- id: "nettle"
+  point:
+    x: 875
+    y: 445
+- id: "nettle"
+  point:
+    x: 877
+    y: 445
+- id: "nettle"
+  point:
+    x: 891
+    y: 439
+- id: "nettle"
+  point:
+    x: 900
+    y: 433
+- id: "nettle"
+  point:
+    x: 920
+    y: 413
+- id: "nettle"
+  point:
+    x: 924
+    y: 413
+- id: "nettle"
+  point:
+    x: 1251
+    y: 280
+- id: "nettle"
+  point:
+    x: 1250
+    y: 284
+- id: "nettle"
+  point:
+    x: 1246
+    y: 284
+- id: "nettle"
+  point:
+    x: 1242
+    y: 284
+- id: "nettle"
+  point:
+    x: 1237
+    y: 284
+- id: "nettle"
+  point:
+    x: 1237
+    y: 284
+- id: "nettle"
+  point:
+    x: 1229
+    y: 284
+- id: "nettle"
+  point:
+    x: 1229
+    y: 284
+- id: "nettle"
+  point:
+    x: 1221
+    y: 284
+- id: "nettle"
+  point:
+    x: 1221
+    y: 284
+- id: "nettle"
+  point:
+    x: 1215
+    y: 284
+- id: "nettle"
+  point:
+    x: 1211
+    y: 284
+- id: "nettle"
+  point:
+    x: 1209
+    y: 284
+- id: "nettle"
+  point:
+    x: 1206
+    y: 284
+- id: "nettle"
+  point:
+    x: 1202
+    y: 284
+- id: "nettle"
+  point:
+    x: 1196
+    y: 284
+- id: "nettle"
+  point:
+    x: 1196
+    y: 284
+- id: "nettle"
+  point:
+    x: 1191
+    y: 284
+- id: "nettle"
+  point:
+    x: 1190
+    y: 284
+- id: "nettle"
+  point:
+    x: 1184
+    y: 284
+- id: "nettle"
+  point:
+    x: 1184
+    y: 284
+- id: "nettle"
+  point:
+    x: 1180
+    y: 284
+- id: "nettle"
+  point:
+    x: 1171
+    y: 284
+- id: "nettle"
+  point:
+    x: 1169
+    y: 284
+- id: "nettle"
+  point:
+    x: 1163
+    y: 284
+- id: "nettle"
+  point:
+    x: 1163
+    y: 284
+- id: "nettle"
+  point:
+    x: 1157
+    y: 284
+- id: "nettle"
+  point:
+    x: 1148
+    y: 284
+- id: "nettle"
+  point:
+    x: 1141
+    y: 284
+- id: "nettle"
+  point:
+    x: 1136
+    y: 284
+- id: "nettle"
+  point:
+    x: 1136
+    y: 291
+- id: "nettle"
+  point:
+    x: 1136
+    y: 296
+- id: "nettle"
+  point:
+    x: 1136
+    y: 296
+- id: "nettle"
+  point:
+    x: 1141
+    y: 298
+- id: "nettle"
+  point:
+    x: 1153
+    y: 299
+- id: "nettle"
+  point:
+    x: 1162
+    y: 299
+- id: "nettle"
+  point:
+    x: 1167
+    y: 299
+- id: "nettle"
+  point:
+    x: 1185
+    y: 301
+- id: "nettle"
+  point:
+    x: 1189
+    y: 301
+- id: "nettle"
+  point:
+    x: 1196
+    y: 301
+- id: "nettle"
+  point:
+    x: 1213
+    y: 296
+- id: "nettle"
+  point:
+    x: 1222
+    y: 296
+- id: "nettle"
+  point:
+    x: 1239
+    y: 296
+- id: "nettle"
+  point:
+    x: 1253
+    y: 296
+- id: "nettle"
+  point:
+    x: 1262
+    y: 306
+- id: "nettle"
+  point:
+    x: 1176
+    y: 351
+- id: "nettle"
+  point:
+    x: 1197
+    y: 474
+- id: "nettle"
+  point:
+    x: 1384
+    y: 394
+- id: "nettle"
+  point:
+    x: 1399
+    y: 498
+- id: "nettle"
+  point:
+    x: 1251
+    y: 524
+- id: "nettle"
+  point:
+    x: 1183
+    y: 360
+- id: "nettle"
+  point:
+    x: 1393
+    y: 567
+- id: "nettle"
+  point:
+    x: 1271
+    y: 538
+- id: "nettle"
+  point:
+    x: 1219
+    y: 493
+- id: "nettle"
+  point:
+    x: 1063
+    y: 502
+- id: "nettle"
+  point:
+    x: 990
+    y: 525
+- id: "nettle"
+  point:
+    x: 840
+    y: 629
+- id: "nettle"
+  point:
+    x: 1071
+    y: 759
+- id: "nettle"
+  point:
+    x: 1142
+    y: 807
+- id: "nettle"
+  point:
+    x: 925
+    y: 809
+- id: "nettle"
+  point:
+    x: 879
+    y: 770
+- id: "nettle"
+  point:
+    x: 849
+    y: 720
+- id: "nettle"
+  point:
+    x: 751
+    y: 716
+- id: "nettle"
+  point:
+    x: 697
+    y: 763
+- id: "nettle"
+  point:
+    x: 753
+    y: 875
+- id: "nettle"
+  point:
+    x: 569
+    y: 938
+- id: "nettle"
+  point:
+    x: 460
+    y: 918
+- id: "nettle"
+  point:
+    x: 691
+    y: 737
+- id: "nettle"
+  point:
+    x: 668
+    y: 629
+- id: "nettle"
+  point:
+    x: 550
+    y: 607
+- id: "nettle"
+  point:
+    x: 522
+    y: 673
+- id: "nettle"
+  point:
+    x: 666
+    y: 797
+- id: "nettle"
+  point:
+    x: 965
+    y: 766
+- id: "nettle"
+  point:
+    x: 1427
+    y: 706
+- id: "nettle"
+  point:
+    x: 1427
+    y: 706
+- id: "nettle"
+  point:
+    x: 1427
+    y: 706
+- id: "nettle"
+  point:
+    x: 1478
+    y: 827
+- id: "nettle"
+  point:
+    x: 1354
+    y: 911
+- id: "nettle"
+  point:
+    x: 1247
+    y: 914
+- id: "nettle"
+  point:
+    x: 1150
+    y: 898
+- id: "nettle"
+  point:
+    x: 1053
+    y: 859
+- id: "nettle"
+  point:
+    x: 944
+    y: 847
+- id: "nettle"
+  point:
+    x: 773
+    y: 947
+- id: "nettle"
+  point:
+    x: 690
+    y: 943
+- id: "nettle"
+  point:
+    x: 600
+    y: 908
+- id: "nettle"
+  point:
+    x: 708
+    y: 714
+- id: "nettle"
+  point:
+    x: 932
+    y: 471
+- id: "nettle"
+  point:
+    x: 950
+    y: 456
+- id: "nettle"
+  point:
+    x: 1352
+    y: 668
+- id: "nettle"
+  point:
+    x: 1735
+    y: 947
+- id: "nettle"
+  point:
+    x: 1914
+    y: 868
+- id: "nettle"
+  point:
+    x: 1937
+    y: 763
+- id: "nettle"
+  point:
+    x: 1791
+    y: 691
+- id: "nettle"
+  point:
+    x: 1620
+    y: 906
+- id: "nettle"
+  point:
+    x: 1848
+    y: 943
+- id: "nettle"
+  point:
+    x: 1520
+    y: 913
+- id: "nettle"
+  point:
+    x: 1432
+    y: 794
+- id: "nettle"
+  point:
+    x: 1835
+    y: 456
+- id: "nettle"
+  point:
+    x: 1732
+    y: 658
+- id: "nettle"
+  point:
+    x: 1606
+    y: 589
+- id: "nettle"
+  point:
+    x: 1589
+    y: 462
+- id: "nettle"
+  point:
+    x: 1544
+    y: 374
+- id: "nettle"
+  point:
+    x: 1484
+    y: 207
+- id: "nettle"
+  point:
+    x: 1767
+    y: 221
+- id: "nettle"
+  point:
+    x: 1870
+    y: 107
+- id: "nettle"
+  point:
+    x: 1390
+    y: 189
+- id: "nettle"
+  point:
+    x: 1239
+    y: 109
+- id: "nettle"
+  point:
+    x: 1224
+    y: 109
+- id: "nettle"
+  point:
+    x: 945
+    y: 74
+- id: "nettle"
+  point:
+    x: 856
+    y: 56
+- id: "nettle"
+  point:
+    x: 958
+    y: 60
+- id: "nettle"
+  point:
+    x: 1116
+    y: 115
+- id: "nettle"
+  point:
+    x: 982
+    y: 147
+- id: "nettle"
+  point:
+    x: 883
+    y: 125
+- id: "nettle"
+  point:
+    x: 856
+    y: 132
+- id: "nettle"
+  point:
+    x: 666
+    y: 88
+- id: "nettle"
+  point:
+    x: 491
+    y: 135
+- id: "nettle"
+  point:
+    x: 697
+    y: 258
+- id: "nettle"
+  point:
+    x: 676
+    y: 241
+- id: "nettle"
+  point:
+    x: 464
+    y: 142
+- id: "nettle"
+  point:
+    x: 372
+    y: 151
+- id: "nettle"
+  point:
+    x: 546
+    y: 213
+- id: "nettle"
+  point:
+    x: 652
+    y: 200
+- id: "nettle"
+  point:
+    x: 468
+    y: 124
+- id: "nettle"
+  point:
+    x: 424
+    y: 124
+- id: "nettle"
+  point:
+    x: 303
+    y: 119
+- id: "nettle"
+  point:
+    x: 196
+    y: 116
+- id: "nettle"
+  point:
+    x: 144
+    y: 114
+- id: "nettle"
+  point:
+    x: 145
+    y: 110
+- id: "nettle"
+  point:
+    x: 316
+    y: 90
+- id: "nettle"
+  point:
+    x: 210
+    y: 106
+- id: "nettle"
+  point:
+    x: 517
+    y: 152
+- id: "nettle"
+  point:
+    x: 459
+    y: 252
+- id: "nettle"
+  point:
+    x: 427
+    y: 150
+- id: "nettle"
+  point:
+    x: 485
+    y: 442
+- id: "nettle"
+  point:
+    x: 485
+    y: 442
+- id: "nettle"
+  point:
+    x: 448
+    y: 721
+- id: "nettle"
+  point:
+    x: 438
+    y: 921
+- id: "nettle"
+  point:
+    x: 246
+    y: 839
+- id: "nettle"
+  point:
+    x: 171
+    y: 806
+- id: "nettle"
+  point:
+    x: 248
+    y: 856
+- id: "nettle"
+  point:
+    x: 372
+    y: 838
+- id: "nettle"
+  point:
+    x: 374
+    y: 793
+- id: "nettle"
+  point:
+    x: 298
+    y: 798
+- id: "nettle"
+  point:
+    x: 333
+    y: 913
+- id: "nettle"
+  point:
+    x: 338
+    y: 947
+- id: "nettle"
+  point:
+    x: 199
+    y: 919
+- id: "nettle"
+  point:
+    x: 269
+    y: 929
+- id: "nettle"
+  point:
+    x: 503
+    y: 904
+- id: "nettle"
+  point:
+    x: 676
+    y: 939
+- id: "nettle"
+  point:
+    x: 853
+    y: 883
+- id: "nettle"
+  point:
+    x: 870
+    y: 880
+- id: "nettle"
+  point:
+    x: 996
+    y: 847
+- id: "nettle"
+  point:
+    x: 1323
+    y: 928
+- id: "nettle"
+  point:
+    x: 1318
+    y: 928
+- id: "nettle"
+  point:
+    x: 1395
+    y: 920
+- id: "nettle"
+  point:
+    x: 1434
+    y: 920
+- id: "nettle"
+  point:
+    x: 1449
+    y: 920
+- id: "nettle"
+  point:
+    x: 1488
+    y: 920
+- id: "nettle"
+  point:
+    x: 1551
+    y: 917
+- id: "nettle"
+  point:
+    x: 1663
+    y: 945
+- id: "nettle"
+  point:
+    x: 1711
+    y: 947
+- id: "nettle"
+  point:
+    x: 1788
+    y: 912
+- id: "nettle"
+  point:
+    x: 1984
+    y: 940
+- id: "nettle"
+  point:
+    x: 1984
+    y: 877
+- id: "nettle"
+  point:
+    x: 1963
+    y: 816
+- id: "nettle"
+  point:
+    x: 1931
+    y: 778
+- id: "nettle"
+  point:
+    x: 1928
+    y: 947
+- id: "nettle"
+  point:
+    x: 1930
+    y: 646
+- id: "nettle"
+  point:
+    x: 1849
+    y: 599
+- id: "nettle"
+  point:
+    x: 1702
+    y: 618
+- id: "nettle"
+  point:
+    x: 1597
+    y: 588
+- id: "nettle"
+  point:
+    x: 1507
+    y: 401
+- id: "nettle"
+  point:
+    x: 1539
+    y: 292
+- id: "nettle"
+  point:
+    x: 1793
+    y: 740
+- id: "nettle"
+  point:
+    x: 1723
+    y: 676
+- id: "nettle"
+  point:
+    x: 1684
+    y: 663
+- id: "nettle"
+  point:
+    x: 1693
+    y: 711
+- id: "nettle"
+  point:
+    x: 1634
+    y: 714
+- id: "nettle"
+  point:
+    x: 1612
+    y: 697
+- id: "nettle"
+  point:
+    x: 1594
+    y: 663
+- id: "nettle"
+  point:
+    x: 1551
+    y: 643
+- id: "nettle"
+  point:
+    x: 1533
+    y: 635
+- id: "nettle"
+  point:
+    x: 1520
+    y: 637
+- id: "nettle"
+  point:
+    x: 1515
+    y: 649
+- id: "nettle"
+  point:
+    x: 1503
+    y: 685
+- id: "nettle"
+  point:
+    x: 1843
+    y: 314
+- id: "nettle"
+  point:
+    x: 1945
+    y: 367
+- id: "nettle"
+  point:
+    x: 1262
+    y: 327
+- id: "nettle"
+  point:
+    x: 1432
+    y: 282
+- id: "nettle"
+  point:
+    x: 973
+    y: 320
+- id: "nettle"
+  point:
+    x: 926
+    y: 356
+- id: "nettle"
+  point:
+    x: 1099
+    y: 517
+- id: "nettle"
+  point:
+    x: 1332
+    y: 534
+- id: "nettle"
+  point:
+    x: 1189
+    y: 572
+- id: "nettle"
+  point:
+    x: 1140
+    y: 367
+- id: "nettle"
+  point:
+    x: 1083
+    y: 345
+- id: "nettle"
+  point:
+    x: 979
+    y: 423
+- id: "nettle"
+  point:
+    x: 1273
+    y: 623
+- id: "nettle"
+  point:
+    x: 1637
+    y: 813
+- id: "nettle"
+  point:
+    x: 1636
+    y: 884
+- id: "nettle"
+  point:
+    x: 1452
+    y: 873
+- id: "nettle"
+  point:
+    x: 1376
+    y: 853
+- id: "nettle"
+  point:
+    x: 1192
+    y: 780
+- id: "nettle"
+  point:
+    x: 1198
+    y: 553
+- id: "nettle"
+  point:
+    x: 1134
+    y: 513
+- id: "nettle"
+  point:
+    x: 583
+    y: 393
+- id: "nettle"
+  point:
+    x: 562
+    y: 389
+- id: "nettle"
+  point:
+    x: 442
+    y: 396
+- id: "nettle"
+  point:
+    x: 629
+    y: 525
+- id: "nettle"
+  point:
+    x: 778
+    y: 463
+- id: "nettle"
+  point:
+    x: 451
+    y: 288
+- id: "nettle"
+  point:
+    x: 618
+    y: 358
+- id: "nettle"
+  point:
+    x: 776
+    y: 947
+- id: "nettle"
+  point:
+    x: 499
+    y: 940
+- id: "nettle"
+  point:
+    x: 215
+    y: 678
+- id: "gold"
+  point:
+    x: 628
+    y: 931
+- id: "gold"
+  point:
+    x: 812
+    y: 832
+- id: "gold"
+  point:
+    x: 916
+    y: 816
+- id: "gold"
+  point:
+    x: 1122
+    y: 776
+- id: "gold"
+  point:
+    x: 1096
+    y: 674
+- id: "gold"
+  point:
+    x: 979
+    y: 568
+- id: "gold"
+  point:
+    x: 837
+    y: 530
+- id: "gold"
+  point:
+    x: 769
+    y: 452
+- id: "gold"
+  point:
+    x: 958
+    y: 301
+- id: "gold"
+  point:
+    x: 1274
+    y: 341
+- id: "gold"
+  point:
+    x: 1230
+    y: 667
+- id: "gold"
+  point:
+    x: 1489
+    y: 844
+- id: "gold"
+  point:
+    x: 1562
+    y: 817
+- id: "gold"
+  point:
+    x: 1637
+    y: 628
+- id: "gold"
+  point:
+    x: 1559
+    y: 595
+- id: "gold"
+  point:
+    x: 1232
+    y: 660
+- id: "gold"
+  point:
+    x: 1286
+    y: 430
+- id: "gold"
+  point:
+    x: 1275
+    y: 336
+- id: "gold"
+  point:
+    x: 1152
+    y: 263
+- id: "gold"
+  point:
+    x: 998
+    y: 210
+- id: "gold"
+  point:
+    x: 1237
+    y: 182
+- id: "gold"
+  point:
+    x: 1456
+    y: 672
+- id: "gold"
+  point:
+    x: 1358
+    y: 787
+- id: "gold"
+  point:
+    x: 1198
+    y: 694
+- id: "gold"
+  point:
+    x: 1138
+    y: 336
+- id: "gold"
+  point:
+    x: 1101
+    y: 302
+- id: "gold"
+  point:
+    x: 666
+    y: 167
+- id: "gold"
+  point:
+    x: 486
+    y: 131
+- id: "gold"
+  point:
+    x: 613
+    y: 251
+- id: "gold"
+  point:
+    x: 839
+    y: 305
+- id: "gold"
+  point:
+    x: 1192
+    y: 313
+- id: "gold"
+  point:
+    x: 1433
+    y: 504
+- id: "gold"
+  point:
+    x: 916
+    y: 469
+- id: "gold"
+  point:
+    x: 871
+    y: 277
+- id: "gold"
+  point:
+    x: 1417
+    y: 619
+- id: "gold"
+  point:
+    x: 1260
+    y: 425
+- id: "gold"
+  point:
+    x: 947
+    y: 662
+- id: "gold"
+  point:
+    x: 998
+    y: 214
+- id: "gold"
+  point:
+    x: 1329
+    y: 572
+- id: "gold"
+  point:
+    x: 1317
+    y: 316
+- id: "gold"
+  point:
+    x: 802
+    y: 746
+- id: "gold"
+  point:
+    x: 1065
+    y: 302
+- id: "jade"
+  point:
+    x: 1416
+    y: 577
 npcs:
 - id: "lilith"
   point:
@@ -58,10 +1252,20 @@ npcs:
 spawns:
 - x: 775
   y: 700
+  probability: 1.0
 - x: 800
   y: 725
+  probability: 1.0
 - x: 900
   y: 625
+  probability: 1.0
+skybox:
+  sky: "#0000ff"
+  clouds: "#ffffff"
+onStartup:
+  jexl: |-
+    // done by config now, wow.
+    // game.npcs().spawn("Illicit Lilith");
 onPlayerJoin:
   jexl: |
     // the vector must be reset when a player leaves an instance.
@@ -69,7 +1273,22 @@ onPlayerJoin:
       source.vector.x = spawn.x;
       source.vector.y = spawn.y;
     }
-onStartup:
-  jexl: |
-    // done by config now, wow.
-    // game.npcs().spawn("Illicit Lilith");
+name: "level 2"
+id: "level_2"
+texture: "game/map/tiles/stone.png"
+limit: 50
+size:
+  x: 22
+  y: 12
+tileSizePx: 96
+southPoint:
+  x: 814
+  y: 1332
+cartesianSize:
+  x: 1493
+  y: 1332
+northPoint:
+  x: 1493
+  y: 0
+tileScaledWidth: 135.7645019878171
+tileScaledHeight: 78.38367176906169

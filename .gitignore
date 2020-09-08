@@ -1,6 +1,6 @@
 .gradle
 .idea/
-**/out/**
+out/
 target/
 build/
 website/bower_components/

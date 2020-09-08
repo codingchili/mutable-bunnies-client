@@ -1,34 +1,643 @@
 ---
-name: level 1
-limit: 50
-size:
-  x: 32
-  y: 64
-texture: "game/map/tiles/brownstone.png"
+structures:
+- id: "redwood"
+  point:
+    x: 1375
+    y: 575
+- id: "redwood"
+  point:
+    x: 1275
+    y: 664
+- id: "magnetite"
+  point:
+    x: 1438
+    y: 1121
+- id: "sulphur"
+  point:
+    x: 1523
+    y: 1116
+- id: "redwood"
+  point:
+    x: 1261
+    y: 1126
+- id: "redwood"
+  point:
+    x: 1575
+    y: 1207
+- id: "jade"
+  point:
+    x: 536
+    y: 1205
+- id: "redwood"
+  point:
+    x: 1875
+    y: 1266
+- id: "aluminum"
+  point:
+    x: 1045
+    y: 1150
+- id: "rubies"
+  point:
+    x: 1428
+    y: 1205
+- id: "uranium"
+  point:
+    x: 567
+    y: 1476
+- id: "rubies"
+  point:
+    x: 1675
+    y: 1237
+- id: "copper"
+  point:
+    x: 1540
+    y: 1330
+- id: "uranium"
+  point:
+    x: 1080
+    y: 1256
+- id: "uranium"
+  point:
+    x: 977
+    y: 1254
+- id: "uranium"
+  point:
+    x: 1138
+    y: 1274
+- id: "uranium"
+  point:
+    x: 652
+    y: 1506
+- id: "rubies"
+  point:
+    x: 1270
+    y: 1227
+- id: "sulphur"
+  point:
+    x: 1290
+    y: 1315
+- id: "redwood"
+  point:
+    x: 1720
+    y: 1358
+- id: "aluminum"
+  point:
+    x: 1286
+    y: 1451
+- id: "rubies"
+  point:
+    x: 1828
+    y: 1413
+- id: "aluminum"
+  point:
+    x: 1655
+    y: 1271
+- id: "jade"
+  point:
+    x: 1654
+    y: 1570
+- id: "gold"
+  point:
+    x: 1613
+    y: 1695
+- id: "quartz"
+  point:
+    x: 2237
+    y: 1359
+- id: "quartz"
+  point:
+    x: 2184
+    y: 1617
+- id: "gold"
+  point:
+    x: 2216
+    y: 1401
+- id: "magnetite"
+  point:
+    x: 2000
+    y: 1525
+- id: "wyrmwood"
+  point:
+    x: 2834
+    y: 1234
+- id: "wyrmwood"
+  point:
+    x: 3050
+    y: 1360
+- id: "wyrmwood"
+  point:
+    x: 2622
+    y: 1360
+- id: "wyrmwood"
+  point:
+    x: 3269
+    y: 1483
+- id: "wyrmwood"
+  point:
+    x: 2408
+    y: 1481
+- id: "wyrmwood"
+  point:
+    x: 2836
+    y: 1482
+- id: "rubies"
+  point:
+    x: 3462
+    y: 1445
+- id: "uranium"
+  point:
+    x: 3521
+    y: 1426
+- id: "uranium"
+  point:
+    x: 3522
+    y: 1482
+- id: "coal"
+  point:
+    x: 3588
+    y: 1457
+- id: "uranium"
+  point:
+    x: 3686
+    y: 1446
+- id: "silver"
+  point:
+    x: 3610
+    y: 1402
+- id: "silver"
+  point:
+    x: 3623
+    y: 1485
+- id: "iron"
+  point:
+    x: 3996
+    y: 1720
+- id: "platinum"
+  point:
+    x: 3978
+    y: 1678
+- id: "redwood"
+  point:
+    x: 3869
+    y: 1510
+- id: "redwood"
+  point:
+    x: 4086
+    y: 1632
+- id: "quartz"
+  point:
+    x: 2829
+    y: 1558
+- id: "redwood"
+  point:
+    x: 2754
+    y: 1232
+- id: "redwood"
+  point:
+    x: 4305
+    y: 1747
+- id: "redwood"
+  point:
+    x: 3657
+    y: 1631
+- id: "wyrmwood"
+  point:
+    x: 3049
+    y: 1607
+- id: "quartz"
+  point:
+    x: 3189
+    y: 1561
+- id: "quartz"
+  point:
+    x: 3136
+    y: 1641
+- id: "quartz"
+  point:
+    x: 2978
+    y: 1646
+- id: "quartz"
+  point:
+    x: 3707
+    y: 1571
+- id: "redwood"
+  point:
+    x: 3481
+    y: 1359
+- id: "sulphur"
+  point:
+    x: 3309
+    y: 1540
+- id: "quartz"
+  point:
+    x: 2924
+    y: 1472
+- id: "redwood"
+  point:
+    x: 3332
+    y: 1690
+- id: "quartz"
+  point:
+    x: 3199
+    y: 1618
+- id: "quartz"
+  point:
+    x: 3597
+    y: 1681
+- id: "quartz"
+  point:
+    x: 3712
+    y: 1666
+- id: "quartz"
+  point:
+    x: 3633
+    y: 1628
+- id: "marble"
+  point:
+    x: 3686
+    y: 2085
+- id: "marble"
+  point:
+    x: 3707
+    y: 2040
+- id: "platinum"
+  point:
+    x: 3673
+    y: 2047
+- id: "gold"
+  point:
+    x: 3785
+    y: 2075
+- id: "redwood"
+  point:
+    x: 3488
+    y: 1914
+- id: "redwood"
+  point:
+    x: 3552
+    y: 1952
+- id: "redwood"
+  point:
+    x: 3423
+    y: 1876
+- id: "redwood"
+  point:
+    x: 3358
+    y: 1837
+- id: "magnetite"
+  point:
+    x: 2564
+    y: 1729
+- id: "quartz"
+  point:
+    x: 377
+    y: 1380
+- id: "uranium"
+  point:
+    x: 750
+    y: 2022
+- id: "uranium"
+  point:
+    x: 615
+    y: 1884
+- id: "uranium"
+  point:
+    x: 761
+    y: 1918
+- id: "rubies"
+  point:
+    x: 598
+    y: 1873
+- id: "uranium"
+  point:
+    x: 1616
+    y: 1702
+- id: "silver"
+  point:
+    x: 1622
+    y: 1726
+- id: "coal"
+  point:
+    x: 1663
+    y: 1720
+- id: "quartz"
+  point:
+    x: 1572
+    y: 1708
+- id: "sulphur"
+  point:
+    x: 1609
+    y: 1716
+- id: "magnetite"
+  point:
+    x: 1419
+    y: 1695
+- id: "aluminum"
+  point:
+    x: 1324
+    y: 1714
+- id: "magnetite"
+  point:
+    x: 1237
+    y: 1695
+- id: "sulphur"
+  point:
+    x: 733
+    y: 1383
+- id: "sulphur"
+  point:
+    x: 1061
+    y: 1681
+- id: "coal"
+  point:
+    x: 2401
+    y: 2090
+- id: "poison_oak"
+  point:
+    x: 1946
+    y: 1822
+- id: "trumpet"
+  point:
+    x: 2346
+    y: 1826
+- id: "trumpet"
+  point:
+    x: 2458
+    y: 1900
+- id: "trumpet"
+  point:
+    x: 2538
+    y: 1946
+- id: "trumpet"
+  point:
+    x: 2268
+    y: 1794
+- id: "trumpet"
+  point:
+    x: 2626
+    y: 1989
+- id: "iron"
+  point:
+    x: 1965
+    y: 2004
+- id: "henbane"
+  point:
+    x: 2274
+    y: 2203
+- id: "henbane"
+  point:
+    x: 2205
+    y: 2160
+- id: "henbane"
+  point:
+    x: 2344
+    y: 2245
+- id: "trumpet"
+  point:
+    x: 2877
+    y: 2232
+- id: "poison_ivy"
+  point:
+    x: 2305
+    y: 2149
+- id: "nettle"
+  point:
+    x: 2646
+    y: 2512
+- id: "nightshade"
+  point:
+    x: 3107
+    y: 2415
+- id: "quartz"
+  point:
+    x: 2854
+    y: 2261
+- id: "silver"
+  point:
+    x: 3104
+    y: 2512
+- id: "silver"
+  point:
+    x: 3166
+    y: 2415
+- id: "silver"
+  point:
+    x: 3163
+    y: 2420
+- id: "redwood"
+  point:
+    x: 2739
+    y: 2069
+- id: "tree_cyan"
+  point:
+    x: 2444
+    y: 1358
+- id: "tree_green"
+  point:
+    x: 2649
+    y: 1245
+- id: "tree_pink"
+  point:
+    x: 2852
+    y: 1126
+- id: "tree_red"
+  point:
+    x: 3063
+    y: 1002
+- id: "tree_orange"
+  point:
+    x: 3443
+    y: 786
+- id: "tree_redwhite"
+  point:
+    x: 3660
+    y: 908
+- id: "tree_turquise"
+  point:
+    x: 3885
+    y: 1026
+- id: "tree_yellow"
+  point:
+    x: 4101
+    y: 1145
+- id: "nettle"
+  point:
+    x: 4350
+    y: 1378
+- id: "nettle"
+  point:
+    x: 4414
+    y: 1415
+- id: "nettle"
+  point:
+    x: 4481
+    y: 1461
+- id: "nettle"
+  point:
+    x: 4256
+    y: 1420
+- id: "nettle"
+  point:
+    x: 4343
+    y: 1461
+- id: "nettle"
+  point:
+    x: 4411
+    y: 1506
+- id: "nettle"
+  point:
+    x: 4211
+    y: 1456
+- id: "nettle"
+  point:
+    x: 4280
+    y: 1490
+- id: "nettle"
+  point:
+    x: 4343
+    y: 1535
+- id: "nettle"
+  point:
+    x: 4548
+    y: 1493
+- id: "nettle"
+  point:
+    x: 4479
+    y: 1530
+- id: "nettle"
+  point:
+    x: 4411
+    y: 1572
+- id: "nettle"
+  point:
+    x: 4615
+    y: 1538
+- id: "nettle"
+  point:
+    x: 4545
+    y: 1577
+- id: "nettle"
+  point:
+    x: 4479
+    y: 1606
+- id: "nettle"
+  point:
+    x: 4071
+    y: 1451
+- id: "nettle"
+  point:
+    x: 4140
+    y: 1489
+- id: "nettle"
+  point:
+    x: 4207
+    y: 1529
+- id: "nettle"
+  point:
+    x: 4275
+    y: 1569
+- id: "nettle"
+  point:
+    x: 4343
+    y: 1606
+- id: "nettle"
+  point:
+    x: 4409
+    y: 1649
+- id: "nettle"
+  point:
+    x: 4681
+    y: 1574
+- id: "nettle"
+  point:
+    x: 4614
+    y: 1612
+- id: "nettle"
+  point:
+    x: 4543
+    y: 1650
+- id: "nettle"
+  point:
+    x: 4478
+    y: 1687
+- id: "nettle"
+  point:
+    x: 4002
+    y: 1490
+- id: "nettle"
+  point:
+    x: 4071
+    y: 1529
+- id: "nettle"
+  point:
+    x: 4138
+    y: 1568
+- id: "nettle"
+  point:
+    x: 4208
+    y: 1608
+- id: "nettle"
+  point:
+    x: 4277
+    y: 1648
+- id: "nettle"
+  point:
+    x: 4342
+    y: 1687
+- id: "nettle"
+  point:
+    x: 4410
+    y: 1725
+- id: "nettle"
+  point:
+    x: 4746
+    y: 1609
+- id: "nettle"
+  point:
+    x: 4677
+    y: 1650
+- id: "nettle"
+  point:
+    x: 4612
+    y: 1688
+- id: "nettle"
+  point:
+    x: 4541
+    y: 1725
+- id: "nettle"
+  point:
+    x: 4478
+    y: 1768
+- id: "nettle"
+  point:
+    x: 3162
+    y: 1958
+- id: "nettle"
+  point:
+    x: 3168
+    y: 1960
+- id: "nettle"
+  point:
+    x: 3176
+    y: 1962
+npcs:
+- id: "lilith"
+  point:
+    x: 800
+    y: 925
+- id: "johnny"
+  point:
+    x: 1175
+    y: 1075
+spawns:
+- x: 800
+  y: 1325
+  probability: 1.0
 skybox:
   sky: "#CC0041"
   clouds: "#FFFFFF"
-structures:
-  - id: "redwood"
-    point:
-      x: 1375
-      y: 575
-  - id: "redwood"
-    point:
-      x: 1275
-      y: 664
-npcs:
-  - id: "lilith"
-    point:
-      x: 800
-      y: 925
-  - id: "johnny"
-    point:
-      x: 1175
-      y: 1075
-spawns:
-  - x: 800
-    y: 1325
+onStartup:
+  jexl: "//game.spawner().npc(\"Illicit Lilith\", 300, 300);"
 onPlayerJoin:
   jexl: |
     // the vector must be reset when a player leaves an instance.
@@ -36,6 +645,22 @@ onPlayerJoin:
       source.vector.x = spawn.x;
       source.vector.y = spawn.y;
     }
-onStartup:
-  jexl: |
-    //game.spawner().npc("Illicit Lilith", 300, 300);
+name: "level 1"
+id: "level_1"
+texture: "game/map/tiles/brownstone.png"
+limit: 50
+size:
+  x: 32
+  y: 64
+tileSizePx: 96
+southPoint:
+  x: 4344
+  y: 3762
+cartesianSize:
+  x: 2172
+  y: 3762
+northPoint:
+  x: 2172
+  y: 0
+tileScaledWidth: 135.7645019878171
+tileScaledHeight: 78.38367176906169

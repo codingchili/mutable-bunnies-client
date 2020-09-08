@@ -1,0 +1,20 @@
+---
+name: "Turquise Tree"
+description: "Wood. Common wood.\nMaybe if you knew how.. you could cut it down."
+model:
+  graphics: "game/map/trees/turquise.png"
+  scale: 1.0
+  blocking: true
+  pivot:
+    y: -48
+  hitbox:
+    type: rectangular
+    points:
+    - point:
+        x: 0
+        y: 0
+    - point:
+        x: 32
+        y: 32
+stats:
+  health: 200.0

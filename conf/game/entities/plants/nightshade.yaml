@@ -1,0 +1,9 @@
+---
+name: "Nightshade"
+description: "Nightshade is a plants."
+model:
+  graphics: "game/map/plants/nightshade.png"
+  scale: 0.8
+  blocking: false
+stats:
+  health: 200.0

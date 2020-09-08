@@ -1,0 +1,9 @@
+---
+name: "Poison Ivy"
+description: "Poison Ivy is a plants."
+model:
+  graphics: "game/map/plants/poison-ivy.png"
+  scale: 0.8
+  blocking: false
+stats:
+  health: 200.0

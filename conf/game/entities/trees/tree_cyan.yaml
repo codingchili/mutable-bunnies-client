@@ -1,10 +1,12 @@
 ---
-name: "Wyrmwood"
-description: "Godswood."
+name: "Cyan Tree"
+description: "Wood. Common wood.\nMaybe if you knew how.. you could cut it down."
 model:
-  graphics: "game/map/trees/redwhite.png"
+  graphics: "game/map/trees/cyan.png"
   scale: 1.0
   blocking: true
+  pivot:
+    y: -48
   hitbox:
     type: rectangular
     points:

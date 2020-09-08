@@ -4,7 +4,7 @@ description: "Knowing of their environment and the creatures lurking in it, none
 theme: "#cf8f02"
 model:
   graphics: "game/character/bunny/bunny"
-  skin: "black"
+  skin: "grey"
   scale: 0.16
 weapons:
   - "bow"

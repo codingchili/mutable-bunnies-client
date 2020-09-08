@@ -131,6 +131,7 @@
 
             constructor() {
                 super();
+                this.realm = {};
 
                 application.onRealmLoaded(realm => {
                     this.realm = realm;
@@ -163,7 +164,6 @@
                 application.showCharacters();
             }
         }
-
         window.customElements.define(GameMenu.is, GameMenu);
     </script>
 </dom-module>

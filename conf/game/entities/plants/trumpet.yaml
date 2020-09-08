@@ -1,0 +1,9 @@
+---
+name: "Trumpet"
+description: "Trumpet is a plants."
+model:
+  graphics: "game/map/plants/trumpet.png"
+  scale: 0.8
+  blocking: false
+stats:
+  health: 200.0

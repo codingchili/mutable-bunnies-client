@@ -13,7 +13,7 @@ class Application {
             selectFirstRealm: true,
             selectFirstCharacter: true,
             clearCache: true,
-            rightClick: false,
+            rightClick: true,
             logEvents: false,
             hardResetXY: true,
             metrics: true
@@ -228,5 +228,12 @@ class Application {
         this.bus.publish(event, data);
     }
 }
+
+window.onerror = (msg, url, line, column, error) => {
+    // special error handling for indirect eval of game scripts.
+    // modify the error stack to remove 64kb of url encoded script.
+    error.stack = error.stack.substring(0, 128);
+    return false; // pass responsibility.
+};
 
 var application = new Application();

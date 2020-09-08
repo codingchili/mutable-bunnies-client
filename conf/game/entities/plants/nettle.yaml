@@ -1,0 +1,9 @@
+---
+name: "Nettle"
+description: "Nettle is a plants."
+model:
+  graphics: "game/map/plants/nettle.png"
+  scale: 0.8
+  blocking: false
+stats:
+  health: 200.0

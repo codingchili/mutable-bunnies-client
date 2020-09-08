@@ -27,6 +27,20 @@ body::-webkit-scrollbar-thumb {
     background-color: #646464;
 }
 
+::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    opacity: 0.76;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
 paper-input {
     margin-left: 16px;
     margin-right: 16px;
