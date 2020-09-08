@@ -1240,6 +1240,22 @@ structures:
   point:
     x: 1416
     y: 577
+- id: "tree_cyan"
+  point:
+    x: 116
+    y: 969
+- id: "nettle"
+  point:
+    x: 613
+    y: 1207
+- id: "nettle"
+  point:
+    x: 1051
+    y: 1193
+- id: "nettle"
+  point:
+    x: 922
+    y: 876
 npcs:
 - id: "lilith"
   point:
@@ -1281,14 +1297,14 @@ size:
   x: 22
   y: 12
 tileSizePx: 96
+tileScaledHeight: 78.38367176906169
 southPoint:
   x: 814
-  y: 1332
-cartesianSize:
-  x: 1493
   y: 1332
 northPoint:
   x: 1493
   y: 0
+cartesianSize:
+  x: 1493
+  y: 1332
 tileScaledWidth: 135.7645019878171
-tileScaledHeight: 78.38367176906169

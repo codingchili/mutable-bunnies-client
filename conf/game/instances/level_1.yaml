@@ -1,13 +1,5 @@
 ---
 structures:
-- id: "redwood"
-  point:
-    x: 1375
-    y: 575
-- id: "redwood"
-  point:
-    x: 1275
-    y: 664
 - id: "magnetite"
   point:
     x: 1438
@@ -16,19 +8,7 @@ structures:
   point:
     x: 1523
     y: 1116
-- id: "redwood"
-  point:
-    x: 1261
-    y: 1126
-- id: "redwood"
-  point:
-    x: 1575
-    y: 1207
 - id: "jade"
-  point:
-    x: 536
-    y: 1205
-- id: "redwood"
   point:
     x: 1875
     y: 1266
@@ -76,10 +56,6 @@ structures:
   point:
     x: 1290
     y: 1315
-- id: "redwood"
-  point:
-    x: 1720
-    y: 1358
 - id: "aluminum"
   point:
     x: 1286
@@ -116,30 +92,6 @@ structures:
   point:
     x: 2000
     y: 1525
-- id: "wyrmwood"
-  point:
-    x: 2834
-    y: 1234
-- id: "wyrmwood"
-  point:
-    x: 3050
-    y: 1360
-- id: "wyrmwood"
-  point:
-    x: 2622
-    y: 1360
-- id: "wyrmwood"
-  point:
-    x: 3269
-    y: 1483
-- id: "wyrmwood"
-  point:
-    x: 2408
-    y: 1481
-- id: "wyrmwood"
-  point:
-    x: 2836
-    y: 1482
 - id: "rubies"
   point:
     x: 3462
@@ -176,34 +128,10 @@ structures:
   point:
     x: 3978
     y: 1678
-- id: "redwood"
-  point:
-    x: 3869
-    y: 1510
-- id: "redwood"
-  point:
-    x: 4086
-    y: 1632
 - id: "quartz"
   point:
     x: 2829
     y: 1558
-- id: "redwood"
-  point:
-    x: 2754
-    y: 1232
-- id: "redwood"
-  point:
-    x: 4305
-    y: 1747
-- id: "redwood"
-  point:
-    x: 3657
-    y: 1631
-- id: "wyrmwood"
-  point:
-    x: 3049
-    y: 1607
 - id: "quartz"
   point:
     x: 3189
@@ -220,10 +148,6 @@ structures:
   point:
     x: 3707
     y: 1571
-- id: "redwood"
-  point:
-    x: 3481
-    y: 1359
 - id: "sulphur"
   point:
     x: 3309
@@ -232,10 +156,6 @@ structures:
   point:
     x: 2924
     y: 1472
-- id: "redwood"
-  point:
-    x: 3332
-    y: 1690
 - id: "quartz"
   point:
     x: 3199
@@ -268,22 +188,6 @@ structures:
   point:
     x: 3785
     y: 2075
-- id: "redwood"
-  point:
-    x: 3488
-    y: 1914
-- id: "redwood"
-  point:
-    x: 3552
-    y: 1952
-- id: "redwood"
-  point:
-    x: 3423
-    y: 1876
-- id: "redwood"
-  point:
-    x: 3358
-    y: 1837
 - id: "magnetite"
   point:
     x: 2564
@@ -424,10 +328,6 @@ structures:
   point:
     x: 3163
     y: 2420
-- id: "redwood"
-  point:
-    x: 2739
-    y: 2069
 - id: "tree_cyan"
   point:
     x: 2444
