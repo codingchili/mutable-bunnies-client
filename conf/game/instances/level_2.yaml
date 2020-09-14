@@ -1,25 +1,5 @@
 ---
 structures:
-- id: "wyrmwood"
-  point:
-    x: 1000
-    y: 400
-- id: "wyrmwood"
-  point:
-    x: 1000
-    y: 600
-- id: "wyrmwood"
-  point:
-    x: 1400
-    y: 500
-- id: "wyrmwood"
-  point:
-    x: 825
-    y: 500
-- id: "redwood"
-  point:
-    x: 525
-    y: 700
 - id: "aluminum"
   point:
     x: 500
@@ -48,26 +28,10 @@ structures:
   point:
     x: 684
     y: 724
-- id: "redwood"
-  point:
-    x: 1293
-    y: 736
 - id: "magnetite"
   point:
     x: 1079
     y: 647
-- id: "wyrmwood"
-  point:
-    x: 934
-    y: 562
-- id: "redwood"
-  point:
-    x: 1510
-    y: 859
-- id: "wyrmwood"
-  point:
-    x: 1340
-    y: 1005
 - id: "quartz"
   point:
     x: 819

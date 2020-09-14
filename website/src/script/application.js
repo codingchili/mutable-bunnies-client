@@ -9,8 +9,8 @@ class Application {
     constructor() {
         this.development = {
             skipStart: true,
-            autologin: true,
-            selectFirstRealm: true,
+            autologin: false,
+            selectFirstRealm: false,
             selectFirstCharacter: true,
             clearCache: true,
             rightClick: true,
@@ -112,7 +112,7 @@ class Application {
 
     onDialogEvent(callback) {
         application.subscribe('dialog', callback);
-    }
+    }x
 
     onLogout(callback) {
         application.subscribe('onLogout', callback);

@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Mutable Bunnies</title>
-    <link rel="icon" href="src/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="manifest" href="manifest.json">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>-->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,target-densitydpi=device-dpi, user-scalable=no">
@@ -20,8 +20,6 @@
     <link rel="import" href="src/game-app/app-view.html">
     <link rel="stylesheet" href="src/style/style.css">
     <script>
-        //Polymer.passiveTouchGestures = true;
-
         function send_message_to_sw(msg) {
             return new Promise((resolve, reject) => {
                 let channel = new MessageChannel();

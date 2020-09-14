@@ -107,6 +107,9 @@
             }
 
             _home() {
+                if (window.isPWA) {
+                    document.exitFullscreen();
+                }
                 application.view('start-page');
             }
 
