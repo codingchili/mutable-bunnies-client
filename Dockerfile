@@ -3,10 +3,8 @@ FROM openjdk:11-jre-slim
 MAINTAINER codingchili@github
 
 RUN mkdir -p /opt/game
-COPY distributions/*.zip /opt/game
-RUN cd /opt/game && \
-    unzip /opt/game/*.zip && \
-    chmod +x start
+ADD distributions/*.tar /opt/game
+RUN chmod +x /opt/game/start
 
 WORKDIR /opt/game
 

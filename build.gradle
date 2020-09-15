@@ -23,7 +23,7 @@ task polymer {
     outputs.dir('./website/build')
 }
 
-task distribution(type: Zip, dependsOn: [polymer]) {
+task distribution(type: Tar, dependsOn: [polymer]) {
     archiveBaseName = 'mutable-client'
     duplicatesStrategy = 'EXCLUDE'
 

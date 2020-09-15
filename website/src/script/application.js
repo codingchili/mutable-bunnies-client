@@ -112,7 +112,7 @@ class Application {
 
     onDialogEvent(callback) {
         application.subscribe('dialog', callback);
-    }x
+    }
 
     onLogout(callback) {
         application.subscribe('onLogout', callback);
@@ -236,4 +236,4 @@ window.onerror = (msg, url, line, column, error) => {
     return false; // pass responsibility.
 };
 
-var application = new Application();
+window.application = new Application();
