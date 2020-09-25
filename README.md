@@ -101,7 +101,7 @@ Website
 - [X] login
 - [ ] highscores
 - [ ] character viewer
-- [ ] auction client
+- [x] auction client
 
 ##### Great software :blue_heart:
 To make this project a reality we use only great software.
