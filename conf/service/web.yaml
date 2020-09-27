@@ -5,13 +5,13 @@ missingPage: "404.html"
 resources: "website/"
 cache: false
 gzip: false
-global: "InRD0Qo6P4vXuf8i9Mt7l/usVWpVmIbgfYQdUKpssJhkRSSoZsQhHn9BeOaIeTFfLuGcakeQmwENyYduAEuFLQ=="
+global: "O1G9N7UV/sm4hB71OtYNSxFYYaMvFo2DDRLJldTWytqdaNysXdVflU7LVAf3IsASFzF59vBuxk4p2v3ELa2pUw=="
 logging:
   properties:
     type: "HmacSHA512"
   domain: "website.node"
-  key: "9bPxlBfsMuBRfFT7150lHWO0htQsnxOtSI8JRjI117DcEl15+tGDQ0fe2E/6EJ/SijQn1oX2fR1n+Lcv+tafEQ=="
-  expiry: 1600708625
+  key: "zmRhf1JmxKTLil+DZ6X2N8a5ZT+EA76lB0Pj1wZd8lk1DkQCH25nO17AaObNQUyp53y3YXvOVw8hat9KEZ7aeg=="
+  expiry: 1601741780
 listener:
   secure: false
   port: 8080
