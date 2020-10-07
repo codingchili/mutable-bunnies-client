@@ -1,7 +1,8 @@
 .gradle
 .idea/
 out/
+node_modules/
 target/
 build/
-website/bower_components/
 db/
+**.iml

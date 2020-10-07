@@ -116,3 +116,4 @@ On the frontend
 For art
 - [MagicaVoxel](https://ephtracy.github.io/) for artwork!
 - [Spine 2d](http://esotericsoftware.com/) for animations!
+
