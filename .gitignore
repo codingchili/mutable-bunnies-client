@@ -3,4 +3,5 @@
 out/
 target/
 build/
-website/bower_components/
+src/node_modules/
+**.iml

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #212121;
+        }
+
+        bunny-progress {
+            margin-top: 32px;
+            margin-left: 8px;
+            margin-right:8px;
+
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    import('./bunny-progress.js')
+    customElements.whenDefined('bunny-progress').then(() => {
+        let progress = document.createElement('bunny-progress');
+        document.documentElement.appendChild(progress);
+
+        setInterval(() => {
+            progress.value = Math.random() * 100;
+            console.log('value set to ' + progress.value)
+        }, 2000);
+    });
+
+    import('./bunny-spinner.js')
+    customElements.whenDefined('bunny-spinner').then(() => {
+        let spinner = document.createElement('bunny-spinner');
+        spinner.setAttribute("enabled", "")
+        document.documentElement.appendChild(spinner);
+
+        setTimeout(() => {
+            spinner.removeAttribute("enabled");
+        }, 2000);
+    });
+</script>
+</body>
+</html>

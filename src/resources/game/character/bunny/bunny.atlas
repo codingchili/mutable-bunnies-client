@@ -1,0 +1,160 @@
+
+bunny.png
+size: 1796,272
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm-down
+  rotate: true
+  xy: 1735, 6
+  size: 30, 53
+  orig: 30, 53
+  offset: 0, 0
+  index: -1
+arm-up
+  rotate: true
+  xy: 1678, 13
+  size: 32, 55
+  orig: 32, 55
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 1367, 13
+  size: 110, 135
+  orig: 110, 135
+  offset: 0, 0
+  index: -1
+bow_xl
+  rotate: true
+  xy: 800, 6
+  size: 117, 436
+  orig: 117, 436
+  offset: 0, 0
+  index: -1
+ear-behind
+  rotate: true
+  xy: 1572, 9
+  size: 36, 104
+  orig: 36, 104
+  offset: 0, 0
+  index: -1
+ear-front
+  rotate: true
+  xy: 1572, 47
+  size: 38, 112
+  orig: 38, 112
+  offset: 0, 0
+  index: -1
+eye-behind-eyebrow
+  rotate: true
+  xy: 1784, 238
+  size: 14, 10
+  orig: 14, 10
+  offset: 0, 0
+  index: -1
+eye-behind-light
+  rotate: false
+  xy: 1735, 52
+  size: 11, 14
+  orig: 11, 14
+  offset: 0, 0
+  index: -1
+eye-behind-pupil
+  rotate: true
+  xy: 35, 10
+  size: 18, 27
+  orig: 18, 27
+  offset: 0, 0
+  index: -1
+eye-behind-white
+  rotate: false
+  xy: 1547, 9
+  size: 22, 31
+  orig: 22, 31
+  offset: 0, 0
+  index: -1
+eye-front-eyebrow
+  rotate: true
+  xy: 1735, 68
+  size: 17, 12
+  orig: 17, 12
+  offset: 0, 0
+  index: -1
+eye-front-light
+  rotate: false
+  xy: 64, 12
+  size: 18, 16
+  orig: 18, 16
+  offset: 0, 0
+  index: -1
+eye-front-pupil
+  rotate: true
+  xy: 1686, 56
+  size: 29, 36
+  orig: 29, 36
+  offset: 0, 0
+  index: -1
+eye-front-white
+  rotate: true
+  xy: 1504, 2
+  size: 38, 41
+  orig: 38, 41
+  offset: 0, 0
+  index: -1
+foot
+  rotate: false
+  xy: 1752, 38
+  size: 42, 85
+  orig: 42, 85
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 1238, 7
+  size: 127, 116
+  orig: 127, 116
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: true
+  xy: 2, 10
+  size: 18, 31
+  orig: 18, 31
+  offset: 0, 0
+  index: -1
+nose
+  rotate: true
+  xy: 1784, 254
+  size: 15, 10
+  orig: 15, 10
+  offset: 0, 0
+  index: -1
+staff
+  rotate: true
+  xy: 1504, 87
+  size: 36, 246
+  orig: 36, 246
+  offset: 0, 0
+  index: -1
+staff_xl
+  rotate: true
+  xy: 800, 125
+  size: 144, 982
+  orig: 144, 982
+  offset: 0, 0
+  index: -1
+sword_xl
+  rotate: false
+  xy: 2, 30
+  size: 796, 239
+  orig: 796, 239
+  offset: 0, 0
+  index: -1
+tail
+  rotate: true
+  xy: 1504, 42
+  size: 43, 66
+  orig: 43, 66
+  offset: 0, 0
+  index: -1

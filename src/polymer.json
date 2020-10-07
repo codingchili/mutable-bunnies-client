@@ -1,0 +1,32 @@
+{
+  "entrypoint": "index.html",
+  "sources": [
+    "images/**/*",
+    "data/**/*",
+    "resources/**/*",
+    "fonts/**/*",
+    "sound/**/*",
+    "manifest.json",
+    "service_worker.js"
+  ],
+  "fragments": [],
+  "builds": [
+    {
+      "js": {
+        "minify": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "bundle": true
+    }
+  ],
+  "extraDependencies": [
+  ],
+  "lint": {
+    "ignoreWarnings": []
+  }
+}
