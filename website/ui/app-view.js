@@ -9,7 +9,6 @@ import './game-realms.js'
 import './game-characters.js'
 import './patch-download.js'
 import './offline-view.js'
-/*import './game-view.js'*/
 
 class AppView extends HTMLElement {
 
@@ -57,9 +56,11 @@ class AppView extends HTMLElement {
                         <bunny-icon @mousedown="${this._home.bind(this)}" icon="home">
                     </div>
                     <div id="banner" slot="text"></div>
-                    <div ?hidden="${!this.authenticated}" slot="right" class="icon" @mousedown="${this._logout.bind(this)}">
-                        <bunny-icon icon="close"></bunny-icon>
-                    </div>
+                    ${this.authenticated ? html`
+                        <div slot="right" class="icon" @mousedown="${this._logout.bind(this)}">
+                            <bunny-icon icon="close"></bunny-icon>
+                        </div>
+                    ` : ''}
                 </bunny-bar>
             `}
 

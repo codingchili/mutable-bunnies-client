@@ -1,5 +1,5 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
-import {repeat} from 'lit-html/directives/repeat.js';
+import {repeat} from '/node_modules/lit-html/directives/repeat.js';
 
 import {BunnyStyles} from "/component/styles.js";
 import '/component/bunny-icon.js'
