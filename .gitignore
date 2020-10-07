@@ -1,7 +1,7 @@
 .gradle
 .idea/
 out/
+node_modules/
 target/
 build/
-src/node_modules/
 **.iml
