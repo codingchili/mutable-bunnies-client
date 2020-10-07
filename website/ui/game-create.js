@@ -1,5 +1,5 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
-import {BunnyStyles} from "../component/styles";
+import {BunnyStyles} from "../component/styles.js";
 import '/node_modules/ink-ripple/ink-ripple.js'
 import '../component/bunny-button.js'
 import '../component/bunny-input.js'
