@@ -4,3 +4,4 @@ out/
 target/
 build/
 website/bower_components/
+db/
