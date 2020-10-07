@@ -11,7 +11,8 @@
     "sound/**/*",
     "manifest.json",
     "service_worker.js",
-    "index.html"
+    "index.html",
+    "404.html"
   ],
   "extraDependencies": [
     "bower_components/webcomponentsjs/*.js"

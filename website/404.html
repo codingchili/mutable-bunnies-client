@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mutable Bunnies</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#7f345b">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+
+    <style>
+        @font-face {
+            font-family: Roboto Bold;
+            src: url("fonts/static/RobotoSlab-Bold.ttf") format("ttf");
+        }
+
+        body {
+            background-image: url("images/background.webp");
+            background-color: #212121;
+            color: #fff;
+            font-family: 'Roboto', 'Noto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #message {
+            background-color: rgba(22,22,22,0.86);
+            width: 426px;
+            padding: 32px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(50%);
+            border-radius: 2px;
+        }
+
+        a, a:active, a:visited, a:focus {
+            color: #00b0ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div id="message">
+    <video muted loop autoplay src="images/bunbun.webm" class="gif"></video>
+    <h2>We're missing something ..</h2>
+    <span>It's this page, try the <a href="/">main</a> page instead.</span>
+</div>
+</body>
+</html>
