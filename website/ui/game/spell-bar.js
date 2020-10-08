@@ -32,9 +32,11 @@ class SpellBar extends HTMLElement {
             this.spells = realm.spells;
         });
 
+        application.onCharacterUpdate(this.render.bind(this));
         application.onCharacterLoaded(player => {
             this.character = player;
             this.render();
+
         });
 
         application.onGameLoaded((game) => {
@@ -150,7 +152,7 @@ class SpellBar extends HTMLElement {
         }
 
         game.spells.cast((casted) => {
-            if (casted.result === 'CASTING') {
+            if (casted.result === CYCLE_CASTING) {
                 this.casting = true;
                 this.spellId = casted.spellId;
 

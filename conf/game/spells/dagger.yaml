@@ -1,6 +1,6 @@
 ---
 name: "Dagger"
-description: "Strikes nearby targets with a daggur dealing ${this.character.stats.strength / 2} direct damage. Deals 50% bonus damage if target stands still."
+description: "Strikes nearby targets with a daggur dealing ${this.character.stats.dexterity / 2} direct damage. Deals 50% bonus damage if target stands still."
 cooldown: 0.5
 casttime: 0.20
 recharge: 3
@@ -8,7 +8,7 @@ charges: 5
 target: caster
 onCastBegin:
   groovy: |
-    RANGE = 326
+    RANGE = 428
     aoe = source.vector.copy().setSize(RANGE);
     in_range = game.creatures().radius(aoe).size() > 1;
     return in_range && spells.energy(source, -20);
@@ -22,7 +22,7 @@ onCastComplete:
     RANGE = 326
     aoe = source.vector.copy().setSize(RANGE);
 
-    damage = (source.stats[Attribute.strength] * -1 / 2);
+    damage = (source.stats[Attribute.dexterity] * -1 / 2);
     game.creatures().radius(aoe).collect().each { creature ->
       if (!creature.equals(source)) {
         amplify = (creature.vector.velocity == 0);
