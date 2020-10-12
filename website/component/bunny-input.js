@@ -136,6 +136,7 @@ class BunnyInput extends HTMLElement {
                 font-family: 'Roboto', 'Noto', sans-serif;
                 margin-left: 2px;
                 margin-bottom: 4px;
+                transition: color 0.25s;
             }
             
             .label-focus {
