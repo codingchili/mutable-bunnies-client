@@ -55,18 +55,17 @@ class BunnyTab extends HTMLElement {
                 min-width: 5.14em;
                 height: 2.8em;
                 /*position: relative;*/
-                background-color: #424242;
+                background-color: var(--bunny-tab-background, #424242);
                 outline-width: 0;
                 user-select: none;
                 cursor: pointer;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                color: #fff;
             }
             
             .active {
-                border-bottom: 2px solid var(--accent-color);
+                border-bottom: 2px solid var(--bunny-tab-active, rgb(0, 176, 255));
             }
             
             .tab-text {
@@ -86,7 +85,7 @@ class BunnyTab extends HTMLElement {
             ink-ripple {
                 --ink-ripple-opacity: 0.15;
                 --ink-ripple-duration: 0.15s;
-                --ink-ripple-accent-color: var(--accent-ripple-tab);
+                --ink-ripple-accent-color: var(--bunny-tab-ripple, #00b0ff);
               }
         </style>
         

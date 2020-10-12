@@ -48,13 +48,9 @@ export class BunnyStyles {
         return html`        
             * {
                 --backdrop-color: #00000070;
-                --input-container-color: #888;
-                --input-container-focus-color: #ddd;
                 --accent-color: rgb(0, 176, 255);     
                 --game-theme-opaque: #687f7d80;   
-                --accent-ripple-tab: #00b0ff;
                 --icon-color: #ddd;
-                --primary-text-color: #ffffff;
             }    
         `;
     }

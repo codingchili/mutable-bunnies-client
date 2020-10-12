@@ -24,7 +24,7 @@ class BunnyTooltip extends HTMLElement {
             case 'bottom':
                 return {
                     x: pos.left + middle - (tooltip.clientWidth / 2),
-                    y: pos.bottom
+                    y: pos.bottom + space
                 };
             case 'top':
                 return {

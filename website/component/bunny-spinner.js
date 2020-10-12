@@ -106,8 +106,8 @@ class BunnySpinner extends HTMLElement {
               height: 64px;
               margin: 8px;
               border-radius: 50%;
-              border: 6px solid var(--accent-color);
-              border-color: var(--accent-color) transparent var(--accent-color) transparent;
+              border: 6px solid var(--bunny-spinner-color, rgb(0, 176, 255));
+              border-color: var(--bunny-spinner-color, rgb(0, 176, 255)) transparent var(--bunny-spinner-color, rgb(0, 176, 255)) transparent;
               animation: lds-dual-ring 0.92s linear infinite;
             }
             @keyframes lds-dual-ring {
@@ -132,7 +132,7 @@ class BunnySpinner extends HTMLElement {
               position: absolute;
               left: 8px;
               width: 16px;
-              background: #fff;
+              background: var(--bunny-spinner-color, #fff);
               animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
             }
             .lds-facebook div:nth-child(1) {

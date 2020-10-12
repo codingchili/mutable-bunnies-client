@@ -58,8 +58,8 @@ class BunnyProgress extends HTMLElement {
                 ${BunnyStyles.variables}
                 
                 .outline {
-                    right: 0;
-                    background-color: var(--bunny-progress-container-color, darkgray);
+                    righ: 0;
+                    background-color: var(--bunny-progress-container-color, #484848);
                 }
                 
                 .fill {

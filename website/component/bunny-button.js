@@ -43,8 +43,6 @@ class BunnyButton extends HTMLElement {
     get template() {
         return html`
         <style>
-            ${BunnyStyles.variables}
-        
             :host {
                 contain: content;
                 display:block;
@@ -90,7 +88,9 @@ class BunnyButton extends HTMLElement {
             }
             
             .primary {
-                background-color: var(--accent-color);
+                background-color: var(--bunny-button-color, rgb(0, 176, 255));
+                color: var(--bunny-button-text-color: #ffffff);
+
             }
             
             .secondary {

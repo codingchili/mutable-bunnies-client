@@ -90,18 +90,18 @@ class BunnyInput extends HTMLElement {
             }
             
             ::selection {
-                background: rgb(0, 176, 255);
+                background: var(--bunny-input-selection, rgb(0, 176, 255));
                 color: white; 
             }
             
             input {
                 border: none;
                 background-color: transparent;
-                color: var(--input-container-color);
+                color: var(--bunny-input-color, #888);
                 font-size: 1em;
                 padding-bottom: 2px;;
-                font-family: "Roboto Bold";
-                font-weight: 800;
+                font-family: "Roboto Noto", sans-serif;
+                font-weight: 400;
             }
             
             #container {
@@ -110,7 +110,7 @@ class BunnyInput extends HTMLElement {
             }
             
             #underline-default {
-                background-color: var(--input-container-color);
+                background-color: var(--bunny-input-color, #888);
                 height: 1px;
                 z-index: 0;            
             }
@@ -118,7 +118,7 @@ class BunnyInput extends HTMLElement {
             #underline {
                 transition: width 0.25s;       
                 height: 2px;     
-                background-color: var(--input-container-focus-color);
+                background-color: var(--bunny-input-focus, #ddd);
                 z-index: 1;
                 width: 0;
                 margin: auto;
@@ -131,7 +131,7 @@ class BunnyInput extends HTMLElement {
             }
             
             .label {
-                color: var(--input-container-color);
+                color: var(--bunny-input-label, #888);
                 font-size: 12px;
                 font-family: 'Roboto', 'Noto', sans-serif;
                 margin-left: 2px;
@@ -139,7 +139,7 @@ class BunnyInput extends HTMLElement {
             }
             
             .label-focus {
-                color: var(--input-container-focus-color);
+                color: var(--bunny-input-focus, #ddd);
             }
             
             .underline-focus {

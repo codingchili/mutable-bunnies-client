@@ -399,8 +399,8 @@ class GameRealms extends HTMLElement {
             }
             
             .icon-info  {
-                color: var(--primary-text-color) !important;            
-                fill: var(--primary-text-color) !important;            
+                color: #fff !important;            
+                fill: #fff !important;            
             }
             
             th, td {
@@ -414,7 +414,7 @@ class GameRealms extends HTMLElement {
         </style>
 
         <bunny-box class="container noselect">
-            <bunny-pages id="tabs" no-slide link>
+            <bunny-pages id="tabs">
                 <div slot="tabs">
                     <bunny-tab @down="${this.trusted.bind(this)}" active>Game Worlds</bunny-tab>
                 </div>
