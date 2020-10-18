@@ -1,6 +1,5 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
 import '/node_modules/ink-ripple/ink-ripple.js'
-import {BunnyStyles} from "./styles.js";
 
 class BunnyButton extends HTMLElement {
 
@@ -47,6 +46,12 @@ class BunnyButton extends HTMLElement {
                 contain: content;
                 display:block;
             }
+            
+            ink-ripple {
+                --ink-ripple-opacity: 0.6;
+                --ink-ripple-duration: 0.3s;
+                --ink-ripple-accent-color: #969696;
+              }
         
             .button {
                 min-width: 5.14em;
@@ -96,8 +101,7 @@ class BunnyButton extends HTMLElement {
             .secondary {
                 background-color: #00000000;
             }
-            
-            ${BunnyStyles.ripple}
+           
         </style>
         
         <div class="button ${this.type}" onclick="this.getRootNode().host.onclicked()">

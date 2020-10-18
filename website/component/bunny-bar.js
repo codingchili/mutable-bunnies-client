@@ -1,5 +1,4 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
-import {BunnyStyles} from './styles.js';
 import './bunny-box.js';
 
 class BunnyBar extends HTMLElement {
@@ -31,7 +30,9 @@ class BunnyBar extends HTMLElement {
                 height: 36px;
             }
             
-            ${BunnyStyles.noselect}
+            .noselect {
+                user-select: none;
+            }
             
             .text {
                 font-size: 12px;

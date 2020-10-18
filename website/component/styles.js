@@ -1,15 +1,14 @@
-import {html} from '/node_modules/lit-html/lit-html.js';
 
 export class BunnyStyles {
 
     static get hr_wide() {
-        return html`hr {
+        return `hr {
             border-color: var(--accent-color);
         }`;
     }
 
     static get hr() {
-        return html`
+        return `
             hr {
                 border-color: var(--game-theme-opaque);
                 margin-left: 24px;
@@ -19,7 +18,7 @@ export class BunnyStyles {
     }
 
     static get icons() {
-        return html`
+        return `
             .icon {
                 display: block;
                 fill: var(--icon-color);
@@ -35,7 +34,7 @@ export class BunnyStyles {
     }
 
     static get ripple() {
-        return html`
+        return `
             ink-ripple {
                 --ink-ripple-opacity: 0.6;
                 --ink-ripple-duration: 0.3s;
@@ -45,7 +44,7 @@ export class BunnyStyles {
     }
 
     static get variables() {
-        return html`        
+        return `        
             * {
                 --backdrop-color: #00000070;
                 --accent-color: rgb(0, 176, 255);     
@@ -56,7 +55,7 @@ export class BunnyStyles {
     }
 
     static get elevation() {
-        return html`
+        return `
         .elevation {
               box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
               0 1px 18px 0 rgba(0, 0, 0, 0.12),
@@ -68,11 +67,6 @@ export class BunnyStyles {
     static get noselect() {
         return `
         .noselect {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
             user-select: none;
             cursor: default;
         }`

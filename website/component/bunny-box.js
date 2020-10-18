@@ -1,5 +1,4 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
-import {BunnyStyles} from './styles.js';
 
 class BunnyBox extends HTMLElement {
 
@@ -30,7 +29,7 @@ class BunnyBox extends HTMLElement {
 
             this.render();
         };
-        new MutationObserver(() => update()).observe(this, {attributes : true});
+        new MutationObserver(() => update()).observe(this, {attributes: true});
         update();
     }
 
@@ -41,20 +40,20 @@ class BunnyBox extends HTMLElement {
     static get template() {
         return html`
             <style>
-                ${BunnyStyles.variables}
-                ${BunnyStyles.elevation}
-                
                 :host {
                     display: block;
                     box-sizing: border-box;
-                   /* box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
-                          0 1px 18px 0 rgba(0, 0, 0, 0.12),
-                          0 3px 5px -1px rgba(0, 0, 0, 0.4);*/
                     
                 }
                 
+                .elevation {
+                  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                      0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                      0 3px 5px -1px rgba(0, 0, 0, 0.4);
+                }
+                
                 .border {
-                    border: 1px solid var(--game-theme-opaque);
+                    border: 1px solid var(--bunny-box-border-color, #687f7d80);
                 }
                 
                 .rounded {
@@ -64,7 +63,6 @@ class BunnyBox extends HTMLElement {
                 .container {
                     background-color: rgba(22,22,22,0.86);
                     display: inline-block;
-                    /*position: relative;*/
                     width: 100%;
                     height: 100%;
                 }

@@ -1,5 +1,4 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
-import {BunnyStyles} from '/component/styles.js';
 
 class BunnyInput extends HTMLElement {
 
@@ -10,11 +9,6 @@ class BunnyInput extends HTMLElement {
         this.text = this.getAttribute('text') || '';
         this.label = this.getAttribute('label') || '';
         this.type = this.getAttribute('type') || 'text';
-
-        /*new MutationObserver(events => {
-            this.value = this.getAttribute('text');
-            this.render()
-        }).observe(this, {attributes: true});*/
 
         if (this.hasAttribute('autofocus')) {
             this.focus();
@@ -73,9 +67,6 @@ class BunnyInput extends HTMLElement {
     get template() {
         return html`
             <style>
-            ${BunnyStyles.variables}
-            ${BunnyStyles.noselect}
-            
             :host {
                 contain: content;
                 margin-left: 24px;
@@ -83,6 +74,10 @@ class BunnyInput extends HTMLElement {
                 margin-top: 8px;
                 margin-bottom:8px;
                 display:block;
+            }
+            
+            .noselect {
+                user-select: none;
             }
             
             input:focus, textarea:focus, select:focus{
