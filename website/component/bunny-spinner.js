@@ -1,7 +1,6 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
-import {BunnyStyles} from "./styles.js";
 
-/* this is teh mmega loader */
+/* this is teh mega loader */
 class BunnySpinner extends HTMLElement {
 
     static get is() {
@@ -84,8 +83,6 @@ class BunnySpinner extends HTMLElement {
                 width: 364px;
                 display: block;
             }
-            
-            ${BunnyStyles.variables}
 
             /* spinner-code from loading.io */
             @media (max-width: 728px){
