@@ -160,7 +160,7 @@ class AppView extends HTMLElement {
         this.game = (view === 'game-view');
 
         view = this.shadowRoot.querySelector(view);
-        pages.update(view.getAttribute('index'));
+        pages.show(view);
         this.render();
     }
 

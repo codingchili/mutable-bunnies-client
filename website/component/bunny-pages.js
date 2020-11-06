@@ -49,20 +49,25 @@ class BunnyPages extends HTMLElement {
                     flex-direction: row;
                 `;
 
-                tab.clicked = () => this.update(i);
+                tab.clicked = () => this.index(i);
 
                 if (tab.hasAttribute('active')) {
-                    this.update(i);
+                    this.index(i);
                     selected = true;
                 }
             }
             if (!selected) {
-                this.update(this.page);
+                this.index(this.page);
             }
         });
     }
 
-    update(index) {
+    show(page) {
+        this.index(parseInt(page.getAttribute("index")));
+    }
+
+    index(index) {
+        index = parseInt(index);
         for (let i = 0; i < this.pages.length; i++) {
             this.pages[i].setAttribute('index', i);
             this.pages[i].style.display = (i === index) ? 'block' : 'none';
