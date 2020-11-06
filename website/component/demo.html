@@ -108,6 +108,7 @@
         import('./bunny-tooltip.js');
         import('./bunny-tab.js');
         import('./bunny-pages.js');
+        import('./bunny-toast.js');
 
         hljs.initHighlightingOnLoad();
     </script>
@@ -205,7 +206,7 @@
     </div>
     <div class="description" style="margin-top: -32px;">
         Shows a loading indicator used for processing or waiting for a server response.
-        <br>Animations are from <a href="loading.io">loading.io</a>
+        <br>Animations are from <a href="http://loading.io/">loading.io</a>
     </div>
     <div class="usage">
         <pre><code class="html">
@@ -424,6 +425,42 @@
         </pre>
     </div>
     <script for="bunny-input">
+    </script>
+</bunny-box>
+
+<bunny-box class="component-demo">
+    <h2>bunny-toast</h2>
+    <style for="bunny-tooltip">
+
+    </style>
+    <div class="component" style="position: relative;">
+        <bunny-toast></bunny-toast>
+        <bunny-button id="toastmaster" primary>toast me!</bunny-button>
+    </div>
+    <div class="description">
+        A toaster to display feedback to the user.
+    </div>
+    <div class="usage">
+        <pre><code class="html">
+&lt;script type="module" src="bunny-toast.js"/&gt;
+
+&lt;style&gt;
+    bunny-tab {
+        --bunny-tab-active: #f37b2f;
+        --bunny-tab-background: #484848;
+        --bunny-tab-ripple: #ff0000;
+    }
+&lt;/style&gt;
+
+&lt;bunny-toast&gt;
+&lt;/bunny-toast&gt;
+            </code>
+        </pre>
+    </div>
+    <script for="bunny-toast">
+        document.querySelector('#toastmaster').addEventListener('mousedown', () => {
+            document.querySelector('bunny-toast').open('get toasted.');
+        });
     </script>
 </bunny-box>
 

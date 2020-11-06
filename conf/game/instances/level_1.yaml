@@ -1,4 +1,33 @@
 ---
+id: "level_1"
+name: "level 1"
+texture: "game/map/tiles/brownstone.png"
+skybox:
+  sky: "#CC0041"
+  clouds: "#FFFFFF"
+limit: 50
+onStartup:
+  jexl: "//game.spawner().npc(\"Illicit Lilith\", 300, 300);"
+onPlayerJoin:
+  jexl: |
+    // the vector must be reset when a player leaves an instance.
+    if (source.fromAnotherInstance || source.isDead()) {
+      source.vector.x = spawn.x;
+      source.vector.y = spawn.y;
+    }
+spawns:
+- x: 800
+  y: 1325
+  probability: 1.0
+npcs:
+- id: "lilith"
+  point:
+    x: 800
+    y: 925
+- id: "johnny"
+  point:
+    x: 1175
+    y: 1075
 structures:
 - id: "magnetite"
   point:
@@ -532,47 +561,42 @@ structures:
   point:
     x: 536
     y: 1475
-npcs:
-- id: "lilith"
+- id: "tree_cyan"
   point:
-    x: 800
-    y: 925
-- id: "johnny"
+    x: 1420
+    y: 632
+- id: "platinum"
   point:
-    x: 1175
-    y: 1075
-spawns:
-- x: 800
-  y: 1325
-  probability: 1.0
-skybox:
-  sky: "#CC0041"
-  clouds: "#FFFFFF"
-onStartup:
-  jexl: "//game.spawner().npc(\"Illicit Lilith\", 300, 300);"
-onPlayerJoin:
-  jexl: |
-    // the vector must be reset when a player leaves an instance.
-    if (source.fromAnotherInstance || source.isDead()) {
-      source.vector.x = spawn.x;
-      source.vector.y = spawn.y;
-    }
-name: "level 1"
-id: "level_1"
-texture: "game/map/tiles/brownstone.png"
-limit: 50
+    x: 1348
+    y: 625
+- id: "platinum"
+  point:
+    x: 1469
+    y: 615
+- id: "platinum"
+  point:
+    x: 1392
+    y: 577
+- id: "platinum"
+  point:
+    x: 1366
+    y: 668
+- id: "platinum"
+  point:
+    x: 1449
+    y: 671
 size:
   x: 32
   y: 64
 tileSizePx: 96
-tileScaledWidth: 135.7645019878171
 tileScaledHeight: 78.38367176906169
-northPoint:
-  x: 2172
-  y: 0
 southPoint:
   x: 4344
   y: 3762
+tileScaledWidth: 135.7645019878171
+northPoint:
+  x: 2172
+  y: 0
 cartesianSize:
   x: 2172
   y: 3762
