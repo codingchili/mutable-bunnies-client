@@ -16,10 +16,10 @@ external:
   client.realmregistry.node: ".*"
   auction.node: ".*"
   social.node: ".*"
-global: "IXx9HsEdEoHa70EBnW24rA/Qj9jXRNhdY4K7TVWw6iKTxqhqDpXs9kzhbG9Y+DsF3voi8uc8fq+XqbZ+qiWnlQ=="
+global: "IK6dMWQAn648CJRBzm+prZUnaC0CiissaLGtL5zhleiIKUkHhkkpjj2qEvFdeiJU79T+Xfgt/iUakgY05Zxg1A=="
 logging:
   properties:
     type: "HmacSHA512"
   domain: "routing.node"
-  key: "BOoRmE/XYaS2lNH0xLaa4WAZ5g0MK69Bq89WjUz2VoS9mK1b75kOg8XGY5MgPpgHjVuGRCTX+5uFPuIyj1fXPg=="
-  expiry: 1605281602
+  key: "vS5fw+V24nDnYDb3JRSKSCrtOpHEP+Dp6ID/GfhKk51MSD3r7YwIVNeJiIAIE2tru/avIu8iscC4wxp3yIg+aQ=="
+  expiry: 1606219729
