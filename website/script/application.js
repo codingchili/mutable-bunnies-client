@@ -135,7 +135,6 @@ class Application {
         if (application.character) {
             callback(application.character);
         }
-
         application.subscribe('onCharacterLoaded', callback);
     }
 
