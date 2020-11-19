@@ -601,18 +601,34 @@ structures:
   point:
     x: 5003
     y: 2416
+- id: "marble"
+  point:
+    x: 1668
+    y: 605
+- id: "tree_yellow"
+  point:
+    x: 1575
+    y: 1069
+- id: "uranium"
+  point:
+    x: 1632
+    y: 1026
+- id: "tree_green"
+  point:
+    x: 2707
+    y: 86
 size:
   x: 32
   y: 64
 tileSizePx: 96
+tileScaledHeight: 78.38367176906169
 tileScaledWidth: 135.7645019878171
-southPoint:
-  x: 4344
-  y: 3762
 northPoint:
   x: 2172
   y: 0
+southPoint:
+  x: 4344
+  y: 3762
 cartesianSize:
   x: 2172
   y: 3762
-tileScaledHeight: 78.38367176906169
