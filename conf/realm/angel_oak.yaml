@@ -32,7 +32,7 @@ onPlayerJoin:
       source.instance = 'level_1';
     }
 listener:
-  secure: true
+  secure: false
   port: 9301
   timeout: 6000
   binaryWebsockets: false
@@ -40,13 +40,13 @@ authentication:
   properties:
     type: "HmacSHA512"
   domain: "angel_oak.node"
-  key: "G2U3+DumpS/Ge3H4sQSI2Vsl/HqfsrDCdW5hEEvyEOoMedMGCWlb0q+rE3iqWrzmbl9BvaKvx5ArZbS4VZurMQ=="
-  expiry: 1606219729
-secret: "lJ50pfh0MGb0OMpgW6sSuBdBip2FBTC/bJABXioykPn/ExBzKNnVdC1COmU7oXNAofIxcsa4Vcd1Unh8L1nZwg=="
-global: "IK6dMWQAn648CJRBzm+prZUnaC0CiissaLGtL5zhleiIKUkHhkkpjj2qEvFdeiJU79T+Xfgt/iUakgY05Zxg1A=="
+  key: "S7AFVtkHV3xUZZPOmkDDsCiZGRbl672/PJoeHrhFQ+B0c+G+mpKW4WEKMZqpNcX6wb66f+vQr62eQkcQ2eXvaQ=="
+  expiry: 1606466153
+secret: "VGkK0AZGH+zrDvZZjML3W8mS7to/ExzGNCRFmf3/Fe8wyond5N34l7RX3OcZAkc8X8wfIZBKKfmhVyRDaZYApQ=="
+global: "YF2cnn9NKZY2d1aqBWc1grOi9iy75oB3O703Cao5FGxCKGpLVm6/WM95rVvINNYlJiDJaFslKqMQYPnP7wF1cQ=="
 logging:
   properties:
     type: "HmacSHA512"
   domain: "angel_oak.node"
-  key: "rdIAtmTkz5DHEn2qAA536b3RWdiPht9oE+IoeQyIvHrrmIBdG3PAw1A4Z/6U85X4XJPSId3i4WMHGhIn4Lx6zw=="
-  expiry: 1606219729
+  key: "pSOl5KJ+5qMWR6+Mg1lc3pwvY/2I7RCbbmaRZn96EpY4qDPRXCIaWzE1tBCsPdTn9/on4kVJnzHrTKbFVrCUPQ=="
+  expiry: 1606466153

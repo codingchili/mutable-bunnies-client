@@ -1,5 +1,5 @@
 ---
-application: prototype
+application: mutable-server
 clustered: false
 warnOnDefaultsLoaded: true
 blocks:
@@ -11,7 +11,7 @@ blocks:
   - com.codingchili.social.Service
   - com.codingchili.website.Service
   - com.codingchili.realmregistry.Service
-  - com.codingchili.banking.Service
+  #- com.codingchili.banking.Service
   router:
   - com.codingchili.router.Service
   website:

@@ -617,12 +617,16 @@ structures:
   point:
     x: 2707
     y: 86
+- id: "gold"
+  point:
+    x: 1697
+    y: 1303
 size:
   x: 32
   y: 64
 tileSizePx: 96
-tileScaledHeight: 78.38367176906169
 tileScaledWidth: 135.7645019878171
+tileScaledHeight: 78.38367176906169
 northPoint:
   x: 2172
   y: 0

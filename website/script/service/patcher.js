@@ -7,6 +7,7 @@ class Patcher {
 
     constructor() {
         this.name = "patcher";
+        this.onLoad = [];
         this._init();
     }
 
@@ -39,10 +40,8 @@ class Patcher {
         this.worker = worker;
 
         if (this.patch.version === this.getVersion()) {
-            this.patch.files = this.getFiles(worker);
-            this.worker.completed();
+            this.getFiles(worker, this.worker.completed.bind(this));
         } else {
-            this._clear();
             worker.started(this.patch.name, this.patch.version, this.patch.size, this.patch.files);
 
             if (this.patch.count > 0) {
@@ -57,87 +56,50 @@ class Patcher {
         return this.getVersion() === version;
     }
 
-    getFiles(worker) {
-        let files = this._load();
-        this.patch.files = files;
-        this.patch.size = 0;
+    getFiles(worker, callback) {
+        this.patch.size = Object.keys(this.patch.files).length;
         let transferred = 0;
-
-        for (let key in files) {
-            this.patch.size += files[key].data.length;
-        }
 
         worker.started(this.patch.name, this.patch.version, this.patch.size, this.patch.files);
 
-        let i = 0;
-        for (let key in files) {
-            i++;
-            let size = files[key].data.length;
+        for (let key in this.patch.files) {
+            let keys = Object.keys(this.patch.files);
 
-            if (key.endsWith('.png')) {
-                files[key].data = this.dataURIToBlob(files[key].data);
-            }
+            this._loadDb(key, value => {
+                this.patch.files[key] = value;
 
-            transferred += size;
-            // does not emit bandwidth or downloaded per file.
-            worker.progress(0, transferred, 0, Object.keys(files).indexOf(files[key].name));
+                worker.progress(0, transferred++, 0, keys.indexOf(key));
+
+                if (transferred === keys.length) {
+                    console.log('loaded patch files');
+                    console.log(this.patch.files);
+                    callback();
+                }
+            });
         }
-        return files;
     }
 
     setFiles(files) {
-        let i = 0;
-        let save = {};
-        this._from("serialize");
-        for (let key in files) {
-            let file = {};
-            file.name = files[key].name;
-            file.xhr = {};
-
-            if (key.endsWith('.atlas') || key.endsWith('.json') || key.endsWith('.js')) {
-                console.log('storing atlas');
-                file.xhrType = 'text';
-                file.data = files[key].data;
-
-                save[key] = file;
-                i++;
-
-                if (i === Object.keys(files).length) {
-                    this._to();
-                    this._store(save, this.url);
-                }
-            } else {
-                file.xhrType = 'blob';
-
-                let reader = new FileReader();
-                reader.readAsDataURL(files[key].data);
-                reader.onloadend = () => {
-                    let base64data = reader.result;
-                    file.data = base64data;
-                    save[key] = file;
-                    i++;
-
-                    if (i === Object.keys(files).length) {
-                        this._to();
-                        this._store(save, this.url);
-                    }
-                };
+        let count = Object.keys(files).length;
+        let latch = () => {
+            if (--count === 0) {
+                this.setVersion(this.patch.version);
             }
+        };
 
+        for (let key in files) {
+            let file = {
+                data: files[key].data,
+                name: key,
+                xhr: {},
+            };
+            if (key.endsWith('.atlas') || key.endsWith('.json') || key.endsWith('.js')) {
+                file.xhr.responseType = 'text';
+            } else {
+                file.xhr.responseType = 'blob';
+            }
+            this._storeDb(file, key, latch.bind(this));
         }
-    }
-
-    // see: https://stackoverflow.com/a/12300351
-    dataURIToBlob(dataURI) {
-        let byteString = atob(dataURI.split(',')[1]);
-        let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-        let ab = new ArrayBuffer(byteString.length);
-        let ia = new Uint8Array(ab);
-
-        for (let i = 0; i < byteString.length; i++) {
-            ia[i] = byteString.charCodeAt(i);
-        }
-        return new Blob([ab], {type: mimeString});
     }
 
     patchSize(done) {
@@ -226,7 +188,6 @@ class Patcher {
             if (this.index < this.patch.count) {
                 this.download(Object.keys(this.patch.files)[this.index]);
             } else {
-                this.setVersion(this.patch.version);
                 this.setFiles(this.patch.files);
                 this.worker.completed(file);
             }
@@ -239,25 +200,6 @@ class Patcher {
         } else if (event.target.status === 404) {
             application.error("Failed to retrieve file " + Object.keys(this.patch.files)[this.index]);
         }
-    }
-
-    _store(data) {
-        this._from("put_ls: " + this.url);
-        localStorage.setItem("files@" + this.url, JSON.stringify(data));
-        this._to();
-        this._from("put_db" + this.url);
-        this._storeDb(data, this.url);
-        this._to();
-    }
-
-    _load() {
-        this._from("load_ls: " + this.url);
-        let data = JSON.parse(localStorage.getItem("files@" + this.url))
-        this._to();
-        this._from("load_db" + this.url);
-        this._loadDb(this.url);
-        this._to();
-        return data;
     }
 
     _from(tag) {
@@ -280,15 +222,14 @@ class Patcher {
 
     setVersion(version) {
         localStorage.setItem("version@" + this.url, version);
+        console.log(`client updated to ${version}`);
     }
 
     _init() {
+        console.log('init!');
         let indexedDB = window.indexedDB;
-        let request = indexedDB.open(this.name, 6);
-
-        request.onerror = (event) => {
-            console.log("Error creating/accessing IndexedDB database");
-        };
+        let request = indexedDB.open(this.name, 246);
+        console.log('requested');
 
         request.onsuccess = (event) => {
             console.log("Success creating/accessing IndexedDB database");
@@ -296,35 +237,61 @@ class Patcher {
             console.log(this.db);
 
             this.db.onerror = (event) => {
-                console.log("Error creating/accessing IndexedDB database");
+                console.log('the_error');
+                application.error(event.message);
             };
+            this._loaded();
         }
-
-        // For future use. Currently only in latest Firefox versions
+        request.onerror = (event) => {
+            console.log(event);
+            console.log('yikes, got messed up.');
+        };
         request.onupgradeneeded = (event) => {
-            console.log('upgrade is needed');
             this.db = event.target.result;
-            try {
-                this.db.createObjectStore(this.name);
-            } catch (e) {
-                console.log(e);
+            if (this.db.objectStoreNames.contains(this.name)) {
+                this.db.deleteObjectStore(this.name);
             }
-            console.log('created object store!!! ' + this.name);
-        };
+            this.db.createObjectStore(this.name, {keyPath: 'id'});
+        }
     }
 
-    _storeDb(blob, id) {
-        console.log("Putting elephants in IndexedDB");
-        let transaction = this.db.transaction([this.name], "readwrite");
-        let put = transaction.objectStore(this.name).put(blob, id);
+    _storeDb(blob, id, callback) {
+        this._delayed(() => {
+            let transaction = this.db.transaction(this.name, "readwrite");
+            let put = transaction.objectStore(this.name).put({
+                value: blob,
+                id: btoa(id)
+            });
+            put.onsuccess = (event) => {
+                callback();
+            };
+            put.onerror = (event) => {
+                application.error(event.message);
+            };
+        });
     }
 
-    _loadDb(id) {
-        let transaction = this.db.transaction([this.name], "readonly");
-        transaction.objectStore(this.name).get(id).onsuccess = (event) => {
-            console.log('stored');
-            console.log(event.target.result);
-        };
+    _loadDb(id, callback) {
+        this._delayed(() => {
+            let transaction = this.db.transaction(this.name, "readonly");
+            transaction.objectStore(this.name).get(btoa(id)).onsuccess = (event) => {
+                //event.target.result.value.xhr.response = event.target.result.value.data;
+                callback(event.target.result.value);
+            };
+        });
+    }
+
+    _delayed(action) {
+        if (this.loaded) {
+            action();
+        } else {
+            this.onLoad.push(action);
+        }
+    }
+
+    _loaded() {
+        this.loaded = true;
+        this.onLoad.forEach(action => action());
     }
 }
 
