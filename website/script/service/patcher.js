@@ -5,6 +5,11 @@
  */
 class Patcher {
 
+    constructor() {
+        this.name = "patcher";
+        this._init();
+    }
+
     load(callback, patch, url) {
         this.patch = patch;
         this.index = 0;
@@ -37,7 +42,7 @@ class Patcher {
             this.patch.files = this.getFiles(worker);
             this.worker.completed();
         } else {
-            localStorage.clear();
+            this._clear();
             worker.started(this.patch.name, this.patch.version, this.patch.size, this.patch.files);
 
             if (this.patch.count > 0) {
@@ -52,16 +57,8 @@ class Patcher {
         return this.getVersion() === version;
     }
 
-    getVersion() {
-        return localStorage.getItem("version@"  + this.url);
-    }
-
-    setVersion(version) {
-        localStorage.setItem("version@" + this.url, version);
-    }
-
     getFiles(worker) {
-        let files = JSON.parse(localStorage.getItem("files@" + this.url));
+        let files = this._load();
         this.patch.files = files;
         this.patch.size = 0;
         let transferred = 0;
@@ -76,7 +73,11 @@ class Patcher {
         for (let key in files) {
             i++;
             let size = files[key].data.length;
-            files[key].data = this.dataURIToBlob(files[key].data);
+
+            if (key.endsWith('.png')) {
+                files[key].data = this.dataURIToBlob(files[key].data);
+            }
+
             transferred += size;
             // does not emit bandwidth or downloaded per file.
             worker.progress(0, transferred, 0, Object.keys(files).indexOf(files[key].name));
@@ -87,24 +88,42 @@ class Patcher {
     setFiles(files) {
         let i = 0;
         let save = {};
+        this._from("serialize");
         for (let key in files) {
             let file = {};
             file.name = files[key].name;
             file.xhr = {};
-            file.xhrType = 'application/blob';
 
-            let reader = new FileReader();
-             reader.readAsDataURL(files[key].data);
-             reader.onloadend = () => {
-                 let base64data = reader.result;
-                 file.data = base64data;
-                 save[key] = file;
-                 i++;
+            if (key.endsWith('.atlas') || key.endsWith('.json') || key.endsWith('.js')) {
+                console.log('storing atlas');
+                file.xhrType = 'text';
+                file.data = files[key].data;
 
-                 if (i === Object.keys(patch.files).length) {
-                    localStorage.setItem("files@" + this.url, JSON.stringify(save));
-                 }
-             };
+                save[key] = file;
+                i++;
+
+                if (i === Object.keys(files).length) {
+                    this._to();
+                    this._store(save, this.url);
+                }
+            } else {
+                file.xhrType = 'blob';
+
+                let reader = new FileReader();
+                reader.readAsDataURL(files[key].data);
+                reader.onloadend = () => {
+                    let base64data = reader.result;
+                    file.data = base64data;
+                    save[key] = file;
+                    i++;
+
+                    if (i === Object.keys(files).length) {
+                        this._to();
+                        this._store(save, this.url);
+                    }
+                };
+            }
+
         }
     }
 
@@ -116,8 +135,8 @@ class Patcher {
         let ia = new Uint8Array(ab);
 
         for (let i = 0; i < byteString.length; i++) {
-              ia[i] = byteString.charCodeAt(i);
-          }
+            ia[i] = byteString.charCodeAt(i);
+        }
         return new Blob([ab], {type: mimeString});
     }
 
@@ -135,25 +154,25 @@ class Patcher {
         }
 
         Object.keys(patch.files).forEach((key, index) => {
-           let file = patch.files[key];
+            let file = patch.files[key];
 
-           if (file.size === undefined) {
-               let xhr = new XMLHttpRequest();
-               xhr.open("HEAD", this.url + key, true);
-               xhr.onreadystatechange = () => {
-                   if (xhr.readyState === 2) {
-                       file.size = parseInt(xhr.getResponseHeader("Content-Length"));
+            if (file.size === undefined) {
+                let xhr = new XMLHttpRequest();
+                xhr.open("HEAD", this.url + key, true);
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 2) {
+                        file.size = parseInt(xhr.getResponseHeader("Content-Length"));
 
-                       if (isNaN(file.size)) {
-                           file.size = 0; // some webservers don't return a length for certain resource types.
-                       }
-                       countdown(file);
-                   }
-               };
-               xhr.send();
-           } else {
-               countdown(file);
-           }
+                        if (isNaN(file.size)) {
+                            file.size = 0; // some webservers don't return a length for certain resource types.
+                        }
+                        countdown(file);
+                    }
+                };
+                xhr.send();
+            } else {
+                countdown(file);
+            }
         });
     }
 
@@ -161,7 +180,16 @@ class Patcher {
         const xhr = new XMLHttpRequest();
         this.patch.files[fileName].xhr = xhr;
         xhr.open('GET', this.url + fileName, true);
-        xhr.responseType = 'blob';
+
+        if (fileName.endsWith(".png")) {
+            xhr.responseType = 'blob';
+        } else if (fileName.endsWith(".atlas") || fileName.endsWith('.js')) {
+            xhr.responseType = 'text';
+        } else if (fileName.endsWith('.json')) {
+            xhr.responseType = 'json';
+        } else {
+            throw Error('unsupported type ' + fileName);
+        }
 
         this.downloaded = 0;
         xhr.onload = (event) => this.completeHandler(event);
@@ -193,7 +221,6 @@ class Patcher {
         if (event.target.status === 200) {
             let file = this.patch.files[Object.keys(this.patch.files)[this.index]];
             file.data = event.target.response;
-
             this.index += 1;
 
             if (this.index < this.patch.count) {
@@ -212,6 +239,92 @@ class Patcher {
         } else if (event.target.status === 404) {
             application.error("Failed to retrieve file " + Object.keys(this.patch.files)[this.index]);
         }
+    }
+
+    _store(data) {
+        this._from("put_ls: " + this.url);
+        localStorage.setItem("files@" + this.url, JSON.stringify(data));
+        this._to();
+        this._from("put_db" + this.url);
+        this._storeDb(data, this.url);
+        this._to();
+    }
+
+    _load() {
+        this._from("load_ls: " + this.url);
+        let data = JSON.parse(localStorage.getItem("files@" + this.url))
+        this._to();
+        this._from("load_db" + this.url);
+        this._loadDb(this.url);
+        this._to();
+        return data;
+    }
+
+    _from(tag) {
+        this.from = performance.now();
+        this.tag = tag;
+    }
+
+    _to() {
+        let now = performance.now();
+        console.log(`${this.tag} took ${now - this.from}ms`);
+    }
+
+    _clear() {
+        localStorage.clear();
+    }
+
+    getVersion() {
+        return localStorage.getItem("version@" + this.url);
+    }
+
+    setVersion(version) {
+        localStorage.setItem("version@" + this.url, version);
+    }
+
+    _init() {
+        let indexedDB = window.indexedDB;
+        let request = indexedDB.open(this.name, 6);
+
+        request.onerror = (event) => {
+            console.log("Error creating/accessing IndexedDB database");
+        };
+
+        request.onsuccess = (event) => {
+            console.log("Success creating/accessing IndexedDB database");
+            this.db = request.result;
+            console.log(this.db);
+
+            this.db.onerror = (event) => {
+                console.log("Error creating/accessing IndexedDB database");
+            };
+        }
+
+        // For future use. Currently only in latest Firefox versions
+        request.onupgradeneeded = (event) => {
+            console.log('upgrade is needed');
+            this.db = event.target.result;
+            try {
+                this.db.createObjectStore(this.name);
+            } catch (e) {
+                console.log(e);
+            }
+            console.log('created object store!!! ' + this.name);
+        };
+    }
+
+    _storeDb(blob, id) {
+        console.log("Putting elephants in IndexedDB");
+        let transaction = this.db.transaction([this.name], "readwrite");
+        let put = transaction.objectStore(this.name).put(blob, id);
+    }
+
+    _loadDb(id) {
+        let transaction = this.db.transaction([this.name], "readonly");
+        transaction.objectStore(this.name).get(id).onsuccess = (event) => {
+            console.log('stored');
+            console.log(event.target.result);
+        };
     }
 }
 

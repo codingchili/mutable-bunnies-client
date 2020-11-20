@@ -62,19 +62,15 @@ class GameView extends HTMLElement {
                         let script = event.patch.executable[index];
                         event.status('init ' + script.split('.')[0]);
 
-                        let reader = new FileReader();
-                        reader.onload = () => {
+                        if (event.patch.files[script]) {
                             try {
                                 // indirect eval for global scope.
-                                (1, eval)(reader.result);
+                                (1, eval)(event.patch.files[script].data);
                                 index++;
                                 loader(index);
                             } catch (err) {
                                 this._handleError(err);
                             }
-                        };
-                        if (event.patch.files[script]) {
-                            reader.readAsText(event.patch.files[script].data);
                         } else {
                             application.error('Bootstrap script not downloaded: "' + script + '".');
                         }
@@ -109,40 +105,40 @@ class GameView extends HTMLElement {
     get template() {
         return html`
             <style>
-            :host {
-                display: block;
-                width: 100%;
-                height: 100%;
-                margin-bottom: -3px;
-                padding: 0;
-            }
-
-            @keyframes fadein {
-                from {
-                    opacity: 0;
+                :host {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    margin-bottom: -3px;
+                    padding: 0;
                 }
-                to {
-                    opacity: 1;
+
+                @keyframes fadein {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
                 }
-            }
 
-            #interface {
-                animation: fadein 0.72s ease 1;
-                position: absolute;
-                z-index: 100;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-            }
+                #interface {
+                    animation: fadein 0.72s ease 1;
+                    position: absolute;
+                    z-index: 100;
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                }
 
-            #interface * {
-                pointer-events: all;
-            }
+                #interface * {
+                    pointer-events: all;
+                }
 
-        </style>
-        <div id="interface">
-            <notification-toaster></notification-toaster>
-            <!--<div ?hidden="${this.loading}">-->
+            </style>
+            <div id="interface">
+                <notification-toaster></notification-toaster>
+                    <!--<div ?hidden="${this.loading}">-->
 
                 <quest-log></quest-log>
                 <game-dialog></game-dialog>
@@ -151,7 +147,8 @@ class GameView extends HTMLElement {
                 <player-inventory></player-inventory>
                 <friend-view></friend-view>
 
-                <player-status .target="${this.target}" style="right: 16px; left: unset;" ?hidden="${!this.target}"></player-status>
+                <player-status .target="${this.target}" style="right: 16px; left: unset;"
+                               ?hidden="${!this.target}"></player-status>
 
                 <!-- player -->
                 <player-status .target="${this.player}"></player-status>
@@ -163,8 +160,8 @@ class GameView extends HTMLElement {
                 <world-designer></world-designer>
                 <game-menu></game-menu>
                 <context-menu></context-menu>
-            <!--</div>-->
-        </div>
+                <!--</div>-->
+            </div>
         `;
     }
 
