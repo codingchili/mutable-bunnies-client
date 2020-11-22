@@ -71,8 +71,6 @@ class Patcher {
                 worker.progress(0, transferred++, 0, keys.indexOf(key));
 
                 if (transferred === keys.length) {
-                    console.log('loaded patch files');
-                    console.log(this.patch.files);
                     callback();
                 }
             });
@@ -226,25 +224,19 @@ class Patcher {
     }
 
     _init() {
-        console.log('init!');
         let indexedDB = window.indexedDB;
-        let request = indexedDB.open(this.name, 246);
-        console.log('requested');
+        let request = indexedDB.open(this.name, 255);
 
         request.onsuccess = (event) => {
-            console.log("Success creating/accessing IndexedDB database");
             this.db = request.result;
-            console.log(this.db);
 
             this.db.onerror = (event) => {
-                console.log('the_error');
                 application.error(event.message);
             };
             this._loaded();
         }
         request.onerror = (event) => {
             console.log(event);
-            console.log('yikes, got messed up.');
         };
         request.onupgradeneeded = (event) => {
             this.db = event.target.result;
