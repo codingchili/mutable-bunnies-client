@@ -15,7 +15,7 @@ class Application {
             fastReconnect: true,
             clearCache: false,
             rightClick: true,
-            logEvents: false,
+            logEvents: true,
             hardResetXY: true,
             metrics: true
         };

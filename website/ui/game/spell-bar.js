@@ -28,15 +28,17 @@ class SpellBar extends HTMLElement {
 
     connectedCallback() {
         application.onRealmLoaded(realm => {
+            console.log('REALM LOADED');
             this.realm = realm;
             this.spells = realm.spells;
         });
 
         application.onCharacterUpdate(this.render.bind(this));
         application.onCharacterLoaded(player => {
+            console.log(this.realm);
+            console.log(this.spells);
             this.character = player;
             this.render();
-
         });
 
         application.onGameLoaded((game) => {
