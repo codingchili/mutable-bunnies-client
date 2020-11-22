@@ -5,6 +5,8 @@ model:
   graphics: "game/ores/aluminum.png"
   scale: 0.3
   blocking: true
+  pivot:
+    y: -48
   hitbox:
     type: rectangular
     points:

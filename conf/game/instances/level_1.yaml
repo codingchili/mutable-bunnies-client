@@ -621,6 +621,50 @@ structures:
   point:
     x: 1697
     y: 1303
+- id: "diamond"
+  point:
+    x: 3510
+    y: 3766
+- id: "silver"
+  point:
+    x: 3444
+    y: 3799
+- id: "uranium"
+  point:
+    x: 3469
+    y: 3547
+- id: "rubies"
+  point:
+    x: 3475
+    y: 3647
+- id: "sulphur"
+  point:
+    x: 3515
+    y: 3426
+- id: "copper"
+  point:
+    x: 3493
+    y: 3644
+- id: "platinum"
+  point:
+    x: 3511
+    y: 3491
+- id: "nettle"
+  point:
+    x: 3545
+    y: 3374
+- id: "tree_cyan"
+  point:
+    x: 3489
+    y: 3487
+- id: "aluminum"
+  point:
+    x: 52
+    y: 1074
+- id: "coal"
+  point:
+    x: 59
+    y: 1072
 size:
   x: 32
   y: 64
