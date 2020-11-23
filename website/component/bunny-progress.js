@@ -9,16 +9,25 @@ class BunnyProgress extends HTMLElement {
     constructor() {
         super();
         this._max = 100;
-        this._value = 32;
+        this._value = 0;
     }
 
     set max(value) {
-        this._max = value;
+        if (value) {
+            this._max = (value > 0) ? value : 100;
+        } else {
+            this._max = 100;
+        }
         this.render();
     }
 
     set value(value) {
-        this._value = value;
+        console.log(value);
+        if (value) {
+            this._value = value;
+        } else {
+            this._value = 0;
+        }
         this.render();
     }
 
@@ -28,15 +37,19 @@ class BunnyProgress extends HTMLElement {
 
     connectedCallback() {
         this.attachShadow({mode: 'open'});
+        this.render();
 
-        new MutationObserver(() => {
+        let update = () => {
             this.bar = this.bar || this.shadowRoot.querySelector('.fill');
             this._max = this.getAttribute('max') || this._max;
             this._value = this.getAttribute('value') || this._value;
             this.bar.style.width = `${this.percent()}%`;
-        }).observe(this, {attributes: true});
-        
-        this.render();
+        };
+
+        new MutationObserver(update.bind(this))
+            .observe(this, {attributes: true});
+
+        update();
     }
 
     get template() {

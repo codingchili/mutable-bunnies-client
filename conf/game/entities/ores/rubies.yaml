@@ -1,5 +1,5 @@
 ---
-name: "Rubies."
+name: "Rubies"
 description: "Rare and valuable rubies."
 model:
   graphics: "game/ores/rubies.png"

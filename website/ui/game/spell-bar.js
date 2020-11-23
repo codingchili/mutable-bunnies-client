@@ -28,15 +28,12 @@ class SpellBar extends HTMLElement {
 
     connectedCallback() {
         application.onRealmLoaded(realm => {
-            console.log('REALM LOADED');
             this.realm = realm;
             this.spells = realm.spells;
         });
 
         application.onCharacterUpdate(this.render.bind(this));
         application.onCharacterLoaded(player => {
-            console.log(this.realm);
-            console.log(this.spells);
             this.character = player;
             this.render();
         });
@@ -74,10 +71,8 @@ class SpellBar extends HTMLElement {
                             '--bunny-progress-transition-duration',
                             (ms / 1000).toFixed(1) + 's'
                         );
-                        setTimeout(() => {
-                            bar.value = 100;
-                        }, 96);
-                    }, 96);
+                        bar.value = 100;
+                    }, 32);
 
                     setTimeout(() => {
                         this.cooldown[spell] = false;
@@ -389,7 +384,7 @@ class SpellBar extends HTMLElement {
                         <span class="charges">${charges}</span>
                     ` : html`
                         <bunny-progress id="cd-bar-${spell.id}" style="visibility: hidden;" class="cooldown-bar transiting"
-                                        max="100" value="0"></bunny-progress>
+                                        max="100"></bunny-progress>
                     `}
             </div>`;
     }

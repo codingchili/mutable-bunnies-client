@@ -225,7 +225,7 @@ class Patcher {
 
     _init() {
         let indexedDB = window.indexedDB;
-        let request = indexedDB.open(this.name, 255);
+        let request = indexedDB.open(this.name, 258);
 
         request.onsuccess = (event) => {
             this.db = request.result;

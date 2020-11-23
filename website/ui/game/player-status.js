@@ -32,7 +32,15 @@ class PlayerStatus extends HTMLElement {
 
     set target(value) {
         if (value) {
-            value.stats = value.stats || {};
+            console.log(value);
+            value.stats = value.stats || {
+                health: 0,
+                maxhealth: 100,
+                energy: 0,
+                maxenergy: 100,
+                experience: 0,
+                nextlevel: 100
+            };
             this._target = value;
             this.afflictions = this._target.afflictions || [];
 
@@ -61,7 +69,11 @@ class PlayerStatus extends HTMLElement {
     }
 
     _integer(number) {
-        return Math.round(number);
+        if (number) {
+            return Math.round(number);
+        } else {
+            return 0;
+        }
     }
 
     _listen() {
@@ -81,19 +93,7 @@ class PlayerStatus extends HTMLElement {
         }
     }
 
-    _notifyTargetChange(target) {
-        if (target) {
-            this._updatePlayerState(target);
-        }
-    }
-
     _updatePlayerState(target) {
-        this._default(target, 'experience');
-        this._default(target, 'nextlevel');
-        this._default(target, 'energy');
-
-        this.target = target;
-
         if (target.afflictions) {
             this.afflictions = target.afflictions;
         }
@@ -105,22 +105,6 @@ class PlayerStatus extends HTMLElement {
 
     _description(affliction) {
         return eval('`' + affliction.description + '`');
-    }
-
-    _default(target, attribute, def) {
-        if (!target.stats) {
-            target.stats = {
-                health: 0,
-                maxhealth: 1,
-                energy: 0,
-                maxenergy: 1,
-                experience: 0,
-                nextlevel: 1
-            };
-        }
-        if (!target.stats[attribute]) {
-            target.stats[attribute] = (def) ? def : 0;
-        }
     }
 
     get template() {
