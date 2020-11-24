@@ -2,10 +2,17 @@
 id: "level_1"
 name: "level 1"
 texture: "game/map/tiles/brownstone.png"
-skybox:
-  sky: "#CC0041"
-  clouds: "#FFFFFF"
 limit: 50
+skybox:
+  background:
+    resource: 'game/map/clouds/skybox_grey_reverse.png'
+    tint: '#ff00cc'
+  moon:
+    enabled: true
+    tint: '#ffffff'
+  clouds:
+    tint: '#482424'
+    type: 'dark'
 onStartup:
   jexl: "//game.spawner().npc(\"Illicit Lilith\", 300, 300);"
 onPlayerJoin:
