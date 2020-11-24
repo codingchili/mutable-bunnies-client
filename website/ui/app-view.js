@@ -28,7 +28,7 @@ class AppView extends HTMLElement {
             
                 :host {
                     display: block;
-                    background-image: url("images/background.webp");
+                    background-image: url("images/background_graveyard.webp");
                     background-repeat: repeat-x;
                     background-attachment: fixed;
                     width: 100%;

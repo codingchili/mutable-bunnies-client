@@ -1,6 +1,6 @@
 name: "Heart Embroidered Underwear"
 description: "Only the bravest of adventurers wear only underwear to battle."
-icon: "underwear.png"
+icon: "gui/item/icon/underwear.png"
 slot: "legs"
 rarity: "epic"
 stats:

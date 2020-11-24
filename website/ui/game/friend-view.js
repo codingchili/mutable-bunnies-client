@@ -397,6 +397,10 @@ class FriendView extends HTMLElement {
                 width: 100%;
                 overflow-y: scroll;
             }
+            
+            #container {
+                display: none;
+            }
 
             .actions {
                 position: absolute;

@@ -1,6 +1,6 @@
 name: "Plain Amulet"
 slot: "neck"
-icon: "amulet_1.png"
+icon: "gui/item/icon/amulet_1.png"
 rarity: "uncommon"
 ddescription: "It doesn't have magical powers and it tends to get in your way."
 stats:

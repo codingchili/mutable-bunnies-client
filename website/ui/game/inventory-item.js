@@ -141,7 +141,7 @@ class InventoryItem extends HTMLElement {
 
         <div id="container" ?hidden="${!this.item}">
             <div class="item-icon">
-                <img src="${this.realm.resources}gui/item/icon/${this.item.icon}"/>
+                <img src="${this.realm.resources}/${this.item.icon}"/>
                 <div class="icon-quantity">${this._quantity(this.item)}</div>
             </div>
             <bunny-tooltip location="top" class="stats-tooltip">

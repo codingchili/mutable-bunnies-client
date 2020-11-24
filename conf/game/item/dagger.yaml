@@ -1,4 +1,4 @@
-icon: "dagger2.png"
+icon: "gui/item/icon/dagger2.png"
 name: "Steel Dagger"
 description: "A dagger of the finer variety."
 slot: "weapon"

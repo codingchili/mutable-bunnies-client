@@ -1,7 +1,7 @@
 name: "Flaming Stick of Truth"
 description: "You have set fire to the stick of truth, it is the ultimate weapon until it burns out."
 slot: "offhand"
-icon: "flaming_stick.png"
+icon: "gui/item/icon/flaming_stick.png"
 rarity: "legendary"
 stats:
   strength: 8

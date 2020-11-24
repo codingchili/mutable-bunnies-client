@@ -1,6 +1,6 @@
 name: "Plain Boots"
 slot: "foot"
-icon: "boots.png"
+icon: "gui/item/icon/boots.png"
 description: "There are no holes in them."
 stats:
   dexterity: 4

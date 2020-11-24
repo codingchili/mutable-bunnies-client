@@ -103,11 +103,11 @@ class PlayerInventory extends HTMLElement {
 
         // custom class specific slot icons.
         if (armors.includes(slot)) {
-            return `slots/${slot}_${template.armors[0]}.svg`;
+            return `gui/item/icon/slots/${slot}_${template.armors[0]}.svg`;
         } else if (slot === 'weapon') {
-            return `slots/${slot}_${template.weapons[0]}.svg`;
+            return `gui/item/icon/slots/${slot}_${template.weapons[0]}.svg`;
         } else {
-            return `slots/${slot}.svg`;
+            return `gui/item/icon/slots/${slot}.svg`;
         }
     }
 
@@ -130,6 +130,10 @@ class PlayerInventory extends HTMLElement {
         return html`
         <style>
             :host {
+            }
+            
+            #container {
+                display: none;
             }
 
             #dialog {

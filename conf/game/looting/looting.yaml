@@ -1,0 +1,9 @@
+---
+model:
+  graphics: "game/character/gravestone/grave-1-no-vegetation.png"
+  scale: 0.14
+description: "Corpse of %s"
+corpseOffsetY: -42
+dropDistance: 64
+decay: 300_000
+removeWhenEmpty: false
