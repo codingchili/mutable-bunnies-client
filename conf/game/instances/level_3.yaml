@@ -1,6 +1,17 @@
 ---
 name: level 3
 limit: 50
+skybox:
+  gradient:
+    - '#e40303'
+    - '#ff8c00'
+    - '#ffed00'
+    - '#008026'
+    - '#004dff'
+    - '#750787'
+  clouds:
+    tint: '#ff00cc'
+    type: 'puffy'
 size:
   x: 16
   y: 32

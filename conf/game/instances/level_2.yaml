@@ -1239,9 +1239,6 @@ spawns:
 - x: 900
   y: 625
   probability: 1.0
-skybox:
-  sky: "#0000ff"
-  clouds: "#ffffff"
 onStartup:
   jexl: |-
     // done by config now, wow.
@@ -1257,6 +1254,16 @@ name: "level 2"
 id: "level_2"
 texture: "game/map/tiles/stone.png"
 limit: 50
+skybox:
+  gradient:
+    - '#000000'
+    - '#002a30'
+  moon:
+    enabled: true
+    tint: '#AA2020'
+  clouds:
+    tint: '#482424'
+    type: 'dark'
 size:
   x: 22
   y: 12
