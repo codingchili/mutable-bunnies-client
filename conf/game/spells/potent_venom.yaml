@@ -1,6 +1,6 @@
 ---
 name: "Potent Venom"
-description: "Deals 2% of maximum health per second plus ${(this.character.stats.dexterity / 2).toFixed(1)}."
+description: "Deals 2% of maximum health per second plus ${(this.character.stats.dexterity / 2 + this.character.stats.level).toFixed(1)}."
 cooldown: 4
 casttime: 1
 active: 12.0

@@ -1,6 +1,6 @@
 ---
 name: "Dagger"
-description: "Strikes nearby targets with a daggur dealing ${this.character.stats.dexterity / 2} direct damage. Deals 50% bonus damage if target stands still."
+description: "Strikes nearby targets with a daggur dealing ${this.character.stats.dexterity * 2 + this.character.stats.level} direct damage. Deals 50% bonus damage if target stands still."
 cooldown: 0.5
 casttime: 0.20
 recharge: 3
@@ -22,7 +22,7 @@ onCastComplete:
     RANGE = 326
     aoe = source.vector.copy().setSize(RANGE);
 
-    damage = (source.stats[Attribute.dexterity] * -1 / 2);
+    damage = (source.stats[Attribute.dexterity] * -2) - (source.stats[Attribute.level] * 1);
     game.creatures().radius(aoe).collect().each { creature ->
       if (!creature.equals(source)) {
         amplify = (creature.vector.velocity == 0);

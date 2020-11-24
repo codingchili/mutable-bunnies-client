@@ -1,7 +1,7 @@
 name: "Rusted Battleaxe"
 description: "The rusted edge makes this a heavy blunt weapon."
 slot: "weapon"
-icon: "battleaxe.png"
+icon: "gui/item/icon/battleaxe.png"
 rarity: "uncommon"
 stats:
   strength: 4

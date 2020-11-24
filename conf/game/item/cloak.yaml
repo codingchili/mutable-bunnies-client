@@ -1,7 +1,7 @@
 name: "Tattered Cloak"
 description: "You feel like a superhero."
 slot: "cloak"
-icon: "cloak.png"
+icon: "gui/item/icon/cloak.png"
 rarity: "uncommon"
 stats:
   intelligence: 2

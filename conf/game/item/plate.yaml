@@ -1,6 +1,6 @@
 name: "Plates Sewn Together"
 slot: "chest"
-icon: "plate.png"
+icon: "gui/item/icon/plate.png"
 description: "The plates might protect against something, if the strings keep it together."
 stats:
   constitution: 4

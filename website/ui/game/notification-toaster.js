@@ -63,7 +63,7 @@ class NotificationToaster extends HTMLElement {
                 z-index: 900;
 
                 top: 32px;
-                max-width: 364px;
+                max-width: 396px;
                 left: 50%;
                 transform: translateX(-50%);
 

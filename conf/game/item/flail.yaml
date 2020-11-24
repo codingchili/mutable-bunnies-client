@@ -1,7 +1,7 @@
 name: "Squeaky Flail"
 description: "The chains of the flail could use some oil, ready to serve justice."
 slot: "weapon"
-icon: "flail.png"
+icon: "gui/item/icon/flail.png"
 rarity: "uncommon"
 stats:
   strength: 4

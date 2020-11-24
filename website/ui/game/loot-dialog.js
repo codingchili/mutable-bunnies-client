@@ -13,7 +13,7 @@ class LootDialog extends HTMLElement {
     }
 
     connectedCallback() {
-        this.attachShadow({mode: 'open'})
+        this.attachShadow({mode: 'open'});
 
         application.onGameLoaded(() => {
             server.connection.setHandler('loot_list', {
@@ -24,6 +24,7 @@ class LootDialog extends HTMLElement {
                     if (e.lootList.length > 0) {
                         this._start();
                     } else {
+                        this.target.interactive = false;
                         this._stop();
                     }
                 },
@@ -65,6 +66,10 @@ class LootDialog extends HTMLElement {
                 min-height: 112px;
                 min-width: 428px;
             }
+            
+            #container {
+                display: none;
+            }
 
             span {
                 padding: 0.28rem;
@@ -85,7 +90,7 @@ class LootDialog extends HTMLElement {
             <div class="dialog-overlay"></div>
 
             <bunny-box class="noselect dialog-center" id="dialog" border>
-                <bunny-icon icon="close" class="icon" id="dialog-close" @down="${this._stop.bind(this)}"></bunny-icon>
+                <bunny-icon icon="close" class="icon" id="dialog-close" @mousedown="${this._stop.bind(this)}"></bunny-icon>
 
                 <span class="dialog-entity">${this.target.name}</span>
 

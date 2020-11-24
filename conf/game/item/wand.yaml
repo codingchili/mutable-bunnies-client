@@ -1,6 +1,6 @@
 name: "Magical Wand"
 description: "It is magical, albeit slightly."
-icon: "wand_1.png"
+icon: "gui/item/icon/wand_1.png"
 slot: "weapon"
 rarity: "rare"
 stats:

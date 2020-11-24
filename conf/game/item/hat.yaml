@@ -1,4 +1,4 @@
-icon: "feathered_hat.png"
+icon: "gui/item/icon/feathered_hat.png"
 name: "Feathered Hat"
 description: "Robin Hood Vibes."
 slot: "head"
