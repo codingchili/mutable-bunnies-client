@@ -5,7 +5,7 @@ gravestone:
 item:
   scale: 0.4
 name: "Corpse"
-description: "Corpse of %s"
+description: "Corpse of %s, RIP."
 corpseOffsetY: -32
 dropDistance: 64
 decay: 180_000

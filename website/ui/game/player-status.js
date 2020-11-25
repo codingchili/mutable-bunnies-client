@@ -32,7 +32,6 @@ class PlayerStatus extends HTMLElement {
 
     set target(value) {
         if (value) {
-            console.log(value);
             value.stats = value.stats || {
                 health: 0,
                 maxhealth: 100,

@@ -24,7 +24,7 @@ class LootDialog extends HTMLElement {
                     if (e.lootList.length > 0) {
                         this._start();
                     } else {
-                        this.target.interactive = false;
+                        this.target.buttonMode = false;
                         this._stop();
                     }
                 },
@@ -82,6 +82,7 @@ class LootDialog extends HTMLElement {
                 flex-wrap: wrap;
                 justify-content: center;
                 padding-bottom: 24px;
+                user-select: none;
             }
             
             ${BunnyStyles.icons}

@@ -14,7 +14,7 @@ class ContextMenu extends HTMLElement {
     constructor() {
         super();
         // set up default options
-        this.options = {
+        this.defaultOptions = {
             block: false,
             items: [
                 {
@@ -38,13 +38,14 @@ class ContextMenu extends HTMLElement {
                     callback: this._trade.bind(this)
                 }]
         };
+        this.options = this.defaultOptions;
     }
 
     connectedCallback() {
         this.attachShadow({mode: 'open'})
 
         application.subscribe('context-menu', event => {
-            this.options = event.options || this.options;
+            this.options = event.options || this.defaultOptions;
             this.target = event.target;
             let x = input.x;
             let y = input.y;

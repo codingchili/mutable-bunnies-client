@@ -78,6 +78,18 @@ class PlayerInventory extends HTMLElement {
                 options: {
                     block: true,
                     items: [{
+                        name: "Use",
+                        filter: () => item.slot === 'none',
+                        callback: () => {
+                            game.inventory.useItem(item)
+                        }
+                    }, {
+                        name: "Equip",
+                        filter: () => item.slot !== 'none',
+                        callback: () => {
+                            game.inventory.equipItem(item)
+                        }
+                    }, {
                         name: "Drop",
                         filter: () => true,
                         callback: () => {
@@ -176,6 +188,7 @@ class PlayerInventory extends HTMLElement {
                 padding-bottom: 16px;
                 padding-left: 8px;
                 padding-right: 8px;
+                user-select: none;
             }
 
             .slot_row {
