@@ -51,7 +51,9 @@ class LootDialog extends HTMLElement {
 
     _stop() {
         this.container.style.display = 'none';
-        game.inventory.unsubscribeLootList(this.target);
+        if (this.loot.length > 0) {
+            game.inventory.unsubscribeLootList(this.target);
+        }
         input.unblock();
     }
 

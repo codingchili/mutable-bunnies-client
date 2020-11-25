@@ -14,7 +14,7 @@ class Application {
             selectFirstCharacter: true,
             fastReconnect: true,
             clearCache: true,
-            rightClick: true,
+            rightClick: false,
             logEvents: true,
             hardResetXY: true,
             metrics: true

@@ -72,11 +72,29 @@ class PlayerInventory extends HTMLElement {
     }
 
     _equip(item) {
-        if (item.slot !== 'none') {
-            game.inventory.equipItem(item);
-        } else {
-            game.inventory.useItem(item);
-        }
+        input.ifLeftMouse(() => {
+            application.publish('context-menu', {
+                target: item,
+                options: {
+                    block: true,
+                    items: [{
+                        name: "Drop",
+                        filter: () => true,
+                        callback: () => {
+                            game.inventory.dropItem(item)
+                        }
+                    }
+                    ]
+                }
+            });
+        });
+        input.ifRightMouse(() => {
+            if (item.slot !== 'none') {
+                game.inventory.equipItem(item);
+            } else {
+                game.inventory.useItem(item);
+            }
+        });
     }
 
     _drop() {

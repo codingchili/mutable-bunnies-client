@@ -23,7 +23,7 @@ spells:
   - "fire bow"
 items:
   - "bow"
-  - "pleather_armor"
+  - "body_armor"
   - "underwear"
 stats:
   strength: 16

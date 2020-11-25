@@ -23,7 +23,7 @@ spells:
   - "shadow escape"
 items:
   - "dagger"
-  - "pleather_armor"
+  - "body_armor"
   - "underwear"
 stats:
   strength: 16
