@@ -5,7 +5,7 @@ description: |
   up to (${(this.character.stats.maxhealth * (0.005 * 16 + 0.01)).toFixed(1)}).
 cooldown: 16.0
 casttime: 3
-target: caster
+target: selected
 mobile: false
 onCastBegin:
   jexl:

@@ -1,6 +1,7 @@
 ---
-name: "Quartz."
+name: "Quartz"
 description: "Common quartz."
+harvest: "quartz"
 model:
   graphics: "game/ores/quartz.png"
   scale: 0.3
