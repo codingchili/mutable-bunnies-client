@@ -1,7 +1,6 @@
 ---
 skill: "mining"
 item: "quartz"
-level: 30
 experience: 225
 success: 0.75
 fail: 0.02

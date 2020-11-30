@@ -7,6 +7,9 @@ cooldown: 16.0
 casttime: 3
 target: selected
 mobile: false
+animations:
+  casting: "attacks/casting"
+  complete: "attacks/call"
 onCastBegin:
   jexl:
     return spells.energy(source, -20.0);

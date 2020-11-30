@@ -5,10 +5,13 @@ cooldown: 0.5
 casttime: 4.0
 mobile: false
 target: selected
+interval: 0.25
+skill: true
+animations:
+  casting: "attacks/slash"
 onCastBegin:
-  java: com.codingchili.instance.model.skills.Mining
+  java: "com.codingchili.instance.model.skills.Mining"
 onCastProgress:
-  java: com.codingchili.instance.model.skills.Mining
+  java: "com.codingchili.instance.model.skills.Mining"
 onCastComplete:
-  java: com.codingchili.instance.model.skills.Mining
-
+  java: "com.codingchili.instance.model.skills.Mining"

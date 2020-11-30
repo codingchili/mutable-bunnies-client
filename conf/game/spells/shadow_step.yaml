@@ -4,8 +4,10 @@ description: "Moves quickly through the shadows in one direction and gains Ether
 recharge: 10
 casttime: 1.5
 charges: 2
-# change to target: line
 target: area
+animations:
+  casting: "attacks/casting"
+  complete: "attacks/force"
 onCastBegin:
   jexl:
     energy = spells.energy(source, -60.0);

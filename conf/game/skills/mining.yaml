@@ -4,47 +4,55 @@ icon: "game/icon/skills/farming.png"
 description: "Swing a pickaxe on a rock in an attempt to dislodge useful materials."
 type: "mining"
 perks:
-  1:
-    - description: "Effectiveness increased by 5%."
-      icon: "game/icon/skills/mining/pickaxe++.png"
-      effectiveness: 0.05
-  2:
-    - description: "Effectiveness increased by 5%."
-      icon: "game/icon/skills/mining/pickaxe++.png"
-      effectiveness: 0.05
-  3:
-    - description: "Effectiveness increased by 5%."
-      icon: "game/icon/skills/mining/pickaxe++.png"
-      effectiveness: 0.05
-  4:
-    - description: "Effectiveness increased by 5%."
-      icon: "game/icon/skills/mining/pickaxe++.png"
-      effectiveness: 0.05
-  5:
-    - id: "coal"
-      description: "Learn how to mine coal."
-      icon: "game/icon/skills/mining/coal.png"
-      # should perks have scripted actions?
-  6:
-    - description: "Effectiveness increased by 5%."
-      icon: "game/icon/skills/mining/pickaxe++.png"
-      effectiveness: 0.05
-  7:
-    - description: "Effectiveness increased by 5%."
-      icon: "game/icon/skills/mining/pickaxe++.png"
-      effectiveness: 0.05
-  8:
-    - description: "Effectiveness increased by 5%."
-      icon: "game/icon/skills/mining/pickaxe++.png"
-      effectiveness: 0.05
-  9:
-    - description: "Effectiveness increased by 5%."
-      icon: "game/icon/skills/mining/pickaxe++.png"
-      effectiveness: 0.05
-  10:
-    - id: "iron"
-      description: "Learn how to mine iron."
-      icon: "game/icon/skills/mining/iron.png"
+  - level: 1
+    id: "quartz"
+    description: "Learn how to mine quartz."
+    icon: "game/icon/skills/mining/coal.png"
+  - level: 2
+    description: "Effectiveness increased by 5%."
+    icon: "game/icon/skills/mining/pickaxe++.png"
+    effectiveness: 0.05
+  - level: 3
+    description: "Effectiveness increased by 5%."
+    icon: "game/icon/skills/mining/pickaxe++.png"
+    effectiveness: 0.05
+  - level: 4
+    description: "Effectiveness increased by 5%."
+    icon: "game/icon/skills/mining/pickaxe++.png"
+    effectiveness: 0.05
+  - level: 5
+    description: "Effectiveness increased by 5%."
+    icon: "game/icon/skills/mining/pickaxe++.png"
+    effectiveness: 0.05
+  - level: 5
+    id: "coal"
+    description: "Learn how to mine coal."
+    icon: "game/icon/skills/mining/coal.png"
+    # should perks have scripted actions?
+  - level: 6
+    description: "Effectiveness increased by 5%."
+    icon: "game/icon/skills/mining/pickaxe++.png"
+    effectiveness: 0.05
+  - level: 7
+    description: "Effectiveness increased by 5%."
+    icon: "game/icon/skills/mining/pickaxe++.png"
+    effectiveness: 0.05
+  - level: 8
+    description: "Effectiveness increased by 5%."
+    icon: "game/icon/skills/mining/pickaxe++.png"
+    effectiveness: 0.05
+  - level: 9
+    description: "Effectiveness increased by 5%."
+    icon: "game/icon/skills/mining/pickaxe++.png"
+    effectiveness: 0.05
+  - level: 10
+    id: "iron"
+    description: "Learn how to mine iron."
+    icon: "game/icon/skills/mining/iron.png"
+  - level: 10
+    description: "Effectiveness increased by 5%."
+    icon: "game/icon/skills/mining/pickaxe++.png"
+    effectiveness: 0.1
 scaling:
   jexl: |
     return level * (level + 50)

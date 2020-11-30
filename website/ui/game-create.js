@@ -480,11 +480,16 @@ class CharacterCreate extends HTMLElement {
         return classes;
     }
 
+    _isSkill(spellId) {
+        return this.spells[spellId] && this.spells[spellId].skill;
+    }
+
     _spells(playerClass) {
         let spells = [];
 
         for (let spell of playerClass.spells) {
-            let item = html`
+            if (!this._isSkill(spell)) {
+                let item = html`
                 <div class="spell">
                     <img src="${this.realm.resources}/gui/spell/${spell}.svg" class="spell-image">
                 </div>
@@ -496,7 +501,8 @@ class CharacterCreate extends HTMLElement {
                     </bunny-tooltip>
             `;
 
-            spells.push(item);
+                spells.push(item);
+            }
         }
         return spells;
     }

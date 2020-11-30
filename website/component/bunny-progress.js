@@ -22,7 +22,6 @@ class BunnyProgress extends HTMLElement {
     }
 
     set value(value) {
-        console.log(value);
         if (value) {
             this._value = value;
         } else {

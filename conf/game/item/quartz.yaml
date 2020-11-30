@@ -1,0 +1,4 @@
+name: "Iron Bar"
+description: "A bar of IRON."
+icon: "gui/item/icon/metal.png"
+rarity: "uncommon"

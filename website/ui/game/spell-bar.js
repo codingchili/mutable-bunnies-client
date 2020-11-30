@@ -56,6 +56,7 @@ class SpellBar extends HTMLElement {
                 this.render();
             });
 
+            game.spells.onCast(this._onCasted.bind(this));
             game.spells.onCooldown((spell, ms) => {
                 // chargeable spells don't show any cooldown information.
                 if (!this._chargeable(this._getSpellById(spell))) {
@@ -139,52 +140,51 @@ class SpellBar extends HTMLElement {
         return eval('`' + spell.description + '`');
     }
 
-    _onCast(spell) {
-        this._cast(spell);
-    }
-
     _cast(spell) {
         if (this.casting) {
             return;
         }
+        game.spells.cast(spell.id, {targetId: this.target.id});
+    }
 
-        game.spells.cast((casted) => {
-            if (casted.result === CYCLE_CASTING) {
-                this.casting = true;
-                this.spellId = casted.spellId;
+    _onCasted(casted) {
+        let spell = this._getSpellById(casted.spellId);
 
-                let container = this.query('#casting-progress');
-                let progress = this.query('#casting-progress-bar');
+        if (casted.result === CYCLE_CASTING) {
+            this.casting = true;
+            this.spellId = casted.spellId;
 
-                container.style.visibility = 'visible';
-                progress.value = 100;
-                progress.style.setProperty('--bunny-progress-transition-duration', spell.casttime + 's');
+            let container = this.query('#casting-progress');
+            let progress = this.query('#casting-progress-bar');
 
-                setTimeout(() => {
-                    this.casting = false;
-                    container.style.visibility = 'hidden';
-                    progress.style.setProperty('--bunny-progress-transition-duration', '0s');
-                    progress.value = 0;
-                    this.render();
-                }, spell.casttime * 1000);
+            container.style.visibility = 'visible';
+            progress.value = 100;
+            progress.style.setProperty('--bunny-progress-transition-duration', spell.casttime + 's');
 
+            setTimeout(() => {
+                this.casting = false;
+                container.style.visibility = 'hidden';
+                progress.style.setProperty('--bunny-progress-transition-duration', '0s');
+                progress.value = 0;
                 this.render();
-            } else {
-                let spell = game.spells.getById(casted.spellId);
+            }, spell.casttime * 1_000);
 
-                if (casted.result === 'UNABLE') {
-                    application.publish('notification', `unable to cast ${spell.name}.`);
-                }
+            this.render();
+        } else {
+            let spell = game.spells.getById(casted.spellId);
 
-                if (casted.result === 'COOLDOWN') {
-                    application.publish('notification', `${spell.name} is on cooldown.`);
-                }
-
-                if (casted.result === 'UNKNOWN_SPELL') {
-                    application.publish('notification', `unknown spell ${casted.spellId}.`);
-                }
+            if (casted.result === 'UNABLE') {
+                application.publish('notification', `unable to cast ${spell.name}.`);
             }
-        }, spell.id, {targetId: this.target.id});
+
+            if (casted.result === 'COOLDOWN') {
+                application.publish('notification', `${spell.name} is on cooldown.`);
+            }
+
+            if (casted.result === 'UNKNOWN_SPELL') {
+                application.publish('notification', `has not learned ${casted.spellId}.`);
+            }
+        }
     }
 
     _learned(spell) {
@@ -356,7 +356,7 @@ class SpellBar extends HTMLElement {
         let charges = this._charges(spell);
 
         return html`
-            <div @click="${this._onCast.bind(this, spell)}" class="spell-button">
+            <div @click="${this._cast.bind(this, spell)}" class="spell-button">
                 <img class="spell-icon ${available}"
                      src="${this.realm.resources}/gui/spell/${spell.id}.svg">
                 <bunny-tooltip class="spell-info" location="top">

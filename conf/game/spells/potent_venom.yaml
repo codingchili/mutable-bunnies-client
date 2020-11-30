@@ -6,6 +6,8 @@ casttime: 1
 active: 12.0
 interval: 1.0
 target: area
+animations:
+  complete: "attacks/throw"
 onCastBegin:
   jexl:
     return spells.energy(source, -40.0);

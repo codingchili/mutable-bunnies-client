@@ -2,17 +2,27 @@
 id: "level_1"
 name: "level 1"
 texture: "game/map/tiles/brownstone.png"
-limit: 50
 skybox:
+  gradient:
+  - "#000008"
+  - "#000032"
   background:
-    resource: 'game/map/clouds/skybox_grey_reverse.png'
-    tint: '#ff00cc'
+    resource: "game/map/clouds/skybox_grey_reverse.png"
+    tint: "#ff00cc"
+    enabled: true
+  clouds:
+    enabled: true
+    tint: "#482424"
+    type: "dark"
+  stars:
+    enabled: true
+    tint: "#ffffff"
+    resource: "game/map/clouds/skybox_stars.png"
   moon:
     enabled: true
-    tint: '#ffffff'
-  clouds:
-    tint: '#482424'
-    type: 'dark'
+    tint: "#ffffff"
+    resource: "game/map/clouds/moon.png"
+limit: 50
 onStartup:
   jexl: "//game.spawner().npc(\"Illicit Lilith\", 300, 300);"
 onPlayerJoin:
@@ -672,6 +682,22 @@ structures:
   point:
     x: 59
     y: 1072
+- id: "quartz"
+  point:
+    x: 1640
+    y: 1987
+- id: "quartz"
+  point:
+    x: 3617
+    y: 2467
+- id: "quartz"
+  point:
+    x: 3742
+    y: 2532
+- id: "quartz"
+  point:
+    x: 3873
+    y: 2594
 size:
   x: 32
   y: 64

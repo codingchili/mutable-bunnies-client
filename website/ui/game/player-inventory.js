@@ -79,7 +79,7 @@ class PlayerInventory extends HTMLElement {
                     block: true,
                     items: [{
                         name: "Use",
-                        filter: () => item.slot === 'none',
+                        filter: () => item.consumable,
                         callback: () => {
                             game.inventory.useItem(item)
                         }
