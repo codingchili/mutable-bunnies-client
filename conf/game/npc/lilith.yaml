@@ -28,7 +28,10 @@ loot:
 spawn:
   jexl: "return true;"
 death:
-  jexl: "return true;"
+  groovy: |
+    game.instance().timer(5000, { id ->
+      game.spawner().npc('lilith', target.vector.x, target.vector.y);
+    });
 tick:
   groovy: |
     for (creature : game.creatures().all()) {

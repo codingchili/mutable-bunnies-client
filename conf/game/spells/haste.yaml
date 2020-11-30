@@ -5,9 +5,9 @@ description: |
 cooldown: 20.0
 casttime: 2.0
 target: caster
-animations:
-  casting: "attacks/casting"
-  complete: "attacks/call"
+animation:
+  casting: "casting"
+  complete: "call"
 onCastBegin:
   jexl:
     return spells.energy(source, -10.0);

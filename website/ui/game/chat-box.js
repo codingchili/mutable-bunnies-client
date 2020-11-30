@@ -108,7 +108,7 @@ class ChatBox extends HTMLElement {
             }
 
             .list {
-                margin-top: 4px;
+                margin-top: 8px;
             }
             
             ${BunnyStyles.icons}

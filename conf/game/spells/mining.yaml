@@ -1,14 +1,14 @@
 ---
 name: "Mining"
 description: "Swing a pickaxe on a rock in an attempt to dislodge useful materials."
-cooldown: 0.5
-casttime: 4.0
+cooldown: 0.0
+casttime: 6.0
 mobile: false
 target: selected
-interval: 0.25
+interval: 1
 skill: true
-animations:
-  casting: "attacks/slash"
+animation:
+  casting: "mine"
 onCastBegin:
   java: "com.codingchili.instance.model.skills.Mining"
 onCastProgress:

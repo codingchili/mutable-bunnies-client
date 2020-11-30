@@ -123,7 +123,9 @@ class SpellBar extends HTMLElement {
     _list() {
         let list = [];
         for (let spell of this.character.spells.learned) {
-            list.push(this._getSpellById(spell));
+            if (!game.spells.getById(spell).skill) {
+                list.push(this._getSpellById(spell));
+            }
         }
         return list;
     }

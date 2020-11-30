@@ -5,8 +5,8 @@ cooldown: 0.5
 casttime: 0.20
 recharge: 3
 charges: 5
-animations:
-  complete: "attacks/throw"
+animation:
+  casting: "throw"
 target: caster
 onCastBegin:
   groovy: |

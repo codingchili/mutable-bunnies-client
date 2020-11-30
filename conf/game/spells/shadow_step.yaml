@@ -2,12 +2,11 @@
 name: "Shadow Step"
 description: "Moves quickly through the shadows in one direction and gains Ethereal for 4s of damage reduction when casting."
 recharge: 10
-casttime: 1.5
+casttime: 0.5
 charges: 2
 target: area
-animations:
-  casting: "attacks/casting"
-  complete: "attacks/force"
+animation:
+  casting: "casting"
 onCastBegin:
   jexl:
     energy = spells.energy(source, -60.0);

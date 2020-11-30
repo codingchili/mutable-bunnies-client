@@ -6,9 +6,9 @@ cooldown: 30.0
 casttime: 5.0
 target: caster
 mobile: false
-animations:
-  casting: "attacks/casting"
-  complete: "attacks/call"
+animation:
+  casting: "casting"
+  complete: "call"
 onCastBegin:
   jexl: |
     log.accept('onCastBeginSoulContract');
