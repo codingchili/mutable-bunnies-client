@@ -84,7 +84,7 @@ class ContextMenu extends HTMLElement {
 
             .item {
                 padding: 8px;
-                cursor: pointer;
+                cursor: var(--bunny-cursor-pointer);
                 font-size: smaller;
                 position: relative;
             }

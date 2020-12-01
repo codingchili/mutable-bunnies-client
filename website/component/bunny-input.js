@@ -74,6 +74,7 @@ class BunnyInput extends HTMLElement {
                 margin-top: 8px;
                 margin-bottom:8px;
                 display:block;
+                cursor: var(--bunny-cursor-caret, text);
             }
             
             .noselect {
@@ -97,6 +98,7 @@ class BunnyInput extends HTMLElement {
                 padding-bottom: 2px;;
                 font-family: "Roboto Noto", sans-serif;
                 font-weight: 400;
+                cursor: var(--bunny-cursor-caret, text);
             }
             
             #container {
@@ -125,6 +127,10 @@ class BunnyInput extends HTMLElement {
                 margin-right: 2px;
             }
             
+            #label {
+                cursor: var(--bunny-cursor-pointer, pointer);
+            }
+            
             .label {
                 color: var(--bunny-input-label, #888);
                 font-size: 12px;
@@ -141,7 +147,6 @@ class BunnyInput extends HTMLElement {
             .underline-focus {
                 width: 100% !important;       
             }
-            
             </style>
             
           <div id="container">

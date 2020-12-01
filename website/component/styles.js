@@ -29,7 +29,7 @@ export class BunnyStyles {
         
             .icon:hover {
                 fill: var(--accent-color);
-                cursor: pointer;
+                cursor: var(--bunny-cursor-pointer, pointer);
             }`;
     }
 
@@ -68,7 +68,6 @@ export class BunnyStyles {
         return `
         .noselect {
             user-select: none;
-            cursor: default;
         }`
     }
 
@@ -97,6 +96,7 @@ export class BunnyStyles {
         a:hover {
             color: #ffffff;
             text-decoration: underline;
+            cursor: var(--bunny-cursor-pointer, pointer);
         }
         `;
     }

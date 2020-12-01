@@ -1,4 +1,4 @@
-name: "Iron Bar"
-description: "A bar of IRON."
-icon: "gui/item/icon/metal.png"
+name: "Quartz Crystals"
+description: "A few pieces of shattered quartz."
+icon: "gui/item/icon/quartz.png"
 rarity: "uncommon"

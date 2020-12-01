@@ -133,7 +133,7 @@ class QuestLog extends HTMLElement {
 
             .quest-log-entry:hover {
                 color: var(--accent-color);
-                cursor: pointer;
+                cursor: var(--bunny-cursor-pointer);
             }
             
             .highlight {

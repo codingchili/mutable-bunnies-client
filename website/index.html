@@ -11,13 +11,18 @@
     <script src="script/eventbus.js"></script>
     <script src="script/application.js"></script>
     <script type="module">
-        import './ui/app-view.js';
-    </script>
+        import './ui/app-view.js';</script>
 
     <style>
         @font-face {
             font-family: Roboto Bold;
             src: url("fonts/static/RobotoSlab-Bold.ttf") format("ttf");
+        }
+
+        * {
+            --bunny-cursor: url("images/icon/cursor.png"), auto;
+            --bunny-cursor-pointer: url("images/icon/cursor-hover.png"), pointer;
+            --bunny-cursor-caret: url("images/icon/cursor-hover.png"), pointer;
         }
 
         body {
@@ -29,6 +34,7 @@
             width: 100%;
             height: 100%;
             padding: 0;
+            cursor: url("images/icon/cursor.png"), auto;
         }
 
         app-view {

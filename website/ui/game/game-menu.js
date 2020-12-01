@@ -32,7 +32,6 @@ class GameMenu extends HTMLElement {
             ${BunnyStyles.icons}
 
             .interface-box {
-                cursor: pointer;
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
@@ -60,6 +59,7 @@ class GameMenu extends HTMLElement {
 
             .menu-icon:hover {
                 fill: var(--accent-color);
+                cursor: var(--bunny-cursor-pointer);
             }
 
             .menu-icon-disabled:hover {
@@ -76,6 +76,10 @@ class GameMenu extends HTMLElement {
                 height: 32px;
                 width: 32px;
                 display: block;
+            }
+            
+            bunny-icon:hover {
+                cursor: var(--bunny-cursor-pointer);
             }
 
         </style>

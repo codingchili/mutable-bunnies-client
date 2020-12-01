@@ -289,7 +289,7 @@ class GameRealms extends HTMLElement {
         }
         .icon:hover {
             fill:red;
-            cursor: auto;
+            cursor: var(--bunny-cursor);
         }
         
             .icons {
@@ -343,7 +343,7 @@ class GameRealms extends HTMLElement {
 
             .realm-icon:hover {
                 color: #ff0000;
-                cursor: default;
+                cursor: var(--bunny-cursor);
             }
 
             @media (max-width: 728px) {
@@ -378,7 +378,7 @@ class GameRealms extends HTMLElement {
             }
 
             .realm-items {
-                cursor: pointer;
+                cursor: var(--bunny-cursor-pointer);
             }
 
             .realm-items:hover {

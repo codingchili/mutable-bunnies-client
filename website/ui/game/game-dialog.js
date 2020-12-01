@@ -101,7 +101,7 @@ class GameDialog extends HTMLElement {
             }
 
             .dialog-option:hover {
-                cursor: pointer;
+                cursor: var(--bunny-cursor-pointer);
                 color: var(--player-class-theme);
             }
 

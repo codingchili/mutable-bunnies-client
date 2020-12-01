@@ -107,7 +107,7 @@ class InventoryItem extends HTMLElement {
             }
 
             .item-icon {
-                cursor: pointer;
+                cursor: var(--bunny-cursor-pointer);
                 position: relative;
                 width: 48px;
                 height: 48px;

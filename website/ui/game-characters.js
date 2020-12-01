@@ -279,7 +279,7 @@ class CharacterList extends HTMLElement {
             }
 
             .character {
-                cursor: pointer;
+                cursor: var(--bunny-cursor-pointer);
                 width: 128px;
                 height: 154px;
                 margin-left: 14px;
