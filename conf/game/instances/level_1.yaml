@@ -698,6 +698,66 @@ structures:
   point:
     x: 3873
     y: 2594
+- id: "tree_cyan"
+  point:
+    x: 2018
+    y: 1017
+- id: "tree_cyan"
+  point:
+    x: 1818
+    y: 1031
+- id: "tree_cyan"
+  point:
+    x: 2189
+    y: 1169
+- id: "tree_cyan"
+  point:
+    x: 1785
+    y: 1153
+- id: "tree_cyan"
+  point:
+    x: 2041
+    y: 1355
+- id: "tree_cyan"
+  point:
+    x: 1477
+    y: 1393
+  scale: 0.25
+- id: "tree_cyan"
+  point:
+    x: 1530
+    y: 1365
+  scale: 0.25
+- id: "tree_cyan"
+  point:
+    x: 1583
+    y: 1335
+  scale: 0.25
+- id: "tree_cyan"
+  point:
+    x: 1459
+    y: 1325
+  scale: 0.75
+- id: "platinum"
+  point:
+    x: 1321
+    y: 1664
+  scale: 0.55
+- id: "diamond"
+  point:
+    x: 1593
+    y: 1982
+  scale: 0.225
+- id: "diamond"
+  point:
+    x: 1673
+    y: 1977
+  scale: 0.225
+- id: "diamond"
+  point:
+    x: 1634
+    y: 2017
+  scale: 0.225
 size:
   x: 32
   y: 64

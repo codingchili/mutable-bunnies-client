@@ -6,7 +6,7 @@ casttime: 0.20
 recharge: 3
 charges: 5
 animation:
-  complete: "throw"
+  casting: "throw"
 target: caster
 onCastBegin:
   groovy: |
@@ -21,7 +21,7 @@ onCastComplete:
 
     log.accept('casting dagger completed');
 
-    RANGE = 326
+    RANGE = 428
     aoe = source.vector.copy().setSize(RANGE);
 
     damage = (source.stats[Attribute.dexterity] * -2) - (source.stats[Attribute.level] * 1);
