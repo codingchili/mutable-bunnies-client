@@ -74,7 +74,7 @@ class WorldDesigner extends HTMLElement {
 
             .registry-item:hover {
                 background-color: #323232;
-                cursor: pointer;
+                cursor: var(--bunny-cursor-pointer, pointer);
             }
 
             .item-icon-container {

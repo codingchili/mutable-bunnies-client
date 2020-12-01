@@ -43,7 +43,7 @@ class BunnyBox extends HTMLElement {
                 :host {
                     display: block;
                     box-sizing: border-box;
-                    
+                    cursor: var(--bunny-cursor, auto);
                 }
                 
                 .elevation {

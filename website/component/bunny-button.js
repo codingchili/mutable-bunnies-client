@@ -69,7 +69,7 @@ class BunnyButton extends HTMLElement {
                 border-radius: 3px;
             
                 user-select: none;
-                cursor: pointer;
+                cursor: var(--bunny-cursor-pointer, pointer);
             
                 display: flex;
                 justify-content: center;
@@ -95,7 +95,6 @@ class BunnyButton extends HTMLElement {
             .primary {
                 background-color: var(--bunny-button-color, rgb(0, 176, 255));
                 color: var(--bunny-button-text-color: #ffffff);
-
             }
             
             .secondary {

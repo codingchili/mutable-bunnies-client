@@ -221,7 +221,7 @@ class CharacterCreate extends HTMLElement {
                 margin-top: 16px;
                 display: block;
                 position: relative;
-                cursor: pointer;
+                cursor: var(--bunny-cursor-pointer);
             }
 
             .spell-container {

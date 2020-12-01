@@ -202,6 +202,7 @@ class SpellBar extends HTMLElement {
                 left: 50%;
                 transform: translateX(-50%);
                 width: 326px;
+                cursor: var(--bunny-cursor, auto);
             }
 
             .spell-bar {
@@ -317,6 +318,10 @@ class SpellBar extends HTMLElement {
 
             .spell-button {
                 position: relative;
+            }
+            
+            .spell-button:hover {
+                cursor: var(--bunny-cursor-pointer, pointer);
             }
 
             .spell-table-headers {
