@@ -19,17 +19,6 @@ class WorldDesigner extends HTMLElement {
         });
 
         application.onGameLoaded((game) => {
-            input.onKeysListener({
-                down: (key) => {
-                    if (key === input.LMB) {
-                        game.designer.commit();
-                    }
-                    if (key === input.ESCAPE) {
-                        game.designer.unload();
-                    }
-                }
-            }, [input.LMB, input.ESCAPE]);
-
             game.designer.registry((registry) => {
                 this.registry = registry.collection;
                 this._filter();

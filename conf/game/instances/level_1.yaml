@@ -758,18 +758,404 @@ structures:
     x: 1634
     y: 2017
   scale: 0.225
+- id: "tree_cyan"
+  point:
+    x: 3223
+    y: 1059
+  scale: 0.35
+- id: "tree_cyan"
+  point:
+    x: 3307
+    y: 1109
+  scale: 0.35
+- id: "tree_cyan"
+  point:
+    x: 3390
+    y: 1157
+  scale: 0.35
+- id: "tree_cyan"
+  point:
+    x: 3050
+    y: 1154
+  scale: 0.35
+- id: "tree_cyan"
+  point:
+    x: 3139
+    y: 1203
+  scale: 0.35
+- id: "tree_cyan"
+  point:
+    x: 3228
+    y: 1253
+  scale: 0.35
+- id: "tree_cyan"
+  point:
+    x: 3397
+    y: 1275
+  scale: 0.175
+- id: "tree_cyan"
+  point:
+    x: 3336
+    y: 1310
+  scale: 0.175
+- id: "tree_cyan"
+  point:
+    x: 3268
+    y: 1344
+  scale: 0.175
+- id: "tree_cyan"
+  point:
+    x: 3199
+    y: 1381
+  scale: 0.175
+- id: "diamond"
+  point:
+    x: 3325
+    y: 1205
+  scale: 0.15
+- id: "nettle"
+  point:
+    x: 3532
+    y: 2429
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3562
+    y: 2498
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3653
+    y: 2504
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3692
+    y: 2428
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3604
+    y: 2378
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3796
+    y: 2460
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3813
+    y: 2524
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3729
+    y: 2570
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3801
+    y: 2606
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3895
+    y: 2642
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3957
+    y: 2576
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3908
+    y: 2525
+  scale: 0.1
+- id: "nettle"
+  point:
+    x: 3647
+    y: 2548
+  scale: 0.15
+- id: "nettle"
+  point:
+    x: 3672
+    y: 2368
+  scale: 0.15
+- id: "nettle"
+  point:
+    x: 3854
+    y: 2451
+  scale: 0.15
+- id: "nettle"
+  point:
+    x: 3969
+    y: 2512
+  scale: 0.2
+- id: "nettle"
+  point:
+    x: 3932
+    y: 2614
+  scale: 0.25
+- id: "jade"
+  point:
+    x: 4810
+    y: 2525
+  scale: 0.15
+- id: "jade"
+  point:
+    x: 4763
+    y: 2343
+  scale: 0.3
+- point:
+    x: 4821
+    y: 2594
+- point:
+    x: 3739
+    y: 3034
+- point:
+    x: 3821
+    y: 2936
+- point:
+    x: 4300
+    y: 2505
+- point:
+    x: 4425
+    y: 2348
+- point:
+    x: 4320
+    y: 2389
+- point:
+    x: 4351
+    y: 2371
+- point:
+    x: 4380
+    y: 2355
+- point:
+    x: 4407
+    y: 2339
+- point:
+    x: 4437
+    y: 2322
+- point:
+    x: 4594
+    y: 2097
+- point:
+    x: 4571
+    y: 2161
+- point:
+    x: 4562
+    y: 2043
+- point:
+    x: 4582
+    y: 1886
+- point:
+    x: 4751
+    y: 1762
+- point:
+    x: 4789
+    y: 1670
+- point:
+    x: 4702
+    y: 2041
+  scale: 1.0
+- point:
+    x: 3707
+    y: 1911
+  scale: 1.0
+- point:
+    x: 4505
+    y: 2303
+  scale: 1.0
+- point:
+    x: 4609
+    y: 2408
+  scale: 1.0
+- point:
+    x: 4462
+    y: 2264
+  scale: 1.0
+- point:
+    x: 4486
+    y: 2290
+  scale: 1.0
+- point:
+    x: 4507
+    y: 2323
+  scale: 1.0
+- point:
+    x: 4518
+    y: 2345
+  scale: 1.0
+- point:
+    x: 4539
+    y: 2378
+  scale: 1.0
+- point:
+    x: 4489
+    y: 2417
+  scale: 1.0
+- point:
+    x: 4453
+    y: 2408
+  scale: 1.0
+- point:
+    x: 4436
+    y: 2391
+  scale: 1.0
+- point:
+    x: 4430
+    y: 2352
+  scale: 1.0
+- point:
+    x: 4436
+    y: 2339
+  scale: 1.0
+- point:
+    x: 4434
+    y: 2308
+  scale: 1.0
+- point:
+    x: 4399
+    y: 2275
+  scale: 1.0
+- point:
+    x: 4398
+    y: 2234
+  scale: 1.0
+- point:
+    x: 4390
+    y: 2269
+  scale: 1.0
+- point:
+    x: 4450
+    y: 2344
+  scale: 1.0
+- point:
+    x: 4477
+    y: 2385
+  scale: 1.0
+- point:
+    x: 4475
+    y: 2407
+  scale: 1.0
+- point:
+    x: 4511
+    y: 2395
+  scale: 1.0
+- point:
+    x: 4476
+    y: 2346
+  scale: 1.0
+- point:
+    x: 4442
+    y: 2270
+  scale: 1.0
+- point:
+    x: 4447
+    y: 2201
+  scale: 1.0
+- point:
+    x: 4808
+    y: 1908
+  scale: 1.0
+- point:
+    x: 4718
+    y: 1948
+  scale: 1.0
+- point:
+    x: 4113
+    y: 1725
+  scale: 1.0
+- point:
+    x: 4285
+    y: 1863
+  scale: 1.0
+- point:
+    x: 4800
+    y: 1944
+  scale: 1.0
+- point:
+    x: 4476
+    y: 1845
+  scale: 1.0
+- point:
+    x: 4625
+    y: 2523
+  scale: 1.0
+- point:
+    x: 4518
+    y: 2554
+  scale: 1.0
+- point:
+    x: 4495
+    y: 2536
+  scale: 1.0
+- point:
+    x: 4501
+    y: 2539
+  scale: 1.0
+- point:
+    x: 4508
+    y: 1905
+  scale: 1.0
+- point:
+    x: 3702
+    y: 1902
+  scale: 1.0
+- point:
+    x: 4564
+    y: 1980
+  scale: 1.0
+- point:
+    x: 4447
+    y: 1941
+  scale: 1.0
+- point:
+    x: 3549
+    y: 2184
+  scale: 1.0
+- point:
+    x: 4587
+    y: 2658
+  scale: 1.0
+- point:
+    x: 4416
+    y: 2479
+  scale: 1.0
+- point:
+    x: 4630
+    y: 2344
+  scale: 1.0
+- point:
+    x: 3457
+    y: 2547
+  scale: 1.0
+- point:
+    x: 3296
+    y: 2469
+  scale: 1.0
+- point:
+    x: 3269
+    y: 2043
+  scale: 1.0
+- point:
+    x: 3763
+    y: 2160
+  scale: 1.0
 size:
   x: 32
   y: 64
 tileSizePx: 96
-tileScaledWidth: 135.7645019878171
 tileScaledHeight: 78.38367176906169
-northPoint:
-  x: 2172
-  y: 0
+tileScaledWidth: 135.7645019878171
 southPoint:
   x: 4344
   y: 3762
 cartesianSize:
   x: 2172
   y: 3762
+northPoint:
+  x: 2172
+  y: 0
