@@ -30,7 +30,7 @@ spawn:
 death:
   groovy: |
     game.instance().timer(5000, { id ->
-      game.spawner().npc('lilith', target.vector.x, target.vector.y);
+      game.spawner().spawn('lilith', target.vector.x, target.vector.y);
     });
 tick:
   groovy: |
