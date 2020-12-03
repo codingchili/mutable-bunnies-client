@@ -1,3 +1,5 @@
+def ext = (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) ? '.cmd' : ''
+
 task polymer {
     inputs.files fileTree('website')
     outputs.file('website/build/client/index.html')
@@ -5,18 +7,26 @@ task polymer {
     doLast {
         exec {
             workingDir './website'
-            commandLine = ['npm', 'install']
-        }
-        exec {
-            workingDir './website'
-            commandLine = ['polymer', 'build']
+            commandLine = ["polymer$ext", 'build']
         }
     }
     inputs.files(fileTree(dir: './website', include: '**/*', exclude: '/build/**'))
     outputs.dir('./website/build')
 }
 
-task distribution(type: Tar, dependsOn: [polymer]) {
+task npm {
+    inputs.file('website/package.json')
+
+    doLast {
+        exec {
+            workingDir './website'
+            commandLine = ["npm$ext", 'install']
+        }
+    }
+    outputs.file('website/package-lock.json')
+}
+
+task distribution(type: Tar, dependsOn: [npm, polymer]) {
     archiveBaseName = 'mutable-client'
     duplicatesStrategy = 'EXCLUDE'
 
@@ -37,7 +47,7 @@ task distribution(type: Tar, dependsOn: [polymer]) {
     }
 
     into('website/resources') {
-        from fileTree('website/resources/')
+        from fileTree(dir: 'website/resources/', exclude: '**/raw/**')
     }
 
     into('/website') {
