@@ -14,10 +14,11 @@ class Application {
             selectFirstCharacter: true,
             fastReconnect: true,
             clearCache: true,
-            rightClick: false,
+            rightClick: true,
             logEvents: true,
             hardResetXY: true,
-            metrics: true
+            metrics: true,
+            fullscreen: true
         };
 
         this.bus = new EventBus();

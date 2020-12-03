@@ -1,0 +1,8 @@
+---
+name: "Water"
+description: "Animated water tile."
+model:
+  graphics: "game/map/tiles/water.png"
+  blocking: false
+tile:
+  type: 'water'

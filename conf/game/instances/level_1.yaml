@@ -908,254 +908,226 @@ structures:
     x: 4763
     y: 2343
   scale: 0.3
-- point:
-    x: 4821
-    y: 2594
-- point:
-    x: 3739
-    y: 3034
-- point:
-    x: 3821
-    y: 2936
-- point:
-    x: 4300
-    y: 2505
-- point:
-    x: 4425
-    y: 2348
-- point:
-    x: 4320
-    y: 2389
-- point:
-    x: 4351
-    y: 2371
-- point:
-    x: 4380
-    y: 2355
-- point:
-    x: 4407
-    y: 2339
-- point:
-    x: 4437
-    y: 2322
-- point:
-    x: 4594
-    y: 2097
-- point:
-    x: 4571
-    y: 2161
-- point:
-    x: 4562
-    y: 2043
-- point:
-    x: 4582
-    y: 1886
-- point:
-    x: 4751
-    y: 1762
-- point:
-    x: 4789
-    y: 1670
-- point:
-    x: 4702
+- id: "tree_orange"
+  point:
+    x: 3393
+    y: 1985
+  scale: 0.425
+- id: "tree_orange"
+  point:
+    x: 3494
     y: 2041
+  scale: 0.425
+- id: "tree_orange"
+  point:
+    x: 3603
+    y: 2097
+  scale: 0.425
+- id: "tree_orange"
+  point:
+    x: 3710
+    y: 2161
+  scale: 0.425
+- id: "henbane"
+  point:
+    x: 3409
+    y: 1997
+  scale: 0.1
+- id: "henbane"
+  point:
+    x: 3449
+    y: 2024
+  scale: 0.125
+- id: "henbane"
+  point:
+    x: 3528
+    y: 2063
+  scale: 0.125
+- id: "henbane"
+  point:
+    x: 3560
+    y: 2083
+  scale: 0.1
+- id: "henbane"
+  point:
+    x: 3624
+    y: 2114
+  scale: 0.125
+- id: "henbane"
+  point:
+    x: 3671
+    y: 2134
+  scale: 0.1
+- id: "henbane"
+  point:
+    x: 3759
+    y: 2182
+  scale: 0.15
+- id: "henbane"
+  point:
+    x: 3348
+    y: 1974
+  scale: 0.15
+- point:
+    x: 3830
+    y: 2161
   scale: 1.0
 - point:
-    x: 3707
-    y: 1911
+    x: 3828
+    y: 2162
   scale: 1.0
 - point:
-    x: 4505
-    y: 2303
+    x: 3828
+    y: 2162
   scale: 1.0
 - point:
-    x: 4609
-    y: 2408
+    x: 3828
+    y: 2162
   scale: 1.0
 - point:
-    x: 4462
-    y: 2264
+    x: 3827
+    y: 2162
+  scale: 1.0
+- id: "tree_cyan"
+  point:
+    x: 3107
+    y: 2933
+  scale: 0.225
+- id: "tree_cyan"
+  point:
+    x: 3261
+    y: 2881
+  scale: 0.3
+- id: "nettle"
+  point:
+    x: 3539
+    y: 2261
+  scale: 0.375
+- point:
+    x: 3005
+    y: 2258
   scale: 1.0
 - point:
-    x: 4486
-    y: 2290
+    x: 3005
+    y: 2258
   scale: 1.0
 - point:
-    x: 4507
-    y: 2323
+    x: 3039
+    y: 2263
   scale: 1.0
 - point:
-    x: 4518
-    y: 2345
+    x: 3075
+    y: 2251
   scale: 1.0
 - point:
-    x: 4539
-    y: 2378
+    x: 3254
+    y: 2449
   scale: 1.0
 - point:
-    x: 4489
-    y: 2417
+    x: 3526
+    y: 2509
   scale: 1.0
 - point:
-    x: 4453
-    y: 2408
+    x: 3623
+    y: 2610
   scale: 1.0
 - point:
-    x: 4436
-    y: 2391
+    x: 3594
+    y: 2548
   scale: 1.0
 - point:
-    x: 4430
-    y: 2352
-  scale: 1.0
-- point:
-    x: 4436
-    y: 2339
-  scale: 1.0
-- point:
-    x: 4434
-    y: 2308
-  scale: 1.0
-- point:
-    x: 4399
-    y: 2275
-  scale: 1.0
-- point:
-    x: 4398
-    y: 2234
-  scale: 1.0
-- point:
-    x: 4390
-    y: 2269
-  scale: 1.0
-- point:
-    x: 4450
-    y: 2344
-  scale: 1.0
-- point:
-    x: 4477
-    y: 2385
-  scale: 1.0
-- point:
-    x: 4475
-    y: 2407
-  scale: 1.0
-- point:
-    x: 4511
-    y: 2395
-  scale: 1.0
-- point:
-    x: 4476
-    y: 2346
-  scale: 1.0
-- point:
-    x: 4442
-    y: 2270
-  scale: 1.0
-- point:
-    x: 4447
-    y: 2201
-  scale: 1.0
-- point:
-    x: 4808
-    y: 1908
-  scale: 1.0
-- point:
-    x: 4718
-    y: 1948
-  scale: 1.0
-- point:
-    x: 4113
-    y: 1725
-  scale: 1.0
-- point:
-    x: 4285
-    y: 1863
-  scale: 1.0
-- point:
-    x: 4800
-    y: 1944
-  scale: 1.0
-- point:
-    x: 4476
-    y: 1845
-  scale: 1.0
-- point:
-    x: 4625
-    y: 2523
-  scale: 1.0
-- point:
-    x: 4518
-    y: 2554
-  scale: 1.0
-- point:
-    x: 4495
-    y: 2536
-  scale: 1.0
-- point:
-    x: 4501
-    y: 2539
-  scale: 1.0
-- point:
-    x: 4508
-    y: 1905
-  scale: 1.0
-- point:
-    x: 3702
-    y: 1902
-  scale: 1.0
-- point:
-    x: 4564
-    y: 1980
-  scale: 1.0
-- point:
-    x: 4447
-    y: 1941
-  scale: 1.0
-- point:
-    x: 3549
-    y: 2184
-  scale: 1.0
-- point:
-    x: 4587
-    y: 2658
-  scale: 1.0
-- point:
-    x: 4416
+    x: 3352
     y: 2479
   scale: 1.0
+- id: "tree_cyan"
+  point:
+    x: 2975
+    y: 1862
+  scale: 0.175
+- id: "tree_cyan"
+  point:
+    x: 3036
+    y: 1871
+  scale: 0.175
+- id: "tree_cyan"
+  point:
+    x: 3087
+    y: 1880
+  scale: 0.175
 - point:
-    x: 4630
-    y: 2344
+    x: 3598
+    y: 2622
   scale: 1.0
 - point:
-    x: 3457
-    y: 2547
+    x: 3640
+    y: 2592
   scale: 1.0
 - point:
-    x: 3296
-    y: 2469
+    x: 3693
+    y: 2546
   scale: 1.0
-- point:
-    x: 3269
-    y: 2043
+- id: "tree_cyan"
+  point:
+    x: 3273
+    y: 2096
+  scale: 0.25
+- id: "tree_cyan"
+  point:
+    x: 3343
+    y: 2104
+  scale: 0.25
+- id: "tree_cyan"
+  point:
+    x: 3428
+    y: 2099
+  scale: 0.25
+- id: "ice"
+  point:
+    x: 3460
+    y: 2487
   scale: 1.0
-- point:
-    x: 3763
-    y: 2160
+- id: "ice"
+  point:
+    x: 3395
+    y: 2645
+  scale: 1.0
+- id: "ice"
+  point:
+    x: 3393
+    y: 2508
+  scale: 1.0
+- id: "ice"
+  point:
+    x: 3526
+    y: 2349
+  scale: 1.0
+- id: "ice"
+  point:
+    x: 3799
+    y: 2744
+  scale: 1.0
+- id: "ice"
+  point:
+    x: 3858
+    y: 2781
+  scale: 1.0
+- id: "ice"
+  point:
+    x: 3568
+    y: 2612
   scale: 1.0
 size:
   x: 32
   y: 64
 tileSizePx: 96
-tileScaledHeight: 78.38367176906169
-tileScaledWidth: 135.7645019878171
-southPoint:
-  x: 4344
-  y: 3762
-cartesianSize:
-  x: 2172
-  y: 3762
 northPoint:
   x: 2172
   y: 0
+cartesianSize:
+  x: 2172
+  y: 3762
+southPoint:
+  x: 4344
+  y: 3762
+tileScaledWidth: 135.7645019878171
+tileScaledHeight: 78.38367176906169

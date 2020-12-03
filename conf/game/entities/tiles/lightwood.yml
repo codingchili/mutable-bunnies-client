@@ -1,0 +1,8 @@
+---
+name: "Lightwood"
+description: "Light wood tile"
+model:
+  graphics: "game/map/tiles/lightwood.png"
+  blocking: false
+tile:
+  type: 'ground'

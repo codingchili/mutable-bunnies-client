@@ -14,11 +14,6 @@
         import './ui/app-view.js';</script>
 
     <style>
-        @font-face {
-            font-family: Roboto Bold;
-            src: url("fonts/static/RobotoSlab-Bold.ttf") format("ttf");
-        }
-
         * {
             --bunny-cursor: url("images/icon/cursor.png"), auto;
             --bunny-cursor-pointer: url("images/icon/cursor-hover.png"), pointer;
@@ -123,7 +118,7 @@
             || (window.matchMedia('(display-mode: standalone)').matches);
 
         application.onAuthentication(() => {
-            if (window.isPWA) {
+            if (window.isPWA || application.development.fullscreen) {
                 document.documentElement.requestFullscreen()
                     .catch((e) => {
                         console.log(e);

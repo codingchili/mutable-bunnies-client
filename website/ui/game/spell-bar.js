@@ -169,7 +169,7 @@ class SpellBar extends HTMLElement {
                 progress.style.setProperty('--bunny-progress-transition-duration', '0s');
                 progress.value = 0;
                 this.render();
-            }, spell.casttime * 1_000);
+            }, spell.casttime * 1000);
 
             this.render();
         } else {

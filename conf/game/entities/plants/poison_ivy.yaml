@@ -5,5 +5,3 @@ model:
   graphics: "game/map/plants/poison-ivy.png"
   scale: 0.8
   blocking: false
-stats:
-  health: 200.0

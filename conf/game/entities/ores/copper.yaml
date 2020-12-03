@@ -16,5 +16,3 @@ model:
     - point:
         x: 32
         y: 32
-stats:
-  health: 200.0

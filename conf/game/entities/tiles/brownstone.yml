@@ -1,0 +1,8 @@
+---
+name: "Brownstone"
+description: "Brownish stone tile."
+model:
+  graphics: "game/map/tiles/brownstone.png"
+  blocking: false
+tile:
+  type: 'ground'

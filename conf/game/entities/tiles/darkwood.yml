@@ -1,0 +1,8 @@
+---
+name: "Darkwood"
+description: "Dark wood tile"
+model:
+  graphics: "game/map/tiles/darkwood.png"
+  blocking: false
+tile:
+  type: 'ground'
