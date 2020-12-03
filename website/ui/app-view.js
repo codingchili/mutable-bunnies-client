@@ -3,12 +3,15 @@ import {BunnyStyles} from "../component/styles.js";
 import '/component/bunny-pages.js'
 import '/component/bunny-bar.js'
 import '/component/bunny-icon.js'
+import '/component/bunny-box.js'
 import './page-start.js'
 import './page-login.js'
 import './game-realms.js'
 import './game-characters.js'
 import './patch-download.js'
 import './offline-view.js'
+
+const OPTION_MUSIC = 'music';
 
 class AppView extends HTMLElement {
 
@@ -19,13 +22,16 @@ class AppView extends HTMLElement {
     constructor() {
         super();
         this.authenticated = false;
+
+        let option = localStorage.getItem('OPTION_MUSIC');
+        this.music = (option) ? JSON.parse(option) : false;
     }
 
     get template() {
         return html`
             <style>
                 ${BunnyStyles.variables}
-            
+                ${BunnyStyles.icons}
                 :host {
                     display: block;
                     background-image: url("images/background_graveyard.webp");
@@ -38,7 +44,7 @@ class AppView extends HTMLElement {
                 #toolbar {
                     z-index: 100;
                 }
-                
+
                 error-dialog {
                     z-index: 800;
                 }
@@ -46,8 +52,22 @@ class AppView extends HTMLElement {
                 #footer {
                     z-index: 100;
                 }
-                
-                ${BunnyStyles.icons}
+
+                .icon-mute, .icon-sound {
+                    width: 32px;
+                    height: 32px;
+                    max-width: 32px;
+                    max-height: 32px;
+                }
+
+                #options {
+                    position: absolute;
+                    bottom: 58px;
+                    right: 24px;
+                    padding: 0;
+                    margin: 0;
+                    height: 32px;
+                }
             </style>
 
             ${this.game ? '' : html`
@@ -81,7 +101,19 @@ class AppView extends HTMLElement {
                 <error-dialog></error-dialog>
             </div>
 
-            ${this.game ? '' : html`<bunny-bar id="footer" location="bottom">${this.version}</bunny-bar>`}            
+            ${this.game ? '' : html`
+                <bunny-box id="options">
+                    ${this.music ?
+                            html`
+                                <bunny-icon icon="sound" @mousedown="${this._music.bind(this, false)}"></bunny-icon>` :
+                            html`
+                                <bunny-icon icon="mute" @mousedown="${this._music.bind(this, true)}"></bunny-icon>`
+                    }
+                </bunny-box>`
+            }
+
+            ${this.game ? '' : html`
+                <bunny-bar id="footer" location="bottom">${this.version}</bunny-bar>`}
         `;
     }
 
@@ -148,6 +180,13 @@ class AppView extends HTMLElement {
         application.view('page-start');
     }
 
+    _music(enabled) {
+        this.music = enabled;
+        (enabled) ? this.play() : this.pause();
+        localStorage.setItem(OPTION_MUSIC, enabled.toString());
+        this.render();
+    }
+
     _logout() {
         if (window.isPWA) {
             document.exitFullscreen();
@@ -169,18 +208,17 @@ class AppView extends HTMLElement {
             this.play();
         });
 
+        application.onLogout(() => {
+            this.ambient.pause();
+        });
+
         application.onScriptShutdown(() => {
             if (this.ambient) {
                 this.ambient.currentTime = 0;
                 this.play();
             }
         });
-
-        application.onScriptsLoaded(() => {
-            if (this.ambient) {
-                this.ambient.pause();
-            }
-        });
+        application.onScriptsLoaded(this.pause.bind(this));
     }
 
     play() {
@@ -190,10 +228,18 @@ class AppView extends HTMLElement {
             this.ambient.volume = 0.5;
 
             this.ambient.addEventListener('loadeddata', () => {
-                this.ambient.play();
+                this.play();
             });
         } else {
-            this.ambient.play();
+            if (this.music) {
+                this.ambient.play();
+            }
+        }
+    }
+
+    pause() {
+        if (this.ambient) {
+            this.ambient.pause();
         }
     }
 }
