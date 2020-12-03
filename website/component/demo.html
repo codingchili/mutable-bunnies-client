@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bunny Components - Demo</title>
     <style>
         @font-face {
             font-family: Roboto Bold;
@@ -109,6 +109,7 @@
         import('./bunny-tab.js');
         import('./bunny-pages.js');
         import('./bunny-toast.js');
+        import('./bunny-color.js');
 
         hljs.initHighlightingOnLoad();
     </script>
@@ -145,9 +146,9 @@
         }
     </style>
     <div class="component">
-        <bunny-progress class="one"></bunny-progress>
-        <bunny-progress class="two"></bunny-progress>
-        <bunny-progress class="three"></bunny-progress>
+        <bunny-progress value="20" class="one"></bunny-progress>
+        <bunny-progress value="40" class="two"></bunny-progress>
+        <bunny-progress value="60" class="three"></bunny-progress>
     </div>
     <div class="description">
         Shows a horizontal progress bar with themable and animatable progress.
@@ -460,6 +461,46 @@
     <script for="bunny-toast">
         document.querySelector('#toastmaster').addEventListener('mousedown', () => {
             document.querySelector('bunny-toast').open('get toasted.');
+        });
+    </script>
+</bunny-box>
+
+<bunny-box class="component-demo">
+    <h2>bunny-color</h2>
+    <style for="bunny-color">
+        bunny-color {
+            margin-left: 6px;
+        }
+    </style>
+    <div class="component" style="position: relative;display: flex;justify-content: center;">
+        <bunny-color hex="#70e795"></bunny-color>
+        <bunny-color hex="#ffc800"></bunny-color>
+        <bunny-color hex="#f37b2f"></bunny-color>
+        <bunny-color></bunny-color>
+    </div>
+    <div class="description">
+        A toaster to display feedback to the user.
+    </div>
+    <div class="usage">
+        <pre><code class="html">
+&lt;script type="module" src="bunny-color.js"/&gt;
+
+&lt;style&gt;
+    bunny-color {
+        --bunny-color: #f00;
+    }
+&lt;/style&gt;
+
+&lt;bunny-color hex="#70e795"&gt;&lt;/bunny-color&gt;
+&lt;bunny-color hex="#ffc800"&gt;&lt;/bunny-color&gt;
+&lt;bunny-color hex="#f37b2f"&gt;&lt;/bunny-color&gt;
+&lt;bunny-color &gt;&lt;/bunny-color&gt;
+            </code>
+        </pre>
+    </div>
+    <script for="bunny-color">
+        document.querySelector('bunny-color').addEventListener('input', (e) => {
+            console.log(e);
         });
     </script>
 </bunny-box>

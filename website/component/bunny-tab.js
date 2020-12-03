@@ -55,7 +55,7 @@ class BunnyTab extends HTMLElement {
                 background-color: var(--bunny-tab-background, #424242);
                 outline-width: 0;
                 user-select: none;
-                cursor: var(--bunny-cursor-pointer);
+                cursor: var(--bunny-cursor-pointer, pointer);
                 display: flex;
                 justify-content: center;
                 align-items: center;

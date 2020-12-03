@@ -14,41 +14,46 @@ class BunnyProgress extends HTMLElement {
 
     set max(value) {
         if (value) {
-            this._max = (value > 0) ? value : 100;
+            this.setAttribute("max", value);
         } else {
             this._max = 100;
         }
+        this.update();
         this.render();
     }
 
     set value(value) {
         if (value) {
-            this._value = value;
+            this.setAttribute("value", value);
         } else {
             this._value = 0;
         }
+        this.update();
         this.render();
+    }
+
+    get value() {
+        return this._value;
     }
 
     percent() {
         return Math.min((this._value / this._max) * 100.0, 100);
     }
 
+    update() {
+        this.bar = this.bar || this.shadowRoot.querySelector('.fill');
+        this._max = this.getAttribute('max') || this._max;
+        this._value = this.getAttribute('value') || this._value;
+        this.bar.style.width = `${this.percent()}%`;
+    }
+
     connectedCallback() {
         this.attachShadow({mode: 'open'});
         this.render();
-
-        let update = () => {
-            this.bar = this.bar || this.shadowRoot.querySelector('.fill');
-            this._max = this.getAttribute('max') || this._max;
-            this._value = this.getAttribute('value') || this._value;
-            this.bar.style.width = `${this.percent()}%`;
-        };
-
-        new MutationObserver(update.bind(this))
+        new MutationObserver(this.update.bind(this))
             .observe(this, {attributes: true});
 
-        update();
+        this.update();
     }
 
     get template() {
