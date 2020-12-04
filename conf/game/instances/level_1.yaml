@@ -241,18 +241,332 @@ structures:
   scale: 0.275
   tint: "#fa4b00"
   revertx: false
+- id: "ice"
+  point:
+    x: 408
+    y: 1343
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -54
+    height: 26
+- id: "ice"
+  point:
+    x: 1588
+    y: 1312
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 24
+    height: -28
+- id: "lilith"
+  point:
+    x: 1164
+    y: 1608
+  scale: 0.285
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1229
+    y: 1637
+  scale: 0.285
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1349
+    y: 1664
+  scale: 0.285
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 2378
+    y: 1453
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 2354
+    y: 1522
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 2253
+    y: 1582
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 2166
+    y: 1603
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 2073
+    y: 1629
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 2011
+    y: 1641
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1911
+    y: 1681
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1774
+    y: 1714
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1671
+    y: 1729
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1533
+    y: 1788
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1436
+    y: 1781
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1351
+    y: 1766
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 2051
+    y: 1693
+  scale: 0.01
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 2606
+    y: 2144
+  scale: 0.01
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_red"
+  point:
+    x: 2294
+    y: 2278
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "darkglass"
+  point:
+    x: 1880
+    y: 2388
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "darkglass"
+  point:
+    x: 2984
+    y: 2193
+  scale: 1.0
+  tint: "#ff4929"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -575
+    height: -861
+- id: "darkglass"
+  point:
+    x: 3257
+    y: 2351
+  scale: 1.0
+  tint: "#ff4929"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -390
+    height: -572
+- id: "ice"
+  point:
+    x: 2817
+    y: 2566
+  scale: 1.0
+  tint: "#ff4929"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -345
+    height: -284
+- id: "icedark"
+  point:
+    x: 2852
+    y: 2899
+  scale: 1.0
+  tint: "#d6f1ff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -643
+    height: -418
+- id: "icedark"
+  point:
+    x: 2942
+    y: 3151
+  scale: 1.0
+  tint: "#d6f1ff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 8
+    height: 8
+- id: "water"
+  point:
+    x: 3865
+    y: 2940
+  scale: 1.0
+  tint: "#d6f1ff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -382
+    height: -477
+- id: "ice"
+  point:
+    x: 4002
+    y: 3017
+  scale: 1.0
+  tint: "#d6f1ff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -191
+    height: -477
+- id: "tree_orange"
+  point:
+    x: 3863
+    y: 3024
+  scale: 1.0
+  tint: "#d6f1ff"
+  revertx: false
+- id: "poison_oak"
+  point:
+    x: 3909
+    y: 3001
+  scale: 0.325
+  tint: "#d6f1ff"
+  revertx: false
+- id: "poison_oak"
+  point:
+    x: 3908
+    y: 3013
+  scale: 0.225
+  tint: "#d6f1ff"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 3665
+    y: 3149
+  scale: 0.125
+  tint: "#d6f1ff"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 3739
+    y: 3113
+  scale: 0.125
+  tint: "#d6f1ff"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 3797
+    y: 3075
+  scale: 0.125
+  tint: "#d6f1ff"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 3726
+    y: 3185
+  scale: 0.1
+  tint: "#d6f1ff"
+  revertx: true
+- id: "rubies"
+  point:
+    x: 3738
+    y: 3030
+  scale: 0.1
+  tint: "#d6f1ff"
+  revertx: true
+- id: "rubies"
+  point:
+    x: 3598
+    y: 3110
+  scale: 0.1
+  tint: "#d6f1ff"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 3792
+    y: 3158
+  scale: 0.1
+  tint: "#d6f1ff"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 3868
+    y: 3106
+  scale: 0.1
+  tint: "#d6f1ff"
+  revertx: false
+  type: "SPAWN"
 size:
   x: 32
   y: 64
 tileSizePx: 96
-tileScaledHeight: 78.38367176906169
-cartesianSize:
-  x: 2172
-  y: 3762
 tileScaledWidth: 135.7645019878171
-southPoint:
-  x: 4344
-  y: 3762
+tileScaledHeight: 78.38367176906169
 northPoint:
   x: 2172
   y: 0
+southPoint:
+  x: 4344
+  y: 3762
+cartesianSize:
+  x: 2172
+  y: 3762

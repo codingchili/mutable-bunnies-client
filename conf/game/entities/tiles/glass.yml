@@ -4,5 +4,5 @@ description: "Glass tile"
 model:
   graphics: "game/map/tiles/glass.png"
   blocking: false
-tile:
-  type: 'ground'
+  tile:
+    type: 'ground'

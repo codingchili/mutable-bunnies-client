@@ -4,5 +4,5 @@ description: "Dark glass tile."
 model:
   graphics: "game/map/tiles/darkglass.png"
   blocking: false
-tile:
-  type: 'ground'
+  tile:
+    type: 'ground'

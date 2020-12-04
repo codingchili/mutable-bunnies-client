@@ -4,5 +4,5 @@ description: "Dark ice tile"
 model:
   graphics: "game/map/tiles/icedark.png"
   blocking: false
-tile:
-  type: 'ground'
+  tile:
+    type: 'ground'

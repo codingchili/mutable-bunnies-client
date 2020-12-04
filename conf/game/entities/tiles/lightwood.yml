@@ -4,5 +4,5 @@ description: "Light wood tile"
 model:
   graphics: "game/map/tiles/lightwood.png"
   blocking: false
-tile:
-  type: 'ground'
+  tile:
+    type: 'ground'

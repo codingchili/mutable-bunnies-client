@@ -5,5 +5,5 @@ model:
   graphics: "game/map/tiles/stone.png"
   blocking: false
   tint: '#ff00cc'
-tile:
-  type: 'ground'
+  tile:
+    type: 'ground'

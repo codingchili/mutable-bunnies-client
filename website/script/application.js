@@ -18,7 +18,7 @@ class Application {
             logEvents: false,
             hardResetXY: true,
             metrics: true,
-            fullscreen: true
+            fullscreen: false
         };
 
         this.bus = new EventBus();

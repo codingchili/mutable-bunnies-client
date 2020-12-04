@@ -133,12 +133,722 @@ structures:
   point:
     x: 1823
     y: 703
+- id: "darkglass"
+  point:
+    x: 1426
+    y: 823
+  scale: 1.0
+  tint: "#00f0d4"
+  revertx: false
+- id: "ice"
+  point:
+    x: 1288
+    y: 902
+  scale: 1.0
+  tint: "#fa4747"
+  revertx: false
+- id: "ice"
+  point:
+    x: 845
+    y: 1057
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1356
+    y: 941
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -191
+    height: -287
+- id: "ice"
+  point:
+    x: 1296
+    y: 635
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1355
+    y: 1019
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -130
+    height: -372
+- id: "ice"
+  point:
+    x: 1219
+    y: 940
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -189
+    height: -192
+- id: "ice"
+  point:
+    x: 1214
+    y: 956
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1160
+    y: 905
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -157
+    height: -174
+- id: "ice"
+  point:
+    x: 892
+    y: 455
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -7
+    height: -189
+- id: "ice"
+  point:
+    x: 993
+    y: 550
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -243
+    height: -34
+- id: "ice"
+  point:
+    x: 1248
+    y: 254
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 192
+    height: -532
+- id: "ice"
+  point:
+    x: 1204
+    y: 706
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -135
+    height: 242
+- id: "ice"
+  point:
+    x: 1399
+    y: 593
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 7
+    height: -244
+- id: "ice"
+  point:
+    x: 1211
+    y: 683
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 28
+    height: 248
+- id: "ice"
+  point:
+    x: 1240
+    y: 808
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -184
+    height: 106
+- id: "ice"
+  point:
+    x: 1090
+    y: 769
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 171
+    height: 27
+- id: "ice"
+  point:
+    x: 1138
+    y: 908
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -220
+    height: 112
+- id: "ice"
+  point:
+    x: 956
+    y: 850
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 200
+    height: 31
+- id: "ice"
+  point:
+    x: 1045
+    y: 978
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -225
+    height: 67
+- id: "ice"
+  point:
+    x: 899
+    y: 893
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 206
+    height: -21
+- id: "ice"
+  point:
+    x: 946
+    y: 1000
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -166
+    height: 67
+- id: "ice"
+  point:
+    x: 819
+    y: 921
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 186
+    height: -34
+- id: "lilith"
+  point:
+    x: 1104
+    y: 795
+  scale: 0.235
+  tint: "#ffffff"
+  revertx: false
+- id: "ice"
+  point:
+    x: 1422
+    y: 432
+  scale: 1.0
+  tint: "#f50000"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -195
+    height: -186
+- id: "darkglass"
+  point:
+    x: 1335
+    y: 436
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -168
+    height: -180
+- id: "darkglass"
+  point:
+    x: 1198
+    y: 448
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1487
+    y: 471
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -287
+    height: -277
+- id: "ice"
+  point:
+    x: 1420
+    y: 509
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -189
+    height: -186
+- id: "ice"
+  point:
+    x: 1492
+    y: 472
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -192
+    height: -285
+- id: "ice"
+  point:
+    x: 1286
+    y: 525
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -1
+    height: 1
+- id: "ice"
+  point:
+    x: 1098
+    y: 38
+  scale: 1.0
+  tint: "#db0000"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -288
+    height: -572
+- id: "ice"
+  point:
+    x: 1072
+    y: 128
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -376
+    height: -386
+- id: "ice"
+  point:
+    x: 1095
+    y: 449
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 7
+    height: 7
+- id: "ice"
+  point:
+    x: 390
+    y: 403
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 7
+    height: 26
+- id: "ice"
+  point:
+    x: 579
+    y: -69
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -3
+    height: -3
+- id: "ice"
+  point:
+    x: 1435
+    y: 800
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 10
+- id: "ice"
+  point:
+    x: 1393
+    y: 768
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 9
+- id: "icedark"
+  point:
+    x: 409
+    y: 626
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -327
+    height: -591
+- id: "stone"
+  point:
+    x: 612
+    y: 978
+  scale: 1.0
+  tint: "#f90bc5"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -289
+    height: -289
+- id: "stone"
+  point:
+    x: 514
+    y: 1105
+  scale: 1.0
+  tint: "#0bf99e"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -471
+    height: -199
+- id: "darkglass"
+  point:
+    x: 174
+    y: 1172
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -289
+    height: -289
+- id: "darkglass"
+  point:
+    x: 474
+    y: 1418
+  scale: 1.0
+  tint: "#fa0000"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -290
+    height: -285
+- id: "ice"
+  point:
+    x: 487
+    y: 494
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -117
+    height: -158
+- id: "ice"
+  point:
+    x: -164
+    y: 1021
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -154
+    height: -117
+- id: "ice"
+  point:
+    x: -165
+    y: 1103
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -96
+    height: -130
+- id: "ice"
+  point:
+    x: 677
+    y: 941
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -474
+    height: -256
+- id: "ice"
+  point:
+    x: 800
+    y: 1092
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -6
+    height: 6
+- id: "ice"
+  point:
+    x: 776
+    y: 1573
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -1
+    height: 1
+- id: "snow"
+  point:
+    x: 1040
+    y: 1478
+  scale: 1.0
+  tint: "#ff9e9e"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -341
+    height: -336
+- id: "ice"
+  point:
+    x: 993
+    y: 1535
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -325
+    height: -322
+- id: "ice"
+  point:
+    x: 894
+    y: 1677
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -239
+    height: -239
+- id: "ice"
+  point:
+    x: 757
+    y: 1641
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -148
+    height: -229
+- id: "ice"
+  point:
+    x: 1231
+    y: 1317
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -167
+    height: -152
+- id: "ice"
+  point:
+    x: 1183
+    y: 1623
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -189
+    height: -169
+- id: "ice"
+  point:
+    x: 1241
+    y: 1705
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -192
+    height: -170
+- id: "ice"
+  point:
+    x: 1190
+    y: 1470
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -98
+    height: -98
+- id: "ice"
+  point:
+    x: 1233
+    y: 1535
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -98
+    height: -96
+- id: "ice"
+  point:
+    x: 387
+    y: 1624
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 29
+    height: 3
+- id: "ice"
+  point:
+    x: 302
+    y: 1577
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 33
+    height: 0
+- id: "ice"
+  point:
+    x: 265
+    y: 1555
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 30
+    height: 0
+- id: "ice"
+  point:
+    x: 420
+    y: 1525
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -72
+    height: -147
+- id: "ice"
+  point:
+    x: 0
+    y: 1488
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "ice"
+  point:
+    x: 81
+    y: 1610
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "ice"
+  point:
+    x: -95
+    y: 1565
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "ice"
+  point:
+    x: -106
+    y: 1410
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "ice"
+  point:
+    x: 393
+    y: 1326
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -223
+    height: -591
+  type: "SPAWN"
 size:
   x: 22
   y: 12
 tileSizePx: 96
-tileScaledHeight: 78.38367176906169
 tileScaledWidth: 135.7645019878171
+tileScaledHeight: 78.38367176906169
 northPoint:
   x: 1493
   y: 0

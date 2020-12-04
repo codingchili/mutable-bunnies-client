@@ -52,6 +52,11 @@ class GameMenu extends HTMLElement {
                 height: 32px;
                 width: 32px;
             }
+            
+            .icon {
+                width: 32px;
+                height: 32px;
+            }
 
             .menu-icon-disabled {
                 fill: #646464;

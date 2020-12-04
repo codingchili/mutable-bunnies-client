@@ -4,5 +4,5 @@ description: "Snowy ground tile"
 model:
   graphics: "game/map/tiles/snow.png"
   blocking: false
-tile:
-  type: 'ground'
+  tile:
+    type: 'ground'
