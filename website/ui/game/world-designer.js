@@ -32,6 +32,7 @@ class WorldDesigner extends HTMLElement {
         let filter = (this.filter) ? this.filter.value : '';
         this.filtered = this.registry.filter(item => {
             return filter.length === 0
+                || item.type.toLowerCase().includes(filter)
                 || item.name.toLowerCase().includes(filter)
                 || item.description.toLowerCase().includes(filter);
         });
@@ -72,7 +73,7 @@ class WorldDesigner extends HTMLElement {
                     display: block;
                     padding-left: 8px;
                     padding-right: 8px;
-                    height: 60%;
+                    height: 600px;
                     width: 276px;
                     z-index: 400;
                 }
@@ -104,7 +105,7 @@ class WorldDesigner extends HTMLElement {
                 .item-title {
                     position: absolute;
                     left: 82px;
-                    margin-top: 8px;
+                    margin-top: 16px;
                 }
 
                 .item-description {
@@ -112,7 +113,7 @@ class WorldDesigner extends HTMLElement {
                     font-size: smaller;
                     left: 82px;
                     position: absolute;
-                    margin-top: 26px;
+                    margin-top: 34px;
                     margin-right: 6px;
                 }
 
@@ -153,7 +154,7 @@ class WorldDesigner extends HTMLElement {
                         <div class="registry-item" @click="${this._select.bind(this, item)}">
                             <div class="item-icon-container">
                                 ${item.type === 'npc' ?
-                                        html`<bunny-icon icon="settings" class="item-icon"></bunny-icon>` :
+                                        html`<bunny-icon icon="npc" class="item-icon"></bunny-icon>` :
                                         html`<img src="${this.realm.resources}/${item.model.graphics}" class="item-icon">`
                                 }
                             </div>
