@@ -32,7 +32,6 @@ class BunnyColor extends HTMLElement {
     connectedCallback() {
         this.attachShadow({mode: 'open'});
         this.render();
-        this.input = this.query('#input');
     }
 
     focus() {
@@ -78,19 +77,18 @@ class BunnyColor extends HTMLElement {
             </style>
 
             <div id="container">
-                <input type="color" @input="${this._meow.bind(this)}" value="${this.color}"/>
+                <input type="color" value="${this.color}"/>
             </div>
         `;
     }
 
-    _meow() {
-        console.log(this.picker.value);
-    }
-
     render() {
         render(this.template, this.shadowRoot);
-        this.picker = this.shadowRoot.querySelector('input');
+        this.bind();
+    }
+
+    bind() {
+        this.input = this.shadowRoot.querySelector('input');
     }
 }
-
 customElements.define(BunnyColor.is, BunnyColor);

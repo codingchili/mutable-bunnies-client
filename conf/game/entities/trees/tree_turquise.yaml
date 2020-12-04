@@ -1,6 +1,6 @@
 ---
-name: "Turquise Tree"
-description: "Wood. Common wood.\nMaybe if you knew how.. you could cut it down."
+name: "Turquoise Tree"
+description: "A turquoise tree."
 model:
   graphics: "game/map/trees/turquise.png"
   scale: 1.0

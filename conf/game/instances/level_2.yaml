@@ -1,4 +1,57 @@
 ---
+id: "level_2"
+name: "level 2"
+texture: "game/map/tiles/stone.png"
+skybox:
+  gradient:
+  - "#000000"
+  - "#002a30"
+  background:
+    tint: "#ffffff"
+    enabled: false
+  clouds:
+    enabled: true
+    tint: "#482424"
+    type: "dark"
+  stars:
+    enabled: true
+    tint: "#ffffff"
+    resource: "game/map/clouds/skybox_stars.png"
+  moon:
+    enabled: true
+    tint: "#AA2020"
+    resource: "game/map/clouds/moon.png"
+limit: 50
+onStartup:
+  jexl: |-
+    // done by config now, wow.
+    // game.npcs().spawn("Illicit Lilith");
+onPlayerJoin:
+  jexl: |
+    // the vector must be reset when a player leaves an instance.
+    if (source.fromAnotherInstance || source.isDead()) {
+      source.vector.x = spawn.x;
+      source.vector.y = spawn.y;
+    }
+spawns:
+- x: 775
+  y: 700
+  probability: 1.0
+- x: 800
+  y: 725
+  probability: 1.0
+- x: 900
+  y: 625
+  probability: 1.0
+npcs:
+- id: "lilith"
+  point:
+    x: 600
+    y: 600
+- id: "gargazar"
+  point:
+    x: 425
+    y: 865
 structures:
 - id: "aluminum"
   point:
@@ -1220,62 +1273,76 @@ structures:
   point:
     x: 922
     y: 876
-npcs:
-- id: "lilith"
+- id: "ice"
   point:
-    x: 600
-    y: 600
-- id: "gargazar"
+    x: 945
+    y: 1013
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "quartz"
   point:
-    x: 425
-    y: 865
-spawns:
-- x: 775
-  y: 700
-  probability: 1.0
-- x: 800
-  y: 725
-  probability: 1.0
-- x: 900
-  y: 625
-  probability: 1.0
-onStartup:
-  jexl: |-
-    // done by config now, wow.
-    // game.npcs().spawn("Illicit Lilith");
-onPlayerJoin:
-  jexl: |
-    // the vector must be reset when a player leaves an instance.
-    if (source.fromAnotherInstance || source.isDead()) {
-      source.vector.x = spawn.x;
-      source.vector.y = spawn.y;
-    }
-name: "level 2"
-id: "level_2"
-texture: "game/map/tiles/stone.png"
-limit: 50
-skybox:
-  gradient:
-    - '#000000'
-    - '#002a30'
-  moon:
-    enabled: true
-    tint: '#AA2020'
-  clouds:
-    tint: '#482424'
-    type: 'dark'
+    x: 754
+    y: 1067
+  scale: 0.3
+  tint: "#06fed5"
+  revertx: true
+- id: "quartz"
+  point:
+    x: 862
+    y: 1072
+  scale: 0.3
+  tint: "#06fed5"
+  revertx: true
+- id: "quartz"
+  point:
+    x: 802
+    y: 1092
+  scale: 0.3
+  tint: "#02caa9"
+  revertx: false
+- id: "tree_redwhite"
+  point:
+    x: 420
+    y: 1166
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "johnny"
+  point:
+    x: 689
+    y: 1311
+  scale: 0.068
+  tint: "#ffffff"
+  revertx: false
+- id: "johnny"
+  point:
+    x: 753
+    y: 1185
+  scale: 0.043
+  tint: "#ffffff"
+  revertx: false
+  type: "SPAWN"
+- id: "johnny"
+  point:
+    x: 815
+    y: 1200
+  scale: 0.043
+  tint: "#ffffff"
+  revertx: false
+  type: "SPAWN"
 size:
   x: 22
   y: 12
 tileSizePx: 96
+tileScaledWidth: 135.7645019878171
 tileScaledHeight: 78.38367176906169
-southPoint:
-  x: 814
-  y: 1332
 northPoint:
   x: 1493
   y: 0
+southPoint:
+  x: 814
+  y: 1332
 cartesianSize:
   x: 1493
   y: 1332
-tileScaledWidth: 135.7645019878171

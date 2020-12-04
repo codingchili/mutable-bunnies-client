@@ -1,6 +1,6 @@
 ---
 name: "Red/White Tree"
-description: "Godswood."
+description: "A red and white tree."
 model:
   graphics: "game/map/trees/redwhite.png"
   scale: 1.0

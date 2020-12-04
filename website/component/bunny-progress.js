@@ -14,7 +14,7 @@ class BunnyProgress extends HTMLElement {
 
     set max(value) {
         if (value) {
-            this.setAttribute("max", value);
+            this._max = (value > 0) ? value : 100;
         } else {
             this._max = 100;
         }
@@ -24,7 +24,7 @@ class BunnyProgress extends HTMLElement {
 
     set value(value) {
         if (value) {
-            this.setAttribute("value", value);
+            this._value = value;
         } else {
             this._value = 0;
         }
