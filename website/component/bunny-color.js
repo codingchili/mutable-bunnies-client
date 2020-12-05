@@ -44,7 +44,6 @@ class BunnyColor extends HTMLElement {
                 :host {
                     contain: content;
                     display: block;
-                    cursor: var(--bunny-cursor-pointer, pointer);
                 }
 
                 input[type="color"]::-webkit-color-swatch {
@@ -72,7 +71,7 @@ class BunnyColor extends HTMLElement {
                 }
 
                 input[type="color"]:hover {
-                    cursor: pointer;
+                    cursor: var(--bunny-cursor-pointer, pointer);
                 }
             </style>
 

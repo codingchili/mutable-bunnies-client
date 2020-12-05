@@ -554,6 +554,122 @@ structures:
   scale: 0.1
   tint: "#d6f1ff"
   revertx: false
+- id: "ice"
+  point:
+    x: 2989
+    y: 2712
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -155
+    height: -133
+- id: "ice"
+  point:
+    x: 3128
+    y: 2866
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: true
+  tile:
+    type: "ground"
+    width: -152
+    height: -137
+- id: "ice"
+  point:
+    x: 3291
+    y: 2615
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -153
+    height: -143
+- id: "ice"
+  point:
+    x: 2840
+    y: 2778
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: true
+  tile:
+    type: "ground"
+    width: -143
+    height: -75
+- id: "ice"
+  point:
+    x: 3376
+    y: 2723
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: true
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "darkwood"
+  point:
+    x: 4790
+    y: 2518
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -346
+    height: -133
+- id: "darkwood"
+  point:
+    x: 5016
+    y: 2441
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -605
+    height: -387
+- id: "darkwood"
+  point:
+    x: 5201
+    y: 2470
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -997
+    height: -561
+- id: "tree_pink"
+  point:
+    x: 4508
+    y: 2156
+  scale: 0.675
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_red"
+  point:
+    x: 4705
+    y: 2258
+  scale: 0.65
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_orange"
+  point:
+    x: 4362
+    y: 2220
+  scale: 0.575
+  tint: "#ffffff"
+  revertx: false
+- id: "johnny"
+  point:
+    x: 5058
+    y: 2758
+  scale: 0.218
+  tint: "#ffffff"
+  revertx: false
   type: "SPAWN"
 size:
   x: 32
