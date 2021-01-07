@@ -7,10 +7,13 @@ import './game/chat-box.js'
 import './game/game-menu.js'
 import './game/context-menu.js'
 import './game/game-dialog.js'
+import './game/game-settings.js'
 import './game/death-dialog.js'
 import './game/player-inventory.js'
+import './game/player-spells.js'
 import './game/loot-dialog.js'
 import './game/friend-view.js'
+import './game/player-skills.js'
 import './game/quest-log.js'
 import './game/party-view.js'
 import './game/world-designer.js'
@@ -140,11 +143,17 @@ class GameView extends HTMLElement {
                 <notification-toaster></notification-toaster>
                     <!--<div ?hidden="${this.loading}">-->
 
-                <quest-log></quest-log>
+                <game-settings></game-settings>
                 <game-dialog></game-dialog>
+                
+                <quest-log></quest-log>
                 <loot-dialog></loot-dialog>
                 <death-dialog></death-dialog>
+                
                 <player-inventory></player-inventory>
+                <player-skills></player-skills>
+                <player-spells></player-spells>
+                
                 <friend-view></friend-view>
 
                 <player-status .target="${this.target}" style="right: 16px; left: unset;"

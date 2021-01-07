@@ -98,14 +98,14 @@ class GameMenu extends HTMLElement {
             </div>
 
             <div class="item-container">
-                <bunny-icon @mousedown="${this._spellbook.bind(this)}" icon="spellbook" class="icon menu-icon menu-icon-disabled"></bunny-icon>
+                <bunny-icon @mousedown="${this._spellbook.bind(this)}" icon="spellbook" class="icon menu-icon"></bunny-icon>
                 <bunny-tooltip class="tooltip" location="left">
                     <span class="description">Spells & Abilities [N]</span>
                 </bunny-tooltip>
             </div>
 
             <div class="item-container">
-                <bunny-icon @mousedown="${this._skills.bind(this)}" icon="skills" class="icon menu-icon menu-icon-disabled"></bunny-icon>
+                <bunny-icon @mousedown="${this._skills.bind(this)}" icon="skills" class="icon menu-icon"></bunny-icon>
                 <bunny-tooltip class="tooltip" location="left">
                     <span class="description">Skills [M]</span>
                 </bunny-tooltip>
@@ -126,7 +126,7 @@ class GameMenu extends HTMLElement {
             </div>
 
             <div class="item-container">
-                <bunny-icon @mousedown="${this._settings.bind(this)}" icon="settings" class="icon menu-icon menu-icon-disabled"></bunny-icon>
+                <bunny-icon @mousedown="${this._settings.bind(this)}" icon="settings" class="icon menu-icon"></bunny-icon>
                 <bunny-tooltip class="tooltip" location="left">
                     <span class="description">Settings [P]</span>
                 </bunny-tooltip>

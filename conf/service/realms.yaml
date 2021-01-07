@@ -4,10 +4,10 @@ enabled:
 - "angel_oak"
 storage: "com.codingchili.core.storage.IndexedMapPersisted"
 realmUpdates: 5000
-global: "sOboFELtoEvCwBJmSnatgOYwcTPjm0m/fcjJXkqPDNR7B+JUJhYD8xH+xza6BffiJabZP6gXkf+b0NfV5I0f9w=="
+global: "WbO+PU0XdlSW+1u+3w2Thwrk/GgERbr8QC5TNP3HS6Su46BmPL1utM4lYtTtsZRRIs9Urau21TdY8FOvNOAIsQ=="
 logging:
   properties:
     type: "HmacSHA512"
   domain: "realmserver.node"
-  key: "VRNgqwihdfGem3HX5Tyl/KXhbKJOAKU4amtlLfIuJpumdGhEPVoPI30xj0cxsg6a2lY2iP5QOMwEhiuEr+VH5A=="
-  expiry: 1607694280
+  key: "NezZ/O5u24cAmPJfkoTMqHfCFD2Ocplu4/Qd9fxHAfw3ZigN8eTGLE1C8MpOyk+Z4nOXiyRLfMu2zA5+qtsQRA=="
+  expiry: 1610659335

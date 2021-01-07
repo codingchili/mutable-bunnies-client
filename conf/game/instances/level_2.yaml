@@ -842,6 +842,292 @@ structures:
     type: "ground"
     width: -223
     height: -591
+- id: "ice"
+  point:
+    x: 1275
+    y: 583
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -274
+    height: -381
+- id: "ice"
+  point:
+    x: 2125
+    y: 677
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1092
+    y: 565
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1063
+    y: 576
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1063
+    y: 576
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1063
+    y: 576
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1063
+    y: 576
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1063
+    y: 576
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1063
+    y: 576
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1063
+    y: 576
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1063
+    y: 576
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1063
+    y: 576
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1063
+    y: 576
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1181
+    y: 571
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 1072
+    y: 617
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 950
+    y: 608
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 855
+    y: 543
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 855
+    y: 543
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 855
+    y: 543
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 855
+    y: 543
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 855
+    y: 543
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "ice"
+  point:
+    x: 602
+    y: 501
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -77
+    height: -25
+- id: "nettle"
+  point:
+    x: 543
+    y: 597
+  scale: 0.475
+  tint: "#09b397"
+  revertx: true
+- id: "nettle"
+  point:
+    x: 582
+    y: 574
+  scale: 0.475
+  tint: "#09b397"
+  revertx: true
+- id: "nettle"
+  point:
+    x: 656
+    y: 542
+  scale: 0.475
+  tint: "#09b397"
+  revertx: true
+- id: "nettle"
+  point:
+    x: 699
+    y: 508
+  scale: 0.475
+  tint: "#09b397"
+  revertx: true
+  type: "SPAWN"
+- id: "nettle"
+  point:
+    x: 743
+    y: 488
+  scale: 0.475
+  tint: "#09b397"
+  revertx: true
+  type: "SPAWN"
+- id: "nettle"
+  point:
+    x: 783
+    y: 475
+  scale: 0.475
+  tint: "#09b397"
+  revertx: true
   type: "SPAWN"
 size:
   x: 22
