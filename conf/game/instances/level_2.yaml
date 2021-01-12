@@ -1112,7 +1112,6 @@ structures:
   scale: 0.475
   tint: "#09b397"
   revertx: true
-  type: "SPAWN"
 - id: "nettle"
   point:
     x: 743
@@ -1120,7 +1119,6 @@ structures:
   scale: 0.475
   tint: "#09b397"
   revertx: true
-  type: "SPAWN"
 - id: "nettle"
   point:
     x: 783
@@ -1128,6 +1126,132 @@ structures:
   scale: 0.475
   tint: "#09b397"
   revertx: true
+- id: "gargazar"
+  point:
+    x: 853
+    y: 1105
+  scale: 0.155
+  tint: "#ffffff"
+  revertx: false
+- id: "gargazar"
+  point:
+    x: 1041
+    y: 1019
+  scale: 0.155
+  tint: "#ffffff"
+  revertx: false
+- id: "gargazar"
+  point:
+    x: 1226
+    y: 938
+  scale: 0.155
+  tint: "#ffffff"
+  revertx: false
+- id: "gargazar"
+  point:
+    x: 266
+    y: 899
+  scale: 0.28
+  tint: "#ffffff"
+  revertx: false
+- id: "uranium"
+  point:
+    x: 1569
+    y: 849
+  scale: 0.025
+  tint: "#ffffff"
+  revertx: false
+- id: "uranium"
+  point:
+    x: 1557
+    y: 855
+  scale: 0.025
+  tint: "#ffffff"
+  revertx: false
+- id: "uranium"
+  point:
+    x: 1579
+    y: 856
+  scale: 0.025
+  tint: "#ffffff"
+  revertx: false
+- id: "uranium"
+  point:
+    x: 1567
+    y: 858
+  scale: 0.025
+  tint: "#ffffff"
+  revertx: false
+- id: "uranium"
+  point:
+    x: 1555
+    y: 869
+  scale: 0.025
+  tint: "#ffffff"
+  revertx: false
+- id: "uranium"
+  point:
+    x: 1535
+    y: 873
+  scale: 0.025
+  tint: "#c70505"
+  revertx: false
+- id: "uranium"
+  point:
+    x: 1574
+    y: 863
+  scale: 0.025
+  tint: "#c70505"
+  revertx: false
+- id: "quartz"
+  point:
+    x: 829
+    y: 1084
+  scale: 0.3
+  tint: "#05b5e1"
+  revertx: false
+- id: "nightshade"
+  point:
+    x: 1071
+    y: 755
+  scale: 0.2
+  tint: "#05b5e1"
+  revertx: true
+- id: "lilith"
+  point:
+    x: 1166
+    y: 758
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1188
+    y: 759
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1167
+    y: 773
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1169
+    y: 794
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1750
+    y: 740
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
   type: "SPAWN"
 size:
   x: 22

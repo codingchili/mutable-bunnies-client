@@ -1,6 +1,5 @@
 ---
 name: "Farming"
-icon: "game/icon/skills/farming.png"
 description: "Harvest useful materials from plants and trees."
 type: "farming"
 scaling:

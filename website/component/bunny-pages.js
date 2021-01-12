@@ -25,22 +25,29 @@ class BunnyPages extends HTMLElement {
     connectedCallback() {
         this.attachShadow({mode: 'open'});
         this.page = this.getAttribute('selected') || 0;
+        this.render();
+    }
+
+    render() {
         render(this.template, this.shadowRoot);
+        this.bind();
+    }
 
-        let query = (selector) => {
-            let hits = this.shadowRoot.querySelector(selector);
-            let assigned = hits.assignedNodes();
-            if (hits && assigned.length > 0) {
-                return Array.from(assigned[0].children)
-            } else {
-                return [];
-            }
+    query(selector) {
+        let hits = this.shadowRoot.querySelector(selector);
+        let assigned = hits.assignedNodes();
+        if (hits && assigned.length > 0) {
+            return Array.from(assigned[0].children)
+        } else {
+            return [];
         }
+    }
 
+    bind() {
         customElements.whenDefined('bunny-tab').then(() => {
             let selected = false;
-            this.pages = query('slot[name="pages"]');
-            this.tabs = query('slot[name="tabs"]');
+            this.pages = this.query('slot[name="pages"]');
+            this.tabs = this.query('slot[name="tabs"]');
 
             for (let i = 0; i < this.tabs.length; i++) {
                 let tab = this.tabs[i];
@@ -81,27 +88,27 @@ class BunnyPages extends HTMLElement {
 
     get template() {
         return html`
-        <style>
-            :host {
-                display: block;
-                width: 100%;
-                height: 100%;
-            }
-            
-            .tabhost {
-                    display:flex;
+            <style>
+                :host {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .tabhost {
+                    display: flex;
                     flex-flow: row nowrap;
-                    justify-content: space-around;  
+                    justify-content: space-around;
                     align-items: stretch;
                     flex-direction: column;
                 }
-        </style>
-        
-        <div id="container">
-            <!-- map tabs to pages in here. -->
-            <slot name="tabs"></slot>
-            <slot name="pages"></slot>
-        </div>
+            </style>
+
+            <div id="container">
+                <!-- map tabs to pages in here. -->
+                <slot name="tabs"></slot>
+                <slot name="pages"></slot>
+            </div>
         `;
     }
 }

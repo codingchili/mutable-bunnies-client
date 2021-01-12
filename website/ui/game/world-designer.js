@@ -21,10 +21,17 @@ class WorldDesigner extends HTMLElement {
         });
 
         application.onGameLoaded((game) => {
-            game.designer.registry((registry) => {
-                this.registry = registry;
-                this._filter();
-            });
+            console.log(application.account.username);
+            console.log(this.realm);
+
+            if (this.realm.admins.includes(application.account.username)) {
+                game.designer.registry((registry) => {
+                    this.registry = registry;
+                    this.show();
+                });
+            } else {
+                this.hide();
+            }
         });
     }
 
@@ -37,6 +44,15 @@ class WorldDesigner extends HTMLElement {
                 || item.description.toLowerCase().includes(filter);
         });
         this.render();
+    }
+
+    show() {
+        this._filter();
+        this.designer.style.display = 'block';
+    }
+
+    hide() {
+        this.designer.style.display = 'none';
     }
 
     _filterNpc() {
@@ -65,12 +81,12 @@ class WorldDesigner extends HTMLElement {
     get template() {
         return html`
             <style>
-                .designer {
+                #designer {
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
                     left: 16px;
-                    display: block;
+                    display: none;
                     padding-left: 8px;
                     padding-right: 8px;
                     height: 600px;
@@ -142,7 +158,7 @@ class WorldDesigner extends HTMLElement {
                 ${BunnyStyles.hr}
             </style>
 
-            <bunny-box border class="noselect designer"
+            <bunny-box border class="noselect" id="designer"
                        @mouseenter="${this._block.bind(this)}"
                        @mouseleave="${this._unblock.bind(this)}">
 
@@ -154,8 +170,10 @@ class WorldDesigner extends HTMLElement {
                         <div class="registry-item" @click="${this._select.bind(this, item)}">
                             <div class="item-icon-container">
                                 ${item.type === 'npc' ?
-                                        html`<bunny-icon icon="npc" class="item-icon"></bunny-icon>` :
-                                        html`<img src="${this.realm.resources}/${item.model.graphics}" class="item-icon">`
+                                        html`
+                                            <bunny-icon icon="npc" class="item-icon"></bunny-icon>` :
+                                        html`<img src="${this.realm.resources}/${item.model.graphics}"
+                                                  class="item-icon">`
                                 }
                             </div>
                             <span class="item-title">${item.name}</span>
@@ -205,6 +223,7 @@ class WorldDesigner extends HTMLElement {
     bind() {
         this.filter = this.query('#filter');
         this.color = this.query('bunny-color');
+        this.designer = this.query('#designer');
 
         this.filter.addEventListener('focus', () => {
             input.block();

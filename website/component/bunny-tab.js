@@ -50,7 +50,8 @@ class BunnyTab extends HTMLElement {
         
             .tab {
                 min-width: 5.14em;
-                height: 2.8em;
+                min-height: 2.8em;
+                width: 100%;
                 /*position: relative;*/
                 background-color: var(--bunny-tab-background, #424242);
                 outline-width: 0;
@@ -63,6 +64,7 @@ class BunnyTab extends HTMLElement {
             
             .active {
                 border-bottom: 2px solid var(--bunny-tab-active, rgb(0, 176, 255));
+                background-color: var(--bunny-tab-background-active, #424242);
             }
             
             .tab-text {
@@ -87,9 +89,9 @@ class BunnyTab extends HTMLElement {
         </style>
         
         <div class="tab" onmousedown="this.getRootNode().host.onclicked()">
-            <span class="tab">
+            <div class="tab">
                 <slot></slot>            
-            </span>
+            </div>
             <ink-ripple></ink-ripple>
         </div>
         `;
