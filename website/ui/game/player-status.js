@@ -162,7 +162,7 @@ class PlayerStatus extends HTMLElement {
                 .level {
                     display: block;
                     position: absolute;
-                    top: 4px;
+                    top: 8px;
                     right: 14px;
                     width: 48px;
                     text-align: right;
@@ -329,6 +329,19 @@ class PlayerStatus extends HTMLElement {
                 .noselect {
                     user-select: none;
                 }
+                
+                .gm-tag {
+                    color: #fff900;
+                    text-shadow: #212121;
+                    font-weight: bold;
+                    position: absolute;
+                    left: 42px;
+                    right: 0;
+                    text-align: center;
+                    font-size: small;
+                    margin-top: 12px;
+                    opacity: 0.86;
+                }
 
             </style>
 
@@ -353,6 +366,8 @@ class PlayerStatus extends HTMLElement {
                         </div>
                     </bunny-tooltip>
                 </div>
+
+                <div class="gm-tag">${this.realm.admins.includes(this.target.account) ? 'GM' : ''}</div>
 
                 <div class="health-bar" id="health-bar">
                     <bunny-progress class="transiting" max="${this.target.stats.maxhealth}"
