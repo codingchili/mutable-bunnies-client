@@ -9,6 +9,7 @@ import '/component/bunny-icon.js'
 import '/component/bunny-progress.js'
 import '/component/bunny-tab.js'
 import '/component/bunny-pages.js'
+import '/component/bunny-input.js'
 
 class PlayerSkills extends HTMLElement {
 
@@ -54,6 +55,13 @@ class PlayerSkills extends HTMLElement {
         this.game.skills.state((event) => {
             this.skills = event.skills;
 
+            this.skills.push({
+                type: 'farming',
+                nextlevel: 1220,
+                experience: 150,
+                level: 18
+            });
+
             if (this.skills.length > 0) {
                 this._details(this.skills[0]);
             }
@@ -94,24 +102,30 @@ class PlayerSkills extends HTMLElement {
                 bunny-progress {
                     --bunny-progress-active-color: #DBC501;
                     --bunny-progress-container-color: #DBC50164;
+                    --bunny-progress-height: 8px;
                 }
 
                 bunny-tab {
+                    --bunny-tab-background-active: #00000000;
                     --bunny-tab-background: #00000000;
-                    --bunny-tab-active: #00000000;
-                    --bunny-tab-background-active: var(--game-theme-opaque);
                 }
 
                 #skills-container {
                 }
-                
+
+                .skill-header {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+
                 .skill-description {
-                    text-align: center;
-                    width: 100%;
                     display: block;
                     margin-top: 16px;
+                    margin-left: 28px;
+                    opacity: 0.76;
                 }
-                
+
                 .skill-icon {
                     max-width: 2.8em;
                 }
@@ -137,8 +151,10 @@ class PlayerSkills extends HTMLElement {
                 }
 
                 .skill-exp {
-                    margin-top: 2px;
-                    margin-right: 4px;
+                    position: absolute;
+                    bottom: 4px;
+                    left: 4px;
+                    right: 4px;
                 }
 
                 .skill-level {
@@ -187,11 +203,11 @@ class PlayerSkills extends HTMLElement {
                     font-size: larger;
                     margin-right: 16px;
                 }
-                
+
                 img.locked {
                     filter: grayscale(100%);
                 }
-                
+
                 .locked {
                     color: #ff000088;
                 }
@@ -210,7 +226,7 @@ class PlayerSkills extends HTMLElement {
                     <div id="dialog-content">
                         <bunny-icon icon="close" class="icon" id="dialog-close"
                                     @mousedown="${this._hide.bind(this)}"></bunny-icon>
-                        <span class="dialog-entity">Skills</span>
+                        <span class="dialog-entity">&nbsp;</span>
 
                         <bunny-pages>
                             <div slot="tabs">
@@ -226,26 +242,59 @@ class PlayerSkills extends HTMLElement {
         `;
     }
 
+    filter(e) {
+        this._filter = e.target.value;
+        this.render();
+    }
+
+    _filtered(perk) {
+        if (this._filter) {
+            let filter = this._filter.toLowerCase();
+            let matches = (attribute) => attribute.toLowerCase().includes(filter);
+            return (!this._filter || (matches(perk.id) || matches(perk.description)));
+        } else {
+            return true;
+        }
+    }
+
     _perks() {
         let items = [];
         for (let skill of this.skills) {
             if (this.info[skill.type]) {
                 let info = this.info[skill.type];
                 let perks = info.perks.sort((a, b) => a.level - b.level);
+                let percent = (skill.experience / skill.nextlevel * 100).toFixed(1);
 
                 items.push(html`
-                    <div class="skill-details>">
-                        <span class="skill-description">${info.description}</span>
-                        <div class="perks">
-                            ${perks.map(perk => html`
-                                <bunny-box class="perk-container">
-                                    <div class="perk">
-                                        <img class="perk-icon ${this._locked(skill, perk)}" src="${this.realm.resources}${perk.icon}">
-                                        <div class="perk-description">${perk.description}</div>
-                                        <div class="perk-level ${this._locked(skill, perk)}">${perk.level}</div>
-                                    </div>
-                                </bunny-box>
-                            `)}
+                    <div>
+                        <div class="skill-details>">
+                            <div class="skill-header">
+                                <span class="skill-description">${info.description}</span>
+                                <bunny-input id="filter-${skill.id}" placeholder="filter" value="${this._filter}"
+                                             @input="${this.filter.bind(this)}"
+                                             autofocus></bunny-input>
+                            </div>
+                            <div class="perks">
+                                ${perks.filter(this._filtered.bind(this))
+                                        .map(perk => html`
+                                            <bunny-box class="perk-container">
+                                                <div class="perk">
+                                                    <img class="perk-icon ${this._locked(skill, perk)}"
+                                                         src="${this.realm.resources}${perk.icon}">
+                                                    <div class="perk-description">${perk.description}</div>
+                                                    <div class="perk-level ${this._locked(skill, perk)}">${perk.level}
+                                                    </div>
+                                                </div>
+                                            </bunny-box>
+                                        `)}
+                            </div>
+                        </div>
+                        <div class="skill-exp">
+                            <bunny-progress max="${skill.nextlevel}"
+                                            value="${skill.experience}"></bunny-progress>
+                            <bunny-tooltip location="top">
+                                <span>${skill.experience}/${skill.nextlevel} (${percent}%)</span>
+                            </bunny-tooltip>
                         </div>
                     </div>
                 `);
@@ -266,13 +315,13 @@ class PlayerSkills extends HTMLElement {
         this.game.skills.info(skill.type, info => {
             this.info[skill.type] = info.skill;
             this.render();
+            this.shadowRoot.querySelector(`#filter-${skill.id}`).focus();
         });
     }
 
     _skills() {
         let skills = [];
         for (let skill of this.skills) {
-            let percent = (skill.experience / skill.nextlevel * 100).toFixed(1);
             skills.push(html`
                 <bunny-tab @mousedown="${this._details.bind(this, skill)}">
                     <div class="skill-tab">
@@ -280,13 +329,6 @@ class PlayerSkills extends HTMLElement {
                         <div class="skill-meta">
                             <div class="skill-type">${skill.type}</div>
                             <div class="skill-level">Lv.${skill.level}</div>
-                            <div class="exp-bar">
-                                <bunny-progress class="skill-exp" max="${skill.nextlevel}"
-                                                value="${skill.experience}"></bunny-progress>
-                            </div>
-                            <bunny-tooltip>
-                                <span>${skill.experience}/${skill.nextlevel} (${percent}%)</span>
-                            </bunny-tooltip>
                         </div>
                     </div>
                 </bunny-tab>

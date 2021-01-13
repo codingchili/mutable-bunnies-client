@@ -5,6 +5,10 @@ import {BunnyStyles} from "../../component/styles.js";
 
 import '/component/bunny-box.js'
 import '/component/bunny-icon.js'
+import '/component/bunny-switch.js'
+import '/component/bunny-slider.js'
+import '/component/bunny-pages.js'
+import '/component/bunny-tab.js'
 
 class GameSettings extends HTMLElement {
 
@@ -58,7 +62,37 @@ class GameSettings extends HTMLElement {
                 }
 
                 #dialog {
-                    width: 324px;
+                    width: 376px;
+                    height: 292px;
+                }
+
+                #settings-container {
+                    width: 296px;
+                    margin: 24px auto auto;
+                }
+                
+                bunny-pages {
+                    margin-top: 24px;
+                }
+
+                bunny-tab {
+                    --bunny-tab-background: #00000000;
+                    --bunny-tab-background-active: #00000000;
+                }
+
+                .configuration-option {
+                    margin: auto;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 4px;
+                }
+
+                bunny-switch {
+                    --bunny-switch-on: #00b0ff;
+                }
+
+                bunny-slider {
+                    width: 142px;
                 }
 
                 ${BunnyStyles.dialogs}
@@ -73,12 +107,60 @@ class GameSettings extends HTMLElement {
 
                 <bunny-box class="noselect dialog-center" id="dialog">
                     <div id="dialog-content">
-                        <bunny-icon icon="close" class="icon" id="dialog-close" @mousedown="${this._hide.bind(this)}"></bunny-icon>
-                        <span class="dialog-entity">Settings</span>
-                        
-                        <div id="skills-container">
-                            Settings for the app.
-                        </div>
+                        <bunny-icon icon="close" class="icon" id="dialog-close"
+                                    @mousedown="${this._hide.bind(this)}"></bunny-icon>
+                        <span class="dialog-entity"></span>
+
+                        <bunny-pages>
+                            <div slot="tabs">
+                                <bunny-tab>System</bunny-tab>
+                                <bunny-tab>Music</bunny-tab>
+                                <bunny-tab>Advanced</bunny-tab>
+                            </div>
+                            <div slot="pages">
+                                <div id="settings-container">
+                                    <div class="configuration-option">
+                                        <div>Awesome</div>
+                                        <bunny-switch></bunny-switch>
+                                    </div>
+                                    <div class="configuration-option">
+                                        <div>Awesome</div>
+                                        <bunny-switch active></bunny-switch>
+                                    </div>
+
+                                    <div class="configuration-option">
+                                        <div>Awesome</div>
+                                        <bunny-slider current="40"></bunny-slider>
+                                    </div>
+
+                                    <div class="configuration-option">
+                                        <div>Awesome</div>
+                                        <bunny-slider current="40"></bunny-slider>
+                                    </div>
+
+                                    <div class="configuration-option">
+                                        <div>Awesome</div>
+                                        <bunny-slider current="40"></bunny-slider>
+                                    </div>
+                                </div>
+
+
+                                <div id="settings-container">
+                                    <div class="configuration-option">
+                                        <div>PWN Level</div>
+                                        <bunny-slider current="40"></bunny-slider>
+                                    </div>
+                                </div>
+
+                                <div id="settings-container">
+                                    <div class="configuration-option">
+                                        <div>Hackertag</div>
+                                        <bunny-slider current="40"></bunny-slider>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </bunny-pages>
                     </div>
                 </bunny-box>
             </div>

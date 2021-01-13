@@ -16,6 +16,7 @@ external:
   client.realmregistry.node: ".*"
   auction.node: ".*"
   social.node: ".*"
+  banking.node: ".*"
 global: "WbO+PU0XdlSW+1u+3w2Thwrk/GgERbr8QC5TNP3HS6Su46BmPL1utM4lYtTtsZRRIs9Urau21TdY8FOvNOAIsQ=="
 logging:
   properties:
