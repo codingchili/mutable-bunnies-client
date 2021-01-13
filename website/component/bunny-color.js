@@ -76,9 +76,13 @@ class BunnyColor extends HTMLElement {
             </style>
 
             <div id="container">
-                <input type="color" value="${this.color}"/>
+                <input @mousedown="${this._show.bind(this)}" type="color" value="${this.color}"/>
             </div>
         `;
+    }
+
+    _show() {
+        this.input.click();
     }
 
     render() {
@@ -90,4 +94,5 @@ class BunnyColor extends HTMLElement {
         this.input = this.shadowRoot.querySelector('input');
     }
 }
+
 customElements.define(BunnyColor.is, BunnyColor);

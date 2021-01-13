@@ -110,6 +110,8 @@
         import('./bunny-pages.js');
         import('./bunny-toast.js');
         import('./bunny-color.js');
+        import('./bunny-switch.js');
+        import('./bunny-slider.js');
 
         hljs.initHighlightingOnLoad();
     </script>
@@ -374,6 +376,7 @@
         div[slot="pages"] > div {
             padding: 24px;
         }
+
         bunny-tab {
             --bunny-tab-active: #f37b2f;
             --bunny-tab-background: #484848;
@@ -500,6 +503,134 @@
     </div>
     <script for="bunny-color">
         document.querySelector('bunny-color').addEventListener('input', (e) => {
+            console.log(e);
+        });
+    </script>
+</bunny-box>
+
+<bunny-box class="component-demo">
+    <h2>bunny-switch</h2>
+    <style for="bunny-switch">
+        .switch-container {
+            width: 164px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        bunny-switch {
+            margin: 4px;
+            margin-top: -2px;
+        }
+
+        .switch-blue-orange {
+            --bunny-switch-on: #00b0ff;
+            --bunny-switch-off: #ef6000;
+        }
+    </style>
+    <div class="component">
+        <div class="switch-container">
+            <div>Awesome</div>
+            <bunny-switch checked></bunny-switch>
+        </div>
+        <div class="switch-container">
+            <div>Broken</div>
+            <bunny-switch></bunny-switch>
+        </div>
+        <div class="switch-container">
+            <div>Color Style</div>
+            <bunny-switch class="switch-blue-orange" checked></bunny-switch>
+        </div>
+        <div class="switch-container">
+            <div>NoScope 360</div>
+            <bunny-switch checked disabled></bunny-switch>
+        </div>
+    </div>
+    <div class="description">
+        switch with two states.
+    </div>
+    <div class="usage">
+        <pre><code class="html">
+&lt;script type="module" src="bunny-switch.js"/&gt;
+
+&lt;style&gt;
+    .switch-blue-orange {
+        --bunny-switch-on: #70e795;
+        --bunny-switch-off: #f37b2f;
+    }
+&lt;/style&gt;
+
+&lt;bunny-switch checked&gt;&lt;/bunny-switch&gt;
+&lt;bunny-switch&gt;&lt;/bunny-switch&gt;
+&lt;bunny-switch class="switch-blue-orange" checked&gt;&lt;/bunny-switch&gt;
+&lt;bunny-switch disabled checked&gt;&lt;/bunny-switch&gt;
+            </code>
+        </pre>
+    </div>
+    <script for="bunny-switch">
+        document.querySelector('bunny-color').addEventListener('change', (e) => {
+            console.log(e);
+        });
+    </script>
+</bunny-box>
+
+
+<bunny-box class="component-demo">
+    <h2>bunny-slider</h2>
+    <style for="bunny-slider">
+        .slider-container {
+            width: 324px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        bunny-slider {
+            margin: 4px;
+            margin-top: -2px;
+            width: 192px;
+        }
+
+        .pink {
+            --bunny-slider-pin: #ff00cc;
+        }
+    </style>
+    <div class="component">
+        <div class="slider-container">
+            <div>Awesome</div>
+            <bunny-slider current="40"></bunny-slider>
+        </div>
+        <div class="slider-container">
+            <div>Broken</div>
+            <bunny-slider end="10" start="8" current="9.5"></bunny-slider>
+        </div>
+        <div class="slider-container">
+            <div>Bunny</div>
+            <bunny-slider end="20" disabled></bunny-slider>
+        </div>
+        <div class="slider-container">
+            <div>NoScope 360</div>
+            <bunny-slider class="pink" start="1000" end="5000" current="1500"></bunny-slider>
+        </div>
+    </div>
+    <div class="description">
+        Slider selector.
+    </div>
+    <div class="usage">
+        <pre><code class="html">
+&lt;script type="module" src="bunny-slider.js"/&gt;
+
+&lt;style&gt;
+    --bunny-slider-pin: #ff00cc;
+&lt;/style&gt;
+
+&lt;bunny-slider&gt;&lt;/bunny-slider&gt;
+&lt;bunny-slider"&gt;&lt;/bunny-slider&gt;
+            </code>
+        </pre>
+    </div>
+    <script for="bunny-checkbox">
+        document.querySelector('bunny-color').addEventListener('change', (e) => {
             console.log(e);
         });
     </script>
