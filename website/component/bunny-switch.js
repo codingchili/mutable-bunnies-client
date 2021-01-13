@@ -62,11 +62,13 @@ class BunnySwitch extends HTMLElement {
                     contain: content;
                     display: inline-block;
                     user-select: none;
+                    margin-left: 11px;
+                    margin-right: 11px;
                 }
                 
                 #container {
                     position: relative;
-                    cursor: ${this._disabled ? 'unset' : 'pointer'};
+                    cursor: ${this._disabled ? 'unset' : 'var(--bunny-cursor-pointer, pointer)'};
                     height: 22px;
                     width: 44px;
                 }

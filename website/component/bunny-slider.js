@@ -122,7 +122,7 @@ class BunnySlider extends HTMLElement {
 
                 #container {
                     position: relative;
-                    cursor: ${this._disabled ? 'unset' : 'pointer'};
+                    cursor: ${this._disabled ? 'unset' : 'var(--bunny-cursor-pointer, pointer)'};
                     height: 22px;
                     width: 100%;
                 }
