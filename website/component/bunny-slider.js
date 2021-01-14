@@ -18,7 +18,6 @@ class BunnySlider extends HTMLElement {
                 this._current = (this._end - this._start) / 2 + this._start;
             }
             this._disabled = this.hasAttribute('disabled');
-            console.log(`s: ${this._start}, e: ${this._end}, c: ${this._current}, p: ${this._position()}`);
         };
 
         new MutationObserver(() => {
@@ -98,10 +97,12 @@ class BunnySlider extends HTMLElement {
         position = Math.max(position, 0);
 
         this._current = (position / width) * (this._end - this._start) + this._start;
-        this.dispatchEvent(new CustomEvent('input', {
-            value: this._current,
-            end: this._end,
-            start: this._start
+        this.dispatchEvent(new CustomEvent('change', {
+            detail: {
+                value: this._current,
+                end: this._end,
+                start: this._start
+            }
         }))
 
         this.pin.style.left = `${position}px`;
@@ -150,7 +151,7 @@ class BunnySlider extends HTMLElement {
                     0 1px 18px 0 rgba(0, 0, 0, 0.12),
                     0 3px 5px -1px rgba(0, 0, 0, 0.4)
                 }
-                
+
                 #value {
                     font-size: smaller;
                     position: absolute;

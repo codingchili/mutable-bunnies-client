@@ -242,10 +242,11 @@ class PageLogin extends HTMLElement {
                 import('../script/service/authentication.js')))
                 .then(() => {
                     this.authentication = new Authentication();
+                    let dev = application.development;
 
-                    if (application.development.autologin) {
-                        this.username.value = 'admin';
-                        this.password.value = 'admin';
+                    if (dev.autologin) {
+                        this.username.value = dev.login.user;
+                        this.password.value = dev.login.pwd;
                         this.submit({keyCode: 13})
                     }
                 });

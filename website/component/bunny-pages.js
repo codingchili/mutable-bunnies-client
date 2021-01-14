@@ -49,8 +49,7 @@ class BunnyPages extends HTMLElement {
             this.pages = this.query('slot[name="pages"]');
             this.tabs = this.query('slot[name="tabs"]');
 
-            for (let i = 0; i < this.tabs.length; i++) {
-                let tab = this.tabs[i];
+            for (let [i, tab] of this.tabs.entries()) {
                 tab.parentElement.style.cssText = `
                     display: flex;
                     flex-direction: row;
@@ -75,9 +74,9 @@ class BunnyPages extends HTMLElement {
 
     index(index) {
         index = parseInt(index);
-        for (let i = 0; i < this.pages.length; i++) {
-            this.pages[i].setAttribute('index', i);
-            this.pages[i].style.display = (i === index) ? 'block' : 'none';
+        for (let [i, page] of this.pages.entries()) {
+            page.setAttribute('index', i);
+            page.style.display = (i === index) ? 'block' : 'none';
 
             if (i < this.tabs.length) {
                 let tab = this.tabs[i];

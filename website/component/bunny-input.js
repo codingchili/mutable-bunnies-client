@@ -4,11 +4,20 @@ class BunnyInput extends HTMLElement {
 
     constructor() {
         super();
+        let update = () => {
+            this.placeholder = this.getAttribute('placeholder') || '';
+            this.text = this.getAttribute('text') || '';
+            this.label = this.getAttribute('label') || '';
+            this.type = this.getAttribute('type') || 'text';
+            this.maxlength = this.getAttribute('maxlength') || 96;
+        }
 
-        this.placeholder = this.getAttribute('placeholder') || '';
-        this.text = this.getAttribute('text') || '';
-        this.label = this.getAttribute('label') || '';
-        this.type = this.getAttribute('type') || 'text';
+        new MutationObserver(() => {
+            update();
+            this.render();
+        }).observe(this, {attributes: true});
+
+        update();
 
         if (this.hasAttribute('autofocus')) {
             this.focus();
@@ -151,7 +160,8 @@ class BunnyInput extends HTMLElement {
             
           <div id="container">
             <label id="label" class="label noselect">${this.label}</label>
-            <input spellcheck="false" maxlength="96" auto type="${this.type}" id="input" class="bunny-input noselect" value="${this.text}" placeholder="${this.placeholder}"/>
+            <input spellcheck="false" maxlength="${this.maxlength}" type="${this.type}" id="input" class="bunny-input noselect" 
+                   value="${this.text}" placeholder="${this.placeholder}"/>
             <div class="underline">
                 <div id="underline-default"></div>
                 <div id="underline"></div>

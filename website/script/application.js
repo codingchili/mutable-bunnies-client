@@ -7,28 +7,56 @@
 class Application {
 
     constructor() {
-        this.development = {
-            skipStart: true,
-            autologin: true,
-            selectFirstRealm: true,
-            selectFirstCharacter: true,
-            fastReconnect: true,
-            clearCache: true,
-            rightClick: true,
-            logEvents: false,
-            hardResetXY: true,
-            metrics: true,
-            fullscreen: false
-        };
-
         this.bus = new EventBus();
+        this.settings = localStorage.getItem('app-settings');
+
+        if (this.settings) {
+            this.settings = JSON.parse(this.settings);
+        } else {
+            this.settings = this.defaults();
+        }
+        this.development = this.settings.development;
+
+        window.onbeforeunload = () => {
+            this.publish('unload', this.settings);
+            localStorage.setItem('app-settings', JSON.stringify(this.settings));
+        };
 
         if (this.development.clearCache) {
             localStorage.clear();
         }
     }
 
+    defaults() {
+        return {
+            fullscreen: true,
+            development: {
+                skipStart: false,
+                autologin: false,
+                selectFirstRealm: false,
+                selectFirstCharacter: false,
+                fastReconnect: false,
+                clearCache: false,
+                rightClick: false,
+                logEvents: false,
+                hardResetXY: false,
+                metrics: false,
+                designer: false,
+                login: {
+                    user: 'admin',
+                    pwd: ''
+                }
+            }
+        };
+    }
+
+    reset() {
+        this.settings = this.defaults();
+        location.reload();
+    }
+
     realmLoaded(realm) {
+        realm.isAdmin = (account) => realm.admins.includes(account || application.account.username);
         application.realm = realm;
         application.publish('onRealmLoaded', realm);
     }

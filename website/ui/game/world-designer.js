@@ -21,18 +21,19 @@ class WorldDesigner extends HTMLElement {
         });
 
         application.onGameLoaded((game) => {
-            console.log(application.account.username);
-            console.log(this.realm);
-
-            if (this.realm.admins.includes(application.account.username)) {
+            if (this.realm.isAdmin()) {
                 game.designer.registry((registry) => {
                     this.registry = registry;
-                    this.show();
+                    if (application.development.designer) {
+                        this.show();
+                    }
                 });
             } else {
                 this.hide();
             }
         });
+        application.subscribe('show-designer', this.show.bind(this))
+        application.subscribe('hide-designer', this.hide.bind(this))
     }
 
     _filter() {

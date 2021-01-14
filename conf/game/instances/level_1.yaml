@@ -684,6 +684,20 @@ structures:
   scale: 0.3
   tint: "#a90f0f"
   revertx: false
+- id: "quartz"
+  point:
+    x: 1593
+    y: 2324
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "quartz"
+  point:
+    x: 1957
+    y: 2113
+  scale: 0.3
+  tint: "#58c90d"
+  revertx: false
   type: "SPAWN"
 size:
   x: 32

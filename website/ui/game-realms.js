@@ -274,188 +274,195 @@ class GameRealms extends HTMLElement {
     }
 
     get template() {
-        return html`    
-        <style>
-        ${BunnyStyles.variables}
-        ${BunnyStyles.icons}
-        ${BunnyStyles.noselect}
-        
-        :host {
-            padding-bottom: 16px;;
-        }
-        
-        .icon {
-            fill:red;
-        }
-        .icon:hover {
-            fill:red;
-            cursor: var(--bunny-cursor);
-        }
-        
-            .icons {
-                display: inline-flex;
-            }
-        
-            :host {
-                display: block;
-                padding-top: 128px;
-            }
-
-            .container {
-                width: 80%;
-                max-width: 825px;
-                display: block;
-                margin: auto;
-            }
-
-            .description {
-                width: 65%;
-                font-size: 12px;
-            }
-
-            .red {
-                color: rgba(255, 87, 34, 1)
-            }
-
-            .orange {
-                color: rgba(239, 108, 0, 1)
-            }
-
-            .yellow {
-                color: rgba(255, 214, 0, 1);
-            }
-
-            .green {
-                color: rgba(85, 139, 47, 1);
-            }
-
-            .mod-warning {
-                text-align: center;
-                width: 100%;
-                position: absolute;
-                font-size: smaller;
-                margin-top: 14px;
-            }
-
-            .realm-icon {
-                color: #ff0000;
-            }
-
-            .realm-icon:hover {
-                color: #ff0000;
-                cursor: var(--bunny-cursor);
-            }
-
-            @media (max-width: 728px) {
+        return html`
+            <style>
+                ${BunnyStyles.variables}
+                ${BunnyStyles.icons}
+                ${BunnyStyles.noselect}
                 :host {
-                    padding-top: 36px;
+                    padding-bottom: 16px;;
+                }
+
+                .icon {
+                    fill: red;
+                }
+
+                .icon:hover {
+                    fill: red;
+                    cursor: var(--bunny-cursor);
+                }
+
+                .icons {
+                    display: inline-flex;
+                }
+
+                :host {
+                    display: block;
+                    padding-top: 128px;
                 }
 
                 .container {
+                    width: 80%;
+                    max-width: 825px;
+                    display: block;
+                    margin: auto;
+                }
+
+                .description {
+                    width: 65%;
+                    font-size: 12px;
+                }
+
+                .red {
+                    color: rgba(255, 87, 34, 1)
+                }
+
+                .orange {
+                    color: rgba(239, 108, 0, 1)
+                }
+
+                .yellow {
+                    color: rgba(255, 214, 0, 1);
+                }
+
+                .green {
+                    color: rgba(85, 139, 47, 1);
+                }
+
+                .mod-warning {
+                    text-align: center;
                     width: 100%;
+                    position: absolute;
+                    font-size: smaller;
+                    margin-top: 14px;
                 }
 
-                .type {
-                    display: none;
+                .realm-icon {
+                    color: #ff0000;
                 }
 
-                .reset {
-                    display: none;
+                .realm-icon:hover {
+                    color: #ff0000;
+                    cursor: var(--bunny-cursor);
                 }
-            }
 
-            .realm-table {
-                text-align: center;
-                width: 100%;
-                margin-top: 8px;
-            }
-            
-            .realm-info {
-                position: relative;
-                display: block;
-                margin-top: 14px;
-                margin-right: 2px;
-            }
+                bunny-tab {
+                    --bunny-tab-background-active: #00000000;
+                    --bunny-tab-background: #00000000;
+                }
 
-            .realm-items {
-                cursor: var(--bunny-cursor-pointer);
-            }
+                @media (max-width: 728px) {
+                    :host {
+                        padding-top: 36px;
+                    }
 
-            .realm-items:hover {
-                background-color: #ffffff32;
-            }
+                    .container {
+                        width: 100%;
+                    }
 
-            .realm-item {
-                padding: 12px;
-            }
-            
-            .icons {
-                position: relative;
-                display: flex;
-            }
+                    .type {
+                        display: none;
+                    }
 
-            .tooltip-area {
-                display: inline;
-            }
-            
-            .icon-info  {
-                color: #fff !important;            
-                fill: #fff !important;            
-            }
-            
-            th, td {
-                padding: 0;
-            }
-            table {
-                border-collapse: collapse;
-                border-spacing: 0;
-            }
+                    .reset {
+                        display: none;
+                    }
+                }
 
-        </style>
+                .realm-table {
+                    text-align: center;
+                    width: 100%;
+                    margin-top: 8px;
+                }
 
-        <bunny-box class="container noselect">
-            <bunny-pages id="tabs">
-                <div slot="tabs">
-                    <bunny-tab @down="${this.trusted.bind(this)}" active>Game Worlds</bunny-tab>
-                </div>
-                <div slot="pages">
-                    <div>
-                        <div ?hidden="${this.trustedservers}" class="mod-warning">
-                            <h5><span class="red"> Warning:</span> These servers may contain resources and code not
-                                provided by &trade;.</h5>
-                        </div>
-            
-                        <bunny-spinner class="loader" text="Loading realms.." ?enabled="${this.loading}"></bunny-spinner>            
-            
-                        <div ?hidden="${this.loading}">
-                            <table class="realm-table">
-                                <tr class="realm-header">
-                                    <th></th>
-                                    <th>
-                                        <bunny-button on-down="order" data-args="name">Name</bunny-button>
-                                    </th>
-                                    <th class="type">
-                                        <bunny-button on-down="order" data-args="type">Type</bunny-button>
-                                    </th>
-                                    <th class="reset">
-                                        <bunny-button on-down="order" data-args="lifetime">Reset</bunny-button>
-                                    </th>
-                                    <th>
-                                        <bunny-button on-down="order" data-args="players">Players</bunny-button>
-                                    </th>
-                                    <th>
-                                        <bunny-button on-down="order" data-args="ping">Ping</bunny-button>
-                                    </th>
-                                    <th></th>
-                                </tr>
-    
-                            ${this.renderRealms()}  
-                                </table>    
+                .realm-info {
+                    position: relative;
+                    display: block;
+                    margin-top: 14px;
+                    margin-right: 2px;
+                }
+
+                .realm-items {
+                    cursor: var(--bunny-cursor-pointer);
+                }
+
+                .realm-items:hover {
+                    background-color: #ffffff32;
+                }
+
+                .realm-item {
+                    padding: 12px;
+                }
+
+                .icons {
+                    position: relative;
+                    display: flex;
+                }
+
+                .tooltip-area {
+                    display: inline;
+                }
+
+                .icon-info {
+                    color: #fff !important;
+                    fill: #fff !important;
+                }
+
+                th, td {
+                    padding: 0;
+                }
+
+                table {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                }
+
+            </style>
+
+            <bunny-box class="container noselect">
+                <bunny-pages id="tabs">
+                    <div slot="tabs">
+                        <bunny-tab @down="${this.trusted.bind(this)}" active>Game Worlds</bunny-tab>
+                    </div>
+                    <div slot="pages">
+                        <div>
+                            <div ?hidden="${this.trustedservers}" class="mod-warning">
+                                <h5><span class="red"> Warning:</span> These servers may contain resources and code not
+                                    provided by &trade;.</h5>
+                            </div>
+
+                            <bunny-spinner class="loader" text="Loading realms.."
+                                           ?enabled="${this.loading}"></bunny-spinner>
+
+                            <div ?hidden="${this.loading}">
+                                <table class="realm-table">
+                                    <tr class="realm-header">
+                                        <th></th>
+                                        <th>
+                                            <bunny-button on-down="order" data-args="name">Name</bunny-button>
+                                        </th>
+                                        <th class="type">
+                                            <bunny-button on-down="order" data-args="type">Type</bunny-button>
+                                        </th>
+                                        <th class="reset">
+                                            <bunny-button on-down="order" data-args="lifetime">Reset</bunny-button>
+                                        </th>
+                                        <th>
+                                            <bunny-button on-down="order" data-args="players">Players</bunny-button>
+                                        </th>
+                                        <th>
+                                            <bunny-button on-down="order" data-args="ping">Ping</bunny-button>
+                                        </th>
+                                        <th></th>
+                                    </tr>
+
+                                    ${this.renderRealms()}
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </bunny-pages>
-        </bunny-box>            
+                </bunny-pages>
+            </bunny-box>
         `;
     }
 
@@ -464,8 +471,8 @@ class GameRealms extends HTMLElement {
 
         for (let realm of this.realms) {
             let template = html`
-        <tr class="realm-items noselect" @click="${this.select.bind(this, realm)}">
-            <td class="realm-item">
+                <tr class="realm-items noselect" @click="${this.select.bind(this, realm)}">
+                    <td class="realm-item">
             <span class="icons">
                 <div ?hidden="${!this.favourite(realm.id)}">
                         <bunny-icon icon="favorite" class="realm-icon" id="fav-icon"></bunny-icon>
@@ -479,26 +486,26 @@ class GameRealms extends HTMLElement {
                     </div>
                 </div>
             </span>
-            </td>
-            <td class="realm-item">${realm.name}</td>
-            <td class="realm-item type">${realm.attributes.type}</td>
-            <td class="realm-item reset">${realm.attributes.lifetime}</td>
-            <td class="realm-item">
+                    </td>
+                    <td class="realm-item">${realm.name}</td>
+                    <td class="realm-item type">${realm.attributes.type}</td>
+                    <td class="realm-item reset">${realm.attributes.lifetime}</td>
+                    <td class="realm-item">
             <span class="${realm.populationColor}">
                 ${realm.players}
             </span>
-            </td>
-            <td class="realm-item">
-                <span class="${realm.pingColor}">${realm.ping}</span>
-            </td>
-            <td class="realm-info">
-                <bunny-icon class="info" icon="info" id="info"></bunny-icon>
-                <bunny-tooltip for="info">
-                    <span class="description">${realm.attributes.description}</span>
-                </bunny-tooltip>
-            </td>
-        </tr>
-        `;
+                    </td>
+                    <td class="realm-item">
+                        <span class="${realm.pingColor}">${realm.ping}</span>
+                    </td>
+                    <td class="realm-info">
+                        <bunny-icon class="info" icon="info" id="info"></bunny-icon>
+                        <bunny-tooltip for="info">
+                            <span class="description">${realm.attributes.description}</span>
+                        </bunny-tooltip>
+                    </td>
+                </tr>
+            `;
             list.push(template);
         }
         return list;

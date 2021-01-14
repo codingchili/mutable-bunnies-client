@@ -531,7 +531,7 @@
     <div class="component">
         <div class="switch-container">
             <div>Awesome</div>
-            <bunny-switch checked></bunny-switch>
+            <bunny-switch active></bunny-switch>
         </div>
         <div class="switch-container">
             <div>Broken</div>
@@ -539,11 +539,11 @@
         </div>
         <div class="switch-container">
             <div>Color Style</div>
-            <bunny-switch class="switch-blue-orange" checked></bunny-switch>
+            <bunny-switch class="switch-blue-orange" active></bunny-switch>
         </div>
         <div class="switch-container">
             <div>NoScope 360</div>
-            <bunny-switch checked disabled></bunny-switch>
+            <bunny-switch active disabled></bunny-switch>
         </div>
     </div>
     <div class="description">
@@ -560,17 +560,18 @@
     }
 &lt;/style&gt;
 
-&lt;bunny-switch checked&gt;&lt;/bunny-switch&gt;
+&lt;bunny-switch active&gt;&lt;/bunny-switch&gt;
 &lt;bunny-switch&gt;&lt;/bunny-switch&gt;
-&lt;bunny-switch class="switch-blue-orange" checked&gt;&lt;/bunny-switch&gt;
-&lt;bunny-switch disabled checked&gt;&lt;/bunny-switch&gt;
+&lt;bunny-switch class="switch-blue-orange" active&gt;&lt;/bunny-switch&gt;
+&lt;bunny-switch disabled active&gt;&lt;/bunny-switch&gt;
             </code>
         </pre>
     </div>
     <script for="bunny-switch">
-        document.querySelector('bunny-color').addEventListener('change', (e) => {
-            console.log(e);
-        });
+        document.querySelectorAll('bunny-switch')
+            .forEach(slider => slider.addEventListener('change', (e) => {
+                console.log(e);
+            }));
     </script>
 </bunny-box>
 
@@ -628,10 +629,11 @@
             </code>
         </pre>
     </div>
-    <script for="bunny-checkbox">
-        document.querySelector('bunny-color').addEventListener('change', (e) => {
-            console.log(e);
-        });
+    <script for="bunny-slider">
+        document.querySelectorAll('bunny-slider')
+            .forEach(slider => slider.addEventListener('change', (e) => {
+                console.log(e);
+            }));
     </script>
 </bunny-box>
 

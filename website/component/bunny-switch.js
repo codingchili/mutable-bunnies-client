@@ -6,7 +6,7 @@ class BunnySwitch extends HTMLElement {
     constructor() {
         super();
         let update = () => {
-            this._checked = this.hasAttribute('checked');
+            this._active = this.hasAttribute('active');
             this._disabled = this.hasAttribute('disabled');
         };
 
@@ -27,13 +27,13 @@ class BunnySwitch extends HTMLElement {
         this.render();
     }
 
-    set checked(value) {
-        this._checked = value;
+    set active(value) {
+        this._active = value;
         this.render();
     }
 
-    get checked() {
-        return this._checked;
+    get active() {
+        return this._active;
     }
 
     set disabled(value) {
@@ -50,9 +50,14 @@ class BunnySwitch extends HTMLElement {
 
     toggle() {
         if (!this.disabled) {
-            this.checked = !this.checked;
+            this.active = !this.active;
             this.render();
         }
+        this.dispatchEvent(new CustomEvent('change', {
+            detail: {
+                active: this.active
+            }
+        }));
     }
 
     get template() {
@@ -65,7 +70,7 @@ class BunnySwitch extends HTMLElement {
                     margin-left: 11px;
                     margin-right: 11px;
                 }
-                
+
                 #container {
                     position: relative;
                     cursor: ${this._disabled ? 'unset' : 'var(--bunny-cursor-pointer, pointer)'};
@@ -95,16 +100,16 @@ class BunnySwitch extends HTMLElement {
                     0 3px 5px -1px rgba(0, 0, 0, 0.4);
                 }
 
-                .checked {
+                .active {
                     left: 21px;
                     background-color: var(--bunny-switch-on, #00cc00);
                 }
 
-                .unchecked {
+                .inactive {
                     left: 0px;
                     background-color: var(--bunny-switch-off, #ff0000);
                 }
-                
+
                 .disabled {
                     background-color: #646464 !important;
                     cursor: not-allowed !important;
@@ -115,10 +120,10 @@ class BunnySwitch extends HTMLElement {
             <div id="container" @mousedown="${this.toggle.bind(this)}">
                 <div id="bar"></div>
                 <div id="switch" class="
-                        ${this.checked ? 'checked' : 'unchecked'}
+                        ${this.active ? 'active' : 'inactive'}
                         ${this._disabled ? 'disabled' : ''}
                     ">
-                    
+
                 </div>
             </div>
         `;

@@ -98,7 +98,6 @@
             navigator.serviceWorker.ready.then(() => {
                 send_message_to_sw("is offline?").then(event => {
                     application.offline = event.offline;
-                    console.log(`offline=${application.offline}`);
                     application.publish('offline', application.offline);
 
                     if (application.offline) {
@@ -118,7 +117,7 @@
             || (window.matchMedia('(display-mode: standalone)').matches);
 
         application.onAuthentication(() => {
-            if (window.isPWA || application.development.fullscreen) {
+            if (window.isPWA || application.settings.fullscreen) {
                 document.documentElement.requestFullscreen()
                     .catch((e) => {
                         console.log(e);

@@ -32,6 +32,11 @@ class PageStart extends HTMLElement {
                     overflow-y: scroll;
                 }
 
+                bunny-tab {
+                    --bunny-tab-background-active: #00000000;
+                    --bunny-tab-background: #00000000;
+                }
+
                 .container {
                     width: 80%;
                     max-width: 825px;
@@ -93,7 +98,6 @@ class PageStart extends HTMLElement {
         this.page = 0;
 
         application.subscribe('installed', installed => {
-            console.log('installed? = ' + installed);
             this.installed = installed;
             if (this.installed) {
                 this.link.style.display = 'none';
