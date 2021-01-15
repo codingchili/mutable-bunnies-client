@@ -17,10 +17,10 @@ external:
   auction.node: ".*"
   social.node: ".*"
   banking.node: ".*"
-global: "WbO+PU0XdlSW+1u+3w2Thwrk/GgERbr8QC5TNP3HS6Su46BmPL1utM4lYtTtsZRRIs9Urau21TdY8FOvNOAIsQ=="
+global: "UHF5m7xj1GEw4uVubgY+mpdmjn5Dfuw3w1BmkUnCYQAP7cfHn+8ZFx0yOZXtfPjk7EXUePiYakXTGY9TzvrCtg=="
 logging:
   properties:
     type: "HmacSHA512"
   domain: "routing.node"
-  key: "8UZyPJ8pxQClOhVGdK+q1KGvpUhSsdLVWCBbYztLNIkCjo5/cuWPcFGACEFUzpcuDcG4N6NBaXaHCPQP+4vhqg=="
-  expiry: 1610659335
+  key: "G10vDA4h/Um28LNN/bGyjomrB0ILYXlVKgFjU+2K5QEwVT60uzK1QKFty8cr0qK6UoPcnIqJCiaJdYV9v9GdHw=="
+  expiry: 1611312925
