@@ -288,13 +288,19 @@
             --bunny-input-label: #ff0000;
             --bunny-input-selection: #f37b2f;
         }
+
+        bunny-input[disabled]::part(input) {
+            text-align: center;
+        }
+
     </style>
     <div class="component">
-        <bunny-input text="no label or placeholder."></bunny-input>
+        <bunny-input id="ons" text="no label or placeholder."></bunny-input>
         <bunny-input text="placeholder" placeholder="placeholder text"></bunny-input>
         <bunny-input label="label" placeholder="placeholder text">text input</bunny-input>
         <bunny-input text="password" label="password" type="password"></bunny-input>
         <bunny-input class="five" text="styled" label="colors" text="input text"></bunny-input>
+        <bunny-input label="disabled" text="disabled input" disabled></bunny-input>
     </div>
     <div class="description">
         A simple input field with support for placeholder/label.

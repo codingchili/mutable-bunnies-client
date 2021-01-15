@@ -5,6 +5,7 @@ class BunnyInput extends HTMLElement {
     constructor() {
         super();
         let update = () => {
+            this.disabled = this.hasAttribute('disabled');
             this.placeholder = this.getAttribute('placeholder') || '';
             this.text = this.getAttribute('text') || '';
             this.label = this.getAttribute('label') || '';
@@ -156,12 +157,28 @@ class BunnyInput extends HTMLElement {
             .underline-focus {
                 width: 100% !important;       
             }
+                
+                
+            #container[disabled] {
+                cursor: not-allowed !important;
+            }
+
+            input[disabled] {
+                cursor: not-allowed !important;
+            }
             </style>
             
-          <div id="container">
+          <div id="container" ?disabled="${this.disabled ? 'disabled' : ''}">
             <label id="label" class="label noselect">${this.label}</label>
-            <input spellcheck="false" maxlength="${this.maxlength}" type="${this.type}" id="input" class="bunny-input noselect" 
-                   value="${this.text}" placeholder="${this.placeholder}"/>
+            <input part="input" spellcheck="false"
+                   id="input"
+                   ?disabled="${this.disabled}"
+                   maxlength="${this.maxlength}"
+                   type="${this.type}"
+                   class="bunny-input noselect" 
+                   value="${this.text}"
+                   placeholder="${this.placeholder}"
+            />
             <div class="underline">
                 <div id="underline-default"></div>
                 <div id="underline"></div>
