@@ -179,16 +179,21 @@ class GameSettings extends HTMLElement {
     }
 
     _sound() {
+        let settings = application.settings;
         return html`
             <div id="settings-container">
                 <div class="single-column">
                     <div class="configuration-option">
                         <div>Music</div>
-                        <bunny-slider current="80"></bunny-slider>
+                        <bunny-slider current="${settings.music}" end="1.0"
+                                      @change="${e => settings.music = e.detail.value}">
+                        </bunny-slider>
                     </div>
                     <div class="configuration-option">
                         <div>Effects</div>
-                        <bunny-slider current="100"></bunny-slider>
+                        <bunny-slider current="${settings.effects}" end="1.0"
+                                      @change="${e => settings.effects = e.detail.value}">
+                        </bunny-slider>
                     </div>
                 </div>
             </div>

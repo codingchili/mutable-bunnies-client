@@ -123,7 +123,7 @@ class BunnySwitch extends HTMLElement {
                         ${this.active ? 'active' : 'inactive'}
                         ${this._disabled ? 'disabled' : ''}
                     ">
-
+                    <ink-ripple></ink-ripple>
                 </div>
             </div>
         `;

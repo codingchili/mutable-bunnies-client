@@ -11,8 +11,6 @@ import './game-characters.js'
 import './patch-download.js'
 import './offline-view.js'
 
-const OPTION_MUSIC = 'music';
-
 class AppView extends HTMLElement {
 
     static get is() {
@@ -22,9 +20,7 @@ class AppView extends HTMLElement {
     constructor() {
         super();
         this.authenticated = false;
-
-        let option = localStorage.getItem('OPTION_MUSIC');
-        this.music = (option) ? JSON.parse(option) : false;
+        this.music = application.settings.music;
     }
 
     get template() {
@@ -183,7 +179,7 @@ class AppView extends HTMLElement {
     _music(enabled) {
         this.music = enabled;
         (enabled) ? this.play() : this.pause();
-        localStorage.setItem(OPTION_MUSIC, enabled.toString());
+        application.settings.music = enabled;
         this.render();
     }
 
@@ -219,13 +215,19 @@ class AppView extends HTMLElement {
             }
         });
         application.onScriptsLoaded(this.pause.bind(this));
+
+        application.onSettingsChanged(settings => {
+            if (this.ambient) {
+                this.ambient.volume = settings.music;
+            }
+        });
     }
 
     play() {
         if (!this.ambient) {
             this.ambient = new Audio('/sound/mutable_theme.mp3');
             this.ambient.loop = true;
-            this.ambient.volume = 0.5;
+            this.ambient.volume = application.settings.music;
 
             this.ambient.addEventListener('loadeddata', () => {
                 this.play();

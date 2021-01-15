@@ -8,28 +8,47 @@ class Application {
 
     constructor() {
         this.bus = new EventBus();
+        this._loadSettings();
+    }
+
+    _loadSettings() {
         this.settings = localStorage.getItem('app-settings');
-
-        if (this.settings) {
-            this.settings = JSON.parse(this.settings);
-        } else {
-            this.settings = this.defaults();
-        }
+        this.settings = (this.settings) ? JSON.parse(this.settings) : this.defaults();
         this.development = this.settings.development;
-
-        window.onbeforeunload = () => {
-            this.publish('unload', this.settings);
-            localStorage.setItem('app-settings', JSON.stringify(this.settings));
-        };
 
         if (this.development.clearCache) {
             localStorage.clear();
         }
+        this.settings = this._createSettingsProxy(this.settings);
+        this.development = this._createSettingsProxy(this.development);
+    }
+
+    _createSettingsProxy(configuration) {
+        let application = this;
+        return new Proxy(configuration, {
+            set: (object, property, value) => {
+                object[property] = value;
+                application.publish('settings-changed', application.settings);
+                application._saveSettings();
+                return true;
+            }
+        });
+    }
+
+    _saveSettings() {
+        // clear the last timer, keep last write only.
+        clearTimeout(this.saveHandler);
+
+        // backoff timer to conserve processing if changed often, using a slider etc.
+        this.saveHandler = setTimeout(() =>
+            localStorage.setItem('app-settings', JSON.stringify(this.settings)), 500)
     }
 
     defaults() {
         return {
             fullscreen: true,
+            music: 0.8,
+            effects: 1.0,
             development: {
                 skipStart: false,
                 autologin: false,
@@ -169,6 +188,10 @@ class Application {
 
     onCharacterUpdate(callback) {
         application.subscribe('onCharacterUpdate', callback);
+    }
+
+    onSettingsChanged(callback) {
+        application.subscribe('settings-changed', callback);
     }
 
     onScriptsLoaded(callback) {
