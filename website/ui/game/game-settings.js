@@ -76,7 +76,7 @@ class GameSettings extends HTMLElement {
                     width: 400px;
                 }
 
-                .two-columns {
+                .two-column {
                     display: flex;
                     justify-content: space-between;
                     margin-left: 11px;
@@ -203,10 +203,117 @@ class GameSettings extends HTMLElement {
     _hotkeys() {
         return html`
             <div id="settings-container">
-                <div class="single-column">
-                    <div class="configuration-option">
-                        Refresh
-                        <bunny-input text="F5"></bunny-input>
+                <style>
+                    .hotkey {
+                        width: 52px;
+                    }
+
+                    bunny-input::part(input) {
+                        text-align: center;
+                    }
+
+                    bunny-input[disabled]::part(input): {
+
+                    }
+
+                    .hotkey-column {
+                        width: 100%;
+                        margin-right: 32px;
+                    }
+
+                    .scrollable {
+                        overflow-y: scroll;
+                        max-height: 196px;
+                    }
+                </style>
+                <div class="two-column scrollable">
+                    <div class="hotkey-column">
+                        <div class="configuration-option">
+                            Move up
+                            <bunny-input class="hotkey" disabled maxlength="1" text="w"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Move left
+                            <bunny-input class="hotkey" disabled maxlength="1" text="a"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Move down
+                            <bunny-input class="hotkey" disabled maxlength="1" text="s"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Move right
+                            <bunny-input class="hotkey" disabled maxlength="1" text="d"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Inventory
+                            <bunny-input class="hotkey" disabled maxlength="1" text="h"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Spells
+                            <bunny-input class="hotkey" disabled maxlength="1" text="b"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Skills
+                            <bunny-input class="hotkey" disabled maxlength="1" text="m"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Quests
+                            <bunny-input class="hotkey" disabled maxlength="1" text="k"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Friends
+                            <bunny-input class="hotkey" disabled maxlength="1" text="j"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Settings
+                            <bunny-input class="hotkey" disabled maxlength="1" text="p"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Leave
+                            <bunny-input class="hotkey" disabled maxlength="1" text="l"></bunny-input>
+                        </div>
+                    </div>
+                    <div class="hotkey-column">
+                        <div class="configuration-option">
+                            Spell #1
+                            <bunny-input class="hotkey" disabled maxlength="1" text="q"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Spell #2
+                            <bunny-input class="hotkey" disabled maxlength="1" text="e"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Spell #3
+                            <bunny-input class="hotkey" disabled maxlength="1" text="r"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Spell #4
+                            <bunny-input class="hotkey" disabled maxlength="1" text="f"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Spell #5
+                            <bunny-input class="hotkey" disabled maxlength="1" text="x"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Spell #6
+                            <bunny-input class="hotkey" disabled maxlength="1" text="c"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Spell #7
+                            <bunny-input class="hotkey" disabled maxlength="1" text="v"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Jump
+                            <bunny-input class="hotkey" disabled maxlength="1" text="space"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Dance #1
+                            <bunny-input class="hotkey" disabled maxlength="1" text="1"></bunny-input>
+                        </div>
+                        <div class="configuration-option">
+                            Dance #2
+                            <bunny-input class="hotkey" disabled maxlength="1" text="2"></bunny-input>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -220,7 +327,7 @@ class GameSettings extends HTMLElement {
             let dev = application.development;
             return html`
                 <div id="settings-container">
-                    <div class="two-columns">
+                    <div class="two-column">
                         <div class="column">
                             <div class="configuration-option">
                                 <div>Hard Reset Vectors</div>
@@ -249,7 +356,6 @@ class GameSettings extends HTMLElement {
                             </div>
                             <div class="configuration-option">
                                 <div>Metrics</div>
-                                <bunny-switch
                                 <bunny-switch @change="${(e) => dev.metrics = e.detail.active}"
                                               ?active="${dev.metrics}"></bunny-switch>
                             </div>
@@ -285,15 +391,15 @@ class GameSettings extends HTMLElement {
                             </div>
                             <div class="configuration-option">
                                 <div>Auto user</div>
-                                <bunny-input placeholder="username" text="${dev.login.user}"
-                                             @input="${(e) => dev.login.user = e.target.value}">
+                                <bunny-input placeholder="username" text="${dev.user}"
+                                             @input="${(e) => dev.user = e.target.value}">
                                 </bunny-input>
                             </div>
                             <div class="configuration-option">
                                 <div>Auto pwd</div>
                                 <bunny-input placeholder="password" type="password"
-                                             text="${dev.login.pwd}"
-                                             @input="${(e) => dev.login.pwd = e.target.value}">
+                                             text="${dev.pwd}"
+                                             @input="${(e) => dev.pwd = e.target.value}">
                                 </bunny-input>
                             </div>
                         </div>

@@ -18,6 +18,8 @@ class Application {
 
         if (this.development.clearCache) {
             localStorage.clear();
+            // keep settings when cache is cleared.
+            this._saveSettings();
         }
         this.settings = this._createSettingsProxy(this.settings);
         this.development = this._createSettingsProxy(this.development);
@@ -61,10 +63,8 @@ class Application {
                 hardResetXY: false,
                 metrics: false,
                 designer: false,
-                login: {
-                    user: 'admin',
-                    pwd: ''
-                }
+                user: 'admin',
+                pwd: ''
             }
         };
     }

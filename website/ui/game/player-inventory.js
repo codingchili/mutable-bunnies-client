@@ -36,12 +36,6 @@ class PlayerInventory extends HTMLElement {
                 this.inventory = inventory;
                 this.render();
             });
-
-            input.onKeysListener({
-                down: () => {
-                    application.publish('show-inventory');
-                }
-            }, 'h');
         });
 
         application.subscribe('show-inventory', () => {
@@ -158,126 +152,130 @@ class PlayerInventory extends HTMLElement {
 
     get template() {
         return html`
-        <style>
-            :host {
-            }
-            
-            #container {
-                display: none;
-            }
+            <style>
+                :host {
+                }
 
-            #dialog {
-                min-width: 428px;
-                max-width: 428px;
-                min-height: 112px;
-            }
-            
-            ${BunnyStyles.dialogs}
-            ${BunnyStyles.noselect}
-            ${BunnyStyles.icons}
+                #container {
+                    display: none;
+                }
 
-            span {
-                padding: 0.28rem;
-            }
+                #dialog {
+                    min-width: 428px;
+                    max-width: 428px;
+                    min-height: 112px;
+                }
 
-            #loot-items {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: left;
-                min-height: 48px;
-                padding-bottom: 16px;
-                padding-left: 8px;
-                padding-right: 8px;
-                user-select: none;
-            }
+                ${BunnyStyles.dialogs}
+                ${BunnyStyles.noselect}
+                ${BunnyStyles.icons}
+                span {
+                    padding: 0.28rem;
+                }
 
-            .slot_row {
-                display: flex;
-                justify-content: center;
-            }
+                #loot-items {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: left;
+                    min-height: 48px;
+                    padding-bottom: 16px;
+                    padding-left: 8px;
+                    padding-right: 8px;
+                    user-select: none;
+                }
 
-            .spacer {
-                width: 48px;
-            }
+                .slot_row {
+                    display: flex;
+                    justify-content: center;
+                }
 
-            .currency-box {
-                width: 86px;
-                height: 16px;
-                position: absolute;
-                right: 8px;
-                display: flex;
-                justify-content: flex-end;
-                top: 216px;
-            }
+                .spacer {
+                    width: 48px;
+                }
 
-            .currency-text {
-                display: block;
-                padding: 0;
-                padding-right: 2px;
-                margin-top: -4px;
-            }
+                .currency-box {
+                    width: 86px;
+                    height: 16px;
+                    position: absolute;
+                    right: 8px;
+                    display: flex;
+                    justify-content: flex-end;
+                    top: 216px;
+                }
 
-            .currency-icon {
-                width: 16px;
-                margin-top: -6px;
-            }
+                .currency-text {
+                    display: block;
+                    padding: 0;
+                    padding-right: 2px;
+                    margin-top: -4px;
+                }
 
-        </style>
+                .currency-icon {
+                    width: 16px;
+                    margin-top: -6px;
+                }
 
-        <div class="dialog-container" id="container">
-            <div class="dialog-overlay"></div>
+            </style>
 
-            <bunny-box class="noselect dialog-center" id="dialog">
-                <bunny-icon icon="close" class="icon" id="dialog-close" @mousedown="${this._hide.bind(this)}"></bunny-icon>
+            <div class="dialog-container" id="container">
+                <div class="dialog-overlay"></div>
 
-                <span class="dialog-entity">${this.name}'s inventory</span>
+                <bunny-box class="noselect dialog-center" id="dialog">
+                    <bunny-icon icon="close" class="icon" id="dialog-close"
+                                @mousedown="${this._hide.bind(this)}"></bunny-icon>
 
-
-                <div class="slots" ?hidden="${!this.name}">
-                    <div class="slot_row">
-                        <div class="spacer"></div>
-                        
-                        ${['head', 'cloak'].map(slot => html`
-                            <inventory-item @mousedown="${this._unequip.bind(this, slot)}" .item="${this._slot(slot)}"></inventory-item>
-                        `)}
-                    </div>
+                    <span class="dialog-entity">${this.name}'s inventory</span>
 
 
-                    <div class="slot_row">
-                        ${['offhand', 'chest', 'weapon'].map(slot => html`
-                            <inventory-item @mousedown="${this._unequip.bind(this, slot)}" .item="${this._slot(slot)}"></inventory-item>
-                        `)}
-                    </div>
+                    <div class="slots" ?hidden="${!this.name}">
+                        <div class="slot_row">
+                            <div class="spacer"></div>
 
-                    <div class="slot_row">
-                        <div class="spacer"></div>
-                        <inventory-item @mousedown="${this._unequip.bind(this, 'legs')}" .item="${this._slot('legs')}"></inventory-item>
-                        <div class="spacer"></div>
-                    </div>
-
-                    <div class="slot_row">
-                        ${['neck', 'foot', 'ring'].map(slot => html`
-                            <inventory-item @mousedown="${this._unequip.bind(this, slot)}" .item="${this._slot(slot)}"></inventory-item>
-                        `)}
-                    </div>
-                </div>
-
-                <div class="currency-box">
-                    <span class="currency-text">${this._currency(this.inventory)}</span>
-                    <img class="currency-icon" src="${this.realm.resources}/gui/item/icon/slots/currency_coin.svg">
-                </div>
-
-                <hr>
-
-                <div id="loot-items">
-                    ${repeat(this.inventory.items, item => item.id, (item) => html`
-                        <div @mousedown="${this._equip.bind(this, item)}">
-                            <inventory-item .item="${item}"></inventory-item>
+                            ${['head', 'cloak'].map(slot => html`
+                                <inventory-item @mousedown="${this._unequip.bind(this, slot)}"
+                                                .item="${this._slot(slot)}"></inventory-item>
+                            `)}
                         </div>
-                    `)}
-                </div>
-            </bunny-box>
-        </div>
+
+
+                        <div class="slot_row">
+                            ${['offhand', 'chest', 'weapon'].map(slot => html`
+                                <inventory-item @mousedown="${this._unequip.bind(this, slot)}"
+                                                .item="${this._slot(slot)}"></inventory-item>
+                            `)}
+                        </div>
+
+                        <div class="slot_row">
+                            <div class="spacer"></div>
+                            <inventory-item @mousedown="${this._unequip.bind(this, 'legs')}"
+                                            .item="${this._slot('legs')}"></inventory-item>
+                            <div class="spacer"></div>
+                        </div>
+
+                        <div class="slot_row">
+                            ${['neck', 'foot', 'ring'].map(slot => html`
+                                <inventory-item @mousedown="${this._unequip.bind(this, slot)}"
+                                                .item="${this._slot(slot)}"></inventory-item>
+                            `)}
+                        </div>
+                    </div>
+
+                    <div class="currency-box">
+                        <span class="currency-text">${this._currency(this.inventory)}</span>
+                        <img class="currency-icon" src="${this.realm.resources}/gui/item/icon/slots/currency_coin.svg">
+                    </div>
+
+                    <hr>
+
+                    <div id="loot-items">
+                        ${repeat(this.inventory.items, item => item.id, (item) => html`
+                            <div @mousedown="${this._equip.bind(this, item)}">
+                                <inventory-item .item="${item}"></inventory-item>
+                            </div>
+                        `)}
+                    </div>
+                </bunny-box>
+            </div>
         `;
     }
 

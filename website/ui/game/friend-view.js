@@ -28,16 +28,7 @@ class FriendView extends HTMLElement {
     connectedCallback() {
         this.attachShadow({mode: 'open'})
 
-        application.onGameLoaded(() => {
-            input.onKeysListener({
-                down: () => {
-                    application.publish('show-friends');
-                }
-            }, 'j');
-
-            this._listen();
-        });
-
+        application.onGameLoaded(() => this._listen());
         application.subscribe('show-friends', () => {
             import('../../script/service/social.js').then(() => {
                 if (this._open()) {

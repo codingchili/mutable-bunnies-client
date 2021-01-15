@@ -14,11 +14,22 @@ class GameMenu extends HTMLElement {
 
     connectedCallback() {
         this.attachShadow({mode: 'open'})
-
         application.onRealmLoaded(realm => {
             this.realm = realm;
             this.render();
         });
+        application.onGameLoaded(() => this._hotkeys());
+    }
+
+    _hotkeys() {
+        let bind = (handler, key) => input.onKeyDown(handler.bind(this), key);
+        bind(this._inventory, 'h');
+        bind(this._spellbook, 'b');
+        bind(this._skills, 'm');
+        bind(this._quests, 'k');
+        bind(this._friends, 'j');
+        bind(this._settings, 'p');
+        bind(this._characters, 'l');
     }
 
     get template() {
@@ -100,7 +111,7 @@ class GameMenu extends HTMLElement {
             <div class="item-container">
                 <bunny-icon @mousedown="${this._spellbook.bind(this)}" icon="spellbook" class="icon menu-icon"></bunny-icon>
                 <bunny-tooltip class="tooltip" location="left">
-                    <span class="description">Spells & Abilities [N]</span>
+                    <span class="description">Spells & Abilities [B]</span>
                 </bunny-tooltip>
             </div>
 

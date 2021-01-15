@@ -245,8 +245,8 @@ class PageLogin extends HTMLElement {
                     let dev = application.development;
 
                     if (dev.autologin) {
-                        this.username.value = dev.login.user;
-                        this.password.value = dev.login.pwd;
+                        this.username.value = dev.user;
+                        this.password.value = dev.pwd;
                         this.submit({keyCode: 13})
                     }
                 });
