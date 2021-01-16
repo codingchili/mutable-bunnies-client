@@ -1,0 +1,7 @@
+name: "Mining Manual"
+icon: "gui/item/icon/book_yellow.png"
+rarity: "rare"
+onUse: "learn_mining.groovy"
+description: |
+  This book contains information on prospecting and mining ores.
+  It will teach the Mining skill and be consumed in the process.

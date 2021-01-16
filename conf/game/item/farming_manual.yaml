@@ -1,0 +1,7 @@
+name: "Farming Manual"
+icon: "gui/item/icon/book_green.png"
+rarity: "rare"
+onUse: "learn_farming.groovy"
+description: |
+  This book contains information on growing and harvesting plants.
+  It will teach the Farming skill and be consumed in the process.
