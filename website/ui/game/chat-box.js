@@ -13,13 +13,19 @@ class ChatBox extends HTMLElement {
         return 'chat-box';
     }
 
+    constructor() {
+        super();
+        this.list = {
+            scrollTop: -1,
+            scrollHeight: -1
+        }
+    }
+
+
     connectedCallback() {
         this.attachShadow({mode: 'open'})
 
-        this.MAX_MESSAGES = 14;
-        this.listeners = false;
-        this.minimized = true;
-
+        this.MAX_MESSAGES = 64;
         this.messages = [{
             system: true,
             text: `Server version ${patch.version} ${patch.name}.`
@@ -30,118 +36,125 @@ class ChatBox extends HTMLElement {
             this._setHandler();
         });
 
-        this.render();
+        this._minimize();
     }
 
     get template() {
         return html`
-        <style>
-            :host {
-                display: block;
-                position: absolute;
-                bottom: 16px;
-                left: 16px;
-            }
-
-            .chat-box {
-                width: 416px;
-                height: 246px;
-            }
-
-            .input {
-                position: absolute;
-                display: block;
-                bottom: 2px;
-                left: 0px;
-                right: 16px;
-            }
-
-            .messages {
-                list-style-type: none;
-                font-size: smaller;
-                margin-left: 8px;
-                margin-top: 2px;
-                padding-left: 0px;
-                margin-bottom: 0px;
-            }
-
-            .system {
-                color: #ffc200;
-            }
-
-            .party {
-                color: #2bc7ff;
-            }
-
-            .private {
-                color: #ff0085;
-            }
-
-            @media (max-width: 1268px) {
+            <style>
                 :host {
-                    bottom: 64px;
-                    height: 47px;
                     display: block;
-                    left: 50%;
-                    transform: translateX(-50%);
+                    position: absolute;
+                    bottom: 16px;
+                    left: 16px;
                 }
 
                 .chat-box {
-                    bottom: 36px;
-                    position: absolute;
-                    transform: translateX(-50%);
+                    width: 416px;
+                    height: 246px;
                 }
-            }
 
-            .hide-chat {
-                position: absolute;
-                right: 8px;
-                top: 8px;
-            }
+                .input {
+                    position: absolute;
+                    display: block;
+                    bottom: 2px;
+                    left: 0px;
+                    right: 16px;
+                }
 
-            .chat-icon {
-                display: block;
-                margin: auto;
-                padding: 4px;
-                margin-top: 2px;
-                padding-bottom: 2px;
-            }
+                .messages {
+                    list-style-type: none;
+                    font-size: smaller;
+                    margin-left: 8px;
+                    margin-top: 2px;
+                    padding-left: 0px;
+                    margin-bottom: 0px;
+                }
 
-            .list {
-                margin-top: 8px;
-            }
-            
-            ${BunnyStyles.icons}
+                .system {
+                    color: #ffc200;
+                }
 
-        </style>
+                .party {
+                    color: #2bc7ff;
+                }
 
-        ${!this.minimized ? html`
-            <bunny-box class="chat-box" border>
-                <div>
-                    <bunny-icon @mousedown="${this._minimize.bind(this)}" class="hide-chat" icon="close"></bunny-icon>
-    
-                    <div class="list">
-                        <ul class="messages">
-                            ${repeat(this.messages, message =>
-                                html`
-                                    <li class="text ${this._system(message)} ${this._party(message)} ${this._private(message)}">
-                                        ${this._name(message)}${message.text}
-                                    </li>                        
-                            `)}
-                        </ul>
+                .private {
+                    color: #ff0085;
+                }
+
+                @media (max-width: 1268px) {
+                    :host {
+                        bottom: 64px;
+                        height: 47px;
+                        display: block;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                    .chat-box {
+                        bottom: 36px;
+                        position: absolute;
+                        transform: translateX(-50%);
+                    }
+                }
+
+                .hide-chat {
+                    position: absolute;
+                    right: 8px;
+                    top: 8px;
+                }
+
+                .chat-icon {
+                    display: block;
+                    margin: 2px auto auto;
+                    padding: 4px 4px 2px;
+                }
+
+                #list {
+                    margin-top: 8px;
+                    height: 200px;
+                    overflow-y: scroll;
+                }
+
+                .text {
+                    word-break: break-word;
+                    text-indent: -3em;
+                    padding-left: 3em;
+                    white-space: pre-wrap;
+                }
+
+                ${BunnyStyles.icons}
+                ${BunnyStyles.scrollbars}
+
+            </style>
+
+            ${!this.minimized ? html`
+                <bunny-box class="chat-box" border>
+                    <div>
+                        <bunny-icon @mousedown="${this._minimize.bind(this)}" class="hide-chat"
+                                    icon="close"></bunny-icon>
+
+                        <div id="list">
+                            <ul class="messages">
+                                ${repeat(this.messages, message =>
+                                        html`
+                                            <li class="text ${this._system(message)} ${this._party(message)} ${this._private(message)}">${this._name(message)}${message.text}</li>
+                                        `)}
+                            </ul>
+                        </div>
+                        <bunny-input id="message" class="input" @input="${this._input.bind(this)}" maxlength="128"
+                                     placeholder="${this.channel}"
+                                     @keydown="${this.submit.bind(this)}"></bunny-input>
                     </div>
-                    <bunny-input id="message" class="input" @input="${this._input.bind(this)}" maxlength="60"
-                                 placeholder="${this.channel}"
-                                 @keydown="${this.submit.bind(this)}"></bunny-input>
-               </div>
 
-            </bunny-box>` : ''}
+                </bunny-box>` : ''}
 
-        ${this.minimized ? html`
-            <bunny-box class="chat-button" @mousedown="${this._maximize.bind(this)}" border>
+            ${this.minimized ? html`
+                <bunny-box class="chat-button" @mousedown="${this._maximize.bind(this)}" border>
                     <bunny-icon class="chat-icon" icon="chat"></bunny-icon>
-            </bunny-box>
-        `: ''}
+                </bunny-box>
+            ` : ''}
         `;
     }
 
@@ -153,6 +166,9 @@ class ChatBox extends HTMLElement {
     _maximize() {
         this.minimized = false;
         this.render();
+
+        this.input.addEventListener('blur', () => input.unblock(), true);
+        this.input.addEventListener('focus', () => input.block(), true);
 
         setTimeout(() => {
             this._focus();
@@ -175,16 +191,8 @@ class ChatBox extends HTMLElement {
     }
 
     _setHandler() {
-        game.chat.onChatMessage(msg => {
-            this.add(msg);
-        });
-
-        input.onKeysListener({
-            down: () => {
-                this._focus();
-            }
-        }, ['Enter']);
-
+        game.chat.onChatMessage(msg => this.add(msg));
+        input.onKeyDown(() => this._focus(), 'Enter');
     }
 
     _focus() {
@@ -220,12 +228,19 @@ class ChatBox extends HTMLElement {
             this.input.clear();
             this.query('#message').blur();
             this.render();
+        } else {
+            this.query('#message').blur();
         }
     }
 
     add(message) {
         if (message.text) {
+            // check if scrolled to bottom, otherwise don't auto scroll.
+            let scroll = (this.list.scrollTop + this.list.clientHeight === this.list.scrollHeight);
             this.messages.push(message);
+            if (scroll) {
+                setTimeout(() => this.list.scrollTop = Number.MAX_SAFE_INTEGER,0);
+            }
         }
         while (this.messages.length >= this.MAX_MESSAGES) {
             this.messages.splice(0, 1);
@@ -251,18 +266,6 @@ class ChatBox extends HTMLElement {
     }
 
     submit(event) {
-        if (!this.listeners) {
-            this.query('#message').addEventListener('blur', () => {
-                input.unblock();
-            }, true);
-
-            this.query('#message').addEventListener('focus', () => {
-                input.block();
-            }, true);
-
-            input.block();
-        }
-
         if (event.key === 'Enter')
             this.send();
         if (event.key === 'Escape') {
@@ -281,6 +284,10 @@ class ChatBox extends HTMLElement {
 
     bind() {
         this.input = this.query("#message");
+        let list = this.query('#list');
+        if (list) {
+            this.list = list;
+        }
     }
 }
 
