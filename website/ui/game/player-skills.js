@@ -55,13 +55,6 @@ class PlayerSkills extends HTMLElement {
         this.game.skills.state((event) => {
             this.skills = event.skills;
 
-            this.skills.push({
-                type: 'farming',
-                nextlevel: 1220,
-                experience: 150,
-                level: 18
-            });
-
             if (this.skills.length > 0) {
                 this._details(this.skills[0]);
             }
@@ -227,6 +220,8 @@ class PlayerSkills extends HTMLElement {
                         <bunny-icon icon="close" class="icon" id="dialog-close"
                                     @mousedown="${this._hide.bind(this)}"></bunny-icon>
                         <span class="dialog-entity">&nbsp;</span>
+                        
+                        ${this._placeholder()}
 
                         <bunny-pages>
                             <div slot="tabs">
@@ -240,6 +235,18 @@ class PlayerSkills extends HTMLElement {
                 </bunny-box>
             </div>
         `;
+    }
+
+    _placeholder() {
+        let content = html`
+            <div id="placeholder">
+                <h2 class="placeholder-text">
+                    No skills learned, pick up a book maybe?
+                </h2>
+                <img src="${this.realm.resources}gui/skill/book.svg"/>
+            </div>
+        `;
+        return (this.skills.length === 0) ? content : '';
     }
 
     filter(e) {

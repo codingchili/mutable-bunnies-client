@@ -23,6 +23,10 @@ class PlayerSpells extends HTMLElement {
             this.game = game;
         });
 
+        application.onCharacterLoaded(character => {
+            this.character = character;
+        });
+
         application.subscribe('show-spellbook', () => {
             if (this._open()) {
                 this._hide();
@@ -57,6 +61,8 @@ class PlayerSpells extends HTMLElement {
 
     bind() {
         this.container = this.query('#container');
+        this.pages = this.query('bunny-pages');
+        this.pages.bind();
     }
 
     get template() {
@@ -84,21 +90,21 @@ class PlayerSpells extends HTMLElement {
                     text-align: center;
                     font-size: smaller;
                 }
-                
+
                 .player-class {
                     margin-left: 8px;
                     margin-right: 8px;
                 }
 
                 #spell-container {
-                    margin-left: 8px;
                     height: 706px;
-                    overflow-y: scroll;
-                    margin-top: 12px;
+                    margin-top: 32px;
                 }
-                
+
                 .spell-icon {
                     width: 48px;
+                    margin-top: 2px;
+                    margin-bottom: -4px;
                 }
 
                 bunny-tab {
@@ -115,6 +121,7 @@ class PlayerSpells extends HTMLElement {
                 ${BunnyStyles.icons}
                 ${BunnyStyles.variables}
                 ${BunnyStyles.noselect}
+                ${BunnyStyles.hr}
             </style>
 
             <div class="dialog-container" id="container">
@@ -129,7 +136,7 @@ class PlayerSpells extends HTMLElement {
                         <bunny-pages id="class-container">
                             <div slot="tabs">
                                 ${this.realm.classes.map(pc => html`
-                                    <bunny-tab>
+                                    <bunny-tab ?active="${pc.id === game.player.classId}">
                                         <div class="player-class">
 
                                             <img src="${this.realm.resources}gui/class/${pc.id}.svg"
@@ -144,17 +151,7 @@ class PlayerSpells extends HTMLElement {
                             <div slot="pages">
                                 ${this.realm.classes.map(pc => html`
                                     <div id="spell-container">
-                                        ${pc.spells
-                                                .map(spell => this._resolve(spell))
-                                                .map(spell => html`
-                                                    <div class="spell">
-                                                        <img class="spell-icon"
-                                                             src="${this.realm.resources}gui/spell/${spell.id}.svg"
-                                                             class="spell-image">
-                                                        <div>${spell.name}</div>
-                                                        <div>${spell.description}</div>
-                                                    </div>
-                                                `)}
+                                        ${this._spells(pc)}
                                     </div>
                                 `)}
                             </div>
@@ -163,6 +160,84 @@ class PlayerSpells extends HTMLElement {
                 </bunny-box>
             </div>
         `;
+    }
+
+    _groupBy(list, get) {
+        const map = {};
+        list.forEach((item) => {
+            const key = get(item);
+            let group = map[key] || [];
+            group.push(item);
+            map[key] = group;
+        });
+        return map;
+    }
+
+    _spells(pc) {
+        let items = [];
+        let spells = pc.spells
+            .map((spell) => this._resolve(spell))
+            .map(spell => {
+                spell.tier = Math.floor(Math.random() * 5);
+                return spell
+            })
+            .sort((a, b) => a.tier - b.tier);
+        let groups = this._groupBy(spells, (s) => s.tier);
+
+        for (let tier in groups) {
+            let tierName = ['I', 'II', 'III', 'IV', 'V'];
+            let group = groups[tier];
+            items.push(html`
+                <style>
+                    .tier {
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: row-reverse;
+                    }
+
+                    .tier-header {
+                        font-family: serif;
+                        margin-left: -64px;
+                        margin-right: 32px;
+                        height: 32px;
+                        margin-top: 12px;
+                        text-align: left;
+                        width: 32px;
+                    }
+                    
+                    h2 {
+                        margin: 0;
+                    }
+                    
+                    .tier-spells {
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                        margin-left: 48px;
+                    }
+
+                    .spell {
+                        width: 96px;
+                    }
+                </style>
+                <div class="tier">
+                    <div class="tier-header">
+                        <h2>${tierName[tier]}</h2>
+                    </div>
+                    <div class="tier-spells">
+                        ${group.map(spell => html`
+                            <div class="spell">
+                                <img class="spell-icon"
+                                     src="${this.realm.resources}gui/spell/${spell.id}.svg"
+                                     class="spell-image">
+                            </div>
+                        `)}
+                    </div>
+                </div>
+                <hr>
+            `);
+        }
+        return items;
     }
 
     _resolve(id) {
