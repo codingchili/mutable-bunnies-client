@@ -79,17 +79,17 @@ class AppView extends HTMLElement {
                     ` : ''}
                 </bunny-bar>
             `}
-
-            <bunny-pages>
+            
+            <bunny-pages part="pages">
                 <div slot="tabs"></div>
                 <div slot="pages">
-                    <page-start class="layout horizontal center-justified"></page-start>
-                    <page-login class="layout horizontal center-justified"></page-login>
-                    <game-realms class="layout horizontal center-justified"></game-realms>
-                    <game-characters class="layout horizontal center-justified"></game-characters>
-                    <patch-download class="layout horizontal center-justified"></patch-download>
-                    <game-view></game-view>
-                    <offline-view class="layout horizontal center-justified"></offline-view>
+                    <page-start part="start" class="layout horizontal center-justified"></page-start>
+                    <page-login part="login" class="layout horizontal center-justified"></page-login>
+                    <game-realms part="realms" class="layout horizontal center-justified"></game-realms>
+                    <game-characters part="characters" class="layout horizontal center-justified"></game-characters>
+                    <patch-download part="download" class="layout horizontal center-justified"></patch-download>
+                    <game-view part="game"></game-view>
+                    <offline-view part="offline" class="layout horizontal center-justified"></offline-view>
                 </div>
             </bunny-pages>
 

@@ -71,7 +71,7 @@ class PageStart extends HTMLElement {
             </style>
 
             <div>
-                <bunny-box class="container center-box">
+                <bunny-box class="container center-box" id="content">
                     <bunny-pages class="page-content">
                         <div slot="tabs">
                             <bunny-tab active>Mutable Bunnies</bunny-tab>
@@ -87,7 +87,7 @@ class PageStart extends HTMLElement {
 
                     <hr>
                     <a id="install-link" href="#" class="install-link" onclick="this.getRootNode().host._install()">install to desktop</a>                
-                    <bunny-button primary class="flex" onclick="this.getRootNode().host.start()">TAKE ME ON AN ADVENTURE</bunny-button>
+                    <bunny-button primary id="start" class="flex" onclick="this.getRootNode().host.start()">TAKE ME ON AN ADVENTURE</bunny-button>
                 </bunny-box>
             </div>
         `;

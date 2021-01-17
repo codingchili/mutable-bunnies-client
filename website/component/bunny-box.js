@@ -73,7 +73,7 @@ class BunnyBox extends HTMLElement {
             </style>
             
             <div class="container elevation rounded">
-                <slot></slot>
+                <slot part="content"></slot>
             </div>
         `;
     }

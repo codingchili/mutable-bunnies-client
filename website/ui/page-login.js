@@ -99,14 +99,14 @@ class PageLogin extends HTMLElement {
                 <bunny-input id="email" label="Email (optional)" @keydown="${this.submit.bind(this)}"></bunny-input>
             
                 <div class="buttons">
-                    <bunny-button class="margintop flex" id="register" @click="${this.showlogin.bind(this)}">Back</bunny-button>
-                    <bunny-button class="flex" primary @click="${this.register.bind(this)}">Register</bunny-button>
+                    <bunny-button class="margintop flex" @click="${this.showlogin.bind(this)}">Back</bunny-button>
+                    <bunny-button class="flex" id="register-commit" primary @click="${this.register.bind(this)}">Register</bunny-button>
                 </div>
             </div>
             
             <div class="buttons login" ?hidden="${!this.islogin}">
-                <bunny-button class="margintop flex" @click="${this.showregister.bind(this)}">Register</bunny-button>
-                <bunny-button class="flex" primary @click="${this.authenticate.bind(this)}">Login</bunny-button>
+                <bunny-button id="register" class="margintop flex" @click="${this.showregister.bind(this)}">Register</bunny-button>
+                <bunny-button id="login" class="flex" primary @click="${this.authenticate.bind(this)}">Login</bunny-button>
             </div>
             <bunny-toast></bunny-toast>
         </bunny-box>
