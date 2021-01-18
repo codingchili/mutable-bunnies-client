@@ -83,8 +83,8 @@ class CharacterCreate extends HTMLElement {
     showNaming() {
         this.selection = false;
         this.naming = true;
-        this.shadowRoot.querySelector('#name').focus();
         this.render();
+        this.shadowRoot.querySelector('#name').focus();
     }
 
     createCharacter(e) {
@@ -473,7 +473,6 @@ class CharacterCreate extends HTMLElement {
                     </div>
                 </bunny-box>
             `;
-
             classes.push(item);
         }
 

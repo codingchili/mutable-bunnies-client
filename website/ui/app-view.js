@@ -21,6 +21,7 @@ class AppView extends HTMLElement {
         super();
         this.authenticated = false;
         this.music = application.settings.music;
+        window.appView = this;
     }
 
     get template() {
@@ -57,7 +58,7 @@ class AppView extends HTMLElement {
                 }
 
                 #options {
-                    position: absolute;
+                    position: fixed;
                     bottom: 58px;
                     right: 24px;
                     padding: 0;
@@ -83,17 +84,17 @@ class AppView extends HTMLElement {
             <bunny-pages part="pages">
                 <div slot="tabs"></div>
                 <div slot="pages">
-                    <page-start part="start" class="layout horizontal center-justified"></page-start>
-                    <page-login part="login" class="layout horizontal center-justified"></page-login>
-                    <game-realms part="realms" class="layout horizontal center-justified"></game-realms>
-                    <game-characters part="characters" class="layout horizontal center-justified"></game-characters>
-                    <patch-download part="download" class="layout horizontal center-justified"></patch-download>
-                    <game-view part="game"></game-view>
-                    <offline-view part="offline" class="layout horizontal center-justified"></offline-view>
+                    <page-start class="layout horizontal center-justified"></page-start>
+                    <page-login class="layout horizontal center-justified"></page-login>
+                    <game-realms class="layout horizontal center-justified"></game-realms>
+                    <game-characters class="layout horizontal center-justified"></game-characters>
+                    <patch-download class="layout horizontal center-justified"></patch-download>
+                    <game-view></game-view>
+                    <offline-view class="layout horizontal center-justified"></offline-view>
                 </div>
             </bunny-pages>
 
-            <div id="error-dialog">
+            <div part="foo" id="error-dialog">
                 <error-dialog></error-dialog>
             </div>
 
@@ -243,6 +244,34 @@ class AppView extends HTMLElement {
         if (this.ambient) {
             this.ambient.pause();
         }
+    }
+
+    get gameView() {
+        return this.shadowRoot.querySelector('game-view');
+    }
+
+    get realmsView() {
+        return this.shadowRoot.querySelector('game-realms');
+    }
+
+    get startView() {
+        return this.shadowRoot.querySelector('page-start');
+    }
+
+    get loginView() {
+        return this.shadowRoot.querySelector('page-login');
+    }
+
+    get characterView() {
+        return this.shadowRoot.querySelector('game-characters');
+    }
+
+    get offlineView() {
+        return this.shadowRoot.querySelector('offline-view');
+    }
+
+    get patchView() {
+        return this.shadowRoot.querySelector('patch-download');
     }
 }
 

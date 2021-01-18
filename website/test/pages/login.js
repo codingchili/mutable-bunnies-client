@@ -1,9 +1,10 @@
 import {Test} from './test.js';
 import {StartPage} from './start.js';
+import {RealmsPage} from './realms.js';
 import crypto from 'crypto';
 
 /**
- * Demo page for all components.
+ * Login page POM.
  */
 export class LoginPage extends Test {
 
@@ -14,36 +15,32 @@ export class LoginPage extends Test {
     }
 
     async login(username, password) {
-        return this.page.evaluate(() => {
-            let view = document.querySelector("app-view")
-                .shadowRoot.querySelector("page-login")
-                .shadowRoot;
-
-            let username = view.querySelector("#username");
-            let password = view.querySelector('#password');
-            let submit = view.querySelector('#login');
-
-            username.value = 'admin';
-            password.value = 'admin';
-            submit.click();
-        });
+        await this.page.evaluate(async (username, password) => {
+            application.development.logEvents = true;
+            let view = appView.loginView.shadowRoot;
+            view.querySelector("#username").value = username;
+            view.querySelector('#password').value = password;
+            view.querySelector('#login').click();
+            return new Promise(resolve => application.onRealmList(resolve));
+        }, username, password);
+        return new RealmsPage(this.page);
     }
 
     async register(username, password, email) {
         username = username || crypto.randomBytes(24).toString('hex');
         password = password || crypto.randomBytes(24).toString('hex');
 
-        return this.page.evaluate((username, password, email) => {
-            let view = document.querySelector("app-view").shadowRoot
-                .querySelector("page-login").shadowRoot;
-
+        await this.page.evaluate(async (username, password, email) => {
+            let view = appView.loginView.shadowRoot;
             view.querySelector('#register').click();
             view.querySelector("#username").value = username;
             view.querySelector("#password").value = password;
             view.querySelector('#password-repeat').value = password;
             view.querySelector('#email').value = email;
             view.querySelector('#register-commit').click();
+            return new Promise(resolve => application.onAuthentication(resolve));
         }, username, password, email);
+        return new RealmsPage(this.page);
     }
 
     static async open() {

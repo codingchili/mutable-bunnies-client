@@ -20,6 +20,7 @@ window.EventBus = class EventBus {
         if (application.development.logEvents) {
             console.log({
                 event: event,
+                timestamp: new Date().toLocaleTimeString(),
                 data: data
             });
         }

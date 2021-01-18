@@ -30,8 +30,8 @@ class CharacterList extends HTMLElement {
                 .then(() => {
                     this.server = new RealmServer(this.realm);
 
-                    let creator = this.shadowRoot.querySelector('#creator');
-                    creator.setServer(this.server);
+                    this._creator = this.shadowRoot.querySelector('#creator');
+                    this._creator.setServer(this.server);
 
                     this.showCharacters();
                     this.realmtoken();
@@ -61,6 +61,10 @@ class CharacterList extends HTMLElement {
     connectedCallback() {
         this.attachShadow({mode: 'open'});
         this.render();
+    }
+
+    get creator() {
+        return this._creator;
     }
 
     _level(stats) {
@@ -165,6 +169,7 @@ class CharacterList extends HTMLElement {
                 if (application.development.selectFirstCharacter) {
                     this.select(data.characters[0]);
                 }
+                application.characterList(data.characters);
             },
             unauthorized: (data) => {
                 application.error('The authentication server rejected the realm token when listing characters.');
@@ -216,6 +221,10 @@ class CharacterList extends HTMLElement {
 
     showToast(text) {
         this.toast.open(text);
+    }
+
+    characters() {
+        return this.realm.characters;
     }
 
     select(character) {
@@ -376,7 +385,7 @@ class CharacterList extends HTMLElement {
                 <bunny-spinner text="${this.status}" ?enabled="${!this.loaded}"></bunny-spinner>
 
                 <div class="character-list-box" ?hidden="${!this.loaded}">
-                    ${this.characters()}
+                    ${this._renderCharacters()}
                     <bunny-button @click="${this.showCreate.bind(this)}">Create</bunny-button>
                 </div>
             </bunny-box>
@@ -389,7 +398,7 @@ class CharacterList extends HTMLElement {
         `;
     }
 
-    characters() {
+    _renderCharacters() {
         let characters = [];
 
         if (this.realm.characters) {

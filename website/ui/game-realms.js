@@ -128,17 +128,17 @@ class GameRealms extends HTMLElement {
     }
 
     load(realmlist) {
-        if (!this.realms)
-            this.realms = [];
-
         this.refresh(realmlist);
         this.purge(realmlist);
 
         // let initial load complete before pinging, to increase accuracy of first update.
         setTimeout(this.pingAll.bind(this), 512);
 
-        if (application.development.selectFirstRealm) {
-            this.select(this.realms[0]);
+        if (realmlist.length > 0) {
+            if (application.development.selectFirstRealm) {
+                this.select(this.realms[0]);
+            }
+            application.realmList(this.realms);
         }
     }
 
@@ -471,21 +471,21 @@ class GameRealms extends HTMLElement {
 
         for (let realm of this.realms) {
             let template = html`
-                <tr class="realm-items noselect" @click="${this.select.bind(this, realm)}">
+                <tr class="realm-items noselect" @click="${this.select.bind(this, realm)}" id="realm-${realm.id}">
                     <td class="realm-item">
-            <span class="icons">
-                <div ?hidden="${!this.favourite(realm.id)}">
-                        <bunny-icon icon="favorite" class="realm-icon" id="fav-icon"></bunny-icon>
-                        <bunny-tooltip for="fav-icon" location="bottom">favorite realm  </bunny-tooltip>
-                </div>
-
-                <div ?hidden="${!realm.secure}">
-                    <div class="tooltip-area">
-                        <bunny-icon icon="secure" class="realm-icon" id="secure"></bunny-icon>
-                        <bunny-tooltip for="secure" location="bottom">secure connection</bunny-tooltip>
-                    </div>
-                </div>
-            </span>
+                        <span class="icons">
+                            <div ?hidden="${!this.favourite(realm.id)}">
+                                    <bunny-icon icon="favorite" class="realm-icon" id="fav-icon"></bunny-icon>
+                                    <bunny-tooltip for="fav-icon" location="bottom">favorite realm  </bunny-tooltip>
+                            </div>
+            
+                            <div ?hidden="${!realm.secure}">
+                                <div class="tooltip-area">
+                                    <bunny-icon icon="secure" class="realm-icon" id="secure"></bunny-icon>
+                                    <bunny-tooltip for="secure" location="bottom">secure connection</bunny-tooltip>
+                                </div>
+                            </div>
+                        </span>
                     </td>
                     <td class="realm-item">${realm.name}</td>
                     <td class="realm-item type">${realm.attributes.type}</td>

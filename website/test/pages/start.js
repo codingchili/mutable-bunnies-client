@@ -2,7 +2,7 @@ import {Test} from './test.js';
 import {LoginPage} from './login.js';
 
 /**
- * Demo page for all components.
+ * Start page POM.
  */
 export class StartPage extends Test {
 

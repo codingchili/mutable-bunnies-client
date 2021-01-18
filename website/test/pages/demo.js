@@ -1,7 +1,7 @@
 import {Test} from './test.js';
 
 /**
- * Demo page for all components.
+ * Demo page for all custom web components.
  */
 export class DemoPage extends Test {
     async init() {

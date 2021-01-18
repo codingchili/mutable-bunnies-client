@@ -7,6 +7,7 @@
 class Application {
 
     constructor() {
+        this.realms = [];
         this.bus = new EventBus();
         this._loadSettings();
     }
@@ -78,6 +79,14 @@ class Application {
         realm.isAdmin = (account) => realm.admins.includes(account || application.account.username);
         application.realm = realm;
         application.publish('onRealmLoaded', realm);
+    }
+
+    characterList(characters) {
+        application.publish('character-list', characters);
+    }
+
+    onCharacterList(callback) {
+        application.subscribe('character-list', callback);
     }
 
     characterLoaded(character) {
@@ -242,6 +251,18 @@ class Application {
 
     showRealms() {
         application.view('game-realms');
+    }
+
+    realmList(realms) {
+        this.realms = realms;
+        application.publish('realm-list', realms);
+    }
+
+    onRealmList(callback) {
+        if (this.realms.length > 0) {
+            callback(this.realms);
+        }
+        application.subscribe('realm-list', callback);
     }
 
     onRealmSelect(callback) {

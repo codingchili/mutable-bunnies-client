@@ -1,6 +1,8 @@
 import puppeteer from "puppeteer";
 
-
+/**
+ * Shared test code for pages.
+ */
 export class Test {
 
     constructor(page) {
@@ -18,14 +20,8 @@ export class Test {
         return this._page;
     }
 
-    async appview() {
-        return this.page.evaluate(() => {
-            return document.querySelector("body > app-view").shadowRoot;
-        });
-    }
-
     async close() {
-        //await this.page.browser().close();
+        await this.page.browser().close();
     }
 
     async gotoWaitIdle(uri) {
@@ -46,9 +42,25 @@ export class Test {
     }
 
     static async start() {
-        let browser = await puppeteer.launch({
-            headless: false
-        });
+        let headless = true;
+        let browser;
+
+        if (headless) {
+            // hack default args to enable webgl when running headless.
+            // https://github.com/puppeteer/puppeteer/issues/3637
+            const args = puppeteer.defaultArgs().filter(arg => arg !== '--disable-gpu');
+            args.push('--use-gl=desktop');
+            args.push('--headless');
+            browser = await puppeteer.launch({
+                ignoreDefaultArgs: true,
+                args
+            });
+        } else {
+            browser = await puppeteer.launch({
+                headless: false,
+                slowMo: 0,
+            });
+        }
         return (await browser.pages())[0];
     }
 }

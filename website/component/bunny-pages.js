@@ -75,6 +75,7 @@ class BunnyPages extends HTMLElement {
     index(index) {
         index = parseInt(index);
         for (let [i, page] of this.pages.entries()) {
+            this._active = page;
             page.setAttribute('index', i);
             page.style.display = (i === index) ? 'block' : 'none';
 
@@ -83,6 +84,10 @@ class BunnyPages extends HTMLElement {
                 (i === index) ? tab.activate() : tab.inactivate();
             }
         }
+    }
+
+    get active() {
+        return this._active;
     }
 
     get template() {

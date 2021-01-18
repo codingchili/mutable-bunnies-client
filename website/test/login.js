@@ -6,11 +6,11 @@ describe('LoginPage', () => {
 
     beforeEach(async () => page = await LoginPage.open());
 
-    /*it('should load without errors', async () => assert(!page.errors));
+    it('should load without errors', async () => assert(!page.errors));
 
     it('should login as the admin user', async () => {
         await page.login('admin', 'admin');
-    });*/
+    });
 
     it('should register as a new user', async () => {
         await page.register();
