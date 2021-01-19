@@ -294,7 +294,7 @@ class PlayerStatus extends HTMLElement {
                 }
 
                 .class-stats {
-                    font-size: 14px;
+                    font-size: 16px;
                     width: 176px;
                 }
 
@@ -315,7 +315,8 @@ class PlayerStatus extends HTMLElement {
                     display: block;
                     right: 12px;
                     position: absolute;
-                    top: 8px;
+                    top: 12px;
+                    font-size: 16px;
                 }
 
                 #stats {
@@ -359,7 +360,7 @@ class PlayerStatus extends HTMLElement {
                     <img id="portrait" class="portrait" src="${this._portrait(this.target, this.realm)}">
                     <bunny-tooltip animation-delay="0" position="bottom" class="stats-tooltip" for="portrait">
                         <div class="class-stats">
-                            <span class="stats-header">${this.target.name}'s stats</span>
+                            <span class="stats-header">${this.target.name}</span>
                             <span class="stats-level">lv. ${this.target.stats.level}</span>
                             <stats-view id="stats" compact="true" .selected="${this.target}"
                                         style="display:block"></stats-view>

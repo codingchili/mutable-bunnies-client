@@ -272,7 +272,7 @@ class SpellBar extends HTMLElement {
             .description {
                 margin-top: 12px;
                 display: block;
-                font-size: small;
+                font-size: 14px;
             }
 
             .target {
@@ -325,12 +325,12 @@ class SpellBar extends HTMLElement {
             }
 
             .spell-table-headers {
-                font-size: 11px;
+                font-size: 12px;
             }
 
             .spell-table-values {
                 text-align: center;
-                font-size: 12px;
+                font-size: 14px;
             }
             .spell-list {
                 display: flex;

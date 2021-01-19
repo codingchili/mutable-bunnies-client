@@ -37,12 +37,16 @@ class StatsView extends HTMLElement {
         return !this.hide.includes(attribute.name);
     }
 
-    _format(value) {
-        if (value < 0) {
-            return value;
-        } else {
-            return `+${value}`;
+    _format(value, type) {
+        let percentage = this._asPercent(type);
+
+        if (value > 0) {
+            value = `+${value}`;
         }
+        if (percentage) {
+            value += '%';
+        }
+        return value;
     }
 
     _style(attribute) {
@@ -74,16 +78,23 @@ class StatsView extends HTMLElement {
             if (this._visible(attribute)) {
                 let item = html`
                     <div class="content ${this._layout()}">
-                        <span class="name">${attribute.name}</span>
-                        <span class="value ${this._style(attribute)}">
-                            <i>${this._format(attribute.value)}</i>
-                        </span>
+                        <img class="stat-icon" src="${application.realm.resources}gui/stats/${attribute.name}.svg">
+                        <div class="text">
+                            <div class="value ${this._style(attribute)}">
+                                <i>${this._format(attribute.value, attribute.name)}</i>
+                            </div>
+                            <div class="name">${attribute.name}</div>
+                        </div>
                     </div>
                 `
                 items.push(item);
             }
         }
         return items;
+    }
+
+    _asPercent(type) {
+        return ['armorClass', 'magicResist'].includes(type);
     }
 
     get template() {
@@ -129,6 +140,20 @@ class StatsView extends HTMLElement {
 
             .content {
                 font-size: 12px;
+                text-align: right;
+                margin-top: 2px;
+            }
+            
+            .stat-icon {
+                width: 34px;
+            }
+            
+            .name {
+                opacity: 0.76;
+            }
+            
+            .value {
+                font-size: large;
             }
 
         </style>

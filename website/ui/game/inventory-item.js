@@ -91,7 +91,7 @@ class InventoryItem extends HTMLElement {
 
             .item-description {
                 margin-top: 16px;
-                font-size: small;
+                font-size: 14px;
             }
 
             .stats-header {
