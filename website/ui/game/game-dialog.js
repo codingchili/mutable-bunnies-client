@@ -91,13 +91,13 @@ class GameDialog extends HTMLElement {
                 display: block;
                 padding-left: 16px;
                 height: 76px;
-                font-size: small;
+                font-size: 14px;
                 color: var(--paper-grey-300);
             }
 
             .dialog-option {
                 display: block;
-                font-size: small;
+                font-size: 14px;
             }
 
             .dialog-option:hover {
@@ -107,6 +107,7 @@ class GameDialog extends HTMLElement {
 
             .dialog-option-list {
                 list-style-type: none;
+                padding-left: 14px;
             }
         </style>
 

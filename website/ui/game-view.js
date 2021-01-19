@@ -102,7 +102,8 @@ class GameView extends HTMLElement {
     }
 
     connectedCallback() {
-        this.attachShadow({mode: 'open'})
+        this.attachShadow({mode: 'open'});
+        this.render();
     }
 
     get template() {

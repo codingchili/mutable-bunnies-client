@@ -94,6 +94,14 @@ class Application {
         application.publish('onCharacterLoaded', character);
     }
 
+    notification(text, duration) {
+        duration = duration || 4000;
+        this.publish('notification', {
+            text: text,
+            duration: duration
+        });
+    }
+
     characterUpdate(character) {
         application.publish('onCharacterUpdate', character);
     }

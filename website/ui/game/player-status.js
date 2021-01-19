@@ -129,6 +129,8 @@ class PlayerStatus extends HTMLElement {
                     height: 42px;
                     margin-top: 4px;
                     margin-left: 10px;
+                    min-height: 42px;
+                    min-width: 42px;
                 }
 
                 .name {
@@ -308,7 +310,7 @@ class PlayerStatus extends HTMLElement {
                 }
 
                 img[src=""] {
-                    display: none;
+                    /*display: none;*/
                 }
 
                 .stats-level {
