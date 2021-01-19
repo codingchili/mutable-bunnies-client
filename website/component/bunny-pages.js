@@ -4,7 +4,6 @@ class BunnyPages extends HTMLElement {
 
     constructor() {
         super();
-        this.page = this.getAttribute("page");
         this.tabs = [];
         this.listener = () => {
         };
@@ -24,7 +23,6 @@ class BunnyPages extends HTMLElement {
 
     connectedCallback() {
         this.attachShadow({mode: 'open'});
-        this.page = this.getAttribute('selected') || 0;
         this.render();
     }
 
@@ -63,7 +61,7 @@ class BunnyPages extends HTMLElement {
                 }
             }
             if (!selected) {
-                this.index(this.page);
+                this.index(0);
             }
         });
     }

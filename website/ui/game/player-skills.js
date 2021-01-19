@@ -77,7 +77,6 @@ class PlayerSkills extends HTMLElement {
     bind() {
         this.container = this.query('#container');
         this.tabs = this.query('bunny-pages');
-        this.tabs.bind();
     }
 
     get template() {
@@ -205,6 +204,20 @@ class PlayerSkills extends HTMLElement {
                     color: #ff000088;
                 }
 
+                .placeholder-text {
+                    text-align: center;
+                    font-size: larger;
+                    opacity: 0.76;
+                    display: block;
+                    margin-top: 224px;
+                }
+
+                .placeholder-image {
+                    width: 128px;
+                    display: block;
+                    margin: 128px auto auto;
+                }
+
                 ${BunnyStyles.dialogs}
                 ${BunnyStyles.scrollbars}
                 ${BunnyStyles.icons}
@@ -220,7 +233,7 @@ class PlayerSkills extends HTMLElement {
                         <bunny-icon icon="close" class="icon" id="dialog-close"
                                     @mousedown="${this._hide.bind(this)}"></bunny-icon>
                         <span class="dialog-entity">&nbsp;</span>
-                        
+
                         ${this._placeholder()}
 
                         <bunny-pages>
@@ -240,10 +253,10 @@ class PlayerSkills extends HTMLElement {
     _placeholder() {
         let content = html`
             <div id="placeholder">
-                <h2 class="placeholder-text">
+                <span class="placeholder-text">
                     No skills learned, pick up a book maybe?
-                </h2>
-                <img src="${this.realm.resources}gui/skill/book.svg"/>
+                </span>
+                <img class="placeholder-image" src="${this.realm.resources}gui/skill/book.svg"/>
             </div>
         `;
         return (this.skills.length === 0) ? content : '';
@@ -277,7 +290,7 @@ class PlayerSkills extends HTMLElement {
                         <div class="skill-details>">
                             <div class="skill-header">
                                 <span class="skill-description">${info.description}</span>
-                                <bunny-input id="filter-${skill.id}" placeholder="filter" value="${this._filter}"
+                                <bunny-input id="filter-${skill.type}" placeholder="filter" value="${this._filter}"
                                              @input="${this.filter.bind(this)}"
                                              autofocus></bunny-input>
                             </div>
@@ -321,8 +334,9 @@ class PlayerSkills extends HTMLElement {
     _details(skill) {
         this.game.skills.info(skill.type, info => {
             this.info[skill.type] = info.skill;
+            this.tabs.bind();
             this.render();
-            this.shadowRoot.querySelector(`#filter-${skill.id}`).focus();
+            this.shadowRoot.querySelector(`#filter-${skill.type}`).focus();
         });
     }
 

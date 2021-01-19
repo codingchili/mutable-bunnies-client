@@ -32,10 +32,12 @@ class BunnyTab extends HTMLElement {
     }
 
     activate() {
+        this.setAttribute('active', 'active');
         this.tab.classList.add('active');
     }
 
     inactivate() {
+        this.removeAttribute('active');
         this.tab.classList.remove('active');
     }
 
