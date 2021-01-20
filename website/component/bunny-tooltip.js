@@ -47,27 +47,30 @@ class BunnyTooltip extends HTMLElement {
     get template() {
         return html`
             <style>
-                 :host {
+                :host {
                     z-index: 600;
                     transition: opacity 0.3s;
                     display: none;
                     opacity: 0;
                     overflow: hidden;
                     position: absolute;
-                 }
-                 #clone {
+                    top: -500px;
+                    left: -500px;
+                }
+
+                #clone {
                     padding: 2px;
                     overflow: hidden;
-                 }
+                }
             </style>
-                <bunny-box id="clone" border solid>
-                    <slot style="display: block;
+            <bunny-box id="clone" border solid>
+                <slot style="display: block;
                         padding: 8px;
                         font-size: small;
                         font-family: 'Open Sans', sans-serif;
                         user-select: none;
                         color:#fff;"></slot>
-                </bunny-box>
+            </bunny-box>
         `;
     }
 
@@ -86,18 +89,13 @@ class BunnyTooltip extends HTMLElement {
                 }
             }
             let position = this.position(this, this.target);
-            this.style.top = `${position.y - offsetElement.getBoundingClientRect().top}px`;
-            this.style.left = `${position.x - offsetElement.getBoundingClientRect().left}px`;
-            this.style.opacity = '1';
+            if (!initial) {
+                this.style.top = `${position.y - offsetElement.getBoundingClientRect().top}px`;
+                this.style.left = `${position.x - offsetElement.getBoundingClientRect().left}px`;
+                this.style.opacity = '1';
+            }
         };
-
-        // initial positioning to avoid overflow flickering.
-        if (initial) {
-            update();
-            this.style.display = 'none';
-        } else {
-            setTimeout(() => update());
-        }
+        update();
     }
 
     connectedCallback() {
