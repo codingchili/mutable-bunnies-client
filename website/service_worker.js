@@ -46,7 +46,7 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('fetch', (event) => {
 
-    if (event.request.method !== "GET") {
+    if (event.request.method !== "GET" || event.request.headers.has('range')) {
         return false;
     }
 
