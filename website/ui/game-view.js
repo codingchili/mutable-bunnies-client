@@ -113,6 +113,7 @@ class GameView extends HTMLElement {
                     display: block;
                     width: 100%;
                     height: 100%;
+                    /* important to avoid scrollbars appearing for dialog overlays. */
                     margin-bottom: -3px;
                     padding: 0;
                 }

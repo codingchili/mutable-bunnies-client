@@ -35,7 +35,7 @@ class RealmServer {
             this.connect(() => {
                 game.onScriptsLoaded({
                     accepted: () => {
-                        application.error(null);
+                        application.recover();
                     },
                     error: (e) => {
                         game.shutdown(true);

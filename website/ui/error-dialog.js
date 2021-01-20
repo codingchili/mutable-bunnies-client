@@ -4,6 +4,7 @@ import '/component/bunny-button.js'
 import '/component/bunny-box.js'
 import '/component/bunny-spinner.js'
 import '/component/bunny-icon.js'
+import '/component/bunny-tooltip.js'
 
 class ErrorDialog extends HTMLElement {
 
@@ -16,99 +17,103 @@ class ErrorDialog extends HTMLElement {
         this.action = "reconnecting";
         this.text = '';
 
-        application.onError((error) => {
-            this.open(error);
-        });
+        application.onError((error) => this.open(error));
+        application.onRecover(() => this.abort());
 
         this.attachShadow({mode: 'open'})
     }
 
+    abort() {
+        this.callback = () => {};
+        this.close();
+    }
+
     get template() {
         return html`
-        <style>
-            ${BunnyStyles.variables}
-            ${BunnyStyles.icons}
-        
-            :host {
-                display: ${this.opened ? 'inline-block' : 'none'};
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                transition: background-color 1s;
-                background-color: var(--backdrop-color);
-            }
-            
-            .visible {
-                background-color: var(--backdrop-color);
-            }
+            <style>
+                ${BunnyStyles.variables}
+                ${BunnyStyles.icons}
+                :host {
+                    display: ${this.opened ? 'inline-block' : 'none'};
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    transition: background-color 1s;
+                    background-color: var(--backdrop-color);
+                }
 
-            .buttons {
-                /*padding: 32px 0 0 0;
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                left: 0;*/
-                margin-top: 16px;
-            }
+                .visible {
+                    background-color: var(--backdrop-color);
+                }
 
-            .box {
-                width: 100%;
-                max-width: 375px;
-                height: fit-content;
-                margin: auto;
-                position: relative;
-                top: 50%;
-                transform: translateY(-50%);
-            }
+                .buttons {
+                    margin-top: 16px;
+                }
 
-            .error-icon {
-                width: 96px;
-                left: 86px;
-                height: 96px;
-                pointer-events: none;
-            }
+                .box {
+                    width: 100%;
+                    max-width: 375px;
+                    height: fit-content;
+                    margin: auto;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
 
-            .error-text {
-                margin: 32px 32px 32px;
-                display: block;
-                text-align:center;
-            }
-            
-            bunny-spinner {
-                margin-bottom: -32px;
-            }
-            
-            .icon {
-                width: 64px;
-                height: 64px;
-                display: block;
-                margin: auto;
-                margin-top: 64px;
-            }
+                .error-icon {
+                    width: 96px;
+                    left: 86px;
+                    height: 96px;
+                    pointer-events: none;
+                }
 
-            .tooltip {
-                width: 80%;
-                margin: auto;
-            }
+                .error-text {
+                    margin: 32px 32px 32px;
+                    display: block;
+                    text-align: center;
+                }
 
-        </style>
+                bunny-spinner {
+                    margin-bottom: -32px;
+                }
+
+                .icon {
+                    width: 64px;
+                    height: 64px;
+                    display: block;
+                    margin: auto;
+                    margin-top: 64px;
+                }
+                
+                .icon:hover {
+                    fill: var(--icon-color);
+                }
+
+                .tooltip {
+                    width: 80%;
+                    margin: auto;
+                }
+
+            </style>
 
 
-        <bunny-box id="dialog" class="box" solid>
-            <bunny-spinner text="retrying.. " ?enabled="${this.loading}"></bunny-spinner>
-            
-            ${this.loading ? '' : html`<bunny-icon class="icon" icon="error"></bunny-icon>`}
-    
+            <bunny-box id="dialog" class="box" solid>
+                <bunny-spinner text="retrying.. " ?enabled="${this.loading}"></bunny-spinner>
+
+                ${this.loading ? '' : html`
+                    <bunny-icon class="icon" icon="error"></bunny-icon>`}
+                    <bunny-tooltip>This error has been reported to the developers.</bunny-tooltip>
+
                 <div class="error-text scrollable" style="display: ${this.text ? 'block' : 'none'};">
-                ${this.text}
-            </div>
+                    ${this.text}
+                </div>
 
-            <div class="buttons">
-                <bunny-button primary @click="${this.close.bind(this)}">close</bunny-button>
-            </div>
-        </bunny-box>
+                <div class="buttons">
+                    <bunny-button primary @click="${this.close.bind(this)}">close</bunny-button>
+                </div>
+            </bunny-box>
         `;
     }
 
@@ -117,22 +122,17 @@ class ErrorDialog extends HTMLElement {
     }
 
     open(error) {
-        if (error) {
-            this.loading = error.retrying;
-            this.text = error.text;
-            this.callback = error.callback;
+        this.loading = error.retrying;
+        this.text = error.text;
+        this.callback = error.callback;
 
-            if (!this.loading && !this.text) {
-                this.text = 'No error message specified.';
-            }
-
-            this.opened = true;
-            this.classList.add('visible');
-            this.render();
-        } else {
-            this.opened = false;
-            this.render();
+        if (!this.loading && !this.text) {
+            this.text = 'No error message specified.';
         }
+
+        this.opened = true;
+        this.classList.add('visible');
+        this.render();
     }
 
     close() {

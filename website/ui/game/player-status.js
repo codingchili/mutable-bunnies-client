@@ -88,7 +88,11 @@ class PlayerStatus extends HTMLElement {
             return `${this.realm.resources}/gui/class/${this.target.classId}.svg`;
         } else {
             //return 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
-            return "";
+            if (this.target?.model?.graphics?.endsWith('.png')) {
+                return `${this.realm.resources}${this.target.model.graphics}`
+            } else {
+                return "";
+            }
         }
     }
 
@@ -126,11 +130,14 @@ class PlayerStatus extends HTMLElement {
                 }
 
                 .portrait {
-                    height: 42px;
+                    /*height: 42px;
                     margin-top: 4px;
                     margin-left: 10px;
                     min-height: 42px;
-                    min-width: 42px;
+                    min-width: 42px;*/
+                    max-height: 42px;
+                    margin: auto;
+                    display: block;
                 }
 
                 .name {
@@ -194,6 +201,10 @@ class PlayerStatus extends HTMLElement {
 
                 .class-icon {
                     position: absolute;
+                    width: 42px;
+                    height: 42px;
+                    margin-top: 4px;
+                    margin-left: 10px;
                 }
 
                 /* compact display classes ends with -mini. */
@@ -321,6 +332,12 @@ class PlayerStatus extends HTMLElement {
                     font-size: 16px;
                 }
 
+                .stats-description {
+                    font-size: 14px;
+                    display: block;
+                    margin-top: 8px;
+                }
+
                 #stats {
                     margin-top: 8px;
                 }
@@ -332,7 +349,7 @@ class PlayerStatus extends HTMLElement {
                 .noselect {
                     user-select: none;
                 }
-                
+
                 .gm-tag {
                     color: #fff900;
                     text-shadow: #212121;
@@ -360,15 +377,21 @@ class PlayerStatus extends HTMLElement {
 
                 <div @click="${this._targeting.bind(this)}" class="class-icon" id="class-icon">
                     <img id="portrait" class="portrait" src="${this._portrait(this.target, this.realm)}">
-                    <bunny-tooltip animation-delay="0" position="bottom" class="stats-tooltip" for="portrait">
-                        <div class="class-stats">
-                            <span class="stats-header">${this.target.name}</span>
-                            <span class="stats-level">lv. ${this.target.stats.level}</span>
-                            <stats-view id="stats" compact="true" .selected="${this.target}"
-                                        style="display:block"></stats-view>
-                        </div>
-                    </bunny-tooltip>
                 </div>
+                <bunny-tooltip animation-delay="0" position="bottom" class="stats-tooltip" for="class-icon">
+                    <div class="class-stats">
+                        <span class="stats-header">${this.target.name}</span>
+                        ${this.target.creature ? html`
+                                <span class="stats-level">lv. ${this.target.stats.level}</span>
+                                <stats-view id="stats" compact="true" .selected="${this.target}"
+                                            style="display:block"></stats-view>
+                            ` : html`
+                            `}
+                        <span class="stats-description">
+                            ${this.target?.attributes?.description ?? ''}
+                        </span>
+                    </div>
+                </bunny-tooltip>
 
                 <div class="gm-tag">${this.realm.admins.includes(this.target.account) ? 'GM' : ''}</div>
 
@@ -409,24 +432,25 @@ class PlayerStatus extends HTMLElement {
     afflictionHtml(active) {
         return html`
             <bunny-box border class="affliction">
-                <img src="${this.realm.resources}gui/affliction/${active.affliction.id}.svg" class="affliction-icon" alt="affliction">
+                <img src="${this.realm.resources}gui/affliction/${active.affliction.id}.svg" class="affliction-icon"
+                     alt="affliction">
             </bunny-box>
             <bunny-tooltip class="spell-info" position="bottom">
-                    <div>
-                        <span class="title">${active.affliction.name}</span>
+                <div>
+                    <span class="title">${active.affliction.name}</span>
 
-                        <table class="info-table">
-                            <tr>
-                                <th>Duration</th>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <td class="duration">${active.duration}s</td>
-                            </tr>
-                        </table>
+                    <table class="info-table">
+                        <tr>
+                            <th>Duration</th>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td class="duration">${active.duration}s</td>
+                        </tr>
+                    </table>
 
-                        <span class="description">${this._description(active.affliction)}</span>
-                    </div>
-                </bunny-tooltip>
+                    <span class="description">${this._description(active.affliction)}</span>
+                </div>
+            </bunny-tooltip>
         `;
     }
 

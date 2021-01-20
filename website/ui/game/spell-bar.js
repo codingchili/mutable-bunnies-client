@@ -195,165 +195,166 @@ class SpellBar extends HTMLElement {
 
     get template() {
         return html`
-        <style>
-            :host {
-                position: absolute;
-                bottom: 16px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 326px;
-                cursor: var(--bunny-cursor, auto);
-            }
-
-            .spell-bar {
-                height: 46px;
-                display: flex;
-            }
-
-            .spell-icon {
-                height: 42px;
-                padding-left: 4px;
-                padding-right: 4px;
-            }
-
-            .cooldown-bar {
-                --bunny-progress-active-color: #4db6ac;
-                --bunny-progress-container-color: #4db6ac32;
-                width: 42px;
-                margin-left: 4px;
-                position: absolute;
-                top: 40px;
-            }
-
-            @keyframes fadein {
-                from {
-                    opacity: 0;
-                }
-                to {
-                    opacity: 1;
-                }
-            }
-
-            #casting-progress {
-                position: absolute;
-                margin-top: 4px;
-                top: -36px;
-                display: inline;
-                width: 100%;
-                animation: 0.72s fadein ease 1;
-            }
-
-            #casting-progress-bar {
-                --bunny-progress-active-color: rgba(205, 205, 205, 0.25);
-                --bunny-progress-container-color: rgba(0, 0, 0, 0.25);
-                --bunny-progress-height: 24px;
-                background-color: #000000;
-                width: 100%;
-            }
-
-            #casting-progress-title {
-                display: block;
-                width: 100%;
-                text-align: center;
-                position: absolute;
-                margin-top: -20px;
-                font-size: small;
-            }
-
-            bunny-progress {
-                --bunny-progress-transition-duration: 0.08s;
-                --bunny-progress-transition-timing-function: linear;
-            }
-
-            .title {
-                font-size: larger;
-            }
-
-            .description {
-                margin-top: 12px;
-                display: block;
-                font-size: 14px;
-            }
-
-            .target {
-                color: #00b0ff;
-            }
-
-            .cooldown {
-                color: #00b0ff;
-            }
-
-            .casttime {
-                color: #00b0ff;
-            }
-
-            .spell-info {
-                width: 246px;
-            }
-
-            .info-table {
-                margin-top: 12px;
-                width: 100%;
-            }
-
-            .charges {
-                position: absolute;
-                font-size: 0.8em;
-                left: 22px;
-                top: 28px;
-                display: block;
-                text-shadow: 1px 1px #000;
-                user-select: none;
-            }
-
-            @media (max-width: 1268px) {
+            <style>
                 :host {
-                    right: 48px;
+                    position: absolute;
+                    bottom: 16px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 326px;
+                    cursor: var(--bunny-cursor, auto);
                 }
-            }
 
-            .unavailable {
-                opacity: 0.5;
-            }
+                .spell-bar {
+                    height: 46px;
+                    display: flex;
+                }
 
-            .spell-button {
-                position: relative;
-            }
-            
-            .spell-button:hover {
-                cursor: var(--bunny-cursor-pointer, pointer);
-            }
+                .spell-icon {
+                    height: 42px;
+                    padding-left: 4px;
+                    padding-right: 4px;
+                }
 
-            .spell-table-headers {
-                font-size: 12px;
-            }
+                .cooldown-bar {
+                    --bunny-progress-active-color: #4db6ac;
+                    --bunny-progress-container-color: #4db6ac32;
+                    width: 42px;
+                    margin-left: 4px;
+                    position: absolute;
+                    top: 40px;
+                }
 
-            .spell-table-values {
-                text-align: center;
-                font-size: 14px;
-            }
-            .spell-list {
-                display: flex;
-                /* super important property that fixes a 1px jump on hover. */
-                backface-visibility: hidden;
-            }
-            
-            .noselect {
-                user-select: none;
-            }
-        </style>
+                @keyframes fadein {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
 
-        <bunny-box class="spell-bar noselect" border>
-            <div class="spell-list">
-                ${repeat(this._list(), spell => spell.id, this.spellHtml.bind(this))}
-            </div>
-        </bunny-box>
+                #casting-progress {
+                    position: absolute;
+                    margin-top: 4px;
+                    top: -36px;
+                    display: inline;
+                    width: 100%;
+                    animation: 0.72s fadein ease 1;
+                }
 
-       
-        <bunny-box id="casting-progress" style="visibility: hidden;">
-            <bunny-progress id="casting-progress-bar" class="casting-bar transiting"></bunny-progress>
-            <span id="casting-progress-title">${this._name(this.spellId)}</span>
-        </bunny-box>
+                #casting-progress-bar {
+                    --bunny-progress-active-color: rgba(205, 205, 205, 0.25);
+                    --bunny-progress-container-color: rgba(0, 0, 0, 0.25);
+                    --bunny-progress-height: 24px;
+                    background-color: #000000;
+                    width: 100%;
+                }
+
+                #casting-progress-title {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    position: absolute;
+                    margin-top: -20px;
+                    font-size: small;
+                }
+
+                bunny-progress {
+                    --bunny-progress-transition-duration: 0.08s;
+                    --bunny-progress-transition-timing-function: linear;
+                }
+
+                .title {
+                    font-size: larger;
+                }
+
+                .description {
+                    margin-top: 12px;
+                    display: block;
+                    font-size: 14px;
+                }
+
+                .target {
+                    color: #00b0ff;
+                }
+
+                .cooldown {
+                    color: #00b0ff;
+                }
+
+                .casttime {
+                    color: #00b0ff;
+                }
+
+                .spell-info {
+                    width: 246px;
+                }
+
+                .info-table {
+                    margin-top: 12px;
+                    width: 100%;
+                }
+
+                .charges {
+                    position: absolute;
+                    font-size: 0.8em;
+                    left: 22px;
+                    top: 28px;
+                    display: block;
+                    text-shadow: 1px 1px #000;
+                    user-select: none;
+                }
+
+                @media (max-width: 1268px) {
+                    :host {
+                        right: 48px;
+                    }
+                }
+
+                .unavailable {
+                    opacity: 0.5;
+                }
+
+                .spell-button {
+                    position: relative;
+                }
+
+                .spell-button:hover {
+                    cursor: var(--bunny-cursor-pointer, pointer);
+                }
+
+                .spell-table-headers {
+                    font-size: 12px;
+                }
+
+                .spell-table-values {
+                    text-align: center;
+                    font-size: 14px;
+                }
+
+                .spell-list {
+                    display: flex;
+                    /* super important property that fixes a 1px jump on hover. */
+                    backface-visibility: hidden;
+                }
+
+                .noselect {
+                    user-select: none;
+                }
+            </style>
+
+            <bunny-box class="spell-bar noselect" border>
+                <div class="spell-list">
+                    ${repeat(this._list(), spell => spell.id, this.spellHtml.bind(this))}
+                </div>
+            </bunny-box>
+
+
+            <bunny-box id="casting-progress" style="visibility: hidden;">
+                <bunny-progress id="casting-progress-bar" class="casting-bar transiting"></bunny-progress>
+                <span id="casting-progress-title">${this._name(this.spellId)}</span>
+            </bunny-box>
         `;
     }
 
@@ -385,14 +386,15 @@ class SpellBar extends HTMLElement {
                     <span class="description">${description}</span>
 
                 </bunny-tooltip>
-                
+
                 ${this._chargeable(spell) ?
-            html`
-                        <span class="charges">${charges}</span>
-                    ` : html`
-                        <bunny-progress id="cd-bar-${spell.id}" style="visibility: hidden;" class="cooldown-bar transiting"
-                                        max="100"></bunny-progress>
-                    `}
+                        html`
+                            <span class="charges">${charges}</span>
+                        ` : html`
+                            <bunny-progress id="cd-bar-${spell.id}" style="visibility: hidden;"
+                                            class="cooldown-bar transiting"
+                                            max="100"></bunny-progress>
+                        `}
             </div>`;
     }
 

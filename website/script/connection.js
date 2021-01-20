@@ -39,7 +39,7 @@ class Connection {
                 this.onmessage(data);
             };
             this.ws.onopen = () => {
-                application.error(null); // clear error.
+                application.recover();
                 this.open = true;
                 for (let i = 0; i < this.onConnectHandlers.length; i++) {
                     this.onConnectHandlers[i]();

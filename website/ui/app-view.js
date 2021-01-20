@@ -10,6 +10,7 @@ import './game-realms.js'
 import './game-characters.js'
 import './patch-download.js'
 import './offline-view.js'
+import './error-dialog.js'
 
 class AppView extends HTMLElement {
 
@@ -80,7 +81,7 @@ class AppView extends HTMLElement {
                     ` : ''}
                 </bunny-bar>
             `}
-            
+
             <bunny-pages part="pages">
                 <div slot="tabs"></div>
                 <div slot="pages">
@@ -118,11 +119,9 @@ class AppView extends HTMLElement {
         let start = (window.isPWA || application.development.skipStart) ? 'page-login' : 'page-start';
 
         application.onError((e) => {
-            import('./error-dialog.js').then(() => {
-                customElements.whenDefined('error-dialog').then(() => {
-                    this.render();
-                    this.shadowRoot.querySelector('error-dialog').open(e);
-                });
+            customElements.whenDefined('error-dialog').then(() => {
+                this.render();
+                this.shadowRoot.querySelector('error-dialog').open(e);
             });
         });
 

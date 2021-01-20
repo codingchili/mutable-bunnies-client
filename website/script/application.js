@@ -113,6 +113,14 @@ class Application {
         application.publish('onAuthentication', application);
     }
 
+    recover() {
+        application.publish('recover');
+    }
+
+    onRecover(callback) {
+        application.subscribe('recover', callback);
+    }
+
     error(error) {
         if (typeof error === 'string') {
             error = {text: error, callback: application.logout};
@@ -137,12 +145,16 @@ class Application {
     }
 
     logout() {
-        application.publish('onLogout', {});
-        application.showLogin();
+        if (window.game !== undefined && game.isPlaying) {
+            game.shutdown();
+            application.showCharacters();
+        } else {
+            application.showLogin();
+            application.publish('onLogout', {});
+        }
     }
 
     selectCharacter(event) {
-        this.character = event.character;
         this.server = event.server;
         application.publish('onCharacterSelect', event);
         application.showPatcher();
