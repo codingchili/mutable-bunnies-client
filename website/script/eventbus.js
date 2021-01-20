@@ -19,8 +19,8 @@ window.EventBus = class EventBus {
     publish(event, data) {
         if (application.development.logEvents) {
             console.log({
+                timestamp: new Date().toISOString().split('T')[1],
                 event: event,
-                timestamp: new Date().toLocaleTimeString(),
                 data: data
             });
         }
