@@ -86,32 +86,39 @@ class CharacterCreate extends HTMLElement {
         this.pages.bind();
     }
 
-    createCharacter(pc, e) {
-        this.characterName = e?.target?.value ?? this.characterName;
-        if (e.type === "click" || e.keyCode === 13) {
-            if (this.characterName.length === 0)
-                this.showToast('Character name must be longer than that.');
-            else if (this.hasCharacter(this.characterName))
-                this.showToast('You already have a character with that name');
-            else {
-                this.showToast('Creating character ' + this.characterName + " ..");
+    _submit(pc, e) {
+        if (e.keyCode === 13) {
+            this.createCharacter(pc, e);
+        }
+    }
 
-                this.server.create({
-                    accepted: () => {
-                        application.publish("character-create", {});
-                        this.characterName = "";
-                        this.hideToast();
-                        this.characterlist();
-                    },
-                    error: (msg) => {
-                        if (msg.status === 'CONFLICT') {
-                            this.showToast('There is already a character with that name');
-                        } else {
-                            application.error("Failed to connect to the authentication server for character creation.");
-                        }
+    _input(e) {
+        this.characterName = e?.target?.value ?? this.characterName;
+    }
+
+    createCharacter(pc) {
+        if (this.characterName.length === 0)
+            this.showToast('Character name must be longer than that.');
+        else if (this.hasCharacter(this.characterName))
+            this.showToast('You already have a character with that name');
+        else {
+            this.showToast('Creating character ' + this.characterName + " ..");
+
+            this.server.create({
+                accepted: () => {
+                    application.publish("character-create", {});
+                    this.characterName = "";
+                    this.hideToast();
+                    this.characterlist();
+                },
+                error: (msg) => {
+                    if (msg.status === 'CONFLICT') {
+                        this.showToast('There is already a character with that name');
+                    } else {
+                        application.error("Failed to connect to the authentication server for character creation.");
                     }
-                }, pc.id, this.characterName);
-            }
+                }
+            }, pc.id, this.characterName);
         }
     }
 
@@ -175,7 +182,7 @@ class CharacterCreate extends HTMLElement {
                 #spell-container {
                     display: flex;
                     justify-content: center;
-                    margin-top: 8px;
+                    margin-top: 30px;
                     margin-bottom: 10px;
                 }
 
@@ -225,9 +232,20 @@ class CharacterCreate extends HTMLElement {
 
                 .gif {
                     position: absolute;
-                    top: 324px;
+                    top: 282px;
+                    height: 324px;
                     left: 50%;
                     transform: translateX(-50%);
+                }
+
+                stats-view {
+                    /*width: 92%;*/
+                    margin: auto;
+                }
+
+                bunny-button {
+                    margin-top: 19px;
+                    display: block;
                 }
 
                 ${BunnyStyles.dialogs}
@@ -267,14 +285,17 @@ class CharacterCreate extends HTMLElement {
                                         <div></div>` : html`
                                         <div>
                                             <div class="description">${pc.description}</div>
-                                            <bunny-input autofocus @input="${this.createCharacter.bind(this, pc)}"
+                                            <bunny-input autofocus
+                                                         @keydown="${this._submit.bind(this, pc)}"
+                                                         @input="${this._input.bind(this)}"
                                                          label="Name" id="${pc.id}"></bunny-input>
                                             <stats-view compact .selected="${pc}"></stats-view>
-                                            <video muted loop autoplay src="/images/bunbun.webm"
+                                            <video muted loop autoplay
+                                                   src="${this.realm.resources}gui/preview/${pc.id}-idle.webm"
                                                    class="gif"></video>
-                                            <div class="tags">
-                                                ${pc.weapons.join(' ')}&nbsp;${pc.armors.join(' ')}
-                                            </div><!---${pc.id}-->s
+                                            <!--<div class="tags">
+                                                X{pc.weapons.join(' ')}&nbsp;X{pc.armors.join(' ')}
+                                            </div>-->
                                             <div id="spell-container">
                                                 ${this._spells(pc)}
                                             </div>
@@ -292,42 +313,43 @@ class CharacterCreate extends HTMLElement {
                             width: 80%;
                             margin: auto;
                         }
-                        
+
                         .class-stats {
                             display: flex;
                             flex-direction: row;
                             position: relative;
                         }
-                        
+
                         .class-stats-img {
                             height: 42px;
                         }
-                        
+
                         bunny-progress {
                             width: 100%;
                             margin-left: 22px;
                             margin-top: 20px;
                         }
-                        
+
                         .highlight {
                             font-weight: bold;
                             color: var(--accent-color);
                         }
-                        
+
                         .class-help {
                             text-align: center;
                             display: block;
                             margin: 24px;
                             opacity: 0.86;
                         }
-                        
+
                         .help-top {
                             margin-top: 48px;
                         }
                     </style>
 
                     <div class="stats-container">
-                        <span class="class-help help-top">To make choosing a player class easier, here are some statistics to help!</span>
+                        <span class="class-help help-top">To make choosing a player class easier, here are some statistics to help. Hover
+                        on the bars for more information.</span>
                         ${this.realm.classes
                                 .filter(this._available.bind(this))
                                 .map(pc => html`
@@ -339,15 +361,18 @@ class CharacterCreate extends HTMLElement {
                                         }
                                     </style>
                                     <div class="class-stats">
-                                        <img src="${this.realm.resources}gui/class/${pc.id}.svg" class="class-stats-img">
+                                        <img src="${this.realm.resources}gui/class/${pc.id}.svg"
+                                             class="class-stats-img">
                                         <bunny-progress
                                                 value="${Math.random() * 100}"
                                                 max="100"
                                                 class="progress-${pc.id}">
                                         </bunny-progress>
                                         <bunny-tooltip location="top">
-                                            <span class="highlight">${Math.trunc(Math.random() * 100)}%</span> of players chose the ${pc.name} class,<br>
-                                            There is a total of  <span class="highlight">${Math.trunc(Math.random() * 10000)}</span>
+                                            <span class="highlight">${Math.trunc(Math.random() * 100)}%</span> of
+                                            players chose the ${pc.name} class,<br>
+                                            There is a total of <span
+                                                class="highlight">${Math.trunc(Math.random() * 10000)}</span>
                                             ${pc.name}'s in this realm..
                                         </bunny-tooltip>
                                     </div>

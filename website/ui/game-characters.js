@@ -386,7 +386,7 @@ class CharacterList extends HTMLElement {
 
                 <div class="character-list-box" ?hidden="${!this.loaded}">
                     ${this._renderCharacters()}
-                    <bunny-button @mousedown="${this.showCreate.bind(this)}">Create</bunny-button>
+                    <bunny-button @click="${this.showCreate.bind(this)}">Create</bunny-button>
                 </div>
             </bunny-box>
         </div>
