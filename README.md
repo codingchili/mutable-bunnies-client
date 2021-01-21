@@ -2,9 +2,13 @@
 
 Browser based game client for the Mutable Bunnies game server. [Mutable Bunnies - Server](https://github.com/codingchili/mutable-bunnies-server)
 
-![img/in-game-v3.png](img/character-create v2.png)
+<p align="center" style="text-align: center">
+  <img height="600" src="img/character-create v2.png">
+</span>
 
-Sample in-game image of a simple test world, first [demo video](https://www.youtube.com/watch?v=TlFcvCJb9lw) now available!
+New version of the character creator, now with animated previews using spine/webM.
+
+Check out the first demo [demo video](https://www.youtube.com/watch?v=TlFcvCJb9lw)
 
 Uses Pixi.js for rendering and assets from gamedeveloperstudio, see [license](https://www.gamedeveloperstudio.com/license.php). This repository doesn't contain any client code or assets - as these may not be included in any open source listing. Contributions are welcome for the backend but only the core team may work on the client scripts/assets.
 
@@ -86,6 +90,9 @@ User interface
 - [X] creature targeting
 - [X] inventory
 - [X] quest tracker
+- [X] spell book 
+- [X] player skills
+- [X] friends/chat
 - [ ] crafting
 - [ ] in-game help
 
@@ -110,10 +117,14 @@ On the backend
 - [mutable bunnies](https://github.com/codingchili/mutable-bunnies-server)  mutable bunnies server.
 
 On the frontend
-- [Polymer](https://www.polymer-project.org/) for the website and game UI.
+- [lit-html](https://lit-html.polymer-project.org/) for the website and game UI.
 - [PIXI.js](http://www.pixijs.com/) for client side rendering.
 
 For art
-- [MagicaVoxel](https://ephtracy.github.io/) for artwork!
 - [Spine 2d](http://esotericsoftware.com/) for animations!
+- [Affinity Designer](https://affinity.serif.com/en-us/designer/) for creating vector art!
+- [MagicaVoxel](https://ephtracy.github.io/) for isometric artwork!
+- [Game Icons](https://game-icons.net/) for all of the vector icons!
+- [Game Developer Studio](https://www.gamedeveloperstudio.com/) for buying awesome vector art!
+- [Ableton Live](https://www.ableton.com/) for the background music!
 
