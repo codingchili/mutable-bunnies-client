@@ -1,11 +1,17 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
-import {BunnyStyles} from "../component/styles.js";
-import '/node_modules/ink-ripple/ink-ripple.js'
-import '../component/bunny-button.js'
-import '../component/bunny-input.js'
-import '../component/bunny-box.js'
-import '../component/bunny-tooltip.js'
-import '../ui/game/stats-view.js'
+import '/node_modules/ink-ripple/ink-ripple.js';
+
+import {BunnyStyles} from "../../component/styles.js";
+
+import './game/stats-view.js'
+import '/component/bunny-box.js'
+import '/component/bunny-icon.js'
+import '/component/bunny-pages.js'
+import '/component/bunny-tab.js'
+import '/component/bunny-button.js'
+import '/component/bunny-input.js'
+import '/component/bunny-toast.js'
+import '/component/bunny-progress.js'
 
 class CharacterCreate extends HTMLElement {
 
@@ -16,6 +22,7 @@ class CharacterCreate extends HTMLElement {
     connectedCallback() {
         this.selected = {};
         this.icon = '#';
+        this.characterName = '';
         this.attachShadow({mode: 'open'})
 
         this.observer = new MutationObserver(events => {
@@ -23,7 +30,7 @@ class CharacterCreate extends HTMLElement {
                 if (this.hasAttribute('hidden')) {
                     render(``, this.shadowRoot);
                 } else {
-                    this.showSelect();
+                    this.render();
                 }
             }
         });
@@ -36,12 +43,6 @@ class CharacterCreate extends HTMLElement {
                 this.spells[spell.id] = spell;
             })
         });
-    }
-
-    select(playerClass) {
-        this.selected = playerClass;
-        this.icon = `${this.realm.resources}gui/class/${this.selected.id}.svg`;
-        this.showNaming(playerClass);
     }
 
     _available(playerclass) {
@@ -73,22 +74,20 @@ class CharacterCreate extends HTMLElement {
         }
     }
 
-    showSelect() {
-        this.selected = {};
-        this.selection = true;
-        this.naming = false;
-        this.render();
+    render() {
+        render(this.template, this.shadowRoot);
+        this.bind();
     }
 
-    showNaming() {
-        this.selection = false;
-        this.naming = true;
-        this.render();
-        this.shadowRoot.querySelector('#name').focus();
+    bind() {
+        this.container = this.query('#container');
+        this.toaster = this.query("#toaster");
+        this.pages = this.query('bunny-pages');
+        this.pages.bind();
     }
 
-    createCharacter(e) {
-        this.characterName = this.shadowRoot.querySelector('#name').value;
+    createCharacter(pc, e) {
+        this.characterName = e?.target?.value ?? this.characterName;
         if (e.type === "click" || e.keyCode === 13) {
             if (this.characterName.length === 0)
                 this.showToast('Character name must be longer than that.');
@@ -102,7 +101,7 @@ class CharacterCreate extends HTMLElement {
                         application.publish("character-create", {});
                         this.characterName = "";
                         this.hideToast();
-                        this.showSelect();
+                        this.characterlist();
                     },
                     error: (msg) => {
                         if (msg.status === 'CONFLICT') {
@@ -111,7 +110,7 @@ class CharacterCreate extends HTMLElement {
                             application.error("Failed to connect to the authentication server for character creation.");
                         }
                     }
-                }, this.selected.id, this.characterName);
+                }, pc.id, this.characterName);
             }
         }
     }
@@ -144,379 +143,260 @@ class CharacterCreate extends HTMLElement {
 
     get template() {
         return html`
-        <style>
-            :host {
-                display: block;
-                margin-top: -48px;
-            }
-            
-            ${BunnyStyles.icons}
-            ${BunnyStyles.ripple}
-            ${BunnyStyles.noselect}
-            ${BunnyStyles.headings}
-            ${BunnyStyles.scrollbars}
-            
-
-            .container {    
-                display: block;
-                width: 582px;
-                margin: auto;
-                padding-bottom: 48px;
-                backface-visibility: hidden;
-            }
-            
-            .back-icon {
-                position: absolute;
-                right: 24px;
-                top: 20px;
-                padding-bottom: 9px;
-                display: block;
-            }
-
-            .list {
-                margin: auto;
-                max-width: 625px;
-            }
-
-            .class-name {
-                font-size: medium;
-                display: inline;
-                position: absolute;
-                top: 8px;
-                margin-left: 132px;
-                pointer-events: none;
-            }
-
-            .realm-title {
-                display: block;
-                padding-top: 24px;
-                margin-bottom: 24px;
-                margin-left: auto;
-                margin-right: auto;
-                width: fit-content;
-            }
-
-            .class-description {
-                font-size: 14px;
-                display: inline;
-                position: absolute;
-                top: 46px;
-                margin-left: 146px;
-                margin-right: 24px;
-                pointer-events: none;
-            }
-
-            .class-image {
-                max-width: 128px;
-                max-height: 128px;
-                min-width: 128px;
-                min-height: 128px;
-            }
-
-            .container {
-            }
-
-            .character-class {
-                min-height: 128px;
-                margin-top: 16px;
-                display: block;
-                position: relative;
-                cursor: var(--bunny-cursor-pointer);
-            }
-
-            .spell-container {
-                float: right;
-                display: block;
-                position: absolute;
-                right: 8px;
-                top: 0px;
-            }
-
-            .spell {
-                width: 32px;
-                height: 32px;
-                float: left;
-            }
-
-            .spell-image {
-                width: 32px;
-                height: 32px;
-            }
-
-            .spell-name {
-                font-size: medium;
-                text-transform: uppercase;
-            }
-
-            .spell-description {
-                margin-top: 4px;
-                font-size: 14px;
-            }
-
-            .tooltip {
-                width: 225px;
-            }
-
-            .tags {
-                bottom: 8px;
-                display: inline;
-                position: absolute;
-                margin-left: 145px;
-                text-align: center;
-                font-size: smaller;
-                text-transform: uppercase;
-                pointer-events: none;
-            }
-
-            .keywords {
-                display: inline;
-                right: 86px;
-                bottom: 8px;
-                position: absolute;
-                float: none;
-                font-size: smaller;
-            }
-
-            .create-button {
-                position: absolute;
-                top: 28px;
-                right: 96px;
-                width: 48px;
-                height: 48px;
-            }
-
-            .character-name {
-                position: absolute;
-                top: 16px;
-                left: 160px;
-                width: 225px;
-            }
-
-            .class-stats {
-                font-size: 14px;
-                width: 176px;
-            }
-
-            .selected-class-image {
-                width: 80%;
-                margin-left: auto;
-                margin-right: auto;
-                display: block;
-                opacity: 0.22;
-                min-height: 465px;
-            }
-
-            .create-box {
-                max-width: 625px;
-                padding-bottom: 32px;
-            }
-
-            @media (max-width: 728px) {
-
-                .create-box {
-                    height: 296px;
-                    margin: auto;
+            <style>
+                :host {
                 }
-                
-                .container {
-                    width: 100%;
-                    margin-top: 48px;
+
+                #dialog {
+                    width: 620px;
+                    height: 718px;
                 }
 
                 .class-image {
-                    width: 96px;
-                    top: 28px;
-                    left: 4px;
-                    position: absolute;
+                    width: 86px;
                 }
 
-                .character-name {
-                    position: relative;
-                    width: auto;
-                    left: unset;
-                    top: unset;
-                }
-
-                .create-button {
-                    position: absolute;
-                    bottom: 0px;
-                    top: 312px;
-                    left: 0;
-                    right: 0;
-                    margin: auto;
-                }
-
-                .selected-class-image {
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: 100%;
-                    display: block;
-                    height: 96px;
+                #class-container {
+                    display: flex;
+                    margin-top: 8px;
+                    padding-bottom: 8px;
                 }
 
                 .class-name {
-                    width: 100%;
                     text-align: center;
-                    margin-left: 0px;
+                    font-size: smaller;
                 }
 
-                .spell-image {
-                    width: 16px;
+                .player-class {
+                    margin-left: 8px;
+                    margin-right: 8px;
                 }
 
-                .spell {
-                    height: 16px;
+                #spell-container {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 8px;
+                    margin-bottom: 10px;
+                }
+
+                .spell-icon {
+                    width: 48px;
+                    margin-top: 2px;
+                    margin-bottom: -4px;
+                }
+
+                bunny-tab {
+                    --bunny-tab-background: #00000000;
+                    --bunny-tab-background-active: #00000000;
+                }
+
+                .character {
+                    position: relative;
+                }
+
+                .keywords {
+                    display: inline;
+                    right: 86px;
+                    bottom: 8px;
+                    position: absolute;
                     float: none;
-                }
-
-                .class-description {
-                    top: 43px;
-                    left: 116px;
-                    right: 34px;
-                    width: 60%;
-                    margin: auto;
+                    font-size: smaller;
                 }
 
                 .tags {
-                    left: 0px;
-                    right: 0px;
-                    margin-left: 0px;
-                }
-
-                .character-class {
+                    bottom: 8px;
+                    */ display: block;
+                    text-align: center;
+                    font-size: smaller;
+                    text-transform: uppercase;
+                    pointer-events: none;
                     margin-top: 8px;
-                    height: 158px;
                 }
-            }
 
-        </style>
+                .description {
+                    margin: 32px;
+                    opacity: 0.86;
+                }
 
-        <bunny-box solid class="container noselect">
-            <div ?hidden="${this.naming}" style="position: relative;">
-                <div class="realm-title">
-                    <h4 style="display: inline-block">Select class</h4>
-                    <bunny-icon class="icon back-icon" @mousedown="${this.characterlist.bind(this)}" icon="back"></bunny-icon>
+                bunny-input {
+                    width: 224px;
+                    margin: auto;
+                }
+
+                .gif {
+                    position: absolute;
+                    top: 324px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                ${BunnyStyles.dialogs}
+                ${BunnyStyles.scrollbars}
+                ${BunnyStyles.icons}
+                ${BunnyStyles.variables}
+                ${BunnyStyles.noselect}
+                ${BunnyStyles.hr}
+            </style>
+
+
+            <bunny-box class="noselect dialog-center" id="dialog">
+                <div id="dialog-content">
+                    <bunny-icon icon="back" class="icon" id="dialog-close"
+                                @mousedown="${this.characterlist.bind(this)}"></bunny-icon>
+                    <span class="dialog-entity">&nbsp;</span>
+
+                    <bunny-pages id="class-container" unselected>
+                        <div slot="tabs">
+                            ${this.realm.classes
+                                    .filter(this._available.bind(this))
+                                    .map(pc => html`
+                                        <bunny-tab @mousedown="${this._details.bind(this, pc)}">
+                                            <div class="player-class">
+                                                <img src="${this.realm.resources}gui/class/${pc.id}.svg"
+                                                     class="class-image">
+                                                <div class="class-name">${pc.name}</div>
+                                                <ink-ripple></ink-ripple>
+                                            </div>
+                                        </bunny-tab>
+                                    `)}
+                        </div>
+                        <div slot="pages">
+                            ${this.realm.classes
+                                    .filter(this._available.bind(this))
+                                    .map(pc => (pc !== this.selected) ? html`
+                                        <div></div>` : html`
+                                        <div>
+                                            <div class="description">${pc.description}</div>
+                                            <bunny-input autofocus @input="${this.createCharacter.bind(this, pc)}"
+                                                         label="Name" id="${pc.id}"></bunny-input>
+                                            <stats-view compact .selected="${pc}"></stats-view>
+                                            <video muted loop autoplay src="/images/bunbun.webm"
+                                                   class="gif"></video>
+                                            <div class="tags">
+                                                ${pc.weapons.join(' ')}&nbsp;${pc.armors.join(' ')}
+                                            </div><!---${pc.id}-->s
+                                            <div id="spell-container">
+                                                ${this._spells(pc)}
+                                            </div>
+                                            <bunny-button @click="${this.createCharacter.bind(this, pc)}">create
+                                            </bunny-button>
+                                        </div>
+                                    `)
+                            }
+                        </div>
+                    </bunny-pages>
                 </div>
+                ${this.selected.id ? `` : html`
+                    <style>
+                        .stats-container {
+                            width: 80%;
+                            margin: auto;
+                        }
+                        
+                        .class-stats {
+                            display: flex;
+                            flex-direction: row;
+                            position: relative;
+                        }
+                        
+                        .class-stats-img {
+                            height: 42px;
+                        }
+                        
+                        bunny-progress {
+                            width: 100%;
+                            margin-left: 22px;
+                            margin-top: 20px;
+                        }
+                        
+                        .highlight {
+                            font-weight: bold;
+                            color: var(--accent-color);
+                        }
+                        
+                        .class-help {
+                            text-align: center;
+                            display: block;
+                            margin: 24px;
+                            opacity: 0.86;
+                        }
+                        
+                        .help-top {
+                            margin-top: 48px;
+                        }
+                    </style>
 
-                <div class="list select">
-                    <div class="wrapper">
-                        ${this.playerClasses()}
+                    <div class="stats-container">
+                        <span class="class-help help-top">To make choosing a player class easier, here are some statistics to help!</span>
+                        ${this.realm.classes
+                                .filter(this._available.bind(this))
+                                .map(pc => html`
+                                    <style>
+                                        .progress-${pc.id} {
+                                            --bunny-progress-active-color: ${pc.theme};
+                                            --bunny-progress-height: 12px;
+                                            --bunny-progress-container-color: #323232;
+                                        }
+                                    </style>
+                                    <div class="class-stats">
+                                        <img src="${this.realm.resources}gui/class/${pc.id}.svg" class="class-stats-img">
+                                        <bunny-progress
+                                                value="${Math.random() * 100}"
+                                                max="100"
+                                                class="progress-${pc.id}">
+                                        </bunny-progress>
+                                        <bunny-tooltip location="top">
+                                            <span class="highlight">${Math.trunc(Math.random() * 100)}%</span> of players chose the ${pc.name} class,<br>
+                                            There is a total of  <span class="highlight">${Math.trunc(Math.random() * 10000)}</span>
+                                            ${pc.name}'s in this realm..
+                                        </bunny-tooltip>
+                                    </div>
+                                `)
+                        }
+                        <span class="class-help">The Necromancer and Slayer classes are not recommended for beginners.</span>
                     </div>
-                </div>
-            </div>
-
-            <div ?hidden="${this.selection}" style="position: relative;">
-                <div class="realm-title">
-                    <h4 style="display: inline-block">Name your ${this.selected.name}&nbsp;</h4>
-                    <bunny-icon class="icon back-icon" @mousedown="${this.showSelect.bind(this)}" icon="back"></bunny-icon>
-                </div>
-
-                <div class="create-box">
-                    <div style="position: relative">
-
-                        <img ?hidden="${!this.selected}" src="${this.icon}"
-                             class="selected-class-image">
-
-                        <bunny-input id="name" class="character-name" value="${this.characterName}"
-                                     label="Name"
-                                     @keydown="${this.createCharacter.bind(this)}"></bunny-input>
-
-                        <div class="create-button">
-                            <bunny-icon @click="${this.createCharacter.bind(this)}" class="icon"
-                                       icon="accept"></bunny-icon>
-                       </div>
-
-                        <stats-view .selected="${this.selected}"></stats-view>
-                    </div>
-                </div>
-            </div>
-        </bunny-box>
-        
-        <bunny-toast id="toaster" location="bottom"></bunny-toast>
+                `}
+            </bunny-box>
+            <bunny-toast id="toaster" location="bottom"></bunny-toast>
         `;
     }
 
-    playerClasses() {
-        let classes = [];
-
-        for (let playerClass of this.realm.classes) {
-            let item = html`
-                <bunny-box class="character-class" @mousedown="${this.select.bind(this, playerClass)}" ?hidden="${!this._available(playerClass)}">
-                    <!-- removed as it doesn't reset properly -->
-                    <!--<ink-ripple></ink-ripple>-->
-
-                    <div class="class-image">
-                        <img src="${this.realm.resources}/gui/class/${playerClass.id}.svg" id="playerclass-container">
-                        <!--<bunny-tooltip location="left" for="playerclass-container">
-                            <div class="class-stats">
-                                Stats
-                                <stats-view compact="true"
-                                            selected="X{this._classInfo(playerClass.id)}">
-                                </stats-view>
-                            </div>
-                        </bunny-tooltip>-->
-                    </div>
-
-                    <div class="class-name">${playerClass.name}</div>
-                    <div class="class-description">${playerClass.description}</div>
-
-                    <div class="spell-container">
-                        ${this._spells(playerClass)}
-                    </div>
-
-                    <div class="tags">
-                        ${playerClass.weapons}&nbsp;${playerClass.armors}
-                    </div>
-
-                    <div class="keywords">
-                        ${playerClass.keywords}
-                    </div>
-                </bunny-box>
-            `;
-            classes.push(item);
-        }
-
-        return classes;
+    _details(pc) {
+        this.selected = pc;
+        this.render();
+        let input = this.shadowRoot.querySelector(`bunny-input#${pc.id}`);
+        input.value = this.characterName;
+        input.focus();
     }
 
-    _isSkill(spellId) {
-        return this.spells[spellId] && this.spells[spellId].skill;
+    _spells(pc) {
+        return pc.spells
+            .map((spell) => this._resolve(spell))
+            .map(spell => {
+                spell.tier = Math.floor(Math.random() * 5);
+                return spell
+            })
+            .sort((a, b) => a.tier - b.tier)
+            .map(spell => html`
+                <img class="spell-icon" src="${this.realm.resources}gui/spell/${spell.id}.svg" class="spell-image">
+            `);
     }
 
-    _spells(playerClass) {
-        let spells = [];
+    _resolve(id) {
+        let spell = {
+            description: "N/A",
+            id: id,
+            name: id
+        };
 
-        for (let spell of playerClass.spells) {
-            if (!this._isSkill(spell)) {
-                let item = html`
-                <div class="spell">
-                    <img src="${this.realm.resources}/gui/spell/${spell}.svg" class="spell-image">
-                </div>
-                <bunny-tooltip class="tooltip">
-                        <div>
-                            <div class="spell-name">${this._getSpellName(spell)}</div>
-                            <div class="spell-description">${this._getSpellDescription(spell, playerClass.stats)}</div>
-                        </div>
-                    </bunny-tooltip>
-            `;
+        this.realm.spells.filter(spell => spell.id === id)
+            .map(found => spell = found);
 
-                spells.push(item);
-            }
-        }
-        return spells;
-    }
-
-    render() {
-        render(this.template, this.shadowRoot);
-        this.bind();
+        return spell;
     }
 
     query(selector) {
         return this.shadowRoot.querySelector(selector);
-    }
-
-    bind() {
-        this.toaster = this.query("#toaster");
     }
 }
 

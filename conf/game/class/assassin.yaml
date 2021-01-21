@@ -1,7 +1,7 @@
 ---
 name: "Assassin"
 description: "Sneaking in the shadows the short blade of their dagger stabs their victims, often to death."
-theme: "#9c0977"
+theme: "#d115a2"
 model:
   graphics: "game/character/bunny/bunny"
   skin: "black"

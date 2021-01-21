@@ -69,7 +69,7 @@ export class PageGame extends HTMLElement {
                                 there are many throughout the planes..
                             </p>
 
-                                <video muted loop autoplay class="gif" src="../images/squito.webm">
+                                <!--<video muted loop autoplay class="gif" src="../images/squito.webm">-->
 
                             <p>
                                 Take on your worst bunny-fears and face all manners of scary creatures

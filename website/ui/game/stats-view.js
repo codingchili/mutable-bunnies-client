@@ -114,11 +114,11 @@ class StatsView extends HTMLElement {
 
             .attribute-wide {
                 display: flex;
-                width: 25%;
+                width: 100%;
                 margin-left: 12.5%;
                 margin-right: 12.5%;
                 flex-direction: row;
-                justify-content: space-between;
+                justify-content: var(--stats-view-justify, space-between);
             }
 
             .attribute-compact {

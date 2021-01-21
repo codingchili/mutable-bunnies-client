@@ -60,7 +60,7 @@ class BunnyPages extends HTMLElement {
                     selected = true;
                 }
             }
-            if (!selected) {
+            if (!this.hasAttribute('unselected')) {
                 this.index(0);
             }
         });

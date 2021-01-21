@@ -1,7 +1,7 @@
 ---
 name: "Hunter"
 description: "Knowing of their environment and the creatures lurking in it, none shall escape their true aim."
-theme: "#cf8f02"
+theme: "#f59f00"
 model:
   graphics: "game/character/bunny/bunny"
   skin: "grey"
