@@ -31,35 +31,26 @@ class Network {
     }
 
     rest(callback, route, json) {
-        if (!json) {
-            json = {};
-        }
+        let url = `${this.protocol}${this.host}:${this.port}${this.remote}`;
+        json = json ?? {};
         json.target = this.service;
         json.route = route;
 
-        let response = new XMLHttpRequest();
-        let url = `${this.protocol}${this.host}:${this.port}${this.remote}`;
-        response.open("POST", url);
-        response.setRequestHeader("Content-Type", "application/json");
-        response.send(JSON.stringify(json));
-
-        response.onreadystatechange = (response) => {
-            response = response.currentTarget;
-
-            if (response.readyState === 4) {
-                if (response.status >= 200 && response.status <= 300) {
-                    let data = JSON.parse(response.responseText);
-
-                    if (callback.any) {
-                        callback.any(data);
-                    } else {
-                        this.handleResponse(data, callback);
-                    }
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(json),
+            headers: new Headers({'Content-Type': 'application/json'})
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (callback.any) {
+                    callback.any(data);
                 } else {
-                    this.handleError(response, json, callback);
+                    this.handleResponse(data, callback);
                 }
-            }
-        }
+            }).catch(err => {
+            throw err;
+        });
     }
 
     handleResponse(data, callback) {
@@ -110,8 +101,10 @@ class Network {
 
 
     handleError(response, json, callback) {
-        const error = {'message': 'Network error ' + JSON.stringify(response.status) + ' for message ' +
-            JSON.stringify(json), 'status': ResponseStatus.ERROR};
+        const error = {
+            'message': 'Network error ' + JSON.stringify(response.status) + ' for message ' +
+                JSON.stringify(json), 'status': ResponseStatus.ERROR
+        };
 
         if (callback.failed) {
             callback.failed(error);

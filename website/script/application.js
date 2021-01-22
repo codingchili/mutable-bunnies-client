@@ -10,23 +10,6 @@ class Application {
         this.realms = [];
         this.bus = new EventBus();
         this._loadSettings();
-
-        this.subscribe('onAuthentication', () => {
-            this.network = new Network('client.logging.node');
-            this.network.rest({
-                    accepted: (res) => {
-                        console.log(res);
-                    }
-                },
-                'logging', {
-                    token: application.token,
-                    message: {
-                        'event': 'authenticated',
-                        navigator: navigator.userAgent
-                    }
-                }
-            );
-        });
     }
 
     _loadSettings() {

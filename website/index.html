@@ -8,18 +8,11 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="manifest" href="manifest.json">
 
-    <script src="script/eventbus.js"></script>
-    <script src="script/application.js"></script>
-    <script type="module">
-        import './ui/app-view.js';</script>
-
+    <script src="script/eventbus.js" defer></script>
+    <script src="script/application.js" defer></script>
+    <script src="script/setup.js" defer></script>
+    <script type="module" src="./ui/app-view.js" defer></script>
     <style>
-        * {
-            --bunny-cursor: url("images/icon/cursor.png"), auto;
-            --bunny-cursor-pointer: url("images/icon/cursor-hover.png"), pointer;
-            --bunny-cursor-caret: url("images/icon/cursor-hover.png"), pointer;
-        }
-
         body {
             background-color: #212121;
             color: #fff;
@@ -30,10 +23,10 @@
             height: 100%;
             padding: 0;
             cursor: url("images/icon/cursor.png"), auto;
-        }
 
-        app-view {
-            display: none;
+            --bunny-cursor: url("images/icon/cursor.png"), auto;
+            --bunny-cursor-pointer: url("images/icon/cursor-hover.png"), pointer;
+            --bunny-cursor-caret: url("images/icon/cursor-hover.png"), pointer;
         }
 
         body::-webkit-scrollbar {
@@ -62,81 +55,11 @@
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
         }
     </style>
-    <script>
-        function send_message_to_sw(msg) {
-            return new Promise((resolve, reject) => {
-                let channel = new MessageChannel();
-
-                channel.port1.onmessage = (event) => {
-                    if (event.data.error) {
-                        reject(event.data.error);
-                    } else {
-                        resolve(event.data);
-                    }
-                };
-                if (navigator.serviceWorker.controller) {
-                    navigator.serviceWorker.controller.postMessage(msg, [channel.port2]);
-                } else {
-                    // failed to retrieve controller, assume online.
-                    resolve({
-                        offline: false
-                    });
-                }
-            });
-        }
-
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service_worker.js')
-                    .then((registration) => {
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    }, (err) => {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-
-            navigator.serviceWorker.ready.then(() => {
-                send_message_to_sw("is offline?").then(event => {
-                    application.offline = event.offline;
-                    application.publish('offline', application.offline);
-
-                    if (application.offline) {
-                        application.view("offline-view");
-                    }
-                });
-            });
-        }
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            window.pwa = e;
-            application.publish('installed', !window.pwa);
-        });
-
-        window.isPWA = (window.matchMedia('(display-mode: fullscreen)').matches)
-            || (window.matchMedia('(display-mode: standalone)').matches);
-
-        application.onAuthentication(() => {
-            if (window.isPWA || application.settings.fullscreen) {
-                document.documentElement.requestFullscreen()
-                    .catch((e) => {
-                        console.log(e);
-                    });
-            }
-        });
-    </script>
 </head>
 <body oncontextmenu="return application.development.rightClick;">
 
 <app-view></app-view>
 
 </body>
-<script>
-    Promise.all(
-        ['app-view']
-            .map(name => customElements.whenDefined(name)),
-    ).then(() => {
-        document.querySelector('app-view').style.display = 'block';
-    });
-</script>
+<script type="module" src="script/metrics.js" async></script>
 </html>

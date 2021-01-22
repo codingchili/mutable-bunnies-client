@@ -9,16 +9,17 @@ class Authentication {
     }
 
     login(callback, username, password) {
-        this.network.rest(callback, 'authenticate', {account: {
-            'username': username,
-            'password': password
-        }
+        this.network.rest(callback, 'authenticate', {
+            account: {
+                'username': username,
+                'password': password
+            }
         });
     }
 
     register(callback, username, password, email) {
         this.network.rest(callback, 'register',
-            {account: {username:username, password:password, email:email}});
+            {account: {username: username, password: password, email: email}});
     }
 }
 
