@@ -1,21 +1,18 @@
 ---
 dependencies:
   service/[^/]*:
-    preshare:
-    - global
-    secrets: []
     tokens:
       logging:
         service: logging
-        secret: secret
+        secret: loggingSecret
   service/social:
     preshare:
       - clientSecret
   service/logging:
-    preshare: []
+    preshare:
+      - clientSecret
     secrets:
-    - secret
-    tokens: {}
+    - loggingSecret
   service/banking:
     preshare:
       - clientSecret
@@ -23,8 +20,6 @@ dependencies:
   service/authentication:
     preshare:
     - clientSecret
-    secrets: []
-    tokens: {}
   service/realmregistry:
     preshare:
     - clientSecret
@@ -38,7 +33,7 @@ dependencies:
     tokens:
       logging:
         service: logging
-        secret: secret
+        secret: loggingSecret
       authentication:
         service: realmregistry
         secret: realmSecret

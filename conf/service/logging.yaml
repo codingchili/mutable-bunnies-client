@@ -2,21 +2,21 @@
 node: "logging.node"
 elastic:
   remote: "localhost"
-  index: "chili.core.logging.v101"
+  index: "mutable.bunnies.v1"
   port: 9200
   template:
     mappings:
-      the_def_index:
+      with_time:
         properties:
           time:
             type: "date"
   enabled: false
-secret: "c6wQ3txSHqIH9xYW9SnVQ0xaDLTYfSQinH0QMVHuGZvO134PbwjXArswcE2vppmYFbqHDvVBx7R9TmQXL7WY6Q=="
-console: false
-global: "UHF5m7xj1GEw4uVubgY+mpdmjn5Dfuw3w1BmkUnCYQAP7cfHn+8ZFx0yOZXtfPjk7EXUePiYakXTGY9TzvrCtg=="
+console: true
 logging:
   properties:
     type: "HmacSHA512"
   domain: "logging.node"
-  key: "rFAmKXsl7t9MZV4XIC2u7GoqSkDPvggEgOOEHsCcYYMBv7zmUBV5JwzcrvC4Nr01UENvmuTOsOiaHUnqk+0BKQ=="
-  expiry: 1611312925
+  key: "A+BVE3GkpZ3DoOYQ4PH/hSEtmDusdbXKqEvVUNo1A8URmhYT0gNReMhWDeOTmfQRCFlY+ptewWJPjFHgPw1Eqw=="
+  expiry: 1611934374
+clientSecret: "x/CfsbeyIzpRxjkIuxMhrMZa28UaS+fLVxPID1iI3EEjOW1/i5iV0Dz+lGnrbB63+rtn7j/HtHnwSfqZJt+U4Q=="
+loggingSecret: "TA+Y0+XhLR79bmfntj8zqiMw0lV1x0JlOn0zap5Oaj3YTKc85odEIGtv9jS4N1ZFTNR+f73AxQQ1wm0yfJ8YlA=="

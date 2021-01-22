@@ -14,13 +14,14 @@ transport:
 external:
   client.authentication.node: ".*"
   client.realmregistry.node: ".*"
+  client.logging.node: ".*"
   auction.node: ".*"
   social.node: ".*"
   banking.node: ".*"
-global: "UHF5m7xj1GEw4uVubgY+mpdmjn5Dfuw3w1BmkUnCYQAP7cfHn+8ZFx0yOZXtfPjk7EXUePiYakXTGY9TzvrCtg=="
+global: "OzDQE8uwrs3AsWPQxyR+RollbEq5ETQkuwMz/S08wKvst8+ERIMr+X6wTzyrPjZ1GNTH2SHYy8BJetFRTxnH9Q=="
 logging:
   properties:
     type: "HmacSHA512"
   domain: "routing.node"
-  key: "G10vDA4h/Um28LNN/bGyjomrB0ILYXlVKgFjU+2K5QEwVT60uzK1QKFty8cr0qK6UoPcnIqJCiaJdYV9v9GdHw=="
-  expiry: 1611312925
+  key: "xqnlo9Pqs1YwTd35Oc5KeOAkROtVFXXzMm6Vs5/9tm1O6NH28Ft8Chr95zHxb/rFC6ERqI1Wux+L3gealSbC5w=="
+  expiry: 1611934374

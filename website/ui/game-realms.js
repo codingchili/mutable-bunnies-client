@@ -114,7 +114,7 @@ class GameRealms extends HTMLElement {
             this.realmregistry.list({
                 accepted: (data) => {
                     this.load(data.realms);
-                    this.loading = false;
+                    this.loading = (data.realms.length === 0);
                     this.render();
                 },
                 failed: (error) => {
