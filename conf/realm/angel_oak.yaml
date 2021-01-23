@@ -33,6 +33,7 @@ onPlayerJoin:
     }
 listener:
   secure: false
+  alpn: true
   port: 9301
   timeout: 6000
   binaryWebsockets: false

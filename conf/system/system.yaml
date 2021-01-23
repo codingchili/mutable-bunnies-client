@@ -1,13 +1,80 @@
 ---
-metricRate: 15000
 handlers: 1
-metrics: false
+metrics:
+  enabled: true
+  rate: 15000
+  filters:
+    - path: "vertx.eventbus.handlers"
+      alias: "eventbus.handler"
+      include:
+        - "count"
+    - path: "vertx.eventbus.messages"
+      alias: "eventbus"
+      include:
+        - "count"
+        - "meanRate"
+        - "fiveMinuteRate"
+    - path: "vertx.verticles"
+      alias: "verticles"
+      include:
+        - "count"
+    - path: "vertx.worker-pool-size"
+      alias: "worker-pool-size"
+      include:
+        - "value"
+    - path: "vertx.http.servers.0.0.0.0:1443.requests"
+      alias: "router.requests"
+      include:
+        - "count"
+        - "min"
+        - "max"
+        - "mean"
+        - "median"
+        - "95%"
+    - path: "vertx.http.servers.0.0.0.0:8080.requests"
+      alias: "website.requests"
+      include:
+        - "count"
+        - "min"
+        - "max"
+        - "mean"
+        - "median"
+        - "95%"
+    - path: "vertx.http.servers.0.0.0.0:9301.requests"
+      alias: "realm_1.requests"
+      include:
+        - "count"
+        - "min"
+        - "max"
+        - "mean"
+        - "median"
+        - "95%"
+    - path: "vertx.http.servers.0.0.0.0:9301.requests"
+      alias: "realm_1.connections"
+      include:
+        - "count"
+    - path: "vertx.http.servers.0.0.0.0:9301.bytes-written"
+      alias: "realm_1.bytes-written"
+      include:
+        - "count"
+        - "max"
+        - "mean"
+        - "median"
+        - "95%"
+    - path: "vertx.http.servers.0.0.0.0:9301.bytes-read"
+      alias: "realm_1.bytes-read"
+      include:
+        - "count"
+        - "max"
+        - "mean"
+        - "median"
+        - "95%"
 deployTimeout: 3000
 shutdownLogTimeout: 3000
 shutdownHookTimeout: 3000
 configurationPoll: 1500
 cachedFilePoll: 2000
-consoleLogging: true
+consoleLogging: false
 workerPoolSize: 8
 clusterTimeout: 3000
 blockedThreadChecker: 2000

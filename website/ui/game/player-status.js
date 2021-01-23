@@ -432,7 +432,7 @@ class PlayerStatus extends HTMLElement {
     afflictionHtml(active) {
         return html`
             <bunny-box border class="affliction">
-                <img src="${this.realm.resources}gui/affliction/${active.affliction.id}.svg" class="affliction-icon"
+                <img src="${this.realm.resources}gui/afflictions/${active.affliction.id}.svg" class="affliction-icon"
                      alt="affliction">
             </bunny-box>
             <bunny-tooltip class="spell-info" position="bottom">

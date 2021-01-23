@@ -3,7 +3,7 @@ storage:
   com.codingchili.core.storage.ElasticMap:
     host: localhost
     db_name: DEFAULT_DB
-    port: 9300
+    port: 9200
   com.codingchili.core.storage.LocalMap:
     host: localhost
     db_name: DEFAULT_DB

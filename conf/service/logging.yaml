@@ -1,17 +1,14 @@
 ---
 node: "logging.node"
-elastic:
-  remote: "localhost"
-  index: "mutable.bunnies.v1"
-  port: 9200
-  template:
-    mappings:
-      with_time:
-        properties:
-          time:
-            type: "date"
-  enabled: false
+plugin: com.codingchili.core.storage.ElasticMap
 console: true
+elastic:
+  settings:
+    index.mapping.total_fields.limit: 2000
+  mappings:
+    properties:
+      timestamp:
+        type: "date"
 logging:
   properties:
     type: "HmacSHA512"
