@@ -1,19 +1,5 @@
 def ext = (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) ? '.cmd' : ''
 
-task polymer {
-    inputs.files fileTree('website')
-    outputs.file('website/build/client/index.html')
-
-    doLast {
-        exec {
-            workingDir './website'
-            commandLine = ["polymer$ext", 'build']
-        }
-    }
-    inputs.files(fileTree(dir: './website', include: '**/*', exclude: '/build/**'))
-    outputs.dir('./website/build')
-}
-
 task npm {
     inputs.file('website/package.json')
 
@@ -26,7 +12,7 @@ task npm {
     outputs.file('website/package-lock.json')
 }
 
-task distribution(type: Tar, dependsOn: [npm, polymer]) {
+task distribution(type: Tar, dependsOn: [npm]) {
     archiveBaseName = 'mutable-client'
     duplicatesStrategy = 'EXCLUDE'
 
@@ -43,11 +29,7 @@ task distribution(type: Tar, dependsOn: [npm, polymer]) {
     }
 
     into('website') {
-        from fileTree('website/build/client')
-    }
-
-    into('website/resources') {
-        from fileTree(dir: 'website/resources/', exclude: '**/raw/**')
+        from fileTree(dir: 'website/', exclude: ['**/raw/**', 'package*.json'])
     }
 
     into('/website') {
@@ -74,7 +56,7 @@ task generate(type: JavaExec, dependsOn: server.classes) {
     workingDir = '.'
     main = 'com.codingchili.core.Launcher'
 
-    args += '--generate'
+    args += 'generate'
 
     server.each {
         classpath += it.sourceSets.main.runtimeClasspath
@@ -88,7 +70,7 @@ task run(type: JavaExec, dependsOn: server.classes) {
     if (project.hasProperty('exec')) {
         args += exec
     } else {
-        args += '--deploy'
+        args += 'deploy'
     }
 
     server.each {

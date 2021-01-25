@@ -1,7 +1,7 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
 import '/node_modules/ink-ripple/ink-ripple.js';
 
-import {BunnyStyles} from "../../component/styles.js";
+import {BunnyStyles} from "../component/styles.js";
 
 import './game/stats-view.js'
 import '/component/bunny-box.js'
