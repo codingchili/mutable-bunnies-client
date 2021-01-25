@@ -4,7 +4,7 @@ plugin: com.codingchili.core.storage.ElasticMap
 console: true
 elastic:
   settings:
-    index.mapping.total_fields.limit: 2000
+    index.mapping.total_fields.limit: 3000
   mappings:
     properties:
       timestamp:

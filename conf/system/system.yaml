@@ -1,81 +1,57 @@
 ---
 handlers: 1
-metrics:
-  enabled: true
-  rate: 15000
-  filters:
-    - path: "vertx.eventbus.handlers"
-      alias: "eventbus.handler"
-      include:
-        - "count"
-    - path: "vertx.eventbus.messages"
-      alias: "eventbus"
-      include:
-        - "count"
-        - "meanRate"
-        - "fiveMinuteRate"
-    - path: "vertx.verticles"
-      alias: "verticles"
-      include:
-        - "count"
-    - path: "vertx.worker-pool-size"
-      alias: "worker-pool-size"
-      include:
-        - "value"
-    - path: "vertx.http.servers.0.0.0.0:1443.requests"
-      alias: "router.requests"
-      include:
-        - "count"
-        - "min"
-        - "max"
-        - "mean"
-        - "median"
-        - "95%"
-    - path: "vertx.http.servers.0.0.0.0:8080.requests"
-      alias: "website.requests"
-      include:
-        - "count"
-        - "min"
-        - "max"
-        - "mean"
-        - "median"
-        - "95%"
-    - path: "vertx.http.servers.0.0.0.0:9301.requests"
-      alias: "realm_1.requests"
-      include:
-        - "count"
-        - "min"
-        - "max"
-        - "mean"
-        - "median"
-        - "95%"
-    - path: "vertx.http.servers.0.0.0.0:9301.requests"
-      alias: "realm_1.connections"
-      include:
-        - "count"
-    - path: "vertx.http.servers.0.0.0.0:9301.bytes-written"
-      alias: "realm_1.bytes-written"
-      include:
-        - "count"
-        - "max"
-        - "mean"
-        - "median"
-        - "95%"
-    - path: "vertx.http.servers.0.0.0.0:9301.bytes-read"
-      alias: "realm_1.bytes-read"
-      include:
-        - "count"
-        - "max"
-        - "mean"
-        - "median"
-        - "95%"
 deployTimeout: 3000
 shutdownLogTimeout: 3000
 shutdownHookTimeout: 3000
 configurationPoll: 1500
 cachedFilePoll: 2000
-consoleLogging: false
+consoleLogging: true
 workerPoolSize: 8
 clusterTimeout: 3000
 blockedThreadChecker: 2000
 maxEventLoopExecuteTime: 2000
+metrics:
+  enabled: true
+  rate: 5000
+  overhead: true
+  jvm:
+    - "cpu"
+    - "memory"
+    - "jvm"
+    - "gc"
+    - "threads"
+    - "classes"
+  filters:
+    - path: "vertx.eventbus.handlers"
+      alias: "eventbus.handler"
+    - path: "vertx.eventbus.messages.bytes-read"
+      alias: "eventbus.bytes-read"
+    - path: "vertx.eventbus.messages.bytes-written"
+      alias: "eventbus.bytes-written"
+    - path: "vertx.verticles"
+      alias: "verticles"
+    - path: "vertx.worker-pool-size"
+      alias: "worker-pool-size"
+    - path: "vertx.http.servers.0.0.0.0:1443.requests"
+      alias: "router.requests"
+    - path: "vertx.http.servers.0.0.0.0:8080.requests"
+      alias: "website.requests"
+    - path: "vertx.http.servers.0.0.0.0:9301.requests"
+      alias: "realm_1.requests"
+    - path: "vertx.http.servers.0.0.0.0:9301.requests"
+      alias: "realm_1.connections"
+    - path: "vertx.http.servers.0.0.0.0:9301.bytes-written"
+      alias: "realm_1.bytes-written"
+    - path: "vertx.http.servers.0.0.0.0:9301.bytes-read"
+      alias: "realm_1.bytes-read"
+    - path: "angel_oak"
+    - path: "os"
+    - path: "cpu"
+    - path: "threads"
+    - path: "classes"
+    - path: "metrics.overhead"
+    - path: "jvm"
+    - path: "memory.total"
+    - path: "memory.heap"
+    - path: "memory.heap"
+    - path: "gameloop"

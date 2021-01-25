@@ -34,337 +34,1371 @@ onPlayerJoin:
     }
 spawns:
 - x: 800
-  y: 1325
+  "y": 1325
   probability: 1.0
 npcs:
 - id: "lilith"
   point:
     x: 800
-    y: 925
+    "y": 925
 - id: "johnny"
   point:
     x: 1175
-    y: 1075
+    "y": 1075
 structures:
 - id: "magnetite"
   point:
     x: 1438
-    y: 1121
+    "y": 1121
 - id: "sulphur"
   point:
     x: 1523
-    y: 1116
+    "y": 1116
   tint: "#ffffff"
 - id: "rubies"
   point:
     x: 4382
-    y: 3537
+    "y": 3537
   scale: 0.05
   tint: "#ffffff"
 - id: "rubies"
   point:
     x: 4415
-    y: 3515
+    "y": 3515
   scale: 0.05
   tint: "#ffffff"
 - id: "rubies"
   point:
     x: 4431
-    y: 3546
+    "y": 3546
   scale: 0.05
   tint: "#ffffff"
 - id: "rubies"
   point:
     x: 4559
-    y: 3523
+    "y": 3523
   scale: 0.05
   tint: "#ffffff"
 - id: "quartz"
   point:
     x: 2325
-    y: 2370
+    "y": 2370
   scale: 0.3
   tint: "#f78deb"
   revertx: false
 - id: "quartz"
   point:
     x: 2382
-    y: 2338
+    "y": 2338
   scale: 0.475
   tint: "#f78deb"
   revertx: false
 - id: "quartz"
   point:
     x: 2390
-    y: 2361
+    "y": 2361
   scale: 0.175
   tint: "#f78deb"
   revertx: false
 - id: "quartz"
   point:
     x: 2426
-    y: 2355
+    "y": 2355
   scale: 0.175
   tint: "#f78deb"
   revertx: true
 - id: "quartz"
   point:
     x: 2273
-    y: 2345
+    "y": 2345
   scale: 0.175
   tint: "#f78deb"
   revertx: true
 - id: "quartz"
   point:
     x: 2277
-    y: 2340
+    "y": 2340
   scale: 0.3
   tint: "#f78deb"
   revertx: true
 - id: "quartz"
   point:
     x: 2372
-    y: 2361
+    "y": 2361
   scale: 0.075
   tint: "#f78deb"
   revertx: true
 - id: "quartz"
   point:
     x: 2340
-    y: 2376
+    "y": 2376
   scale: 0.1
   tint: "#f78deb"
   revertx: true
 - id: "quartz"
   point:
     x: 2268
-    y: 2347
+    "y": 2347
   scale: 0.075
   tint: "#f78deb"
   revertx: true
 - id: "quartz"
   point:
     x: 2268
-    y: 2349
+    "y": 2349
   scale: 0.1
   tint: "#8de7f7"
   revertx: true
 - id: "quartz"
   point:
     x: 2368
-    y: 2363
+    "y": 2363
   scale: 0.1
   tint: "#8de7f7"
   revertx: true
 - id: "quartz"
   point:
     x: 2274
-    y: 2341
+    "y": 2341
   scale: 0.3
   tint: "#f1f28c"
   revertx: true
 - id: "quartz"
   point:
     x: 2388
-    y: 2361
+    "y": 2361
   scale: 0.175
   tint: "#f1f28c"
   revertx: false
 - id: "tree_redwhite"
   point:
     x: 2291
-    y: 2269
+    "y": 2269
   scale: 0.875
   tint: "#f1f28c"
   revertx: false
 - id: "poison_ivy"
   point:
     x: 2431
-    y: 2312
+    "y": 2312
   scale: 0.275
   tint: "#f1f28c"
   revertx: false
 - id: "poison_ivy"
   point:
     x: 2244
-    y: 2338
+    "y": 2338
   scale: 0.275
   tint: "#f1f28c"
   revertx: true
 - id: "poison_ivy"
   point:
     x: 2269
-    y: 2259
+    "y": 2259
   scale: 0.275
   tint: "#f1f28c"
   revertx: true
 - id: "poison_ivy"
   point:
     x: 2337
-    y: 2247
+    "y": 2247
   scale: 0.275
   tint: "#f04c4c"
   revertx: false
 - id: "nettle"
   point:
     x: 2229
-    y: 2263
+    "y": 2263
   scale: 0.275
   tint: "#fa4b00"
   revertx: false
 - id: "tree_red"
   point:
     x: 2294
-    y: 2278
+    "y": 2278
   scale: 1.0
   tint: "#ffffff"
   revertx: false
 - id: "tree_orange"
   point:
     x: 3863
-    y: 3024
+    "y": 3024
   scale: 1.0
   tint: "#d6f1ff"
   revertx: false
 - id: "poison_oak"
   point:
     x: 3909
-    y: 3001
+    "y": 3001
   scale: 0.325
   tint: "#d6f1ff"
   revertx: false
 - id: "poison_oak"
   point:
     x: 3908
-    y: 3013
+    "y": 3013
   scale: 0.225
   tint: "#d6f1ff"
   revertx: false
 - id: "rubies"
   point:
     x: 3665
-    y: 3149
+    "y": 3149
   scale: 0.125
   tint: "#d6f1ff"
   revertx: false
 - id: "rubies"
   point:
     x: 3739
-    y: 3113
+    "y": 3113
   scale: 0.125
   tint: "#d6f1ff"
   revertx: false
 - id: "rubies"
   point:
     x: 3797
-    y: 3075
+    "y": 3075
   scale: 0.125
   tint: "#d6f1ff"
   revertx: false
 - id: "rubies"
   point:
     x: 3726
-    y: 3185
+    "y": 3185
   scale: 0.1
   tint: "#d6f1ff"
   revertx: true
 - id: "rubies"
   point:
     x: 3738
-    y: 3030
+    "y": 3030
   scale: 0.1
   tint: "#d6f1ff"
   revertx: true
 - id: "rubies"
   point:
     x: 3598
-    y: 3110
+    "y": 3110
   scale: 0.1
   tint: "#d6f1ff"
   revertx: false
 - id: "rubies"
   point:
     x: 3792
-    y: 3158
+    "y": 3158
   scale: 0.1
   tint: "#d6f1ff"
   revertx: false
 - id: "rubies"
   point:
     x: 3868
-    y: 3106
+    "y": 3106
   scale: 0.1
   tint: "#d6f1ff"
   revertx: false
 - id: "tree_pink"
   point:
     x: 4508
-    y: 2156
+    "y": 2156
   scale: 0.675
   tint: "#ffffff"
   revertx: false
 - id: "tree_red"
   point:
     x: 4705
-    y: 2258
+    "y": 2258
   scale: 0.65
   tint: "#ffffff"
   revertx: false
 - id: "tree_orange"
   point:
     x: 4362
-    y: 2220
+    "y": 2220
   scale: 0.575
   tint: "#ffffff"
   revertx: false
 - id: "johnny"
   point:
     x: 5058
-    y: 2758
+    "y": 2758
   scale: 0.218
   tint: "#ffffff"
   revertx: false
 - id: "quartz"
   point:
     x: 1057
-    y: 2104
+    "y": 2104
   scale: 0.3
   tint: "#ffffff"
   revertx: false
 - id: "quartz"
   point:
     x: 1603
-    y: 1874
+    "y": 1874
   scale: 0.3
   tint: "#a90f0f"
   revertx: false
 - id: "quartz"
   point:
     x: 1593
-    y: 2324
+    "y": 2324
   scale: 0.3
   tint: "#ffffff"
   revertx: false
 - id: "quartz"
   point:
     x: 1957
-    y: 2113
+    "y": 2113
   scale: 0.3
   tint: "#58c90d"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 325
+    "y": 1171
+  scale: 0.16
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 365
+    "y": 1247
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 581
+    "y": 1100
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 995
+    "y": 1102
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1209
+    "y": 1368
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 1060
+    "y": 1583
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 610
+    "y": 1700
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 408
+    "y": 1447
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+  type: "SPAWN"
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+  type: "SPAWN"
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+  type: "SPAWN"
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+  type: "SPAWN"
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
+  revertx: false
+  type: "SPAWN"
+- id: "lilith"
+  point:
+    x: 345
+    "y": 1218
+  scale: 0.21
+  tint: "#ffffff"
   revertx: false
   type: "SPAWN"
 size:
   x: 32
-  y: 64
+  "y": 64
 tileSizePx: 96
 tileScaledWidth: 135.7645019878171
 tileScaledHeight: 78.38367176906169
 northPoint:
   x: 2172
-  y: 0
+  "y": 0
 southPoint:
   x: 4344
-  y: 3762
+  "y": 3762
 cartesianSize:
   x: 2172
-  y: 3762
+  "y": 3762
