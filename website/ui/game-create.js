@@ -108,8 +108,7 @@ class CharacterCreate extends HTMLElement {
                 accepted: () => {
                     application.publish("character-create", {});
                     this.characterName = "";
-                    this.hideToast();
-                    this.characterlist();
+                    this.showToast(`created character ${this.characterName}`);
                 },
                 error: (msg) => {
                     if (msg.status === 'CONFLICT') {
