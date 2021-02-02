@@ -1,12 +1,12 @@
 ---
 node: "banking.node"
 global: "OzDQE8uwrs3AsWPQxyR+RollbEq5ETQkuwMz/S08wKvst8+ERIMr+X6wTzyrPjZ1GNTH2SHYy8BJetFRTxnH9Q=="
-clientSecret: "x/CfsbeyIzpRxjkIuxMhrMZa28UaS+fLVxPID1iI3EEjOW1/i5iV0Dz+lGnrbB63+rtn7j/HtHnwSfqZJt+U4Q=="
-realmSecret: "UDelKExB37YugtsHBwPl9Y2vpCC/YKChjF4rAo9ojpD2rWfwaYJPZE/2QaDqOZDfEt2RQ0mZh1mdlUVzS+JCQg=="
+clientSecret: "qkqizlAaO16O919qOPRH0ogu5X7kjX/w4MfMc1NEYc9zwhQYDkNn/VRUhbBYDH4y0zSNniO+OxSgPJaBlEIFqA=="
+realmSecret: "VDlthuljWUNqIKaxnuzWpSy6expbKlTqqj3gXb1RfT1Sddf+gP6LOrn53xL7W2NbI9HMWlQcPtN4tF/uGjpVcQ=="
 logging:
   properties:
     type: "HmacSHA512"
   domain: "banking.node"
-  key: "pSUHECEgrc43KcqZ7NcLsuQBpkV92neSCFxRVvToMpUqTxpQnGhcIYZZet7/eIlLvAhGhB0YY42+YgGpzd6s5A=="
-  expiry: 1611934374
+  key: "SdeO2KgHiKwsEI57ObJIZsWhZhhUPnbs7sBoopG2QdxZR8ESpGNd9YktWOhoOv5JU3MLzeXuZv1xCMVnDo4sbg=="
+  expiry: 1612624778
 storage: "com.codingchili.core.storage.IndexedMapPersisted"

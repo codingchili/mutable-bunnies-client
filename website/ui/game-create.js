@@ -107,6 +107,7 @@ class CharacterCreate extends HTMLElement {
             this.server.create({
                 accepted: () => {
                     application.publish("character-create", {});
+                    this.selected = {};
                     this.characterName = "";
                     this.showToast(`created character ${this.characterName}`);
                 },

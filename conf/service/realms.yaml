@@ -2,6 +2,7 @@
 node: "realmserver.node"
 enabled:
 - "angel_oak"
+- "salmon_lake"
 storage: "com.codingchili.core.storage.IndexedMapPersisted"
 realmUpdates: 5000
 global: "OzDQE8uwrs3AsWPQxyR+RollbEq5ETQkuwMz/S08wKvst8+ERIMr+X6wTzyrPjZ1GNTH2SHYy8BJetFRTxnH9Q=="
@@ -9,5 +10,5 @@ logging:
   properties:
     type: "HmacSHA512"
   domain: "realmserver.node"
-  key: "+X/Uq2UGeKoXWDv+MncngGviv4i+Ktgd9l7WQ588ENcle/deJzX5a/ZThnD8WI4c3OtSNj6NkUxDFyYqZpVe1w=="
-  expiry: 1611934374
+  key: "5ZDs471u3FYBOC8Ohed20sVZaekvJxOiKxXhVEDs6iJOXfccMzxpcSJu/gbgl3g5H9jZ0eJroEszvnyFXsybYg=="
+  expiry: 1612624778

@@ -39,6 +39,13 @@ export class PageGame extends HTMLElement {
                 .gif {
                     display: block;
                     margin: auto;
+                    min-height: 192px;
+                    animation: fadeIn ease 0.8s;
+                }
+                
+                @keyframes fadeIn {
+                    0% { opacity: 0 }
+                    100% { opacity: 1 }
                 }
 
             </style>

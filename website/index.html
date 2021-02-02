@@ -6,12 +6,14 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="theme-color" content="#7f345b">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="./images/icons-192.png">
     <link rel="manifest" href="manifest.json">
+
+    <link rel="preload" href="./ui/app-view.js" as="script">
 
     <script src="script/eventbus.js" defer></script>
     <script src="script/application.js" defer></script>
     <script src="script/setup.js" defer></script>
-    <script type="module" src="./ui/app-view.js" defer></script>
     <style>
         body {
             background-color: #212121;
@@ -27,6 +29,19 @@
             --bunny-cursor: url("images/icon/cursor.png"), auto;
             --bunny-cursor-pointer: url("images/icon/cursor-hover.png"), pointer;
             --bunny-cursor-caret: url("images/icon/cursor-hover.png"), pointer;
+        }
+
+        app-view {
+            animation: fadeIn ease 0.8s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
         }
 
         body::-webkit-scrollbar {
@@ -61,5 +76,6 @@
 <app-view></app-view>
 
 </body>
+<script type="module" src="./ui/app-view.js"></script>
 <script type="module" src="script/metrics.js" async></script>
 </html>

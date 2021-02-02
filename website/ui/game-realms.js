@@ -40,8 +40,8 @@ class GameRealms extends HTMLElement {
         this.render();
     }
 
-    order(data) {
-        switch (data.target.dataset.args) {
+    order(sortType) {
+        switch (sortType) {
             case "name":
                 this.sort = this.nameSort;
                 break;
@@ -58,6 +58,8 @@ class GameRealms extends HTMLElement {
                 this.sort = this.pingSort;
                 break;
         }
+        this.realms = this.realms.sort(this.sort);
+        this.render();
     }
 
     favourite(realm) {
@@ -156,6 +158,8 @@ class GameRealms extends HTMLElement {
             if (!exists)
                 this.realms.push(updated);
         }
+        this.realms = this.realms.sort(this.sort);
+        this.render();
     }
 
     purge(realmlist) {
@@ -168,7 +172,7 @@ class GameRealms extends HTMLElement {
             }
 
             if (removed) {
-                this.splice("realms", i, 1);
+                this.realms.splice(i, 1);
                 i -= 1;
             }
         }
@@ -201,6 +205,7 @@ class GameRealms extends HTMLElement {
         realm.populationColor = this.populationColor(realm);
         realm.pingColor = this.pingColor(realm);
         if (!skip) {
+            this.realms = this.realms.sort(this.sort);
             this.render();
         }
     }
@@ -394,6 +399,10 @@ class GameRealms extends HTMLElement {
                     padding: 12px;
                 }
 
+                .realm-item.name {
+                    text-align: left;
+                }
+
                 .icons {
                     position: relative;
                     display: flex;
@@ -439,19 +448,24 @@ class GameRealms extends HTMLElement {
                                     <tr class="realm-header">
                                         <th></th>
                                         <th>
-                                            <bunny-button on-down="order" data-args="name">Name</bunny-button>
+                                            <bunny-button @mousedown="${this.order.bind(this, "name")}">Name
+                                            </bunny-button>
                                         </th>
                                         <th class="type">
-                                            <bunny-button on-down="order" data-args="type">Type</bunny-button>
+                                            <bunny-button @mousedown="${this.order.bind(this, "type")}">Type
+                                            </bunny-button>
                                         </th>
                                         <th class="reset">
-                                            <bunny-button on-down="order" data-args="lifetime">Reset</bunny-button>
+                                            <bunny-button @mousedown="${this.order.bind(this, "lifetime")}">Reset
+                                            </bunny-button>
                                         </th>
                                         <th>
-                                            <bunny-button on-down="order" data-args="players">Players</bunny-button>
+                                            <bunny-button @mousedown="${this.order.bind(this, "players")}">Players
+                                            </bunny-button>
                                         </th>
                                         <th>
-                                            <bunny-button on-down="order" data-args="ping">Ping</bunny-button>
+                                            <bunny-button @mousedown="${this.order.bind(this, "ping")}">Ping
+                                            </bunny-button>
                                         </th>
                                         <th></th>
                                     </tr>
@@ -476,7 +490,7 @@ class GameRealms extends HTMLElement {
                         <span class="icons">
                             <div ?hidden="${!this.favourite(realm.id)}">
                                     <bunny-icon icon="favorite" class="realm-icon" id="fav-icon"></bunny-icon>
-                                    <bunny-tooltip for="fav-icon" location="bottom">favorite realm  </bunny-tooltip>
+                                    <bunny-tooltip for="fav-icon" location="bottom">favorite realm</bunny-tooltip>
                             </div>
             
                             <div ?hidden="${!realm.secure}">
@@ -487,7 +501,7 @@ class GameRealms extends HTMLElement {
                             </div>
                         </span>
                     </td>
-                    <td class="realm-item">${realm.name}</td>
+                    <td class="realm-item name">${realm.name}</td>
                     <td class="realm-item type">${realm.attributes.type}</td>
                     <td class="realm-item reset">${realm.attributes.lifetime}</td>
                     <td class="realm-item">
