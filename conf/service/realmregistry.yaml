@@ -7,13 +7,13 @@ realms:
 - "Staging Realm"
 - "Wisteria"
 - "Red Maple"
-realmSecret: "UmRRFIm8Z58yD9uwymnrKvNz+EiNIhXu+HjfApzjwdjHY3PzwK2i+P9dQ+vmnBo2OQnlEoCof8MwbxfaXowWmw=="
+realmSecret: "qt1Wa7ql/WTs/Fsuk/flqO4h9Xl3IqfGY1Whe8J5G3bOOPaR3jWNoUDzu7vq+uVnqEdbm1kFBk4lUjalhKt8aQ=="
 realmTimeout: 7000
 global: "OzDQE8uwrs3AsWPQxyR+RollbEq5ETQkuwMz/S08wKvst8+ERIMr+X6wTzyrPjZ1GNTH2SHYy8BJetFRTxnH9Q=="
-clientSecret: "qkqizlAaO16O919qOPRH0ogu5X7kjX/w4MfMc1NEYc9zwhQYDkNn/VRUhbBYDH4y0zSNniO+OxSgPJaBlEIFqA=="
+clientSecret: "TJ9C7rL55/Q4eDJsSmYSh6oDPavNuGvlXxhb7Ef2e5IN0Tu5Kpl2Sg+oN+dMPlfoAWzNvuVgJnaxoa0YcbhJQA=="
 logging:
   properties:
     type: "HmacSHA512"
   domain: "realmregistry.node"
-  key: "QTcrt7q7Hz1jXvYzv549kxTyHiY0xK4T1NWS3OKe1LcLGZ5abzVzjJzz+HB5DCN8jAvO5EEo7rlCRywUkxtdSQ=="
-  expiry: 1612624778
+  key: "7Jhi59rbpLHXbWNvID8yVKdGQlWRq+DQ3mcnLWUziM1IbA3gG4dQaQ4/d4ebBJztghW6HFm+Oz7GaArx8UaYrw=="
+  expiry: 1613671094

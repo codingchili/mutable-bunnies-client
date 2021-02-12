@@ -13,7 +13,7 @@ logging:
   properties:
     type: "HmacSHA512"
   domain: "logging.node"
-  key: "UOwuIjK0WG3EX4ifp3jlH5hqMianBL+Brh54Fsw9SShi1rKRzmDGcjz/2ZNdlqUVavM7DVgBXMNQRJcGTWNULQ=="
-  expiry: 1612624778
-clientSecret: "qkqizlAaO16O919qOPRH0ogu5X7kjX/w4MfMc1NEYc9zwhQYDkNn/VRUhbBYDH4y0zSNniO+OxSgPJaBlEIFqA=="
-loggingSecret: "fnDyZIeeIMrthFSvaZpQm6nShVm3W1rHYooYSpIQ9GJRY5HzDDquG05Y8omMZGEH/KYnAeEC91zrlnHhCbYwlg=="
+  key: "Q3trEHP8ZSPxCtJ7PFD+8n2Ec8p8SwkIeBuQyj7Tpron4+QFj4+MRvP2ffYZxj5buMzSj0jn+IPviJ9GIKux4A=="
+  expiry: 1613671094
+clientSecret: "TJ9C7rL55/Q4eDJsSmYSh6oDPavNuGvlXxhb7Ef2e5IN0Tu5Kpl2Sg+oN+dMPlfoAWzNvuVgJnaxoa0YcbhJQA=="
+loggingSecret: "Mwy3QUJlHB9csc4Ywkj/sv0uxFl8hsWi+39W44U8WbqsM0Qs56qtsxBii6n1urPtbvPSUQkE04ym2mH69hadQg=="

@@ -66,7 +66,7 @@ export class PageGame extends HTMLElement {
                                 spans multiple dimensions, planes, transcends species and beliefs.
                             </p>
 
-                                <video muted loop autoplay src="../images/bunbun.webm" class="gif"></video>
+                                <video muted loop autoplay src="../images/bunbun2.webm" class="gif"></video>
 
                             <p>
                                 Bunnies have been chosen for an extraordinary quest, a quest that

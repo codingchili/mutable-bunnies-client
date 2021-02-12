@@ -10,8 +10,8 @@ logging:
   properties:
     type: "HmacSHA512"
   domain: "website.node"
-  key: "aPFPNEimdmxCxz6LOrwTnno5Yw8Pd4rCkIf+YUqDyu/pGaceAjc94x1l6AiDfcB/QLqXsEVHfMX23dFD9hVUZw=="
-  expiry: 1612624778
+  key: "Ak5aKZJ8b2KsE3O6U3+gNOsmw6nK8UFLdwBmZJNVmyZX4OIq07BxJD1ObHLWP23CKRRCvHbApTVDXWV34Ra1Wg=="
+  expiry: 1613671094
 listener:
   secure: false
   alpn: true

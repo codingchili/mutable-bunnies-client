@@ -24,5 +24,5 @@ logging:
   properties:
     type: "HmacSHA512"
   domain: "routing.node"
-  key: "JqsEnLb0Nv6VMjStqEvDmWNetd3KJLYISS3FmTs0N4mq1vb3lDESe3L71ZK7lJHvhib4gps7osoDYLAeCVPsig=="
-  expiry: 1612624778
+  key: "YVjlkiTsiwaySHMi5RL8g9C8ufqVkFayX0ZEehvfdCyvdfmfXi5MPRL7YOK87x/mMAbk3SoBBGoXQpXnCrcoXQ=="
+  expiry: 1613671094
