@@ -63,6 +63,7 @@ class PlayerSpells extends HTMLElement {
         this.container = this.query('#container');
         this.pages = this.query('bunny-pages');
         this.pages.bind();
+        this.pages.render();
     }
 
     get template() {
