@@ -313,7 +313,7 @@ class PlayerSkills extends HTMLElement {
                             <bunny-progress max="${skill.nextlevel}"
                                             value="${skill.experience}"></bunny-progress>
                             <bunny-tooltip location="top">
-                                <span>${skill.experience}/${skill.nextlevel} (${percent}%)</span>
+                                <span>${skill.experience} / ${skill.nextlevel} (${percent}%)</span>
                             </bunny-tooltip>
                         </div>
                     </div>
