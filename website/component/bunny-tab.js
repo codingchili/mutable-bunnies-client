@@ -12,7 +12,7 @@ class BunnyTab extends HTMLElement {
         this.listener();
         // reset the ripple - when show/hide is used the ripple can get stuck.
         // the timeout allows the ripple effect to reset - if the button stays visible.
-        let element = this.shadowRoot.querySelector('ink-ripple');
+        //let element = this.shadowRoot.querySelector('ink-ripple');
         //setTimeout(() => element._reset(), 250);
     }
 
