@@ -5,13 +5,13 @@ shutdownLogTimeout: 3000
 shutdownHookTimeout: 3000
 configurationPoll: 1500
 cachedFilePoll: 2000
-consoleLogging: true
+consoleLogging: false
 workerPoolSize: 8
 clusterTimeout: 3000
 blockedThreadChecker: 2000
 maxEventLoopExecuteTime: 2000
 metrics:
-  enabled: true
+  enabled: false
   rate: 5000
   overhead: true
   jvm:

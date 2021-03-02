@@ -4,7 +4,8 @@ description: "Moves quickly through the shadows in one direction and gains Ether
 recharge: 10
 casttime: 0.5
 charges: 2
-target: area
+target: line
+range: 800
 animation:
   casting: "casting"
 onCastBegin:

@@ -10,7 +10,7 @@ transport:
   alpn: true
   port: 1443
   timeout: 3000
-  maxRequestBytes: 512
+  maxRequestBytes: 1024
   defaultTarget: "webserver.node"
 external:
   client.authentication.node: ".*"
@@ -24,5 +24,5 @@ logging:
   properties:
     type: "HmacSHA512"
   domain: "routing.node"
-  key: "YVjlkiTsiwaySHMi5RL8g9C8ufqVkFayX0ZEehvfdCyvdfmfXi5MPRL7YOK87x/mMAbk3SoBBGoXQpXnCrcoXQ=="
-  expiry: 1613671094
+  key: "+nPndoWJ54HAy3/86Obu/BBCMBm+0fcp1XfWEI52n4gF0J3Yybkwn63DpwrlNhIBz+QlqycnZPxUOVh1cdQHFg=="
+  expiry: 1615301669

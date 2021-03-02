@@ -7,6 +7,6 @@ logging:
   properties:
     type: "HmacSHA512"
   domain: "social.node"
-  key: "q7SFvkytfevUxSanq3PnTxmxcn1DKnKKv42xaOoZM/Q1UiGPe2nBUNDp/aox0eHwgxfx0K1mCOcvgGnatR/Baw=="
-  expiry: 1613671094
-clientSecret: "TJ9C7rL55/Q4eDJsSmYSh6oDPavNuGvlXxhb7Ef2e5IN0Tu5Kpl2Sg+oN+dMPlfoAWzNvuVgJnaxoa0YcbhJQA=="
+  key: "JQZKAsi2pXIkcuKEHEti44RW3zzAfgor6wFnVuHZUw96sdMqWqbYe2DoimuuD3scdD3Bgl7k9hwTlLqp9000RA=="
+  expiry: 1615301669
+clientSecret: "5z83Of+giyv++8JXS/CInH7VDKn+KoQb4OcqUE8dzgAzt2tJdjKKEGsNyq3Lmv/+4u9Z125PRaNZMsq3u2iA8g=="

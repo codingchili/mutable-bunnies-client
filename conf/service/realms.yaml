@@ -10,5 +10,5 @@ logging:
   properties:
     type: "HmacSHA512"
   domain: "realmserver.node"
-  key: "hHlChvwkpg0Gg29N8gaD2F2nEEwALUkPeI4egiTuxbfD4IyZ3QSwuLIiRyNO4ExYl1h6rTmewHqe6/CzdC2GLQ=="
-  expiry: 1613671094
+  key: "G/zupgfqPddncOKg0NZItgXSoo/DGSlEuc3XgngWOfs1QhoMhAfjULg11omH5X2z1zgs9XEBUOVdMY+DvLBVTA=="
+  expiry: 1615301669
