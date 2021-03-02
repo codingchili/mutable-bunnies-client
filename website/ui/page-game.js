@@ -39,7 +39,7 @@ export class PageGame extends HTMLElement {
                 .gif {
                     display: block;
                     margin: auto;
-                    min-height: 192px;
+                    min-height: 392px;
                     animation: fadeIn ease 0.8s;
                 }
                 
