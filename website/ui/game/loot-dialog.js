@@ -99,7 +99,7 @@ class LootDialog extends HTMLElement {
 
                 <div id="loot-items">
                     ${repeat(this.loot, item => item.id, item => html`
-                        <div @click="${this._loot.bind(this, item)}">
+                        <div @mousedown="${this._loot.bind(this, item)}">
                             <inventory-item .item="${item}"></inventory-item>
                         </div>                        
                     `)}
