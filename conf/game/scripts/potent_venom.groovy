@@ -2,7 +2,7 @@ import com.codingchili.instance.model.stats.Attribute
 
 
 creatures = game.creatures().radius(
-        target.getVector().copy().setSize(256)
+        target.getVector().copy().setSize(spell.radius)
 )
 
 damage = source.stats[Attribute.dexterity] / 2 + (source.stats[Attribute.level] * 1)
