@@ -1,17 +1,17 @@
 ---
 name: "Dagger"
-description: "Strikes nearby targets with a dagger dealing ${this.character.stats.dexterity * 2 + this.character.stats.level} direct damage. Deals 50% bonus damage if target stands still."
+description: "Strikes nearby targets with a dagger dealing ${stats.dexterity * 2 + stats.level} direct damage. Deals 50% bonus damage if target stands still."
 cooldown: 0.5
 casttime: 0.20
 recharge: 3
 charges: 5
+range: 428
 animation:
   casting: "throw"
 target: caster
 onCastBegin:
   groovy: |
-    RANGE = 428
-    aoe = source.vector.copy().setSize(RANGE);
+    aoe = source.vector.copy().setSize(spell.range);
     in_range = game.creatures().radius(aoe).size() > 1;
     return in_range && spells.energy(source, -20);
 onCastComplete:
@@ -21,8 +21,7 @@ onCastComplete:
 
     log.accept('casting dagger completed');
 
-    RANGE = 428
-    aoe = source.vector.copy().setSize(RANGE);
+    aoe = source.vector.copy().setSize(spell.range);
 
     damage = (source.stats[Attribute.dexterity] * -2) - (source.stats[Attribute.level] * 1);
     game.creatures().radius(aoe).collect().each { creature ->

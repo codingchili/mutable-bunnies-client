@@ -1,13 +1,13 @@
 ---
 name: "Potent Venom"
-description: "Deals 2% of maximum health per second plus ${(this.character.stats.dexterity / 2 + this.character.stats.level).toFixed(1)}."
+description: "Deals 2% of maximum health per second plus ${(stats.dexterity / 2 + stats.level).toFixed(1)} for 5 seconds in an area."
 cooldown: 4
 casttime: 1
-active: 12.0
+active: 5.0
 interval: 1.0
 target: area
 range: 560
-area: 512
+radius: 256
 animation:
   casting: "throw"
 onCastBegin:
