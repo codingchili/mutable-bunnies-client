@@ -1,24 +1,38 @@
 ---
-name: level 3
-limit: 50
+id: "level_3"
+name: "level 3"
+texture: "game/map/tiles/darkwood.png"
 skybox:
   gradient:
-    - '#e40303'
-    - '#ff8c00'
-    - '#ffed00'
-    - '#008026'
-    - '#004dff'
-    - '#750787'
+  - "#e40303"
+  - "#ff8c00"
+  - "#ffed00"
+  - "#008026"
+  - "#004dff"
+  - "#750787"
+  background:
+    tint: "#ffffff"
+    enabled: false
   clouds:
-    tint: '#ff00cc'
-    type: 'puffy'
-size:
-  x: 16
-  y: 32
-texture: "game/map/tiles/darkwood.png"
+    enabled: true
+    tint: "#ff00cc"
+    type: "puffy"
+  stars:
+    enabled: true
+    tint: "#ffffff"
+    resource: "game/map/clouds/skybox_stars.png"
+  moon:
+    enabled: false
+    tint: "#ffffff"
+    resource: "game/map/clouds/moon.png"
+limit: 50
+onStartup:
+  jexl: |
+    //game.npcs().spawn("Illicit Lilith");
 spawns:
 - x: 300
   y: 325
+  probability: 1.0
 npcs:
 - id: "lilith"
   point:
@@ -36,7 +50,48 @@ npcs:
   point:
     x: 850
     y: 750
-onStartup:
-  jexl: |
-    //game.npcs().spawn("Illicit Lilith");
-  # how to handle the world layout? in this file?
+structures:
+- id: "quartz"
+  point:
+    x: 1639
+    y: 1161
+  scale: 0.15
+  tint: "#ffffff"
+  revertx: false
+- id: "sulphur"
+  point:
+    x: 1936
+    y: 1152
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "quartz"
+  point:
+    x: 1239
+    y: 965
+  scale: 0.35
+  tint: "#6f2f2f"
+  revertx: false
+- id: "quartz"
+  point:
+    x: 1198
+    y: 975
+  scale: 0.25
+  tint: "#6f2f2f"
+  revertx: true
+  type: "SPAWN"
+size:
+  x: 16
+  y: 32
+tileSizePx: 96
+tileScaledHeight: 78.38367176906169
+tileScaledWidth: 135.7645019878171
+cartesianSize:
+  x: 1086
+  y: 1881
+southPoint:
+  x: 2172
+  y: 1881
+northPoint:
+  x: 1086
+  y: 0

@@ -1252,13 +1252,184 @@ structures:
   scale: 0.16
   tint: "#ffffff"
   revertx: false
+- id: "copper"
+  point:
+    x: 184
+    y: 1042
+  scale: 0.325
+  tint: "#ffffff"
+  revertx: true
+- id: "copper"
+  point:
+    x: 369
+    y: 1156
+  scale: 0.325
+  tint: "#ffffff"
+  revertx: false
+- id: "copper"
+  point:
+    x: 302
+    y: 1038
+  scale: 0.175
+  tint: "#ffffff"
+  revertx: true
+- id: "nettle"
+  point:
+    x: 83
+    y: 993
+  scale: 0.175
+  tint: "#c11515"
+  revertx: false
+- id: "nettle"
+  point:
+    x: 227
+    y: 962
+  scale: 0.175
+  tint: "#c11515"
+  revertx: false
+- id: "nettle"
+  point:
+    x: 262
+    y: 1052
+  scale: 0.175
+  tint: "#c11515"
+  revertx: false
+- id: "nettle"
+  point:
+    x: 163
+    y: 1063
+  scale: 0.275
+  tint: "#c11515"
+  revertx: false
+- id: "nettle"
+  point:
+    x: 209
+    y: 1066
+  scale: 0.15
+  tint: "#c11515"
+  revertx: false
+- id: "nettle"
+  point:
+    x: 269
+    y: 1109
+  scale: 0.225
+  tint: "#c11515"
+  revertx: false
+- id: "nettle"
+  point:
+    x: 349
+    y: 1041
+  scale: 0.125
+  tint: "#c11515"
+  revertx: false
+- id: "nettle"
+  point:
+    x: 459
+    y: 1111
+  scale: 0.35
+  tint: "#c11515"
+  revertx: false
+- id: "nettle"
+  point:
+    x: 363
+    y: 1160
+  scale: 0.375
+  tint: "#c11515"
+  revertx: false
+- id: "nettle"
+  point:
+    x: 160
+    y: 964
+  scale: 0.525
+  tint: "#c11515"
+  revertx: false
+- id: "nettle"
+  point:
+    x: 334
+    y: 1042
+  scale: 0.325
+  tint: "#c11515"
+  revertx: false
+- id: "lilith"
+  point:
+    x: 723
+    y: 1003
+  scale: 0.16
+  tint: "#ab5959"
+  revertx: false
+- id: "stone"
+  point:
+    x: 2031
+    y: 817
+  scale: 1.0
+  tint: "#ab5959"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -189
+    height: -265
+- id: "water"
+  point:
+    x: 1985
+    y: 1186
+  scale: 1.0
+  tint: "#ab5959"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -493
+    height: -476
+- id: "stone"
+  point:
+    x: 2395
+    y: 1416
+  scale: 1.0
+  tint: "#ab5959"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -576
+    height: -481
+- id: "lightwood"
+  point:
+    x: 1620
+    y: 1393
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -87
+    height: -276
+- id: "brownstone"
+  point:
+    x: 1900
+    y: 1583
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -406
+    height: -518
+- id: "lightwood"
+  point:
+    x: 1925
+    y: 1809
+  scale: 1.0
+  tint: "#db1a1a"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -479
+    height: -476
   type: "SPAWN"
 size:
   x: 22
   y: 12
 tileSizePx: 96
-tileScaledWidth: 135.7645019878171
 tileScaledHeight: 78.38367176906169
+tileScaledWidth: 135.7645019878171
 northPoint:
   x: 1493
   y: 0

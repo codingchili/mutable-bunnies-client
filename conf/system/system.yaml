@@ -11,7 +11,7 @@ clusterTimeout: 3000
 blockedThreadChecker: 2000
 maxEventLoopExecuteTime: 2000
 metrics:
-  enabled: false
+  enabled: true
   rate: 5000
   overhead: true
   jvm:
