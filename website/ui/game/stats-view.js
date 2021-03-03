@@ -100,67 +100,72 @@ class StatsView extends HTMLElement {
     get template() {
         return html`
 
-        <style>
-            :host {
-                display: block;
-                font-family: 'Open Sans', sans-serif;
-            }
+            <style>
+                :host {
+                    display: block;
+                    font-family: 'Open Sans', sans-serif;
+                }
 
-            .container {
-                display: flex;
-                justify-content: space-around;
-                flex-wrap: wrap;
-            }
+                .container {
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                }
 
-            .attribute-wide {
-                display: flex;
-                width: 100%;
-                margin-left: 12.5%;
-                margin-right: 12.5%;
-                flex-direction: row;
-                justify-content: var(--stats-view-justify, space-between);
-            }
+                .attribute-wide {
+                    display: flex;
+                    width: 100%;
+                    margin-left: 12.5%;
+                    margin-right: 12.5%;
+                    flex-direction: row;
+                    justify-content: var(--stats-view-justify, space-between);
+                }
 
-            .attribute-compact {
-                display: flex;
-                width: 100%;
-                margin-left: 20%;
-                margin-right: 20%;
-                flex-direction: row;
-                justify-content: space-between;
-            }
+                .attribute-compact {
+                    display: flex;
+                    width: 100%;
+                    margin-left: 20%;
+                    margin-right: 20%;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
 
-            .penalty {
-                color: #ff0000;
-            }
+                .penalty {
+                    color: #ff0000;
+                }
 
-            .bonus {
-                color: #00ff00;
-            }
+                .bonus {
+                    color: #00ff00;
+                }
 
-            .content {
-                font-size: 12px;
-                text-align: right;
-                margin-top: 2px;
-            }
-            
-            .stat-icon {
-                width: 34px;
-            }
-            
-            .name {
-                opacity: 0.76;
-            }
-            
-            .value {
-                font-size: large;
-            }
+                .content {
+                    font-size: 12px;
+                    text-align: right;
+                    margin-top: 2px;
+                }
 
-        </style>
+                .stat-icon {
+                    width: 34px;
+                }
 
-        <div class="container">
-            ${this._toHtmlList()}
-        </div>
+                .name {
+                    opacity: 0.76;
+                }
+
+                .value {
+                    font-size: large;
+                }
+
+                bunny-tooltip {
+                    overflow: visible;
+                    text-align: left;
+                }
+
+            </style>
+
+            <div class="container">
+                ${this._toHtmlList()}
+            </div>
 
         `;
     }

@@ -1,8 +1,9 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
 import {repeat} from '/node_modules/lit-html/directives/repeat.js';
 
+import './spell-icon.js'
+
 import '/component/bunny-progress.js'
-import '/component/bunny-tooltip.js'
 import '/component/bunny-box.js'
 
 class SpellBar extends HTMLElement {
@@ -101,9 +102,9 @@ class SpellBar extends HTMLElement {
         let spell = this._getSpellById(spellId);
 
         if (this._chargeable(spell)) {
-            return (this.charges[spellId] > 0) ? '' : 'unavailable';
+            return (this.charges[spellId] > 0);
         } else {
-            return (!this.cooldown[spellId]) ? '' : 'unavailable';
+            return (!this.cooldown[spellId]);
         }
     }
 
@@ -136,10 +137,6 @@ class SpellBar extends HTMLElement {
 
     _getSpellById(spellId) {
         return game.spells.getById(spellId);
-    }
-
-    _description(spell) {
-        return eval('`' + spell.description + '`');
     }
 
     _cast(spell) {
@@ -210,17 +207,12 @@ class SpellBar extends HTMLElement {
                     display: flex;
                 }
 
-                .spell-icon {
-                    height: 42px;
-                    padding-left: 4px;
-                    padding-right: 4px;
-                }
-
                 .cooldown-bar {
                     --bunny-progress-active-color: #4db6ac;
                     --bunny-progress-container-color: #4db6ac32;
-                    width: 42px;
+                    width: 36px;
                     margin-left: 4px;
+                    margin-right: 4px;
                     position: absolute;
                     top: 40px;
                 }
@@ -269,68 +261,10 @@ class SpellBar extends HTMLElement {
                     font-size: larger;
                 }
 
-                .description {
-                    margin-top: 12px;
-                    display: block;
-                    font-size: 14px;
-                }
-
-                .target {
-                    color: #00b0ff;
-                }
-
-                .cooldown {
-                    color: #00b0ff;
-                }
-
-                .casttime {
-                    color: #00b0ff;
-                }
-
-                .spell-info {
-                    width: 246px;
-                }
-
-                .info-table {
-                    margin-top: 12px;
-                    width: 100%;
-                }
-
-                .charges {
-                    position: absolute;
-                    font-size: 0.8em;
-                    left: 22px;
-                    top: 28px;
-                    display: block;
-                    text-shadow: 1px 1px #000;
-                    user-select: none;
-                }
-
                 @media (max-width: 1268px) {
                     :host {
                         right: 48px;
                     }
-                }
-
-                .unavailable {
-                    opacity: 0.5;
-                }
-
-                .spell-button {
-                    position: relative;
-                }
-
-                .spell-button:hover {
-                    cursor: var(--bunny-cursor-pointer, pointer);
-                }
-
-                .spell-table-headers {
-                    font-size: 12px;
-                }
-
-                .spell-table-values {
-                    text-align: center;
-                    font-size: 14px;
                 }
 
                 .spell-list {
@@ -359,43 +293,21 @@ class SpellBar extends HTMLElement {
     }
 
     spellHtml(spell) {
-        let description = this._description(spell);
         let available = this._available(spell.id);
         let charges = this._charges(spell);
 
         return html`
-            <div @click="${this._cast.bind(this, spell)}" class="spell-button">
-                <img class="spell-icon ${available}"
-                     src="${this.realm.resources}/gui/spell/${spell.id}.svg">
-                <bunny-tooltip class="spell-info" location="top">
-                    <span class="title">${spell.name}</span>
+            <spell-icon @click="${this._cast.bind(this, spell)}"
+                        .stats="${this.character.stats}"
+                        .spell="${spell}"
+                        .available="${available}"
+                        .charges="${charges}">
 
-                    <table class="info-table">
-                        <tr class="spell-table-headers">
-                            <th>Cooldown</th>
-                            <th>Cast</th>
-                            <th>Target</th>
-                        </tr>
-                        <tr class="spell-table-values">
-                            <td class="cooldown">${spell.cooldown}s</td>
-                            <td class="casttime">${spell.casttime}s</td>
-                            <td class="target">${spell.target}</td>
-                        </tr>
-                    </table>
+                <bunny-progress slot="cooldown" id="cd-bar-${spell.id}" style="visibility: hidden;"
+                                class="cooldown-bar transiting"
+                                max="100"></bunny-progress>
 
-                    <span class="description">${description}</span>
-
-                </bunny-tooltip>
-
-                ${this._chargeable(spell) ?
-                        html`
-                            <span class="charges">${charges}</span>
-                        ` : html`
-                            <bunny-progress id="cd-bar-${spell.id}" style="visibility: hidden;"
-                                            class="cooldown-bar transiting"
-                                            max="100"></bunny-progress>
-                        `}
-            </div>`;
+            </spell-icon>`;
     }
 
     render() {

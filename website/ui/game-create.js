@@ -4,6 +4,8 @@ import '/node_modules/ink-ripple/ink-ripple.js';
 import {BunnyStyles} from "../component/styles.js";
 
 import './game/stats-view.js'
+import './game/spell-icon.js'
+
 import '/component/bunny-box.js'
 import '/component/bunny-icon.js'
 import '/component/bunny-pages.js'
@@ -52,26 +54,6 @@ class CharacterCreate extends HTMLElement {
             }
         }
         return false;
-    }
-
-    _getSpellDescription(spellId, stats) {
-        let spell = this.spells[spellId];
-        if (spell) {
-            this.character = {stats: stats};
-            return eval('`' + this.spells[spellId].description + '`');
-        } else {
-            return "No description, possibly OP.";
-        }
-    }
-
-    _getSpellName(spellId) {
-        let spell = this.spells[spellId];
-
-        if (spell) {
-            return spell.name;
-        } else {
-            return spellId;
-        }
     }
 
     render() {
@@ -186,12 +168,6 @@ class CharacterCreate extends HTMLElement {
                     margin-bottom: 10px;
                 }
 
-                .spell-icon {
-                    width: 48px;
-                    margin-top: 2px;
-                    margin-bottom: -4px;
-                }
-
                 bunny-tab {
                     --bunny-tab-background: #00000000;
                     --bunny-tab-background-active: #00000000;
@@ -293,9 +269,6 @@ class CharacterCreate extends HTMLElement {
                                             <video muted loop autoplay
                                                    src="${this.realm.resources}gui/preview/${pc.id}-idle.webm"
                                                    class="gif"></video>
-                                            <!--<div class="tags">
-                                                X{pc.weapons.join(' ')}&nbsp;X{pc.armors.join(' ')}
-                                            </div>-->
                                             <div id="spell-container">
                                                 ${this._spells(pc)}
                                             </div>
@@ -403,7 +376,7 @@ class CharacterCreate extends HTMLElement {
             })
             .sort((a, b) => a.tier - b.tier)
             .map(spell => html`
-                <img class="spell-icon" src="${this.realm.resources}gui/spell/${spell.id}.svg" class="spell-image">
+                <spell-icon .stats="${pc.stats}" .spell="${spell}" .charges="${spell.charges}"></spell-icon>
             `);
     }
 

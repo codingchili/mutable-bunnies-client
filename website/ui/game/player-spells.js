@@ -3,6 +3,8 @@ import '/node_modules/ink-ripple/ink-ripple.js';
 
 import {BunnyStyles} from "../../component/styles.js";
 
+import './spell-icon.js'
+
 import '/component/bunny-box.js'
 import '/component/bunny-icon.js'
 
@@ -100,12 +102,6 @@ class PlayerSpells extends HTMLElement {
                 #spell-container {
                     height: 706px;
                     margin-top: 32px;
-                }
-
-                .spell-icon {
-                    width: 48px;
-                    margin-top: 2px;
-                    margin-bottom: -4px;
                 }
 
                 bunny-tab {
@@ -228,9 +224,7 @@ class PlayerSpells extends HTMLElement {
                     <div class="tier-spells">
                         ${group.map(spell => html`
                             <div class="spell">
-                                <img class="spell-icon"
-                                     src="${this.realm.resources}gui/spell/${spell.id}.svg"
-                                     class="spell-image">
+                                <spell-icon .spell="${spell}" .charges="${spell.charges}"></spell-icon>
                             </div>
                         `)}
                     </div>
