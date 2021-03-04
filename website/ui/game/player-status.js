@@ -130,11 +130,6 @@ class PlayerStatus extends HTMLElement {
                 }
 
                 .portrait {
-                    /*height: 42px;
-                    margin-top: 4px;
-                    margin-left: 10px;
-                    min-height: 42px;
-                    min-width: 42px;*/
                     max-height: 42px;
                     margin: auto;
                     display: block;
@@ -180,7 +175,7 @@ class PlayerStatus extends HTMLElement {
 
                 .exp-bar {
                     width: 46px;
-                    margin-top: -11px;
+                    margin-top: -12px;
                     padding: 4px;
                     margin-left: 6px;
                     --bunny-progress-active-color: #DBC501;
@@ -242,7 +237,7 @@ class PlayerStatus extends HTMLElement {
                 }
 
                 .class-icon-mini {
-                    position: unset;
+                    /*position: unset;*/
                 }
 
                 @media (max-width: 728px) {
