@@ -182,6 +182,8 @@ class PlayerInventory extends HTMLElement {
                     padding-left: 8px;
                     padding-right: 8px;
                     user-select: none;
+                    width: 388px;
+                    margin: auto;
                 }
 
                 .slot_row {
@@ -213,6 +215,11 @@ class PlayerInventory extends HTMLElement {
                 .currency-icon {
                     width: 16px;
                     margin-top: -6px;
+                }
+                
+                .item {
+                    padding-top: 2px;
+                    padding-bottom: 2px;
                 }
 
             </style>
@@ -269,7 +276,7 @@ class PlayerInventory extends HTMLElement {
 
                     <div id="loot-items">
                         ${repeat(this.inventory.items, item => item.id, (item) => html`
-                            <div @mousedown="${this._equip.bind(this, item)}">
+                            <div @mousedown="${this._equip.bind(this, item)}" class="item">
                                 <inventory-item .item="${item}"></inventory-item>
                             </div>
                         `)}
