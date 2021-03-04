@@ -11,5 +11,6 @@ creatures.each {
     amplified = it.stats[Attribute.maxhealth] * 0.02 + damage
     spells.damage(source, it)
         .poison(-amplified)
+        .vary(10)
         .apply();
 }
