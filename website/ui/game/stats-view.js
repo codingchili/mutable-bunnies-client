@@ -1,5 +1,7 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
 
+import '/component/bunny-tooltip.js';
+
 class StatsView extends HTMLElement {
 
     static get is() {
@@ -78,7 +80,10 @@ class StatsView extends HTMLElement {
             if (this._visible(attribute)) {
                 let item = html`
                     <div class="content ${this._layout()}">
-                        <img class="stat-icon" src="${application.realm.resources}gui/stats/${attribute.name}.svg">
+                        <div style="position:relative; display: inherit;">
+                            <img class="stat-icon" src="${application.realm.resources}gui/stats/${attribute.name}.svg">
+                            ${this._tooltip(attribute)}
+                        </div>
                         <div class="text">
                             <div class="value ${this._style(attribute)}">
                                 <i>${this._format(attribute.value, attribute.name)}</i>
@@ -91,6 +96,27 @@ class StatsView extends HTMLElement {
             }
         }
         return items;
+    }
+
+    _tooltip(attribute) {
+        let text = {
+            strength: "Increases the damage of physical attacks.",
+            intelligence: "Reduces casting time for spells & abilities.",
+            wisdom: "Enhances the effectiveness of spells.",
+            dexterity: "Improves ranged attacks and minor dodge.",
+            constitution: "Fortifies the body to withstand damage.",
+            movement: "Boosts movement speed to dodge projectiles.",
+            magicResist: "Take less damage from magical attacks.",
+            armorClass: "Take less damage from physical attacks.",
+        }[attribute.name];
+
+        if (text) {
+            return html`
+                <bunny-tooltip location="right">
+                    <span style="white-space: pre;">${text}</span>
+                </bunny-tooltip>
+            `;
+        }
     }
 
     _asPercent(type) {

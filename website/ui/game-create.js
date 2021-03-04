@@ -164,7 +164,7 @@ class CharacterCreate extends HTMLElement {
                 #spell-container {
                     display: flex;
                     justify-content: center;
-                    margin-top: 30px;
+                    margin-top: 20px;
                     margin-bottom: 10px;
                 }
 
@@ -216,7 +216,7 @@ class CharacterCreate extends HTMLElement {
 
                 stats-view {
                     /*width: 92%;*/
-                    margin: auto;
+                    margin: 10px auto auto;
                 }
 
                 bunny-button {
@@ -280,82 +280,86 @@ class CharacterCreate extends HTMLElement {
                         </div>
                     </bunny-pages>
                 </div>
-                ${this.selected.id ? `` : html`
-                    <style>
-                        .stats-container {
-                            width: 80%;
-                            margin: auto;
-                        }
-
-                        .class-stats {
-                            display: flex;
-                            flex-direction: row;
-                            position: relative;
-                        }
-
-                        .class-stats-img {
-                            height: 42px;
-                        }
-
-                        bunny-progress {
-                            width: 100%;
-                            margin-left: 22px;
-                            margin-top: 20px;
-                        }
-
-                        .highlight {
-                            font-weight: bold;
-                            color: var(--accent-color);
-                        }
-
-                        .class-help {
-                            text-align: center;
-                            display: block;
-                            margin: 24px;
-                            opacity: 0.86;
-                        }
-
-                        .help-top {
-                            margin-top: 48px;
-                        }
-                    </style>
-
-                    <div class="stats-container">
-                        <span class="class-help help-top">To make choosing a player class easier, here are some statistics to help. Hover
-                        on the bars for more information.</span>
-                        ${this.realm.classes
-                                .filter(this._available.bind(this))
-                                .map(pc => html`
-                                    <style>
-                                        .progress-${pc.id} {
-                                            --bunny-progress-active-color: ${pc.theme};
-                                            --bunny-progress-height: 12px;
-                                            --bunny-progress-container-color: #323232;
-                                        }
-                                    </style>
-                                    <div class="class-stats">
-                                        <img src="${this.realm.resources}gui/class/${pc.id}.svg"
-                                             class="class-stats-img">
-                                        <bunny-progress
-                                                value="${Math.random() * 100}"
-                                                max="100"
-                                                class="progress-${pc.id}">
-                                        </bunny-progress>
-                                        <bunny-tooltip location="top">
-                                            <span class="highlight">${Math.trunc(Math.random() * 100)}%</span> of
-                                            players chose the ${pc.name} class,<br>
-                                            There is a total of <span
-                                                class="highlight">${Math.trunc(Math.random() * 10000)}</span>
-                                            ${pc.name}'s in this realm..
-                                        </bunny-tooltip>
-                                    </div>
-                                `)
-                        }
-                        <span class="class-help">The Necromancer and Slayer classes are not recommended for beginners.</span>
-                    </div>
-                `}
+                ${this.selected.id ? `` : this._statistics()}
             </bunny-box>
             <bunny-toast id="toaster" location="bottom"></bunny-toast>
+        `;
+    }
+
+    _statistics() {
+        return html`
+            <style>
+                .stats-container {
+                    width: 80%;
+                    margin: auto;
+                }
+
+                .class-stats {
+                    display: flex;
+                    flex-direction: row;
+                    position: relative;
+                }
+
+                .class-stats-img {
+                    height: 42px;
+                }
+
+                bunny-progress {
+                    width: 100%;
+                    margin-left: 22px;
+                    margin-top: 20px;
+                }
+
+                .highlight {
+                    font-weight: bold;
+                    color: var(--accent-color);
+                }
+
+                .class-help {
+                    text-align: center;
+                    display: block;
+                    margin: 24px;
+                    opacity: 0.86;
+                }
+
+                .help-top {
+                    margin-top: 48px;
+                }
+            </style>
+
+            <div class="stats-container">
+                        <span class="class-help help-top">To make choosing a player class easier, here are some statistics to help. Hover
+                        on the bars for more information.</span>
+                ${this.realm.classes
+                        .filter(this._available.bind(this))
+                        .map(pc => html`
+                            <style>
+                                .progress-${pc.id} {
+                                    --bunny-progress-active-color: ${pc.theme};
+                                    --bunny-progress-height: 12px;
+                                    --bunny-progress-container-color: #323232;
+                                }
+                            </style>
+                            <div class="class-stats">
+                                <img src="${this.realm.resources}gui/class/${pc.id}.svg"
+                                     class="class-stats-img">
+                                <bunny-progress
+                                        value="${Math.random() * 100}"
+                                        max="100"
+                                        class="progress-${pc.id}">
+                                </bunny-progress>
+                                <bunny-tooltip location="top">
+                                    <span class="highlight">${Math.trunc(Math.random() * 100)}%</span> of
+                                    players chose the ${pc.name} class,<br>
+                                    There is a total of <span
+                                        class="highlight">${Math.trunc(Math.random() * 10000)}</span>
+                                    ${pc.name}'s in this realm..
+                                </bunny-tooltip>
+                            </div>
+                        `)
+                }
+                <span class="class-help">The Necromancer and Slayer classes are not recommended for beginners.</span>
+            </div>
         `;
     }
 
