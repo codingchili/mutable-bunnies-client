@@ -64,8 +64,7 @@ class PlayerSpells extends HTMLElement {
     bind() {
         this.container = this.query('#container');
         this.pages = this.query('bunny-pages');
-        this.pages.bind();
-        this.pages.render();
+        this.pages.index(this.realm.classes.map(pc => pc.id).indexOf(this.game.player.classId));
     }
 
     get template() {
