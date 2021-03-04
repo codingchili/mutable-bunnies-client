@@ -59,53 +59,54 @@ class LootDialog extends HTMLElement {
 
     get template() {
         return html`
-        <style>
-            :host {
-            }
+            <style>
+                :host {
+                }
 
-            #dialog {
-                max-width: 428px;
-                min-height: 112px;
-                min-width: 428px;
-            }
-            
-            #container {
-                display: none;
-            }
+                #dialog {
+                    max-width: 428px;
+                    min-height: 112px;
+                    min-width: 428px;
+                }
 
-            span {
-                padding: 0.28rem;
-            }
+                #container {
+                    display: none;
+                }
 
-            #loot-items {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                padding-bottom: 24px;
-                user-select: none;
-            }
-            
-            ${BunnyStyles.icons}
-            ${BunnyStyles.dialogs}
-        </style>
+                span {
+                    padding: 0.28rem;
+                }
 
-        <div class="dialog-container" id="container">
-            <div class="dialog-overlay"></div>
+                #loot-items {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    padding-bottom: 24px;
+                    user-select: none;
+                }
 
-            <bunny-box class="noselect dialog-center" id="dialog" border>
-                <bunny-icon icon="close" class="icon" id="dialog-close" @mousedown="${this._stop.bind(this)}"></bunny-icon>
+                ${BunnyStyles.icons}
+                ${BunnyStyles.dialogs}
+            </style>
 
-                <span class="dialog-entity">${this.target.name}</span>
+            <div class="dialog-container" id="container">
+                <div class="dialog-overlay"></div>
 
-                <div id="loot-items">
-                    ${repeat(this.loot, item => item.id, item => html`
-                        <div @mousedown="${this._loot.bind(this, item)}">
-                            <inventory-item .item="${item}"></inventory-item>
-                        </div>                        
-                    `)}
-                </div>
-            </bunny-box>
-        </div>
+                <bunny-box class="noselect dialog-center" id="dialog" border>
+                    <bunny-icon icon="close" class="icon" id="dialog-close"
+                                @mousedown="${this._stop.bind(this)}"></bunny-icon>
+
+                    <span class="dialog-entity">${this.target.name}</span>
+
+                    <div id="loot-items">
+                        ${repeat(this.loot, item => item.id, item => html`
+                            <div @mousedown="${this._loot.bind(this, item)}">
+                                <inventory-item .item="${item}"></inventory-item>
+                            </div>
+                        `)}
+                    </div>
+                </bunny-box>
+            </div>
         `;
     }
 
