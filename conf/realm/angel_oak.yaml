@@ -1,12 +1,4 @@
 ---
-name: "Angel Oak"
-node: "angel_oak.node"
-version: 1
-size: 5000
-resources: "/resources/"
-admins:
-- "sassin"
-- "admin"
 attributes:
   drop: 1
   lifetime: "weekly"
@@ -14,15 +6,27 @@ attributes:
   leveling: 1
   type: "PvP"
 availableClasses:
-- "paladin"
-- "druid"
-- "assassin"
-- "hunter"
-- "necromancer"
 - "slayer"
-levelScaling:
-  jexl: |
-    source.stats[Attribute.level] * 80.0 + 100.0;
+- "druid"
+- "necromancer"
+- "paladin"
+- "hunter"
+- "assassin"
+admins:
+- "grodan"
+- "sassin"
+- "admin"
+listener:
+  api: {}
+  type: "REST"
+  defaultTarget: "default"
+  keystore: "keystore.jks"
+  binaryWebsockets: false
+  secure: false
+  alpn: true
+  port: 9301
+  timeout: 6000
+  maxRequestBytes: 1024
 onPlayerJoin:
   jexl: |
     if (source.instance == null) {
@@ -31,23 +35,26 @@ onPlayerJoin:
       source.fromAnotherInstance = true;
       source.instance = 'level_1';
     }
-listener:
-  secure: false
-  alpn: true
-  port: 9301
-  timeout: 6000
-  binaryWebsockets: false
+levelScaling:
+  jexl: |
+    source.stats[Attribute.level] * 80.0 + 100.0;
 authentication:
   properties:
     type: "HmacSHA512"
   domain: "angel_oak.node"
   key: "9YAT7GKtMLhZrGPHrQWtVoHyPuAs3h8kA6I8VEEX7WgJtotyycGzX3/4qS+NpGeS4KHbLw+RLcSw/OWv4mTZsQ=="
   expiry: 1615301668
-secret: "ZUAvgd9zhXypfZxn3V4lvDsrwML0paAiBAcMYRWd5B/cByR31985KvQuU4ulw4RfjUd7wcSDpN5fTjXASMBh8g=="
-global: "G3z6znSsiyL5M8ap2S1QQCIS7jF89kkUMQHKzQXu+xRjkO4snLy1Uj7YNKCBl91ei1q73AzKgZMe03UUeGAhGw=="
 logging:
   properties:
     type: "HmacSHA512"
   domain: "angel_oak.node"
   key: "izpPTUaoTUBPFe6vvNQw2kXgDAhlzNUYFKg/xmbYD4H7sA0pDwcnj9n6CUG+uzB2Deu/ol/H1VJowjBrOW5FJg=="
   expiry: 1615301668
+resources: "/resources/"
+version: "1"
+name: "Angel Oak"
+id: "angel_oak"
+players: 0
+size: 5000
+secure: false
+port: 9301

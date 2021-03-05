@@ -1,4 +1,4 @@
-name: "Moldy Bow"
+name: "Spring Bow"
 rarity: "uncommon"
 icon: "gui/item/icon/bow.png"
 description: "It shoots arrows, sometimes when the string doesn't break."
@@ -6,6 +6,5 @@ slot: "weapon"
 weaponType: "bow"
 model:
   graphics: "game/equipment/weapon/bow/bow_4.png"
-  tint: "#11FFFF"
 stats:
   dexterity: 2

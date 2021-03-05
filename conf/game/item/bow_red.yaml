@@ -1,11 +1,11 @@
-name: "Moldy Bow"
-rarity: "uncommon"
+name: "Cherry Bow"
+rarity: "legendary"
 icon: "gui/item/icon/bow.png"
-description: "It shoots arrows, sometimes when the string doesn't break."
+description: "This is a decorative item, not for real use."
 slot: "weapon"
 weaponType: "bow"
 model:
   graphics: "game/equipment/weapon/bow/bow_4.png"
-  tint: "#11FFFF"
+  tint: "#ff48cc"
 stats:
   dexterity: 2
