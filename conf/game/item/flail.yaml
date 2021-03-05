@@ -1,8 +1,13 @@
 name: "Squeaky Flail"
 description: "The chains of the flail could use some oil, ready to serve justice."
-slot: "weapon"
 icon: "gui/item/icon/flail.png"
 rarity: "uncommon"
+slot: "weapon"
+weaponType: "sword"
+model:
+  graphics: "game/equipment/weapon/sword/sword_3.png"
+  scale: 1.25
+  tint: "#AA8888"
 stats:
   strength: 4
   constitution: 2

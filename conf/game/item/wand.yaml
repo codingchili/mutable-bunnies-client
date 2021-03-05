@@ -1,8 +1,11 @@
 name: "Magical Wand"
 description: "It is magical, albeit slightly."
 icon: "gui/item/icon/wand_1.png"
-slot: "weapon"
 rarity: "rare"
+slot: "weapon"
+weaponType: "staff"
+model:
+  graphics: "game/equipment/weapon/staff/staff_6.png"
 stats:
   intelligence: 6
   wisdom: 6

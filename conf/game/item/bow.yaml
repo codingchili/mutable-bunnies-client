@@ -1,7 +1,11 @@
 name: "Moldy Bow"
 rarity: "uncommon"
-slot: "weapon"
 icon: "gui/item/icon/bow.png"
 description: "It shoots arrows, sometimes when the string doesn't break."
+slot: "weapon"
+weaponType: "bow"
+model:
+  graphics: "game/equipment/weapon/bow/bow_4.png"
+  tint: "#881632"
 stats:
   dexterity: 2

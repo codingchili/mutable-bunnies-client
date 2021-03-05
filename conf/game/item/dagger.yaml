@@ -1,8 +1,11 @@
 icon: "gui/item/icon/dagger2.png"
 name: "Steel Dagger"
 description: "A dagger of the finer variety."
+rarity: "uncommon"
 slot: "weapon"
 weaponType: "dagger"
-rarity: "uncommon"
+model:
+  graphics: "game/equipment/weapon/dagger/dagger_3.png"
+  scale: 0.8
 stats:
   dexterity: 4

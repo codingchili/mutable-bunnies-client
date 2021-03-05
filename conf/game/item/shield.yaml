@@ -1,0 +1,13 @@
+name: "Arcon Shield"
+description: "Shield of the Arcons."
+icon: "gui/item/icon/shield.png"
+rarity: "mythic"
+slot: "offhand"
+weaponType: "shield"
+model:
+  graphics: "game/equipment/weapon/shield/shield_1.png"
+  scale: 1.2
+stats:
+  constitution: 12
+  armorClass: 24
+  magicResist: 8
