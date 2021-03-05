@@ -44,7 +44,9 @@ class InventoryItem extends HTMLElement {
             case 'epic':
                 return '#f500ff';
             case 'legendary':
-                return '#b27d00';
+                return '#b25300';
+            case 'mythic':
+                return '#c69113';
         }
     }
 
