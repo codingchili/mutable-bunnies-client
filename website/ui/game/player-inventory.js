@@ -32,13 +32,22 @@ class PlayerInventory extends HTMLElement {
         application.onGameLoaded((game) => {
             this._clear();
 
-            game.inventory.onInventoryUpdated(inventory => {
-                this.inventory = inventory;
-                this.render();
+            game.inventory.onInventoryUpdated((player) => {
+                if (player === this.target) {
+                    this.inventory = player.inventory;
+                    console.log('render?');
+                    this.render();
+                }
             });
         });
 
-        application.subscribe('show-inventory', () => {
+        application.subscribe('show-inventory', (event) => {
+            this.target = event?.target ?? game.player;
+            this.readonly = event?.readonly ?? false;
+            this.name = event?.target?.name ?? game.player.name;
+            this.inventory = event?.target?.inventory ?? game.player.inventory;
+            this.items = event?.items ?? true;
+
             if (this._open()) {
                 this._hide();
             } else {
@@ -61,50 +70,50 @@ class PlayerInventory extends HTMLElement {
         return this.inventory.currency.toLocaleString();
     }
 
-    _unequip(item) {
-        game.inventory.unequipItem(this._slot(item));
+    _unequip(slot) {
+        if (!this.readonly) {
+            game.inventory.unequipItem(slot);
+        }
     }
 
     _equip(item) {
-        input.ifLeftMouse(() => {
-            application.publish('context-menu', {
-                target: item,
-                options: {
-                    block: true,
-                    items: [{
-                        name: "Use",
-                        filter: () => item.consumable,
-                        callback: () => {
-                            game.inventory.useItem(item)
+        if (!this.readonly) {
+            input.ifLeftMouse(() => {
+                application.publish('context-menu', {
+                    target: item,
+                    options: {
+                        block: true,
+                        items: [{
+                            name: "Use",
+                            filter: () => item.consumable,
+                            callback: () => {
+                                game.inventory.useItem(item)
+                            }
+                        }, {
+                            name: "Equip",
+                            filter: () => item.slot !== 'none',
+                            callback: () => {
+                                game.inventory.equipItem(item)
+                            }
+                        }, {
+                            name: "Drop",
+                            filter: () => true,
+                            callback: () => {
+                                game.inventory.dropItem(item)
+                            }
                         }
-                    }, {
-                        name: "Equip",
-                        filter: () => item.slot !== 'none',
-                        callback: () => {
-                            game.inventory.equipItem(item)
-                        }
-                    }, {
-                        name: "Drop",
-                        filter: () => true,
-                        callback: () => {
-                            game.inventory.dropItem(item)
-                        }
+                        ]
                     }
-                    ]
+                });
+            });
+            input.ifRightMouse(() => {
+                if (item.slot !== 'none') {
+                    game.inventory.equipItem(item);
+                } else {
+                    game.inventory.useItem(item);
                 }
             });
-        });
-        input.ifRightMouse(() => {
-            if (item.slot !== 'none') {
-                game.inventory.equipItem(item);
-            } else {
-                game.inventory.useItem(item);
-            }
-        });
-    }
-
-    _drop() {
-        //
+        }
     }
 
     _slot(slot) {
@@ -123,7 +132,7 @@ class PlayerInventory extends HTMLElement {
 
     _getIcon(slot) {
         let armors = ['head', 'chest', 'legs'];
-        let template = application.realm.classes.get(this.classId);
+        let template = application.realm.classes.get(this.target.classId ?? game.player.classId);
 
         // custom class specific slot icons.
         if (armors.includes(slot)) {
@@ -169,6 +178,7 @@ class PlayerInventory extends HTMLElement {
                 ${BunnyStyles.dialogs}
                 ${BunnyStyles.noselect}
                 ${BunnyStyles.icons}
+                ${BunnyStyles.hr}
                 span {
                     padding: 0.28rem;
                 }
@@ -177,8 +187,8 @@ class PlayerInventory extends HTMLElement {
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: left;
-                    min-height: 48px;
-                    padding-bottom: 16px;
+                    min-height: 52px;
+                    padding-bottom: 8px;
                     padding-left: 8px;
                     padding-right: 8px;
                     user-select: none;
@@ -216,10 +226,14 @@ class PlayerInventory extends HTMLElement {
                     width: 16px;
                     margin-top: -6px;
                 }
-                
+
                 .item {
                     padding-top: 2px;
                     padding-bottom: 2px;
+                }
+
+                *[hidden] {
+                    display: none !important;
                 }
 
             </style>
@@ -271,10 +285,10 @@ class PlayerInventory extends HTMLElement {
                         <span class="currency-text">${this._currency(this.inventory)}</span>
                         <img class="currency-icon" src="${this.realm.resources}/gui/item/icon/slots/currency_coin.svg">
                     </div>
+                    
+                    ${this.items ? html`<hr>` : html`<div style="margin-top: 12px;"></div>`}
 
-                    <hr>
-
-                    <div id="loot-items">
+                    <div id="loot-items" ?hidden="${!this.items}">
                         ${repeat(this.inventory.items, item => item.id, (item) => html`
                             <div @mousedown="${this._equip.bind(this, item)}" class="item">
                                 <inventory-item .item="${item}"></inventory-item>
