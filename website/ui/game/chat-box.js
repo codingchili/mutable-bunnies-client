@@ -192,7 +192,7 @@ class ChatBox extends HTMLElement {
 
     _setHandler() {
         game.chat.onChatMessage(msg => this.add(msg));
-        input.onKeyDown(() => this._focus(), 'Enter');
+        input.onKeyDown(() => this._focus(), 'enter');
     }
 
     _focus() {
@@ -226,10 +226,9 @@ class ChatBox extends HTMLElement {
                 game.chat.send(message);
             }
             this.input.clear();
-            this.query('#message').blur();
             this.render();
         } else {
-            this.query('#message').blur();
+            setTimeout(() => this.query('#message').blur());
         }
     }
 
