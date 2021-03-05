@@ -28,15 +28,20 @@ class ContextMenu extends HTMLElement {
                     callback: this._dialog.bind(this)
                 },
                 {
-                    name: "Examine",
-                    filter: () => true,
-                    callback: this._describe.bind(this)
+                    name: "Inspect",
+                    filter: this._hasInventory.bind(this),
+                    callback: this._inspect.bind(this)
                 },
                 {
                     name: "Trade",
-                    filter: this._isPlayer.bind(this),
+                    filter: this._isTradeable.bind(this),
                     callback: this._trade.bind(this)
-                }]
+                },
+                {
+                    name: "Examine",
+                    filter: () => true,
+                    callback: this._describe.bind(this)
+                },]
         };
         this.options = this.defaultOptions;
     }
@@ -121,9 +126,25 @@ class ContextMenu extends HTMLElement {
         return this.target.account && (game.player.account !== this.target.account);
     }
 
+    _isTradeable() {
+        return false; // feature switch.
+    }
+
     _hasDialog() {
         let interactions = this.target.interactions;
         return interactions && interactions.includes('dialog');
+    }
+
+    _hasInventory() {
+        return (Object.keys(this.target.inventory?.equipped ?? {}).length) > 0;
+    }
+
+    _inspect() {
+        application.publish('show-inventory', {
+            target: this.target,
+            items: false,
+            readonly: true
+        });
     }
 
     _describe() {
