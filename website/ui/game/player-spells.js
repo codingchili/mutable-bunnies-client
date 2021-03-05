@@ -223,7 +223,7 @@ class PlayerSpells extends HTMLElement {
                     <div class="tier-spells">
                         ${group.map(spell => html`
                             <div class="spell">
-                                <spell-icon .spell="${spell}" .charges="${spell.charges}"></spell-icon>
+                                <spell-icon .stats="${game.player.stats}" .spell="${spell}" .charges="${spell.charges}"></spell-icon>
                             </div>
                         `)}
                     </div>
