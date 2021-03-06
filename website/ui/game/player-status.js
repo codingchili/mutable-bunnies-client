@@ -247,14 +247,6 @@ class PlayerStatus extends HTMLElement {
                         right: 2px;
                         width: unset;
                     }
-
-                    .energy-bar {
-                        width: 80%;
-                    }
-
-                    .health-bar {
-                        width: 80%;
-                    }
                 }
 
                 .affliction-icon {
@@ -354,7 +346,7 @@ class PlayerStatus extends HTMLElement {
                     right: 0;
                     text-align: center;
                     font-size: small;
-                    margin-top: 12px;
+                    margin-top: 8px;
                     opacity: 0.86;
                 }
 
@@ -388,7 +380,7 @@ class PlayerStatus extends HTMLElement {
                     </div>
                 </bunny-tooltip>
 
-                <div class="gm-tag">${this.realm.admins.includes(this.target.account) ? 'GM' : ''}</div>
+                <div class="gm-tag">${this.realm.admins.includes(this.target.account) && !this.compact ? html`&#x2B50;` : ''}</div>
 
                 <div class="health-bar" id="health-bar">
                     <bunny-progress class="transiting" max="${this.target.stats.maxhealth}"
