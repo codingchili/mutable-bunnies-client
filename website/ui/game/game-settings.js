@@ -32,7 +32,6 @@ class GameSettings extends HTMLElement {
 
     _open() {
         this.render();
-        input.block();
         return this.container.style.display === 'block';
     }
 
