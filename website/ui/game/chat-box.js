@@ -31,7 +31,8 @@ class ChatBox extends HTMLElement {
             text: `Server version ${patch.version} ${patch.name}.`
         }];
 
-        application.onGameLoaded(() => {
+        application.onGameLoaded((game) => {
+            this.game = game;
             this.channel = 'say';
             this._setHandler();
         });
@@ -64,7 +65,7 @@ class ChatBox extends HTMLElement {
 
                 .messages {
                     list-style-type: none;
-                    font-size: smaller;
+                    font-size: 14px;
                     margin-left: 8px;
                     margin-top: 2px;
                     padding-left: 0px;
@@ -176,14 +177,14 @@ class ChatBox extends HTMLElement {
     }
 
     _input() {
-        let message = this.input.value;
+        this.input.value = this.game.texts.emojify(this.input.value);
 
-        if (message === '/s') {
+        if (this.input.value === '/s') {
             this.channel = 'say';
             this.input.clear();
             this.render();
         }
-        if (message === '/p') {
+        if (this.input.value === '/p') {
             this.channel = 'party';
             this.input.clear();
             this.render();
@@ -215,7 +216,7 @@ class ChatBox extends HTMLElement {
     }
 
     send() {
-        let message = this.input.value;
+        let message = this.game.texts.emojify(this.input.value);
 
         if (message.length !== 0) {
             if (this.channel === 'party') {

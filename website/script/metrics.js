@@ -49,7 +49,7 @@ class Metrics {
     send(json) {
         if (this._network) {
             this._network.rest({
-                accepted: () => console.log({reported: json})
+                accepted: () => application.publish('metrics', {reported: json})
             }, 'logging', {
                 token: application.token,
                 message: json

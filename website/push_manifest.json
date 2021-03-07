@@ -1,0 +1,10 @@
+{
+  "/ui/app-view.js": {
+    "type": "script",
+    "weight": 1
+  },
+  "/node_modules/lit-html/lit-html.js": {
+    "type": "script",
+    "weight": 1
+  }
+}
