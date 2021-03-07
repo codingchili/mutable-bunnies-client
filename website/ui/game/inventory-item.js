@@ -132,7 +132,7 @@ class InventoryItem extends HTMLElement {
             .item-info {
                 min-width: 224px;
                 max-width: 224px;
-                font-family: 'Open Sans', sans-serif;
+                /*font-family: 'Open Sans', sans-serif;*/
             }
             
             #container {

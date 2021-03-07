@@ -67,7 +67,7 @@ class BunnyTooltip extends HTMLElement {
                 <slot style="display: block;
                         padding: 8px;
                         font-size: 14px;
-                        font-family: 'Open Sans', sans-serif;
+                        /*font-family: 'Open Sans', sans-serif;*/
                         user-select: none;
                         color:#fff;"></slot>
             </bunny-box>

@@ -64,7 +64,7 @@ class PageLogin extends HTMLElement {
         h4 {
             text-align: center;
             color: white;
-            font-family: "Open Sans", sans-serif;
+            /*font-family: "Open Sans", sans-serif;*/
             font-weight: 400;
             font-size: 20px;
         }

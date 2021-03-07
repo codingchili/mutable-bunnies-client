@@ -129,7 +129,7 @@ class StatsView extends HTMLElement {
             <style>
                 :host {
                     display: block;
-                    font-family: 'Open Sans', sans-serif;
+                    /*font-family: 'Open Sans', sans-serif;*/
                 }
 
                 .container {

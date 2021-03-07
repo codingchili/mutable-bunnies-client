@@ -41,7 +41,7 @@ class BunnyBar extends HTMLElement {
                 display: inline-block;
                 color: #fff;
                 padding-top: 6px;
-                font-family: "Open Sans", sans-serif;
+                /*font-family: "Open Sans", sans-serif;*/
             }
             
             .center {
