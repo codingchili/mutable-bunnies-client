@@ -18,6 +18,10 @@ class SpellIcon extends HTMLElement {
 
         application.onRealmLoaded((realm) => {
             this.realm = realm;
+        });
+
+        application.onGameLoaded(game => {
+            this.game = game;
         })
     }
 
@@ -78,6 +82,30 @@ class SpellIcon extends HTMLElement {
 
                 .casttime {
                     color: #00b0ff;
+                }
+                
+                .physical, .poison, .raw, .heal, .magic {
+                    font-weight: bold;
+                }
+                
+                .physical {
+                    color: #ff4a4a;
+                }
+                
+                .raw {
+                    color: #4eaad5;
+                }
+                
+                .magic {
+                    color: #ff9bfa;
+                }
+                
+                .heal {
+                    color: #98fc95;
+                }
+                
+                .poison {
+                    color: #ffcc00;
                 }
 
                 .spell-info {
@@ -160,7 +188,16 @@ class SpellIcon extends HTMLElement {
         stats.level = stats.level || 1;
         // approximation used when health has not been calculated serverside yet.
         stats.maxhealth = stats.maxhealth || (stats.constitution * 10 + 25 * stats.level);
-        return eval('`' + spell.description + '`');
+
+        let format = (value) => Math.round(value).toLocaleString();
+
+        let physical = (value) =>  html`<span class="physical">${format(value)}</span>&#x2694;`;
+        let poison = (value) =>  html`<span class="poison">${format(value)}</span>&#x2623;`;
+        let magic = (value) =>  html`<span class="magic">${format(value)}</span>&#x2604;`;
+        let raw = (value) =>  html`<span class="raw">${format(value)}</span>&#x2620;`;
+        let heal = (value) =>  html`<span class="heal">${format(value)}</span>&#x2764;`;
+
+        return eval('html`' + emojify(spell.description) + '`');
     }
 
     render() {

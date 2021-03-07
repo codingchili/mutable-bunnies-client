@@ -1,0 +1,12 @@
+---
+name: "Banish"
+description: |
+  Banishes the target from the current plane dealing ${raw(2500)} damage immediately and then
+  forcing them to take ${magic(stats.wisdom + stats.level * 2)} damage per second for 4 seconds.
+cooldown: 12.0
+casttime: 3
+target: selected
+mobile: false
+animation:
+  casting: "casting"
+  complete: "call"

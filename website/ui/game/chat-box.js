@@ -177,7 +177,7 @@ class ChatBox extends HTMLElement {
     }
 
     _input() {
-        this.input.value = this.game.texts.emojify(this.input.value);
+        this.input.value = emojify(this.input.value);
 
         if (this.input.value === '/s') {
             this.channel = 'say';
@@ -216,7 +216,7 @@ class ChatBox extends HTMLElement {
     }
 
     send() {
-        let message = this.game.texts.emojify(this.input.value);
+        let message = emojify(this.input.value);
 
         if (message.length !== 0) {
             if (this.channel === 'party') {

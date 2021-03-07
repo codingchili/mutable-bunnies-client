@@ -1,6 +1,6 @@
 ---
 name: "Dagger"
-description: "Strikes nearby targets with a dagger dealing ${stats.dexterity + stats.strength / 2} direct damage. Deals 50% bonus damage if target stands still."
+description: "Strikes nearby targets with a dagger dealing ${physical(stats.dexterity + stats.strength / 2)} damage. Deals 50% bonus damage if target stands still."
 cooldown: 0.5
 casttime: 0.20
 recharge: 3
