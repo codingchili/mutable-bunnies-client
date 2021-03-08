@@ -1,7 +1,7 @@
 ---
 name: "Soul Contract"
 description: |
-  Converts 25% of max energy into 25%heart.
+  Converts 25% of max energy into ${heal('25%')}.
 cooldown: 30.0
 casttime: 5.0
 target: caster

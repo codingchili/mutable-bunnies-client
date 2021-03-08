@@ -83,27 +83,27 @@ class SpellIcon extends HTMLElement {
                 .casttime {
                     color: #00b0ff;
                 }
-                
+
                 .physical, .poison, .raw, .heal, .magic {
                     font-weight: bold;
                 }
-                
+
                 .physical {
                     color: #ff4a4a;
                 }
-                
+
                 .raw {
                     color: #4eaad5;
                 }
-                
+
                 .magic {
                     color: #ff9bfa;
                 }
-                
+
                 .heal {
                     color: #98fc95;
                 }
-                
+
                 .poison {
                     color: #ffcc00;
                 }
@@ -189,15 +189,22 @@ class SpellIcon extends HTMLElement {
         // approximation used when health has not been calculated serverside yet.
         stats.maxhealth = stats.maxhealth || (stats.constitution * 10 + 25 * stats.level);
 
-        let format = (value) => Math.round(value).toLocaleString();
+        let format = (value) => {
+            if (typeof value === "number") {
+                return Math.round(value).toLocaleString()
+            } else {
+                return value;
+            }
+        };
 
-        let physical = (value) =>  html`<span class="physical">${format(value)}</span>&#x2694;`;
-        let poison = (value) =>  html`<span class="poison">${format(value)}</span>&#x2623;`;
-        let magic = (value) =>  html`<span class="magic">${format(value)}</span>&#x2604;`;
-        let raw = (value) =>  html`<span class="raw">${format(value)}</span>&#x2620;`;
-        let heal = (value) =>  html`<span class="heal">${format(value)}</span>&#x2764;`;
+        let physical = (value) => html`<span class="physical">${format(value)}</span>&#x2694;`;
+        let poison = (value) => html`<span class="poison">${format(value)}</span>&#x2623;`;
+        let magic = (value) => html`<span class="magic">${format(value)}</span>&#x2604;`;
+        let raw = (value) => html`<span class="raw">${format(value)}</span>&#x2620;`;
+        let heal = (value) => html`<span class="heal">${format(value)}</span>&#x2764;`;
+        let emoji = (tag) => emojify(tag);
 
-        return eval('html`' + emojify(spell.description) + '`');
+        return eval('html`' + spell.description + '`');
     }
 
     render() {
