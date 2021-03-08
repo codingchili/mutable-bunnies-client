@@ -69,7 +69,7 @@ class PlayerStatus extends HTMLElement {
 
     _integer(number) {
         if (number) {
-            return Math.round(number);
+            return Math.round(number).toLocaleString();
         } else {
             return 0;
         }

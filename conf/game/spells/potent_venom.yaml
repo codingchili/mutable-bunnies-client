@@ -1,6 +1,6 @@
 ---
 name: "Potent Venom"
-description: "Deals 2%hp per second plus ${poison(stats.dexterity / 2 + stats.level)} for 5 seconds in an area."
+description: "Deals ${heal('2%')} per second plus ${poison(stats.dexterity / 2 + stats.level)} for 5 seconds in an area."
 cooldown: 4
 casttime: 1
 active: 5.0

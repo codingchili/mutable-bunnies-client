@@ -215,8 +215,16 @@ class ChatBox extends HTMLElement {
         return (message.private) ? 'private' : '';
     }
 
+    _formatNumbers(text) {
+        for (let match of text.matchAll(/[0-9]+/g)) {
+            console.log(match[0]);
+            text = text.replace(match[0], parseInt(match[0]).toLocaleString());
+        }
+        return text;
+    }
+
     send() {
-        let message = emojify(this.input.value);
+        let message = this._formatNumbers(emojify(this.input.value));
 
         if (message.length !== 0) {
             if (this.channel === 'party') {
