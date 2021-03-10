@@ -1,9 +1,11 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
 import {BunnyStyles} from '../component/styles.js';
+
 import '/component/bunny-box.js';
 import '/component/bunny-button.js';
 import '/component/bunny-tab.js';
 import '/component/bunny-pages.js';
+
 import './page-game.js';
 import './page-news.js';
 import './page-patch.js';
@@ -25,7 +27,6 @@ class PageStart extends HTMLElement {
                 ${BunnyStyles.hr}
                 ${BunnyStyles.scrollbars}
                 ${BunnyStyles.links}
-
                 
                 div[slot="pages"] {
                     max-height: 72vh;
@@ -86,8 +87,8 @@ class PageStart extends HTMLElement {
                     </bunny-pages>
 
                     <hr>
-                    <a id="install-link" href="#" class="install-link" onclick="this.getRootNode().host._install()">install to desktop</a>                
-                    <bunny-button primary id="start" class="flex" onclick="this.getRootNode().host.start()">TAKE ME ON AN ADVENTURE</bunny-button>
+                    <a id="install-link" href="#" class="install-link" @click="${this._install.bind(this)}">install to desktop</a>                
+                    <bunny-button primary id="start" class="flex" @click="${this.start.bind(this)}">TAKE ME ON AN ADVENTURE</bunny-button>
                 </bunny-box>
             </div>
         `;
