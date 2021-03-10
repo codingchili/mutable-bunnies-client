@@ -1,14 +1,13 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
 import {BunnyStyles} from "../component/styles.js";
+
 import '/component/bunny-pages.js'
 import '/component/bunny-bar.js'
 import '/component/bunny-icon.js'
 import '/component/bunny-box.js'
+
 import './page-start.js'
 import './page-login.js'
-import './game-realms.js'
-import './game-characters.js'
-import './patch-download.js'
 import './offline-view.js'
 import './error-dialog.js'
 
@@ -95,7 +94,7 @@ class AppView extends HTMLElement {
                 </div>
             </bunny-pages>
 
-            <div part="foo" id="error-dialog">
+            <div id="error-dialog">
                 <error-dialog></error-dialog>
             </div>
 

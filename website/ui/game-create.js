@@ -14,6 +14,7 @@ import '/component/bunny-button.js'
 import '/component/bunny-input.js'
 import '/component/bunny-toast.js'
 import '/component/bunny-progress.js'
+import '/component/bunny-tooltip.js'
 
 class CharacterCreate extends HTMLElement {
 
@@ -224,6 +225,10 @@ class CharacterCreate extends HTMLElement {
                     display: block;
                 }
 
+                .icon-fastforward {
+                    fill: #c89d01 !important;
+                }
+
                 ${BunnyStyles.dialogs}
                 ${BunnyStyles.scrollbars}
                 ${BunnyStyles.icons}
@@ -264,7 +269,15 @@ class CharacterCreate extends HTMLElement {
                                             <bunny-input autofocus
                                                          @keydown="${this._submit.bind(this, pc)}"
                                                          @input="${this._input.bind(this)}"
-                                                         label="Name" id="${pc.id}"></bunny-input>
+                                                         label="Name" id="${pc.id}" icon="fastforward">
+
+                                                <div @mousedown="${() => this._randomName()}">
+                                                    <bunny-icon id="icn" icon="fastforward"></bunny-icon>
+                                                    <bunny-tooltip for="icn">Randomize name ${emojify('zap')}
+                                                    </bunny-tooltip>
+                                                </div>
+                                            </bunny-input>
+
                                             <stats-view compact .selected="${pc}"></stats-view>
                                             <video muted loop autoplay
                                                    src="${this.realm.resources}gui/preview/${pc.id}-idle.webm"
@@ -284,6 +297,18 @@ class CharacterCreate extends HTMLElement {
             </bunny-box>
             <bunny-toast id="toaster" location="bottom"></bunny-toast>
         `;
+    }
+
+    _randomName() {
+        let vowels = 'aeiou'.split('');
+        let consonants = 'bcdfghjklmnpqrstwvz'.split('');
+
+        this.characterName = [...Array(Math.round(Math.random() * 2 + 6)).keys()].map(index => {
+            let next = (index % 2 === 0) ? consonants : vowels;
+            return next[next.length * Math.random() | 0];
+        }).join('');
+
+        this._getInput().value = this.characterName;
     }
 
     _statistics() {
@@ -366,9 +391,13 @@ class CharacterCreate extends HTMLElement {
     _details(pc) {
         this.selected = pc;
         this.render();
-        let input = this.shadowRoot.querySelector(`bunny-input#${pc.id}`);
+        let input = this._getInput();
         input.value = this.characterName;
         input.focus();
+    }
+
+    _getInput() {
+        return this.shadowRoot.querySelector(`bunny-input#${this.selected.id}`);
     }
 
     _spells(pc) {

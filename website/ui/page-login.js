@@ -1,9 +1,17 @@
 import {html, render} from '/node_modules/lit-html/lit-html.js';
 import {BunnyStyles} from '../component/styles.js';
+
 import '/component/bunny-box.js';
 import '/component/bunny-input.js';
 import '/component/bunny-button.js';
 import '/component/bunny-toast.js';
+import '/component/bunny-icon.js';
+import '/component/bunny-tooltip.js';
+
+const QUICK_PLAY_KEY = 'quick.play';
+const QUICK_PLAY_PASS_LEN = 12;
+const QUICK_PLAY_USER_BASE_LEN = 6;
+const QUICK_PLAY_USER_LEN_ADD = 2;
 
 class PageLogin extends HTMLElement {
 
@@ -15,7 +23,24 @@ class PageLogin extends HTMLElement {
         super();
         application.subscribe('view', (view) => {
             if (view === PageLogin.is) {
-                this.username.focus();
+                this.username?.focus();
+
+                Promise.all(Array.of(
+                    import('../script/network.js'),
+                    import('../script/service/authentication.js'),
+                    import('./game-realms.js'),
+                    import('./game-characters.js'),
+                    import('./patch-download.js'),
+                )).then(() => {
+                    this.authentication = new Authentication();
+                    let dev = application.development;
+
+                    if (dev.autologin) {
+                        this.username.value = dev.user;
+                        this.password.value = dev.pwd;
+                        this.submit({keyCode: 13})
+                    }
+                });
             }
         });
     }
@@ -27,90 +52,187 @@ class PageLogin extends HTMLElement {
 
     get template() {
         return html`
-        <style>
-            :host {
-                /*position:relative;*/
-                display: block;
-                padding-top: 276px;
-                padding-bottom: 20px;
-            }
-            
-            ${BunnyStyles.noselect}
-            ${BunnyStyles.headings}
-
-            .title {
-                text-align: center;
-                padding-top: 16px;
-                opacity: 0.76;
-                margin-bottom: 24px;
-            }
-
-            .container {
-                margin: auto;
-                width: 525px;
-                min-width: 326px;
-                display: block;
-            }
-
-        #register {
-            margin-top: 32px;
-            margin-bottom: 4px;
-        }
-        
-        bunny-input {
-            margin-top: 12px;
-        }
-
-        h4 {
-            text-align: center;
-            color: white;
-            /*font-family: "Open Sans", sans-serif;*/
-            font-weight: 400;
-            font-size: 20px;
-        }
-
-            @media (max-width: 728px), (max-height: 768px) {
+            <style>
                 :host {
-                    padding-top: 0;
+                    /*position:relative;*/
+                    display: block;
+                    padding-top: 276px;
+                    padding-bottom: 20px;
+                }
+
+                ${BunnyStyles.noselect}
+                ${BunnyStyles.headings}
+                ${BunnyStyles.icons}
+                .title {
+                    text-align: center;
+                    padding-top: 16px;
+                    opacity: 0.76;
+                    margin-bottom: 24px;
                 }
 
                 .container {
-                    width: 100%;
-                    padding-top: 36px;
+                    margin: auto;
+                    width: 525px;
+                    min-width: 326px;
+                    display: block;
+                    position: relative;
                 }
-            }
 
-            .margintop {
-                margin-top: 48px;
-            }
-        </style>
-        
-        <!-- keydown events? -->
+                #quick-play {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                    animation: qp 1s ease-in infinite;
+                }
 
-        <bunny-box class="container">
-            <div class="title">
-                <h4 class="noselect">${this.title}</h4>
-            </div>
-            <bunny-input id="username" label="Username" @keydown="${this.submit.bind(this)}"></bunny-input>
-            <bunny-input id="password" label="Password" type="password" @keydown="${this.submit.bind(this)}"></bunny-input>
-            
-            <div class="register" ?hidden="${this.islogin}">
-                <bunny-input id="password-repeat" label="Password (repeat)" type="password" @keydown="${this.submit.bind(this)}"></bunny-input>
-                <bunny-input id="email" label="Email (optional)" @keydown="${this.submit.bind(this)}"></bunny-input>
-            
-                <div class="buttons">
-                    <bunny-button class="margintop flex" @click="${this.showlogin.bind(this)}">Back</bunny-button>
-                    <bunny-button class="flex" id="register-commit" primary @click="${this.register.bind(this)}">Register</bunny-button>
+                @keyframes qp {
+                    0% {
+                        right: 16px;
+                    }
+                    50% {
+                        right: 8px;
+                    }
+                    100% {
+                        right: 16px;
+                    }
+                }
+
+                .icon-fastforward {
+                    fill: #c89d01;
+                }
+
+                #register {
+                    margin-top: 32px;
+                    margin-bottom: 4px;
+                }
+
+                bunny-input {
+                    margin-top: 12px;
+                }
+
+                h4 {
+                    text-align: center;
+                    color: white;
+                    font-weight: 400;
+                    font-size: 20px;
+                }
+
+                @media (max-width: 728px), (max-height: 768px) {
+                    :host {
+                        padding-top: 0;
+                    }
+
+                    .container {
+                        width: 100%;
+                        margin-top: 36px;
+                    }
+                }
+
+                .margintop {
+                    margin-top: 48px;
+                }
+            </style>
+
+            <!-- keydown events? -->
+
+            <bunny-box class="container">
+                <div class="title">
+                    <h4 class="noselect">${this.title}</h4>
                 </div>
-            </div>
-            
-            <div class="buttons login" ?hidden="${!this.islogin}">
-                <bunny-button id="register" class="margintop flex" @click="${this.showregister.bind(this)}">Register</bunny-button>
-                <bunny-button id="login" class="flex" primary @click="${this.authenticate.bind(this)}">Login</bunny-button>
-            </div>
-            <bunny-toast></bunny-toast>
-        </bunny-box>
+
+                ${this.islogin ? html`
+                    <bunny-icon id="quick-play" icon="fastforward"
+                                @mousedown="${() => this._quickPlay()}"></bunny-icon>
+                    <bunny-tooltip location="left">
+                        ${this._quickPlayEnabled() ? html`
+                            <span style="white-space: pre-line;">Quick Play ${emojify('zap')} with account </span><span
+                                    style="font-weight: 400">'${this._quickPlayEnabled().username}'</span>
+                        ` : html`
+                            <span style="white-space: pre-line;">Quick play creates a random username <br> and password and stores it in the browser.<br>
+                            If the browser storage is cleared,<br>the password will be gone forever. &#x26A1;
+                        </span>
+                        `}
+                    </bunny-tooltip>
+                ` : ''}
+
+                <bunny-input id="username" label="Username" @keydown="${this.submit.bind(this)}"></bunny-input>
+                <bunny-input id="password" label="Password" type="password"
+                             @keydown="${this.submit.bind(this)}"></bunny-input>
+
+                <div class="register" ?hidden="${this.islogin}">
+                    <bunny-input id="password-repeat" label="Password (repeat)" type="password"
+                                 @keydown="${this.submit.bind(this)}"></bunny-input>
+                    <bunny-input id="email" label="Email (optional)" @keydown="${this.submit.bind(this)}"></bunny-input>
+
+                    <div class="buttons">
+                        <bunny-button class="margintop flex" @click="${this.showlogin.bind(this)}">Back</bunny-button>
+                        <bunny-button class="flex" id="register-commit" primary @click="${this.register.bind(this)}">
+                            Register
+                        </bunny-button>
+                    </div>
+                </div>
+
+                <div class="buttons login" ?hidden="${!this.islogin}">
+                    <bunny-button id="register" class="margintop flex" @click="${this.showregister.bind(this)}">
+                        Register
+                    </bunny-button>
+                    <bunny-button id="login" class="flex" primary @click="${this.authenticate.bind(this)}">Login
+                    </bunny-button>
+                </div>
+                <bunny-toast></bunny-toast>
+            </bunny-box>
         `;
+    }
+
+    _quickPlayEnabled() {
+        let user = localStorage.getItem(QUICK_PLAY_KEY);
+        if (user) {
+            return JSON.parse(user);
+        } else {
+            return false;
+        }
+    }
+
+    _username() {
+        let vowels = 'aeiou'.split('');
+        let consonants = 'bcdfghjklmnpqrstwvz'.split('');
+
+        return [...Array(Math.round(QUICK_PLAY_USER_BASE_LEN + Math.random() * QUICK_PLAY_USER_LEN_ADD)).keys()].map(index => {
+            let next = (index % 2 === 0) ? consonants : vowels;
+            return next[next.length * Math.random() | 0];
+        }).join('');
+    }
+
+    _password() {
+        let buffer = new Uint8Array(QUICK_PLAY_PASS_LEN);
+        crypto.getRandomValues(buffer);
+        return [...buffer].map(i => i.toString(16)).join('')
+    }
+
+    _quickPlaySetup() {
+        let user = {
+            username: this._username(),
+            password: this._password()
+        }
+        localStorage.setItem(QUICK_PLAY_KEY, JSON.stringify(user));
+        return user;
+    }
+
+    _quickPlay() {
+        let account = this._quickPlayEnabled();
+        let input = (account) => {
+            this.username.value = account.username;
+            this.password.value = account.password;
+            this.repeat.value = account.password;
+        }
+
+        if (account) {
+            input(account);
+            this.authenticate();
+        } else {
+            input(this._quickPlaySetup());
+            this.register();
+        }
     }
 
     submit(e) {
@@ -141,7 +263,7 @@ class PageLogin extends HTMLElement {
         }
     }
 
-    authenticate(e) {
+    authenticate() {
         this.showToast('Authenticating..');
 
         this.authentication.login({
@@ -234,22 +356,6 @@ class PageLogin extends HTMLElement {
             this.repeat = this.query('#password-repeat');
             this.email = this.query('#email');
             this.toast = this.query('bunny-toast');
-        }
-
-        if (this.authentication == null) {
-            Promise.all(Array.of(
-                import('../script/network.js'),
-                import('../script/service/authentication.js')))
-                .then(() => {
-                    this.authentication = new Authentication();
-                    let dev = application.development;
-
-                    if (dev.autologin) {
-                        this.username.value = dev.user;
-                        this.password.value = dev.pwd;
-                        this.submit({keyCode: 13})
-                    }
-                });
         }
     }
 }

@@ -298,6 +298,8 @@ class SpellBar extends HTMLElement {
 
         return html`
             <spell-icon @click="${this._cast.bind(this, spell)}"
+                        @touchstart="${(e) => {e.stopPropagation()}}"
+                        @touchend="${(e) => {e.stopPropagation()}}"
                         .stats="${this.character.stats}"
                         .spell="${spell}"
                         .available="${available}"
