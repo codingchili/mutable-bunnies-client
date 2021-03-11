@@ -5,7 +5,7 @@ class Network {
 
     constructor(service) {
         this.remote = '/';
-        this.port = 1443; // default api port.
+        this.port = 1448; // default api port.
         this.service = service;
         this.host = window.location.hostname
         this.protocol = '//';

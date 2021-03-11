@@ -240,12 +240,34 @@ class PlayerStatus extends HTMLElement {
                     /*position: unset;*/
                 }
 
-                @media (max-width: 728px) {
+                @media (max-width: 868px) {
+                    .gm-tag { display: none; }
+                    .level { display: none; }
+                    .name { display: none; }
+                    
                     :host {
                         top: 0px;
-                        left: 0px;
-                        right: 2px;
-                        width: unset;
+                        left: 0;
+                        right: 0 !important;
+                        width: 20%;
+                        min-width: 200px;
+                    }
+                    
+                    .class-icon {
+                        width: 24px;
+                        margin-left: 22px;
+                    }
+                    
+                    .portrait {
+                        max-height: 24px;
+                    }
+                    
+                    .health-bar {
+                        margin-top: 8px;
+                    }
+                    
+                    .frame {
+                        height: 42px;
                     }
                 }
 
@@ -353,7 +375,7 @@ class PlayerStatus extends HTMLElement {
             </style>
 
 
-            <bunny-box border id="frame" class="noselect frame">
+            <bunny-box @touchstart="${e => e.stopPropagation()}" border id="frame" class="noselect frame">
 
                 <slot></slot>
 

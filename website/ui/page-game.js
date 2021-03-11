@@ -39,7 +39,7 @@ export class PageGame extends HTMLElement {
                 .gif {
                     display: block;
                     margin: auto;
-                    min-height: 392px;
+                    width: 60%;
                     animation: fadeIn ease 0.8s;
                 }
                 
@@ -52,13 +52,6 @@ export class PageGame extends HTMLElement {
 
             <div class="container">
                     <div class="item">
-
-                        <!--<div id="demo-video">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/WETENsMuUKQ"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                        </div>-->
 
                         <div class="text">
                             <p>

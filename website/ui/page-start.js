@@ -5,6 +5,8 @@ import '/component/bunny-box.js';
 import '/component/bunny-button.js';
 import '/component/bunny-tab.js';
 import '/component/bunny-pages.js';
+import '/component/bunny-countdown.js';
+import '/component/bunny-icon.js';
 
 import './page-game.js';
 import './page-news.js';
@@ -21,40 +23,40 @@ class PageStart extends HTMLElement {
             <style>
                 :host {
                     display: block;
-                    padding-top: 64px;
                 }
-                
+
                 ${BunnyStyles.hr}
                 ${BunnyStyles.scrollbars}
                 ${BunnyStyles.links}
-                
-                div[slot="pages"] {
-                    max-height: 72vh;
-                    overflow-y: scroll;
-                }
-
+                ${BunnyStyles.icons}
                 bunny-tab {
                     --bunny-tab-background-active: #00000000;
                     --bunny-tab-background: #00000000;
                 }
 
                 .container {
-                    width: 80%;
-                    max-width: 825px;
+                    width: 90%;
+                    max-width: 925px;
                     margin: auto;
                     display: block;
+                    padding-bottom: 128px;
                 }
 
-                .install-link {
+                #install-link {
                     display: block;
                     text-align: center;
-                    padding: 16px;
-                    font-size: 12px;
+                    padding: 16px 16px 16px 16px;
+                    text-shadow: 2px 2px #000;
+                    font-size: 14px;
                 }
 
-                @media (max-width: 728px) {
+                #install-link:hover {
+                    text-decoration: none;
+                    color: var(--accent-color);
+                }
+
+                @media (max-width: 868px) {
                     :host {
-                        padding-top: 36px;
                         padding-bottom: 18px;
                     }
 
@@ -62,34 +64,157 @@ class PageStart extends HTMLElement {
                         width: 100%;
                     }
                 }
-                
+
+                #header {
+                    position: relative;
+                    height: 100vh;
+                    overflow: hidden;
+                }
+
                 div[slot="tabs"] {
-                    display:flex;
+                    display: flex;
                     flex-flow: row nowrap;
-                    justify-content: space-around;  
+                    justify-content: space-around;
                     align-items: stretch;
                 }
+
+                #header-start-container {
+                    width: 256px;
+                    left: 0;
+                    right: 0;
+                    bottom: 0px;
+                    position: absolute;
+                    margin: auto;
+                }
+
+                #release {
+                    text-align: center;
+                    width: 100%;
+                    position: absolute;
+                    top: 128px;
+                    text-shadow: 2px 2px #000;
+                    font-size: 1.2em;
+                }
+
+                bunny-countdown {
+                    margin-top: 4px;
+                    padding-left: 4px;
+                    padding-right: 4px;
+                }
+
+                #video-container {
+                    overflow: hidden;
+                    height: 100vh;
+                    background-color: #212121;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                }
+
+                @keyframes fadeIn {
+                    0% {
+                        opacity: 0
+                    }
+                    100% {
+                        opacity: 1
+                    }
+                }
+
+                #gameplay-video {
+                    animation: fadeIn ease 0.8s;
+                }
+
+                #content {
+                    margin-top: 48px;
+                }
+
+                #scroll-tip {
+                    margin: auto;
+                    height: 42px;
+                    width: 42px;
+                }
+
+                bunny-icon[icon="down"] {
+                    animation: qp 1s ease-in infinite;
+                    display: block;
+                }
+
+                .icon-down {
+                    width: 42px;
+                    height: 42px;
+                }
+
+                @keyframes qp {
+                    0% {
+                        padding-top: -6px;
+                    }
+                    50% {
+                        padding-top: 16px;
+                    }
+                    100% {
+                        padding-top: -6px;
+                    }
+                }
+
+                @media (orientation: portrait) {
+                    #header {
+                        height: 100vh;
+                    }
+
+                    #header-start-container {
+                        bottom: 64px;
+                    }
+                }
+
             </style>
 
-            <div>
-                <bunny-box class="container center-box" id="content">
-                    <bunny-pages class="page-content">
-                        <div slot="tabs">
-                            <bunny-tab active>Mutable Bunnies</bunny-tab>
-                            <bunny-tab>News</bunny-tab>
-                            <bunny-tab>Patch notes</bunny-tab>
-                        </div>
-                        <div slot="pages">
-                            <page-game></page-game>
-                            <page-news></page-news>
-                            <page-patch></page-patch>
-                        </div>
-                    </bunny-pages>
+            <div id="header">
 
-                    <hr>
-                    <a id="install-link" href="#" class="install-link" @click="${this._install.bind(this)}">install to desktop</a>                
-                    <bunny-button primary id="start" class="flex" @click="${this.start.bind(this)}">TAKE ME ON AN ADVENTURE</bunny-button>
-                </bunny-box>
+                <div id="video-container">
+                    <video muted loop autoplay src="images/background.mp4" id="gameplay-video"></video>
+                </div>
+
+                <div id="release">
+                    <span class="">Releases in January, 2022</span>
+                    <bunny-countdown to="2022-01-01 00:00"></bunny-countdown>
+                </div>
+                <div id="header-start-container">
+
+                    <!--<a id="install-link" href="#" @click="X{this._install.bind(this)}">
+                        install to desktop
+                    </a>-->
+
+                    <!-- todo: hide if pwa -->
+                    <bunny-button style="margin-bottom: 6px;" @click="${this._install.bind(this)}">install
+                    </bunny-button>
+                    
+                    <bunny-button primary @click="${this.start.bind(this)}">PLAY NOW</bunny-button>
+
+                    <div id="scroll-tip">
+                        <bunny-icon icon="down" @click="${() => window.scrollTo(0, innerHeight)}"></bunny-icon>
+                    </div>
+                </div>
+
+            </div>
+
+            <bunny-box class="container center-box" id="content">
+                <bunny-pages class="page-content">
+                    <div slot="tabs">
+                        <bunny-tab active>News</bunny-tab>
+                        <bunny-tab>Classes</bunny-tab>
+                        <bunny-tab>Spells</bunny-tab>
+                        <bunny-tab>Skills</bunny-tab>
+                        <bunny-tab>Screenshots</bunny-tab>
+                    </div>
+                    <div slot="pages">
+                        <page-game></page-game>
+                        <page-news></page-news>
+                        <page-patch></page-patch>
+                    </div>
+                </bunny-pages>
+            </bunny-box>
+
+            <div id="footer">
+                <div id="social"></div>
             </div>
         `;
     }

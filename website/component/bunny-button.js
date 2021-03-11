@@ -98,12 +98,13 @@ class BunnyButton extends HTMLElement {
                 }
 
                 .secondary {
-                    background-color: #00000000;
+                    background-color: #21212144;
+                    border: 1px solid var(--game-theme-opaque);
                 }
 
             </style>
 
-            <div class="button ${this.type}" onclick="this.getRootNode().host.onclicked()">
+            <div class="button ${this.type}" @click="${this.onclicked.bind(this)}">
             <span class="button-text">
                 <slot></slot>            
             </span>

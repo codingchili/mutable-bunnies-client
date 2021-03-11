@@ -34,123 +34,155 @@ class GameMenu extends HTMLElement {
 
     get template() {
         return html`
-        <style>
-            :host {
-                display: block;
-            }
-            
-            ${BunnyStyles.variables}
-            ${BunnyStyles.icons}
+            <style>
+                :host {
+                    display: block;
+                }
 
-            .interface-box {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                right: 16px;
-                display: block;
-                padding-left: 8px;
-                padding-right: 8px;
-                z-index: 400;
-            }
+                ${BunnyStyles.variables}
+                ${BunnyStyles.icons}
+                
+                .interface-box {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 16px;
+                    display: block;
+                    padding-left: 8px;
+                    padding-right: 8px;
+                    z-index: 400;
+                }
 
-            .menu-icon {
-                display: block;
-                max-height: 32px;
-                max-width: 32px;
-                margin-top: 6px;
-                margin-bottom: 6px;
-                fill: #fff;
-                height: 32px;
-                width: 32px;
-            }
-            
-            .icon {
-                width: 32px;
-                height: 32px;
-            }
+                @media (max-width: 868px) {
+                    .interface-box {
+                        right: 0;
+                        padding-right: 0;
+                    }
+                }
+                
+                @media (max-height: 280px) {
+                    .interface-box {
+                        right: 0;
+                        padding-right: 0;
+                        top: 0;
+                        bottom: 0;
+                        overflow-y: scroll;
+                        transform: unset;
+                    }
 
-            .menu-icon-disabled {
-                fill: #646464;
-            }
+                    .item-list {
+                        overflow-y: scroll;
+                    }
+                }
 
-            .menu-icon:hover {
-                fill: var(--accent-color);
-                cursor: var(--bunny-cursor-pointer);
-            }
+                .menu-icon {
+                    display: block;
+                    max-height: 32px;
+                    max-width: 32px;
+                    margin-top: 6px;
+                    margin-bottom: 6px;
+                    fill: #fff;
+                    height: 32px;
+                    width: 32px;
+                }
 
-            .menu-icon-disabled:hover {
-                fill: #646464;
-            }
-            
-            .item-container {
-                position: relative;
-                padding-left: 4px;
-                padding-right: 4px;
-            }
-            
-            bunny-icon {
-                height: 32px;
-                width: 32px;
-                display: block;
-            }
-            
-            bunny-icon:hover {
-                cursor: var(--bunny-cursor-pointer);
-            }
+                .icon {
+                    width: 32px;
+                    height: 32px;
+                }
 
-        </style>
+                .menu-icon-disabled {
+                    fill: #646464;
+                }
 
-        <bunny-box class="interface-box">
-            <div class="item-container">
-                <bunny-icon @mousedown="${this._inventory.bind(this)}" icon="inventory" class="icon menu-icon"></bunny-icon>
-                <bunny-tooltip class="tooltip" location="left">
-                    <span class="description">Inventory [H]</span>
-                </bunny-tooltip>
+                .menu-icon:hover {
+                    fill: var(--accent-color);
+                    cursor: var(--bunny-cursor-pointer);
+                }
+
+                .menu-icon-disabled:hover {
+                    fill: #646464;
+                }
+
+                .item-container {
+                    position: relative;
+                    padding-left: 4px;
+                    padding-right: 4px;
+                }
+
+                bunny-icon {
+                    height: 32px;
+                    width: 32px;
+                    display: block;
+                }
+
+                bunny-icon:hover {
+                    cursor: var(--bunny-cursor-pointer);
+                }
+
+            </style>
+
+            <div @touchstart="${e => e.stopPropagation()}" class="interface-box">
+
+                <bunny-box class="item-list">
+                    <div class="item-container">
+                        <bunny-icon @mousedown="${this._inventory.bind(this)}" icon="inventory"
+                                    class="icon menu-icon"></bunny-icon>
+                        <bunny-tooltip class="tooltip" location="left">
+                            <span class="description">Inventory [H]</span>
+                        </bunny-tooltip>
+                    </div>
+
+                    <div class="item-container">
+                        <bunny-icon @mousedown="${this._spellbook.bind(this)}" icon="spellbook"
+                                    class="icon menu-icon"></bunny-icon>
+                        <bunny-tooltip class="tooltip" location="left">
+                            <span class="description">Spells & Abilities [B]</span>
+                        </bunny-tooltip>
+                    </div>
+
+                    <div class="item-container">
+                        <bunny-icon @mousedown="${this._skills.bind(this)}" icon="skills"
+                                    class="icon menu-icon"></bunny-icon>
+                        <bunny-tooltip class="tooltip" location="left">
+                            <span class="description">Skills [M]</span>
+                        </bunny-tooltip>
+                    </div>
+
+                    <div class="item-container">
+                        <bunny-icon @mousedown="${this._quests.bind(this)}" icon="quests"
+                                    class="icon menu-icon"></bunny-icon>
+                        <bunny-tooltip class="tooltip" location="left">
+                            <span class="description">Quests [K]</span>
+                        </bunny-tooltip>
+                    </div>
+
+                    <div class="item-container">
+                        <bunny-icon @mousedown="${this._friends.bind(this)}" icon="friends"
+                                    class="icon menu-icon"></bunny-icon>
+                        <bunny-tooltip class="tooltip" location="left">
+                            <span class="description">Friends [J]</span>
+                        </bunny-tooltip>
+                    </div>
+
+                    <div class="item-container">
+                        <bunny-icon @mousedown="${this._settings.bind(this)}" icon="settings"
+                                    class="icon menu-icon"></bunny-icon>
+                        <bunny-tooltip class="tooltip" location="left">
+                            <span class="description">Settings [P]</span>
+                        </bunny-tooltip>
+                    </div>
+
+                    <div class="item-container">
+                        <bunny-icon @mousedown="${this._characters.bind(this)}" icon="leave"
+                                    class="icon menu-icon"></bunny-icon>
+                        <bunny-tooltip class="tooltip" location="left">
+                            <span class="description">Leave [L]</span>
+                        </bunny-tooltip>
+                    </div>
+                </bunny-box>
             </div>
 
-            <div class="item-container">
-                <bunny-icon @mousedown="${this._spellbook.bind(this)}" icon="spellbook" class="icon menu-icon"></bunny-icon>
-                <bunny-tooltip class="tooltip" location="left">
-                    <span class="description">Spells & Abilities [B]</span>
-                </bunny-tooltip>
-            </div>
-
-            <div class="item-container">
-                <bunny-icon @mousedown="${this._skills.bind(this)}" icon="skills" class="icon menu-icon"></bunny-icon>
-                <bunny-tooltip class="tooltip" location="left">
-                    <span class="description">Skills [M]</span>
-                </bunny-tooltip>
-            </div>
-
-            <div class="item-container">
-                <bunny-icon @mousedown="${this._quests.bind(this)}" icon="quests" class="icon menu-icon"></bunny-icon>
-                <bunny-tooltip class="tooltip" location="left">
-                    <span class="description">Quests [K]</span>
-                </bunny-tooltip>
-            </div>
-
-            <div class="item-container">
-                <bunny-icon @mousedown="${this._friends.bind(this)}" icon="friends" class="icon menu-icon"></bunny-icon>
-                <bunny-tooltip class="tooltip" location="left">
-                    <span class="description">Friends [J]</span>
-                </bunny-tooltip>
-            </div>
-
-            <div class="item-container">
-                <bunny-icon @mousedown="${this._settings.bind(this)}" icon="settings" class="icon menu-icon"></bunny-icon>
-                <bunny-tooltip class="tooltip" location="left">
-                    <span class="description">Settings [P]</span>
-                </bunny-tooltip>
-            </div>
-
-            <div class="item-container">
-                <bunny-icon @mousedown="${this._characters.bind(this)}" icon="leave" class="icon menu-icon"></bunny-icon>
-                <bunny-tooltip class="tooltip" location="left">
-                    <span class="description">Leave [L]</span>
-                </bunny-tooltip>
-            </div>
-        </bunny-box>
-        
         `;
     }
 

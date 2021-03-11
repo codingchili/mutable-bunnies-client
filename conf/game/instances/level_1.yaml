@@ -359,12 +359,663 @@ structures:
   scale: 0.3
   tint: "#ffffff"
   revertx: true
+- id: "tree_cyan"
+  point:
+    x: 937
+    "y": 1130
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_cyan"
+  point:
+    x: 1142
+    "y": 1112
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_cyan"
+  point:
+    x: 1135
+    "y": 1153
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_cyan"
+  point:
+    x: 1058
+    "y": 1087
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_cyan"
+  point:
+    x: 1059
+    "y": 1095
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_cyan"
+  point:
+    x: 1219
+    "y": 1196
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_cyan"
+  point:
+    x: 1238
+    "y": 929
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "magnetite"
+  point:
+    x: 2872
+    "y": 1961
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "magnetite"
+  point:
+    x: 2872
+    "y": 1961
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "magnetite"
+  point:
+    x: 2774
+    "y": 2061
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "magnetite"
+  point:
+    x: 2774
+    "y": 2061
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "magnetite"
+  point:
+    x: 2774
+    "y": 2061
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "magnetite"
+  point:
+    x: 2774
+    "y": 2061
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "magnetite"
+  point:
+    x: 2774
+    "y": 2061
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "aluminum"
+  point:
+    x: 3584
+    "y": 2034
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "aluminum"
+  point:
+    x: 3584
+    "y": 2034
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "aluminum"
+  point:
+    x: 3716
+    "y": 2035
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "aluminum"
+  point:
+    x: 3283
+    "y": 1803
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "aluminum"
+  point:
+    x: 3283
+    "y": 1803
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "aluminum"
+  point:
+    x: 3277
+    "y": 1745
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "aluminum"
+  point:
+    x: 3454
+    "y": 1788
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "aluminum"
+  point:
+    x: 3454
+    "y": 1788
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_pink"
+  point:
+    x: 3716
+    "y": 2194
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_pink"
+  point:
+    x: 3716
+    "y": 2194
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_pink"
+  point:
+    x: 3877
+    "y": 2238
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_pink"
+  point:
+    x: 3877
+    "y": 2238
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_pink"
+  point:
+    x: 3877
+    "y": 2238
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "jade"
+  point:
+    x: 3120
+    "y": 2195
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "jade"
+  point:
+    x: 3331
+    "y": 2171
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_cyan"
+  point:
+    x: 2830
+    "y": 2266
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_cyan"
+  point:
+    x: 2830
+    "y": 2266
+  scale: 1.0
+  tint: "#ffffff"
+  revertx: false
+- id: "jade"
+  point:
+    x: 3205
+    "y": 2582
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "jade"
+  point:
+    x: 3205
+    "y": 2582
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "jade"
+  point:
+    x: 3205
+    "y": 2582
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "jade"
+  point:
+    x: 3100
+    "y": 2694
+  scale: 0.3
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_red"
+  point:
+    x: 358
+    "y": 1116
+  scale: 1.05
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_red"
+  point:
+    x: 582
+    "y": 989
+  scale: 1.05
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_red"
+  point:
+    x: 863
+    "y": 820
+  scale: 1.05
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_red"
+  point:
+    x: 1056
+    "y": 939
+  scale: 0.8
+  tint: "#ffffff"
+  revertx: false
+- id: "tree_red"
+  point:
+    x: 1254
+    "y": 1042
+  scale: 0.8
+  tint: "#dceeaa"
+  revertx: true
+- id: "tree_red"
+  point:
+    x: 1459
+    "y": 1146
+  scale: 0.8
+  tint: "#dceeaa"
+  revertx: false
+- id: "poison_ivy"
+  point:
+    x: 393
+    "y": 1106
+  scale: 0.3
+  tint: "#dceeaa"
+  revertx: false
+- id: "poison_ivy"
+  point:
+    x: 1048
+    "y": 928
+  scale: 0.3
+  tint: "#dceeaa"
+  revertx: false
+- id: "poison_ivy"
+  point:
+    x: 1477
+    "y": 1141
+  scale: 0.3
+  tint: "#dceeaa"
+  revertx: false
+- id: "poison_ivy"
+  point:
+    x: 570
+    "y": 985
+  scale: 0.475
+  tint: "#dceeaa"
+  revertx: true
+- id: "poison_ivy"
+  point:
+    x: 818
+    "y": 817
+  scale: 0.2
+  tint: "#dceeaa"
+  revertx: true
+- id: "coal"
+  point:
+    x: 719
+    "y": 906
+  scale: 0.225
+  tint: "#dceeaa"
+  revertx: false
+- id: "coal"
+  point:
+    x: 463
+    "y": 1062
+  scale: 0.225
+  tint: "#dceeaa"
+  revertx: false
+- id: "coal"
+  point:
+    x: 960
+    "y": 903
+  scale: 0.225
+  tint: "#dceeaa"
+  revertx: true
+- id: "coal"
+  point:
+    x: 1366
+    "y": 1127
+  scale: 0.225
+  tint: "#dceeaa"
+  revertx: true
+- id: "coal"
+  point:
+    x: 1162
+    "y": 1010
+  scale: 0.225
+  tint: "#dceeaa"
+  revertx: false
+- id: "trumpet"
+  point:
+    x: 1345
+    "y": 1106
+  scale: 0.275
+  tint: "#dceeaa"
+  revertx: false
+- id: "quartz"
+  point:
+    x: 65
+    "y": 1266
+  scale: 0.425
+  tint: "#fcfcfc"
+  revertx: false
+- id: "quartz"
+  point:
+    x: 126
+    "y": 1217
+  scale: 0.225
+  tint: "#fcfcfc"
+  revertx: true
+- id: "quartz"
+  point:
+    x: 196
+    "y": 1174
+  scale: 0.25
+  tint: "#67f9e8"
+  revertx: false
+- id: "quartz"
+  point:
+    x: 175
+    "y": 1197
+  scale: 0.15
+  tint: "#e867f9"
+  revertx: true
+- id: "quartz"
+  point:
+    x: 78
+    "y": 1290
+  scale: 0.15
+  tint: "#e9fbfb"
+  revertx: true
+- id: "quartz"
+  point:
+    x: 132
+    "y": 1238
+  scale: 0.15
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 1371
+    "y": 1322
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 1130
+    "y": 1454
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 1012
+    "y": 1524
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 874
+    "y": 1601
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 746
+    "y": 1663
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 1495
+    "y": 1244
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 1274
+    "y": 1540
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 1428
+    "y": 1625
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 1495
+    "y": 1396
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 1617
+    "y": 1469
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "rubies"
+  point:
+    x: 1563
+    "y": 1676
+  scale: 0.3
+  tint: "#e9fbfb"
+  revertx: false
+- id: "henbane"
+  point:
+    x: 660
+    "y": 981
+  scale: 0.2
+  tint: "#e9fbfb"
+  revertx: false
+- id: "henbane"
+  point:
+    x: 1154
+    "y": 948
+  scale: 0.125
+  tint: "#dfeba2"
+  revertx: false
+- id: "icedark"
+  point:
+    x: 2115
+    "y": 1316
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -80
+    height: 0
+- id: "icedark"
+  point:
+    x: 2375
+    "y": 1370
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -288
+    height: -291
+- id: "icedark"
+  point:
+    x: 2214
+    "y": 1364
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "icedark"
+  point:
+    x: 2071
+    "y": 1524
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "icedark"
+  point:
+    x: 2127
+    "y": 1419
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: 0
+    height: 0
+- id: "rubies"
+  point:
+    x: 2177
+    "y": 1399
+  scale: 0.3
+  tint: "#dfeba2"
+  revertx: false
+- id: "water"
+  point:
+    x: 2316
+    "y": 1365
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -239
+    height: -254
+- id: "lightwood"
+  point:
+    x: 2426
+    "y": 1473
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -456
+    height: -192
+- id: "lightwood"
+  point:
+    x: 2512
+    "y": 1136
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -343
+    height: -235
+- id: "stone"
+  point:
+    x: 2556
+    "y": 1185
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -404
+    height: -292
+- id: "stone"
+  point:
+    x: 2849
+    "y": 1411
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -292
+    height: -287
+- id: "stone"
+  point:
+    x: 2918
+    "y": 1607
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -290
+    height: -286
+- id: "stone"
+  point:
+    x: 2104
+    "y": 1682
+  scale: 1.0
+  tint: "#dfeba2"
+  revertx: false
+  tile:
+    type: "ground"
+    width: -1054
+    height: -380
+- id: "tree_cyan"
+  point:
+    x: 1083
+    "y": 1633
+  scale: 0.925
+  tint: "#dfeba2"
+  revertx: false
+- id: "tree_cyan"
+  point:
+    x: 1643
+    "y": 1283
+  scale: 0.925
+  tint: "#dfeba2"
+  revertx: true
   type: "SPAWN"
 size:
   x: 32
   "y": 64
 tileSizePx: 96
 tileScaledWidth: 135.7645019878171
+tileScaledHeight: 78.38367176906169
 northPoint:
   x: 2172
   "y": 0
@@ -374,4 +1025,3 @@ southPoint:
 cartesianSize:
   x: 2172
   "y": 3762
-tileScaledHeight: 78.38367176906169

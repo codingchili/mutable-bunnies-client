@@ -114,6 +114,7 @@ class BunnyInput extends HTMLElement {
                     font-family: var(--bunny-input-font, ("Roboto", sans-serif));
                     font-weight: 400;
                     cursor: var(--bunny-cursor-caret, text);
+                    width: 100%;
                 }
 
                 #container {

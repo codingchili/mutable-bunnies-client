@@ -25,6 +25,8 @@ class PageLogin extends HTMLElement {
             if (view === PageLogin.is) {
                 this.username?.focus();
 
+                this.banner();
+
                 Promise.all(Array.of(
                     import('../script/network.js'),
                     import('../script/service/authentication.js'),
@@ -50,11 +52,19 @@ class PageLogin extends HTMLElement {
         this.showlogin();
     }
 
+    banner() {
+        fetch('/data/banner.json')
+            .then(response => response.json())
+            .then(json => {
+                this.banner = json.text;
+                application.publish('banner', this.banner);
+            });
+    }
+
     get template() {
         return html`
             <style>
                 :host {
-                    /*position:relative;*/
                     display: block;
                     padding-top: 276px;
                     padding-bottom: 20px;

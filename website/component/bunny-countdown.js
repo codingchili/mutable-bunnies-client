@@ -101,22 +101,22 @@ class BunnyCountdown extends HTMLElement {
                 }
             </style>
 
-            <div class="container border solid">
+            <div class="container solid">
                 <span class="value">${days}</span>
                 <span class="label">Days</span>
             </div>
 
-            <div class="container border solid">
+            <div class="container solid">
                 <span class="value">${hours}</span>
                 <span class="label">Hours</span>
             </div>
 
-            <div class="container border solid">
+            <div class="container solid">
                 <span class="value">${minutes}</span>
                 <span class="label">Minutes</span>
             </div>
 
-            <div class="container border solid">
+            <div class="container solid">
                 <span class="value">${seconds}</span>
                 <span class="label">Seconds</span>
             </div>

@@ -202,6 +202,12 @@ class SpellBar extends HTMLElement {
                     cursor: var(--bunny-cursor, auto);
                 }
 
+                @media (max-width: 868px) {
+                    :host {
+                        bottom: 0;
+                    }
+                }
+
                 .spell-bar {
                     height: 46px;
                     display: flex;
@@ -259,12 +265,6 @@ class SpellBar extends HTMLElement {
 
                 .title {
                     font-size: larger;
-                }
-
-                @media (max-width: 1268px) {
-                    :host {
-                        right: 48px;
-                    }
                 }
 
                 .spell-list {

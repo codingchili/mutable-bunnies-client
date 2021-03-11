@@ -63,6 +63,7 @@ class BunnyBox extends HTMLElement {
                 .container {
                     background-color: rgba(22,22,22,0.86);
                     display: inline-block;
+                    box-sizing: border-box;
                     width: 100%;
                     height: 100%;
                 }

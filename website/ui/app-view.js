@@ -67,7 +67,7 @@ class AppView extends HTMLElement {
                 }
             </style>
 
-            ${this.game ? '' : html`
+            ${this.game || this.view === 'page-start' ? '' : html`
                 <bunny-bar id="toolbar" location="top">
                     <div slot="left" class="icon" ?hidden="${this.authenticated}">
                         <bunny-icon @mousedown="${this._home.bind(this)}" icon="home">
@@ -109,7 +109,7 @@ class AppView extends HTMLElement {
                 </bunny-box>`
             }
 
-            ${this.game ? '' : html`
+            ${this.game || this.view === 'page-start' ? '' : html`
                 <bunny-bar id="footer" location="bottom">${this.version}</bunny-bar>`}
         `;
     }
@@ -146,7 +146,13 @@ class AppView extends HTMLElement {
             this.setView(view);
         });
 
-        this.banner();
+        application.subscribe('banner', (text) => {
+            let banner = this.shadowRoot.querySelector('#banner');
+            if (banner) {
+                banner.textContent = text;
+            }
+        });
+
         this.attachShadow({mode: 'open'});
         this.render();
 
@@ -157,14 +163,6 @@ class AppView extends HTMLElement {
                 application.showOffline();
             }
         });
-    }
-
-    banner() {
-        fetch('/data/banner.json')
-            .then(response => response.json())
-            .then(json => {
-                this.shadowRoot.querySelector('#banner').textContent = json.text;
-            })
     }
 
     render() {
@@ -193,8 +191,9 @@ class AppView extends HTMLElement {
         let pages = this.shadowRoot.querySelector('bunny-pages');
         this.game = (view === 'game-view');
 
-        view = this.shadowRoot.querySelector(view);
-        pages.show(view);
+        this.view = view;
+
+        pages.show(this.shadowRoot.querySelector(view));
         this.render();
     }
 

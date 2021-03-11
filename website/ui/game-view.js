@@ -47,7 +47,12 @@ class GameView extends HTMLElement {
                     this.target = false;
                     this.render();
                 }
-            })
+            });
+
+            game.subscribe('screenshot', (enabled) => {
+                this.shadowRoot.querySelector('#interface').style.display =
+                    (enabled) ? 'none' : 'block';
+            });
         });
 
         application.onCompleteUpdate((event) => {

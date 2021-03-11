@@ -5,7 +5,6 @@ import {BunnyStyles} from "/component/styles.js";
 import '/component/bunny-icon.js'
 import '/component/bunny-input.js'
 import '/component/bunny-box.js'
-import '/component/bunny-icon.js'
 
 class ChatBox extends HTMLElement {
 
@@ -20,7 +19,6 @@ class ChatBox extends HTMLElement {
             scrollHeight: -1
         }
     }
-
 
     connectedCallback() {
         this.attachShadow({mode: 'open'})
@@ -45,14 +43,58 @@ class ChatBox extends HTMLElement {
             <style>
                 :host {
                     display: block;
+                }
+
+                .chat-button {
                     position: absolute;
                     bottom: 16px;
                     left: 16px;
                 }
-
+                
                 .chat-box {
+                    position: absolute;
                     width: 416px;
                     height: 246px;
+                    z-index: 600;
+                }
+
+                @media (min-width: 1281px) {
+                    .chat-box {
+                        bottom: 16px;
+                        left: 16px;
+                        right: unset;
+                    }
+                }
+                
+                @media (max-width: 1280px) {
+                    .chat-button {
+                        bottom: 70px;
+                        top: unset;
+                        right: 0;
+                        left: 0;
+                        margin: auto;
+                        width: 32px;
+                    }
+                }
+                
+                @media (min-width: 869px) and (max-width: 1280px) {
+                    .chat-box {
+                        bottom: 70px;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                    }
+                }
+
+                @media (max-width: 868px), (max-height: 400px) {
+                    .chat-box {
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: unset;
+                        height: unset;
+                    }
                 }
 
                 .input {
@@ -84,22 +126,6 @@ class ChatBox extends HTMLElement {
                     color: #ff0085;
                 }
 
-                @media (max-width: 1268px) {
-                    :host {
-                        bottom: 64px;
-                        height: 47px;
-                        display: block;
-                        left: 50%;
-                        transform: translateX(-50%);
-                    }
-
-                    .chat-box {
-                        bottom: 36px;
-                        position: absolute;
-                        transform: translateX(-50%);
-                    }
-                }
-
                 .hide-chat {
                     position: absolute;
                     right: 8px;
@@ -114,15 +140,19 @@ class ChatBox extends HTMLElement {
 
                 #list {
                     margin-top: 8px;
-                    height: 200px;
                     overflow-y: scroll;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 48px;
                 }
 
                 .text {
                     word-break: break-word;
                     text-indent: -3em;
                     padding-left: 3em;
-                    white-space: pre-wrap;
+                    /*white-space: pre-wrap;*/
                 }
 
                 ${BunnyStyles.icons}
@@ -131,37 +161,49 @@ class ChatBox extends HTMLElement {
             </style>
 
             ${!this.minimized ? html`
-                <bunny-box class="chat-box" border>
+                <bunny-box touchstart="${e => e.stopPropagation()}" class="chat-box" border>
                     <div>
-                        <bunny-icon @mousedown="${this._minimize.bind(this)}" class="hide-chat"
-                                    icon="close"></bunny-icon>
+                        <bunny-icon @mousedown="${this._minimize.bind(this)}"
+                                    @touchstart="${this._minimize.bind(this)}"
+                                    style="z-index: 701"
+                                    class="hide-chat"
+                                    icon="close">
+                        </bunny-icon>
 
                         <div id="list">
                             <ul class="messages">
                                 ${repeat(this.messages, message =>
                                         html`
-                                            <li class="text ${this._system(message)} ${this._party(message)} ${this._private(message)}">${this._name(message)}${message.text}</li>
+                                            <li class="text ${this._system(message)} ${this._party(message)} ${this._private(message)}">
+                                                ${this._name(message)}${message.text}
+                                            </li>
                                         `)}
                             </ul>
                         </div>
-                        <bunny-input id="message" class="input" @input="${this._input.bind(this)}" maxlength="128"
+                        <bunny-input id="message" class="input" maxlength="128"
+                                     @input="${this._input.bind(this)}"
+                                     @touchstart="${e => e.stopPropagation()}"
                                      placeholder="${this.channel}"
-                                     @keydown="${this.submit.bind(this)}"></bunny-input>
+                                     @keydown="${this.submit.bind(this)}">
+                        </bunny-input>
                     </div>
 
                 </bunny-box>` : ''}
 
             ${this.minimized ? html`
-                <bunny-box class="chat-button" @mousedown="${this._maximize.bind(this)}" border>
+                <bunny-box class="chat-button" border
+                           @touchstart="${e => e.stopPropagation()}"
+                           @mousedown="${this._maximize.bind(this)}">
                     <bunny-icon class="chat-icon" icon="chat"></bunny-icon>
                 </bunny-box>
             ` : ''}
         `;
     }
 
-    _minimize() {
+    _minimize(e) {
         this.minimized = true;
         this.render();
+        e?.stopPropagation();
     }
 
     _maximize() {
@@ -243,11 +285,11 @@ class ChatBox extends HTMLElement {
 
     add(message) {
         if (message.text) {
-            // check if scrolled to bottom, otherwise don't auto scroll.
-            let scroll = (this.list.scrollTop + this.list.clientHeight === this.list.scrollHeight);
+            // check if scrolled to bottom, otherwise don't auto scroll. (account for weird rounding on mobile)
+            let scroll = Math.abs((this.list.scrollTop + this.list.clientHeight) - this.list.scrollHeight) < 10;
             this.messages.push(message);
             if (scroll) {
-                setTimeout(() => this.list.scrollTop = Number.MAX_SAFE_INTEGER,0);
+                setTimeout(() => this.list.scrollTop = Number.MAX_SAFE_INTEGER, 0);
             }
         }
         while (this.messages.length >= this.MAX_MESSAGES) {
