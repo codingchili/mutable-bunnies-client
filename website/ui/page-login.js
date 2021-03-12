@@ -56,8 +56,8 @@ class PageLogin extends HTMLElement {
         fetch('/data/banner.json')
             .then(response => response.json())
             .then(json => {
-                this.banner = json.text;
-                application.publish('banner', this.banner);
+                this._banner = json.text;
+                application.publish('banner', this._banner);
             });
     }
 
@@ -224,7 +224,6 @@ class PageLogin extends HTMLElement {
             username: this._username(),
             password: this._password()
         }
-        localStorage.setItem(QUICK_PLAY_KEY, JSON.stringify(user));
         return user;
     }
 
@@ -234,6 +233,13 @@ class PageLogin extends HTMLElement {
             this.username.value = account.username;
             this.password.value = account.password;
             this.repeat.value = account.password;
+
+            application.onAuthentication((login) => {
+                // only save quickPlay account if authentication/registration succeeds.
+                if (login.account === account.username) {
+                    localStorage.setItem(QUICK_PLAY_KEY, JSON.stringify(account));
+                }
+            });
         }
 
         if (account) {
