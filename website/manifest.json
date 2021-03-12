@@ -3,12 +3,17 @@
   "name": "Mutable Bunnies",
   "icons": [
     {
-      "src": "images/icons-192.png",
+      "src": "images/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "images/icons-512.png",
+      "src": "images/icon-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "images/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
