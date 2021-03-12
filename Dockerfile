@@ -18,4 +18,4 @@ EXPOSE 1443:1443/tcp
 EXPOSE 9301:9301/tcp
 
 # Run generate and start all servers.
-ENTRYPOINT ["/bin/sh", "-c", "/opt/game/start --generate && /opt/game/start --deploy"]
+ENTRYPOINT ["/bin/sh", "-c", "/opt/game/start generate && /opt/game/start deploy"]

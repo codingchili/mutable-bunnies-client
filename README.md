@@ -39,7 +39,7 @@ Building a docker image, make sure to build the distribution zip first.
 ```console
 cd client
 docker build -f Dockerfile ./build
-docker run -p 443:443 -p 1443:1443 -p 9301:9301 -it <imageId>
+docker run -p 8080:8080 -p 1448:1448 -p 9301:9301 -it <imageId>
 ```
 
 # Configuration
