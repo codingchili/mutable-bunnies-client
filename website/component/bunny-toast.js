@@ -58,7 +58,7 @@ class BunnyToast extends HTMLElement {
                     position: absolute;
                     overflow-y: hidden;">
                     <span class="toast-text" style="
-                        font-weight: 800;
+                        font-family: 'RoboX';
                         position: absolute;
                         top: 12px;
                         left: 0;

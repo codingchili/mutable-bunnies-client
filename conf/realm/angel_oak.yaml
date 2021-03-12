@@ -41,15 +41,15 @@ levelScaling:
 authentication:
   properties:
     type: "HmacSHA512"
-  domain: "angel_oak.node"
-  key: "9YAT7GKtMLhZrGPHrQWtVoHyPuAs3h8kA6I8VEEX7WgJtotyycGzX3/4qS+NpGeS4KHbLw+RLcSw/OWv4mTZsQ=="
-  expiry: 1615301668
+  domain: "undefined.node"
+  key: "4EYp7dwdikZNxAI3p3iQnNv9wI2FJW366qfytqeelT+Q8+nHov37DKOv4z0iV7UaAWUOZ1k02Zxq7ZlXe9SPwA=="
+  expiry: 1616167944
 logging:
   properties:
     type: "HmacSHA512"
-  domain: "angel_oak.node"
-  key: "izpPTUaoTUBPFe6vvNQw2kXgDAhlzNUYFKg/xmbYD4H7sA0pDwcnj9n6CUG+uzB2Deu/ol/H1VJowjBrOW5FJg=="
-  expiry: 1615301668
+  domain: "undefined"
+  key: "yGauyW01xk5SX8ifVBjwYtGPLdijTItsCaAVNNdaQyng5hTC+MAoLzf2fTESjYfdg/GrPSbDIBkX/81KGhVwUw=="
+  expiry: 1616167944
 resources: "/resources/"
 version: "1"
 name: "Angel Oak"
@@ -58,3 +58,6 @@ players: 0
 size: 5000
 secure: false
 port: 9301
+secret: "XNilehX/UmE1p8DwFjbHT2LYoAXmwjzmWPOATfyJVUxo15h3ri9kpru0v4xJuQxS1kYwRD1YZZOSQIuCP13Zng=="
+global: "JresIUeya7PWAHR1eFHLNnYnnS1h+cRTotFSgaW+qd7jozblM6XpNE2RCuQ6szyzeG7zyxW8pdDjUboIrrIXYg=="
+node: "undefined.node"

@@ -2,6 +2,7 @@
 node: "logging.node"
 plugin: "com.codingchili.core.storage.ElasticMap"
 console: true
+storage: false
 elastic:
   settings:
     index.mapping.total_fields.limit: 3000
@@ -13,7 +14,7 @@ logging:
   properties:
     type: "HmacSHA512"
   domain: "logging.node"
-  key: "sjOcVsoCPs2G7E7jYi/je4XKYAYs76nZdY14DkOkJ38aPNCSZPhu6vLyTEkzaU6ny0/ayxE0kKsoe938q+9CyA=="
-  expiry: 1615301668
-clientSecret: "5z83Of+giyv++8JXS/CInH7VDKn+KoQb4OcqUE8dzgAzt2tJdjKKEGsNyq3Lmv/+4u9Z125PRaNZMsq3u2iA8g=="
-loggingSecret: "r73COO8mEwBQLoMbmcwLbgqXSdqzRAgLOjaODELkysNyvrhpfTOFnvy5Uhh/VCrD3b6AroJTC0aaANpQLa2ghw=="
+  key: "5T6EB+6NPP5MUvzmUP5dFlhq1PcGROwPjKN5Jyq9rlTwcmbEmjWswwkOqpBvrYr01tJUqaE3prqXxqG6k75/Lw=="
+  expiry: 1616167944
+clientSecret: "44f7w8ASSgsNnoJxtk2furtHy+H7qWJcDOTnvsTxcCmS2dhp+ozNDWVMvwdOgJnAXfbi0jecucZsGY+qJrensA=="
+loggingSecret: "pJmtDrRqG2GjCRt9urrUnqTNITdjxMgDdQkMt/0k3wa8SRrDgw0V5kbvskH1b3KCcXG+2MyXZBrFUh8LKyMH7Q=="

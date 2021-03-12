@@ -38,13 +38,13 @@ authentication:
   properties:
     type: "HmacSHA512"
   domain: "salmon_lake.node"
-  key: "UcBImlG8xPCLg13R7uEno/nCbTWj8NeEX/kbsF0GKX8mldGy5A3CjXPIuDsUKbCT2d6zyKb7KfiWJxpfuLMp9A=="
-  expiry: 1615301668
-secret: "KmSh+QNahgXzfl4j1R9yV09tUme9+DddY0I463vrab3dsSNVedOWyJyQgcCwvOyIwl4TmsEu9icj1f7t53Ff3A=="
-global: "G3z6znSsiyL5M8ap2S1QQCIS7jF89kkUMQHKzQXu+xRjkO4snLy1Uj7YNKCBl91ei1q73AzKgZMe03UUeGAhGw=="
+  key: "9+18mT4fRmJhQHPdisj1upGJQnD3Basp4Gqo08ufmvPSKxwhlvstrb7mHTnyM9LAfKnks2n/GkX9A/luB4L8vw=="
+  expiry: 1616167944
+secret: "Rj22PihrLEqWrr50kHBR2EMA8ImgvoJ3IX1eVjqdB3metfWMOwSN/OkgP+z8uoihqMCmD0DSVE+BsVEriLN7Rw=="
+global: "JresIUeya7PWAHR1eFHLNnYnnS1h+cRTotFSgaW+qd7jozblM6XpNE2RCuQ6szyzeG7zyxW8pdDjUboIrrIXYg=="
 logging:
   properties:
     type: "HmacSHA512"
   domain: "salmon_lake.node"
-  key: "qeDCwb5EOtFQKQSdjfyOTsi7SO77UQA78Q6FO5Jh/foEYOKcnnYzSFMhzfybpTBx292D9OkMnn1yaCbX48tdtA=="
-  expiry: 1615301668
+  key: "WzqzHlnLHmSUNeyFhmInlQqoIeUemyRmCEJqMOOoPaDy4nEuo6zjJlH4UUmrczo5fXFIDb4KoVtOM2qvw5XdOA=="
+  expiry: 1616167944

@@ -184,8 +184,8 @@ class GameSettings extends HTMLElement {
                 <div class="single-column">
                     <div class="configuration-option">
                         <div>Music</div>
-                        <bunny-slider current="${settings.music}" end="1.0"
-                                      @change="${e => settings.music = e.detail.value}">
+                        <bunny-slider current="${settings.ambient}" end="1.0"
+                                      @change="${e => settings.ambient = e.detail.value}">
                         </bunny-slider>
                     </div>
                     <div class="configuration-option">

@@ -8,7 +8,7 @@ transport:
   type: "REST"
   secure: false
   alpn: true
-  port: 1443
+  port: 1448
   timeout: 3000
   maxRequestBytes: 1024
   defaultTarget: "webserver.node"
@@ -24,5 +24,5 @@ logging:
   properties:
     type: "HmacSHA512"
   domain: "routing.node"
-  key: "+nPndoWJ54HAy3/86Obu/BBCMBm+0fcp1XfWEI52n4gF0J3Yybkwn63DpwrlNhIBz+QlqycnZPxUOVh1cdQHFg=="
-  expiry: 1615301669
+  key: "aZPO80Kqh11dcJwLH5vb4qnPQxnO/jGyesT3jev1OZNSzdqO9S6/v2RgEe3oGR++3jPwC5ebfwfTYkxl0rohAA=="
+  expiry: 1616167944

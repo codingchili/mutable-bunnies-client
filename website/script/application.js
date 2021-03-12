@@ -44,13 +44,14 @@ class Application {
 
         // backoff timer to conserve processing if changed often, using a slider etc.
         this.saveHandler = setTimeout(() =>
-            localStorage.setItem('app-settings', JSON.stringify(this.settings)), 500)
+            localStorage.setItem('app-settings', JSON.stringify(this.settings)), 250)
     }
 
     defaults() {
         return {
             fullscreen: true,
-            music: 0.8,
+            music: true,
+            ambient: 0.6,
             effects: 1.0,
             development: {
                 skipStart: false,

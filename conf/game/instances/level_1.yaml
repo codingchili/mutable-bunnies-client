@@ -2,6 +2,7 @@
 id: "level_1"
 name: "level 1"
 texture: "game/map/tiles/brownstone.png"
+ambient: "background_soft_v48.mp3"
 skybox:
   gradient:
   - "#000008"
