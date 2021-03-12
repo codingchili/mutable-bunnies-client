@@ -140,6 +140,7 @@ class CharacterCreate extends HTMLElement {
                 #dialog {
                     width: 620px;
                     height: 718px;
+                    z-index: 50;
                 }
 
                 .class-image {
@@ -167,6 +168,7 @@ class CharacterCreate extends HTMLElement {
                     justify-content: center;
                     margin-top: 20px;
                     margin-bottom: 10px;
+                    animation: fadeIn ease 0.8s;
                 }
 
                 bunny-tab {
@@ -198,8 +200,10 @@ class CharacterCreate extends HTMLElement {
                 }
 
                 .description {
-                    margin: 32px;
+                    margin: 16px;
+                    min-height: 38px;
                     opacity: 0.86;
+                    text-align: center;
                 }
 
                 bunny-input {
@@ -209,10 +213,17 @@ class CharacterCreate extends HTMLElement {
 
                 .gif {
                     position: absolute;
-                    top: 282px;
+                    top: 108px;
                     height: 324px;
                     left: 50%;
+                    bottom: 104px;
                     transform: translateX(-50%);
+                    animation: fadeIn ease 0.8s;
+                }
+
+                @keyframes fadeIn {
+                    0% { opacity: 0 }
+                    100% { opacity: 1 }
                 }
 
                 stats-view {
@@ -227,6 +238,47 @@ class CharacterCreate extends HTMLElement {
 
                 .icon-fastforward {
                     fill: #c89d01 !important;
+                }
+
+                @media (max-width: 868px),(max-height: 868px) {
+                    #dialog {
+                        height: unset;
+                        width: 100%;
+                        top: 38px;
+                        transform: unset;
+                        left: unset;
+                        padding-bottom: 32px;
+                    }
+
+                    #class-container {
+                        margin: auto;
+                        display: block;
+                    }
+
+                    #class-container {
+
+                    }
+
+                    .class-image {
+                        width: 42px;
+                        text-align: center;
+                        display: block;
+                        margin: auto;
+                    }
+                }
+
+                div[slot="tabs"] {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                bunny-tab {
+                    width: unset;
+                }
+                
+                .class-preview {
+                    position: relative;
+                    overflow: hidden;
                 }
 
                 ${BunnyStyles.dialogs}
@@ -264,7 +316,7 @@ class CharacterCreate extends HTMLElement {
                                     .filter(this._available.bind(this))
                                     .map(pc => (pc !== this.selected) ? html`
                                         <div></div>` : html`
-                                        <div>
+                                        <div class="class-preview">
                                             <div class="description">${pc.description}</div>
                                             <bunny-input autofocus
                                                          @keydown="${this._submit.bind(this, pc)}"

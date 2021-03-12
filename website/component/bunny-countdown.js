@@ -97,26 +97,27 @@ class BunnyCountdown extends HTMLElement {
                 }
 
                 .solid {
-                    background-color: rgba(22, 22, 22, 0.88);
+                    background-color: rgba(22, 22, 22, 0.76);
+                    border-radius: 2px;
                 }
             </style>
 
-            <div class="container solid">
+            <div class="container solid elevation">
                 <span class="value">${days}</span>
                 <span class="label">Days</span>
             </div>
 
-            <div class="container solid">
+            <div class="container solid elevation">
                 <span class="value">${hours}</span>
                 <span class="label">Hours</span>
             </div>
 
-            <div class="container solid">
+            <div class="container solid elevation">
                 <span class="value">${minutes}</span>
                 <span class="label">Minutes</span>
             </div>
 
-            <div class="container solid">
+            <div class="container solid elevation">
                 <span class="value">${seconds}</span>
                 <span class="label">Seconds</span>
             </div>

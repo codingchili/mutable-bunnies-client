@@ -151,6 +151,7 @@ class SpellIcon extends HTMLElement {
 
             <div class="spell-button">
                 <img class="spell-icon ${available ? '' : 'unavailable'}"
+                     @longpress="${() => game.spells._cancel()}"
                      src="${this.realm.resources}/gui/spell/${spell.id}.svg">
 
                 <bunny-tooltip class="spell-info" location="top">

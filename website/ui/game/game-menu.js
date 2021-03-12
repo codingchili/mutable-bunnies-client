@@ -53,7 +53,7 @@ class GameMenu extends HTMLElement {
                     z-index: 400;
                 }
 
-                @media (max-width: 868px) {
+                @media (max-width: 868px),(max-height:568px) {
                     .interface-box {
                         right: 0;
                         padding-right: 0;

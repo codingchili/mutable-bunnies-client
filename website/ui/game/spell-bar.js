@@ -297,9 +297,9 @@ class SpellBar extends HTMLElement {
         let charges = this._charges(spell);
 
         return html`
-            <spell-icon @click="${this._cast.bind(this, spell)}"
-                        @touchstart="${(e) => {e.stopPropagation()}}"
-                        @touchend="${(e) => {e.stopPropagation()}}"
+            <spell-icon
+                        @mousedown="${this._cast.bind(this, spell)}"
+                        @touchstart="${this._cast.bind(this, spell)}"
                         .stats="${this.character.stats}"
                         .spell="${spell}"
                         .available="${available}"

@@ -356,13 +356,14 @@ class GameRealms extends HTMLElement {
                     --bunny-tab-background: #00000000;
                 }
 
-                @media (max-width: 728px) {
+                @media (max-width: 728px), (max-height: 768px) {
                     :host {
                         padding-top: 36px;
                     }
 
                     .container {
                         width: 100%;
+                        max-width: unset;
                     }
 
                     .type {

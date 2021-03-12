@@ -35,7 +35,6 @@ class PlayerInventory extends HTMLElement {
             game.inventory.onInventoryUpdated((player) => {
                 if (player === this.target) {
                     this.inventory = player.inventory;
-                    console.log('render?');
                     this.render();
                 }
             });
@@ -261,8 +260,10 @@ class PlayerInventory extends HTMLElement {
 
                         <div class="slot_row">
                             ${['offhand', 'chest', 'weapon'].map(slot => html`
-                                <inventory-item @mousedown="${this._unequip.bind(this, slot)}"
-                                                .item="${this._slot(slot)}"></inventory-item>
+                                <inventory-item
+                                        @click="${this._unequip.bind(this, slot)}"
+                                        .item="${this._slot(slot)}">
+                                </inventory-item>
                             `)}
                         </div>
 
@@ -275,7 +276,7 @@ class PlayerInventory extends HTMLElement {
 
                         <div class="slot_row">
                             ${['neck', 'foot', 'ring'].map(slot => html`
-                                <inventory-item @mousedown="${this._unequip.bind(this, slot)}"
+                                <inventory-item @click="${this._unequip.bind(this, slot)}"
                                                 .item="${this._slot(slot)}"></inventory-item>
                             `)}
                         </div>
@@ -285,12 +286,16 @@ class PlayerInventory extends HTMLElement {
                         <span class="currency-text">${this._currency(this.inventory)}</span>
                         <img class="currency-icon" src="${this.realm.resources}/gui/item/icon/slots/currency_coin.svg">
                     </div>
-                    
-                    ${this.items ? html`<hr>` : html`<div style="margin-top: 12px;"></div>`}
+
+                    ${this.items ? html`
+                        <hr>` : html`
+                        <div style="margin-top: 12px;"></div>`}
 
                     <div id="loot-items" ?hidden="${!this.items}">
                         ${repeat(this.inventory.items, item => item.id, (item) => html`
-                            <div @mousedown="${this._equip.bind(this, item)}" class="item">
+                            <div class="item"
+                                 @mousedown="${this._equip.bind(this, item)}"
+                                 @touchstart="${this._equip.bind(this, item)}">
                                 <inventory-item .item="${item}"></inventory-item>
                             </div>
                         `)}

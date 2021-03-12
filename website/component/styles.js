@@ -105,6 +105,7 @@ export class BunnyStyles {
         return `
             ::-webkit-scrollbar {
             width: 6px;
+            height: 6px;
             background: transparent;
         }
 

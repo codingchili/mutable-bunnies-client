@@ -220,13 +220,14 @@ class PatchDownload extends HTMLElement {
                 position: relative;
             }
 
-            @media (max-width: 728px) {
+            @media (max-width: 728px),(max-height: 768px) {
                 :host {
                     padding-top: 36px;
                 }
 
                 .container {
                     width: 100%;
+                    max-width: unset;
                 }
             }
 

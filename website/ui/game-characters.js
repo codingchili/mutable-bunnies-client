@@ -347,7 +347,7 @@ class CharacterList extends HTMLElement {
                 top: 8px;
             }
 
-            @media (max-width: 728px) {
+            @media (max-width: 728px),(max-height: 768px) {
                 :host {
                     padding-top: 36px;
                 }

@@ -6,12 +6,13 @@ class BunnyButton extends HTMLElement {
     constructor() {
         super();
         this.text = this.getAttribute("text");
-        this.listener = () => {
-        };
+        this.listener = () => {};
 
         if (this.hasAttribute('primary')) {
             // this.ripple = 'black';
             this.type = 'primary';
+        } else if (this.hasAttribute('wire')) {
+            this.type = 'wire';
         } else {
             this.ripple = 'white';
             this.type = 'secondary';
@@ -98,6 +99,10 @@ class BunnyButton extends HTMLElement {
                 }
 
                 .secondary {
+                    background-color: #00000000;
+                }
+
+                .wire {
                     background-color: #21212144;
                     border: 1px solid var(--game-theme-opaque);
                 }

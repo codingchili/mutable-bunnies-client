@@ -240,7 +240,7 @@ class PlayerStatus extends HTMLElement {
                     /*position: unset;*/
                 }
 
-                @media (max-width: 868px) {
+                @media (max-width: 868px),(max-height:568px) {
                     .gm-tag { display: none; }
                     .level { display: none; }
                     .name { display: none; }

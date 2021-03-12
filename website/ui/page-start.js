@@ -85,6 +85,7 @@ class PageStart extends HTMLElement {
                     bottom: 0px;
                     position: absolute;
                     margin: auto;
+                    z-index: 200;
                 }
 
                 #release {
@@ -105,9 +106,23 @@ class PageStart extends HTMLElement {
                 #video-container {
                     overflow: hidden;
                     height: 100vh;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    min-width: 100%;
+                    min-height: 100%;
                     background-color: #212121;
-                    background-repeat: no-repeat;
-                    background-attachment: fixed;
+                    transform: translateX(calc((100% - 100vw) / 2)) translateY(calc((100% - 100vh) / 2));
+                }
+                
+                #vignette {
+                    box-shadow: 0 0 300px rgba(0,0,0,0.64) inset;
+                    position: absolute;
+                    top: 0px;
+                    left:0px;
+                    right:0px;
+                    bottom:0px;
+                    z-index: 100;
                 }
 
                 @keyframes fadeIn {
@@ -166,11 +181,13 @@ class PageStart extends HTMLElement {
                 }
 
             </style>
+            
+            <div id="vignette"></div>
 
             <div id="header">
 
                 <div id="video-container">
-                    <video muted loop autoplay src="images/background.mp4" id="gameplay-video"></video>
+                    <video muted loop autoplay src="images/background.webm" id="gameplay-video"></video>
                 </div>
 
                 <div id="release">
@@ -178,14 +195,9 @@ class PageStart extends HTMLElement {
                     <bunny-countdown to="2022-01-01 00:00"></bunny-countdown>
                 </div>
                 <div id="header-start-container">
-
-                    <!--<a id="install-link" href="#" @click="X{this._install.bind(this)}">
-                        install to desktop
-                    </a>-->
-
+                    
                     <!-- todo: hide if pwa -->
-                    <bunny-button style="margin-bottom: 6px;" @click="${this._install.bind(this)}">install
-                    </bunny-button>
+                    <bunny-button wire style="margin-bottom: 6px;" @click="${this._install.bind(this)}">install</bunny-button>
                     
                     <bunny-button primary @click="${this.start.bind(this)}">PLAY NOW</bunny-button>
 
