@@ -64,6 +64,7 @@ class AppView extends HTMLElement {
                     padding: 0;
                     margin: 0;
                     height: 32px;
+                    z-index: 200;
                 }
             </style>
 
@@ -225,7 +226,7 @@ class AppView extends HTMLElement {
         if (!this.ambient) {
             this.ambient = new Audio('/sound/mutable_theme.mp3');
             this.ambient.loop = true;
-            this.ambient.volume = application.settings.music;
+            this.ambient.volume = application.settings.ambient;
 
             this.ambient.addEventListener('loadeddata', () => {
                 this.play();
